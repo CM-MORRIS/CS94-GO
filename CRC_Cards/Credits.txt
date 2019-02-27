@@ -1,0 +1,14 @@
+{
+  "name": "Credits",
+  "superclasses": "Player",
+  "subclasses": "",
+  "responsibilities": [
+    "UpdateCredits",
+  ],
+  "collaborators": [
+    "Betting",
+    "Leaderboard",
+    "Player"
+  ]
+}
+]
