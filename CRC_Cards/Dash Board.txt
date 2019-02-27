@@ -1,0 +1,62 @@
+
+[
+  {
+    "name": "Dash Board",
+    "superclasses": "history result;favourite players;credits balance",
+    "subclasses": "GUI",
+    "type": 1,
+    "responsibilities": [
+      "show history results",
+      "show favourite players",
+      "show credits balance ",
+      "",
+      ""
+    ],
+    "collaborators": [
+      "history result",
+      "favourite players",
+      "credits balance"
+    ]
+  },
+  {
+    "name": "History Results",
+    "superclasses": "Scoring",
+    "subclasses": "Dash Board",
+    "type": 1,
+    "responsibilities": [
+      "get game result",
+      "store game result"
+    ],
+    "collaborators": [
+      ""
+    ]
+  },
+  {
+    "name": "Favourite Player",
+    "superclasses": "Player",
+    "subclasses": "Dash Board",
+    "type": 1,
+    "responsibilities": [
+      "get Favourite player",
+      "show Favourite player"
+    ],
+    "collaborators": [
+      ""
+    ]
+  },
+  {
+    "name": "Credit Balance",
+    "superclasses": "Player",
+    "subclasses": "Dash Board",
+    "type": 1,
+    "responsibilities": [
+      "get credit balance from the player",
+      "using credit in the bet",
+      "calculate credit"
+    ],
+    "collaborators": [
+      "Scoring",
+      "betting"
+    ]
+  }
+]
