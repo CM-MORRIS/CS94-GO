@@ -1,0 +1,14 @@
+{
+  "name": "Counter Position"
+  "superclasses": "Game GUI"
+  "subclasses": ""
+
+  "responsibilities":
+    "Find intersection points for counters to be placed"
+    "Check if counter is placed correctly"
+    "Check the amount of liberties a stone has for the individual and grouped case"
+
+  "collaborators":
+    "Game Controller"
+  
+}
