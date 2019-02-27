@@ -1,0 +1,13 @@
+{
+  "name": "Login"
+  "superclasses": "User"
+  "subclasses": ""
+
+  "responsibilities":
+    "Displays login GUI "
+
+  "collaborators":
+    "User"
+    "Dashboard"
+}
+
