@@ -4,11 +4,12 @@
   "subclasses": "Leaderboard, User, Login",
 
   "responsibilities": [
-    "Create new user",
-    "saving username",
-    "saving password",
-    "associating a user with profile picture",
+    "create user id"
+    "store username",
+    "store password",
     "delete user"
+    "track user wins"
+    "track user losses"
   ],
   "collaborators": [
     "Leaderboard"
