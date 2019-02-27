@@ -1,0 +1,16 @@
+
+{
+  "name": "Dashboard GUI"
+  "superclasses": " User"
+  "subclasses": "Login"
+
+  "responsibilities":
+    "Display user account panel"
+    "Shows option to start game"
+    "Shows credit balance"
+    "Shows favourite user"
+
+  "collaborators":
+    "Login"
+    "User"
+}
