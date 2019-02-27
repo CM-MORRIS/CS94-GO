@@ -1,0 +1,18 @@
+{
+  "name": "Database",
+  "superclasses": "",
+  "subclasses": "Leaderboard, User, Login",
+
+  "responsibilities": [
+    "Create new user",
+    "saving username",
+    "saving password",
+    "associating a user with profile picture",
+    "delete user"
+  ],
+  "collaborators": [
+    "Leaderboard"
+    "User"
+    "Login"
+  ]
+}
