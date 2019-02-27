@@ -1,0 +1,22 @@
+{
+  "name": "Player",
+  "superclasses": "User",
+  "subclasses": "Admin",
+  "type": 1,
+  "responsibilities": [
+    "Username",
+    "Firstname",
+    "Lastname",
+    "Profile Image",
+    "Mark as favourite",
+    "Unmark as favourite",
+    "Win Percentage",
+    "Last Logged in",
+    "Credits"
+  ],
+  "collaborators": [
+    "Match",
+    "Game",
+    "GUI"
+  ]
+},
