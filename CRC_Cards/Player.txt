@@ -4,7 +4,7 @@ Alex
   "superclasses": "User",
   "subclasses": "Admin",
 
-  "responsibilities": [
+  "responsibilities":
     "Username",
     "Firstname",
     "Lastname",
@@ -14,10 +14,9 @@ Alex
     "Win Percentage",
     "Last Logged in",
     "Credits"
-  ],
-  "collaborators": [
+
+  "collaborators":
     "Match",
     "Game",
     "GUI"
-  ]
-},
+}

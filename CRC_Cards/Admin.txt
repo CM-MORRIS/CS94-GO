@@ -1,17 +1,15 @@
 Alex
 {
-  "name": "Admin",
-  "superclasses": "Player, User",
-  "subclasses": "",
+  "name": "Admin"
+  "superclasses": "Player, User"
+  "subclasses": ""
 
-  "responsibilities": [
-    "Admin Number",
+  "responsibilities":
+    "Admin Number"
     "Join Date"
-  ],
-  "collaborators": [
-    "Match",
-    "Game",
+
+  "collaborators":
+    "Match"
+    "Game"
     "GUI"
-  ]
 }
-]

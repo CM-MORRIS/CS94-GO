@@ -1,19 +1,17 @@
 Corie
   {
-    "name": "Leaderboard",
-    "superclasses": "Database",
-    "subclasses": "",
+    "name": "Leaderboard"
+    "superclasses": "Database"
+    "subclasses": ""
 
-    "responsibilities": [
-      "getUsername()",
-      "getUserProfilePic()",
-      "getTotalWins()",
+    "responsibilities":
+      "getUsername()"
+      "getUserProfilePic()"
+      "getTotalWins()"
       "getTotalLosses()"
-    ],
-    "collaborators": [
-      "GUI",
+
+    "collaborators":
+      "GUI"
       "User"
       "Database"
-    ]
   }
-]

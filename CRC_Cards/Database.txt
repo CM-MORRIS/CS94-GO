@@ -1,20 +1,19 @@
 Corie
 {
-  "name": "Database",
-  "superclasses": "",
-  "subclasses": "Leaderboard, User, Login",
+  "name": "Database"
+  "superclasses": ""
+  "subclasses": "Leaderboard, User, Login"
 
-  "responsibilities": [
+  "responsibilities":
     "create user id"
-    "store username",
-    "store password",
+    "store username"
+    "store password"
     "delete user"
     "track user wins"
     "track user losses"
-  ],
-  "collaborators": [
+
+  "collaborators":
     "Leaderboard"
     "User"
     "Login"
-  ]
 }

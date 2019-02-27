@@ -1,17 +1,16 @@
 Alex
   {
-    "name": "User",
-    "superclasses": "",
-    "subclasses": "Player",
+    "name": "User"
+    "superclasses": ""
+    "subclasses": "Player"
 
-    "responsibilities": [
+    "responsibilities":
       "Create new user",
       "saving username",
       "saving password",
-      "associating a user with profile picture",
+      "associating a user with profile picture"
       "delete user"
-    ],
-    "collaborators": [
+
+    "collaborators": 
       ""
-    ]
   }
