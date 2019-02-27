@@ -8,6 +8,7 @@ Corie
     "store user id"
     "store username"
     "store password"
+    "admin = true/false"
     "store credit amount"
     "store user wins"
     "store user losses"
