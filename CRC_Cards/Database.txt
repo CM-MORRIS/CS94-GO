@@ -5,12 +5,13 @@ Corie
   "subclasses": "Leaderboard, User, Login"
 
   "responsibilities":
-    "create user id"
+    "store user id"
     "store username"
     "store password"
+    "store credit amount"
+    "store user wins"
+    "store user losses"
     "delete user"
-    "track user wins"
-    "track user losses"
 
   "collaborators":
     "Leaderboard"
