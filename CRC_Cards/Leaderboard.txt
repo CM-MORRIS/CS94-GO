@@ -1,4 +1,4 @@
-[
+Corie
   {
     "name": "Leaderboard",
     "superclasses": "Database",

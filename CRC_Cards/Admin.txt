@@ -1,8 +1,9 @@
+Alex
 {
   "name": "Admin",
   "superclasses": "Player, User",
   "subclasses": "",
-  "type": 1,
+
   "responsibilities": [
     "Admin Number",
     "Join Date"
