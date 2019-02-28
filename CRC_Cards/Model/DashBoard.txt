@@ -1,8 +1,8 @@
 Andy
   {
     "name": "DashBoard",
-    "superclasses":
-    "subclasses": "admin",
+    "superclasses": 
+    "subclasses": "Admin","AdmDashBoard"
 
     "responsibilities": [
       "Show player details",
