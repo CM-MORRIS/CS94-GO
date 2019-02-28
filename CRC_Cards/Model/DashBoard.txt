@@ -12,8 +12,8 @@ Andy
       "request credits"
 
     "collaborators":
-      "history result",
-      "favourite players",
-      "DashboardGUI"
-      "Player"
+      "history result": Show on dashboard results history.
+      "favourite players": Favourite players can appear on the dashboard.
+      "DashboardGUI": So there is a visual representation of the items in the DashBoard class.
+      "Player": To be able to access the information on which user information is being presented.
   }
