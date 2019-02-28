@@ -11,8 +11,8 @@ Corie
       "getTotalLosses()"
 
     "collaborators":
-      "GUI"
-      "Player"
-      "Admin"
-      "Database"
+      "GUI": So that there is a visual representation of the information.
+      "Player": To tell which user is viewing the leaderboard.
+      "Admin": So that the admin can have a different view on the leaderboard.
+      "Database": To recieve the results that are being displayed.
   }
