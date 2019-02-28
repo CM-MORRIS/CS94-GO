@@ -1,6 +1,6 @@
 {
   "name": "LoginGUI"
-  "superclasses": "User"
+  "superclasses":
   "subclasses": ""
 
   "responsibilities":
@@ -8,6 +8,6 @@
 
   "collaborators":
     "User"
-    "Dashboard"
+    "Database"
 }
 
