@@ -8,5 +8,7 @@
     "Sorts by score"
 
   "collaborators":
-    "Database"
+    "Leaderboard"
+    "Player"
+    "Admin"
 }
