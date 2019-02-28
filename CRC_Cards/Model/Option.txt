@@ -1,0 +1,10 @@
+1) Class Name: Options
+2) Author: Alex
+3) Superclass:
+4) Subclass:
+5) Responsibilities:
+    a) Force End Game
+    b) Restart Game (Both players agree)
+6) Collaboarations:
+    a) EndGame
+    b) BoardGUI
