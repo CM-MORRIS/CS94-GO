@@ -2,18 +2,18 @@
 
 {
   "name": "Board GUI"
-  "superclasses": "Game GUI"
+  "superclasses":
   "subclasses": ""
 
   "responsibilities":
-    "Displays board GUI"
-    "Show stones"
+    "Displays board"
+    "Display stones placed"
     "Updates the board after move"
     "Show Score"
-    "Options"
+    "Options Menu - End and Restart"
 
   "collaborators":
     "GameBoard"
-    "GameGUI"
     "Option"
+    "EndGame"
 }
