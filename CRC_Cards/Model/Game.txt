@@ -1,0 +1,22 @@
+Corie
+  {
+    "name": "Game",
+    "superclasses":"BoardGUI, GameGUI, GameController",
+    "subclasses": "EndGame",
+
+    "responsibilities": [
+      "Displays Game Board",
+      "Displays credits for betting"
+      "Shows GUI for counters"
+      "All other GUI"
+      "Ensures controllers interact with GUI"
+      "Checks for end game"
+
+    "collaborators":
+      "BlackCounterControl"
+      "FirstPlayer"
+      "WhiteCounterControl"
+      "CounterPosition"
+      "Ko"
+      "StoneCapture"
+  }

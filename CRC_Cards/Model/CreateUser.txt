@@ -1,8 +1,8 @@
 Alex
   {
-    "name": "User"
+    "name": "CreateUser"
     "superclasses": ""
-    "subclasses": "Player"
+    "subclasses": ""
 
     "responsibilities":
       "Create new user",
@@ -11,6 +11,6 @@ Alex
       "associating a user with profile picture"
       "delete user"
 
-    "collaborators": 
-      ""
+    "collaborators":
+      "Database"
   }

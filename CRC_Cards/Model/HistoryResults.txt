@@ -1,13 +1,15 @@
 Andy
 {
   "name": "HistoryResults",
-  "superclasses": "Scoring",
-  "subclasses": "Dash Board",
+  "superclasses": "Database",
+  "subclasses": "DashBoard",
 
   "responsibilities":
-    "get game result",
-    "store game result"
+    "shows newly added players since last login"
+    "shows position in leaderboard"
+    "shows completed games since user last login"
 
   "collaborators":
-    ""
+    "Database"
+    "DashBoard"
 }

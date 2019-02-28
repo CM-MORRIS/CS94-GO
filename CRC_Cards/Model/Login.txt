@@ -1,0 +1,14 @@
+
+{
+  "name": "Login.txt"
+  "superclasses": "LoginGUI"
+  "subclasses": ""
+
+  "responsibilities":
+    "Enter username"
+    "Enter password"
+    "Checks login details"
+
+  "collaborators":
+    "Database"
+}

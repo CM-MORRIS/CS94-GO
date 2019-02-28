@@ -1,13 +1,13 @@
-   
+
 {
   "name": "Black Counter Control"
   "superclasses": "Player, User"
-  "subclasses": ""
+  "subclasses": "Game"
 
   "responsibilities":
     "Use keyboard to make a move"
 
   "collaborators":
     "Game Controller"
-   
+
 }

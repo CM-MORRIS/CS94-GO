@@ -1,14 +1,15 @@
 {
-  "name": "Credits",
-  "superclasses": "Player",
-  "subclasses": "",
-  "responsibilities": [
-    "UpdateCredits",
-  ],
-  "collaborators": [
-    "Betting",
-    "Leaderboard",
-    "Player"
-  ]
+  "name": "Credit",
+  "superclasses": "Database",
+  "subclasses": "Player",
+
+  "responsibilities":
+    "Show credit balance",
+    "using credit in the bet",
+    "calculate credit"
+    "update credit"
+
+  "collaborators":
+  "Player"
+  "Database"
 }
-]

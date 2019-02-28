@@ -1,0 +1,19 @@
+Corie
+{
+  "name": "EndGame",
+  "superclasses": "Game",
+  "subclasses": "Player",
+  "responsibilities": [
+    "Update win/loss for users"
+    "UpdateCredits",
+    "Close GUI for game"
+    "Revert back to dashboard"
+
+  ],
+  "collaborators": [
+    "Database",
+    "Credits",
+    "Player"
+  ]
+}
+]

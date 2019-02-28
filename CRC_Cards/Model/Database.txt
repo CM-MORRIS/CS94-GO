@@ -2,7 +2,7 @@ Corie
 {
   "name": "Database"
   "superclasses": ""
-  "subclasses": "Leaderboard, User, Login"
+  "subclasses": ","CreateUser", Login, "
 
   "responsibilities":
     "store user id"
@@ -16,6 +16,8 @@ Corie
 
   "collaborators":
     "Leaderboard"
-    "User"
+    "Player"
+    "CreateUser"
     "Login"
+    "HistoryResults"
 }
