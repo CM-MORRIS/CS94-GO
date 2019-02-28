@@ -10,6 +10,6 @@ Andy
     "shows completed games since user last login"
 
   "collaborators":
-    "Database"
-    "DashBoard"
+    "Database": So that the information from previous results can be accessed.
+    "DashBoard": To present the data to the dashboard for when a user logs in.
 }
