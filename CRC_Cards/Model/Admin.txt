@@ -1,15 +1,14 @@
-Alex
-{
-  "name": "Admin"
-  "superclasses": "Player, User"
-  "subclasses": ""
-
-  "responsibilities":
-    "Admin Number"
-    "Join Date"
-
-  "collaborators":
-    "Match"
-    "Game"
-    "GUI"
-}
+1) Class name: Admin
+2) Author: Alex
+3) SuperClasses: User, Player
+4) SubClasses:
+5) Responsibilities:
+    a)	Admin Number
+    b)	Admin Join Date
+    c)	Allocate Credits
+    d)	Create New User
+    e)	Delete User
+6) Collaborations:
+    a)	Game
+    b)	GUI
+    c)	Credits
