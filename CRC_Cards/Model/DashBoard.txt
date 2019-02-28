@@ -1,14 +1,15 @@
 Andy
   {
     "name": "DashBoard",
-    "superclasses":"DashboardGUI", HistoryResult; favourite players; credits balance",
-    "subclasses": "GUI",
+    "superclasses":
+    "subclasses": "admin",
 
     "responsibilities": [
       "Show player details",
       "show favourite players",
       "show credits balance ",
       "show history results"
+      "request credits"
 
     "collaborators":
       "history result",
