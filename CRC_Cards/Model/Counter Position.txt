@@ -9,6 +9,5 @@
     "Check the amount of liberties a stone has for the individual and grouped case"
 
   "collaborators":
-    "Game Controller"
   
 }
