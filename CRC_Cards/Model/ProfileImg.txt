@@ -1,0 +1,10 @@
+1) Class name: ProfileImg
+2) Author: Gareth
+3) Superclass:
+4) Subclass:
+5) Responsbilities:
+    a) Update the player profile image
+6) Collaborations:
+    a) Admin
+    b) Player
+    c) ProfileGUI
