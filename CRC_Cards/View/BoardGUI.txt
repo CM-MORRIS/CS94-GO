@@ -10,8 +10,6 @@
     "Updates the board after move"
 
   "collaborators":
-    "Board"
-    "Game"
-    "GUI"
-    "Player"
+    "GameBoard"
+    "GameGUI"
 }
