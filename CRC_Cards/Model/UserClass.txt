@@ -7,4 +7,6 @@
     b)	Join Date
     c)  Are they an admin?
 6)	Collaborations:
+    a) Database
+    b) Login
 
