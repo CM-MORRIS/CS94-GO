@@ -6,5 +6,5 @@
     a) Force End Game
     b) Restart Game (Both players agree)
 6) Collaboarations:
-    a) EndGame
-    b) BoardGUI
+    a) EndGame: So that the end game option can be forced.
+    b) BoardGUI: Provides a visual interface for the options screen.
