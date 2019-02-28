@@ -1,0 +1,13 @@
+{
+  "name": "Gameboard"
+  "superclasses": ""
+  "subclasses": "Rules, GameLogic, StoneCapture, CounterPosition"
+
+  "responsibilities":
+    "board size"
+    "tracks the position array"
+
+  "collaborators":
+    "BoardGUI"
+    "GameGUI"
+}
