@@ -2,7 +2,7 @@ Corie
 {
   "name": "EndGame",
   "superclasses": "Game",
-  "subclasses": "Player",
+  "subclasses":
   "responsibilities": [
     "Update win/loss for users"
     "UpdateCredits",
