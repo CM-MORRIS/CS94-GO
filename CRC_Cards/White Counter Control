@@ -1,0 +1,12 @@
+{
+  "name": "White Counter Control"
+  "superclasses": "Player, User"
+  "subclasses": ""
+
+  "responsibilities":
+    "Use mouse to make a move"
+
+  "collaborators":
+    "Game Controller"
+   
+}
