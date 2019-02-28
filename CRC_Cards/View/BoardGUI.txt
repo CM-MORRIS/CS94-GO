@@ -7,7 +7,9 @@
 
   "responsibilities":
     "Displays board GUI"
+    "Show stones"
     "Updates the board after move"
+    "Show Score"
 
   "collaborators":
     "GameBoard"
