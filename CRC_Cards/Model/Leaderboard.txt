@@ -12,6 +12,7 @@ Corie
 
     "collaborators":
       "GUI"
-      "User"
+      "Player"
+      "Admin"
       "Database"
   }
