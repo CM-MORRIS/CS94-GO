@@ -1,7 +1,7 @@
 {
   "name": "Credit",
   "superclasses": "Database",
-  "subclasses": "Player",
+  "subclasses":
 
   "responsibilities":
     "Show credit balance",
