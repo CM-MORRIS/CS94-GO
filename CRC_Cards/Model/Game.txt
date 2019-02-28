@@ -11,6 +11,7 @@ Corie
       "All other GUI"
       "Ensures controllers interact with GUI"
       "Checks for end game"
+      "Track score"
 
     "collaborators":
       "BlackCounterControl"
