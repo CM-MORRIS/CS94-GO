@@ -10,8 +10,10 @@
     "Show stones"
     "Updates the board after move"
     "Show Score"
+    "Options"
 
   "collaborators":
     "GameBoard"
     "GameGUI"
+    "Option"
 }
