@@ -7,7 +7,7 @@
     "Displays login GUI "
 
   "collaborators":
-    "User"
+    "Login"
     "Database"
 }
 
