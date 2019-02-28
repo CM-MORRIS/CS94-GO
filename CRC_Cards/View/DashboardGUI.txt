@@ -1,8 +1,8 @@
 
 {
   "name": "Dashboard GUI"
-  "superclasses": " User"
-  "subclasses": "Login"
+  "superclasses":
+  "subclasses": 
 
   "responsibilities":
     "Display user account panel"
@@ -14,4 +14,7 @@
   "collaborators":
     "Dashboard"
     "AdminDashboard"
+    "Database"
+    "Player"
+    "Admin"
 }
