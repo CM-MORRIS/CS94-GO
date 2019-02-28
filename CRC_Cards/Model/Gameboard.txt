@@ -8,6 +8,6 @@
     "tracks the position array"
 
   "collaborators":
-    "BoardGUI"
-    "GameGUI"
+    "BoardGUI": So that the users have an environment to play on.
+    "GameGUI": Other elements of the game UI that aren't just the board.
 }
