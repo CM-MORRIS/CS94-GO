@@ -1,23 +1,24 @@
 Corie
 {
   "name": "Database"
-  "superclasses": ""
-  "subclasses": ","CreateUser", Login, "
+  "superclasses":
+  "subclasses": 
 
   "responsibilities":
     "store user id"
     "store username"
     "store password"
-    "admin = true/false"
+    "isAdmin = true/false"
     "store credit amount"
     "store user wins"
     "store user losses"
-    "delete user"
+    "store match dates"
+    "remove user records"
 
   "collaborators":
     "Leaderboard"
     "Player"
-    "CreateUser"
+    "User"
     "Login"
     "HistoryResults"
 }
