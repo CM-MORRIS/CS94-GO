@@ -1,0 +1,12 @@
+{
+  "name": "Leaderboard GUI"
+  "superclasses": ""
+  "subclasses": ""
+
+  "responsibilities":
+    "Displays Leaderboard GUI"
+    "Sorts by score"
+
+  "collaborators":
+    "Database"
+}
