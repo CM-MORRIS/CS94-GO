@@ -10,8 +10,8 @@
     "update credit"
 
   "collaborators":
-  "Player"
-  "Database"
-  "Game"
-  "EndGame"
+  "Player": Which player's credits are being dealt with?
+  "Database": To access the data on how many credits the player has.
+  "Game": To be able to bet on a game:
+  "EndGame": To have credits allocated after a victory.
 }
