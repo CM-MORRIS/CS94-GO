@@ -13,3 +13,4 @@
     "Player"
     "Admin"
     "HistoryResults"
+    "UserDatabase"
