@@ -1,0 +1,15 @@
+1) Class name: AdmDashBoard
+2) Author: 
+3) SuperClasses: DashBoard
+4) SubClasses:
+5) Responsibilities:
+    a)	giveCreditsOption()
+    b)	createUserOption()
+    c)	deleteUserOpiton()
+    d)	displayAdminOption()
+    e)	makeAdminOption()
+6) Collaborations:
+    a)	Database
+    b)	Leaderboard
+    c)	Admin
+    d)	DashBoardGUI
