@@ -10,5 +10,5 @@
     e)	Delete User
 6) Collaborations:
     a)	Game
-    b)	GUI
-    c)	Credits
+    b)	Credits
+    c)  Dashboard
