@@ -9,16 +9,14 @@ Corie
     "store username"
     "store password"
     "isAdmin = true/false"
-    "store credit amount"
-    "store user wins"
-    "store user losses"
     "store match dates"
     "remove user records"
 
   "collaborators":
     "Leaderboard"
     "Player"
-    "User"
+    "Admin"
     "Login"
     "HistoryResults"
+    "GameDatabase"
 }
