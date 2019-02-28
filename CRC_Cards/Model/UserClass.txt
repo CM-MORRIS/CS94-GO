@@ -4,8 +4,15 @@
 4)	SubClasses: Player, Admin
 5)	Responsibilities:
     a)	Save Username & Password
-    b)	Join Date
-    c)  Are they an admin?
+    b)  Is Admin?
+    c)  First Name
+    d)  Last Name
+    e)  Last Login
+    f)  Profile Image
+    g)  Win Percentage
+    h)  Credit Value
+    i)  Request Credits
+    j)  Add or Remove Favourite Players
 6)	Collaborations:
     a) Database
     b) Login
