@@ -14,6 +14,6 @@
 
   "collaborators":
     "GameBoard"
-    "Option"
+    "Options"
     "EndGame"
 }
