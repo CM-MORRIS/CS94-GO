@@ -1,0 +1,9 @@
+1)	Class name: User
+2)	Author: Alex
+3)	SuperClasses:
+4)	SubClasses: Player, Admin
+5)	Responsibilities:
+    a)	Save Username & Password
+    b)	Join Date
+6)	Collaborations:
+
