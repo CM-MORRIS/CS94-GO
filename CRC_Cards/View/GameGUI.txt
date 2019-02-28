@@ -6,7 +6,7 @@
 
   "responsibilities":
     "Players Profile Image"
-    "Score"
+    "Display Score"
     "Game Board Size"
     "White & Black counters (piece)"
     "Options"
