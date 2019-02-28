@@ -1,6 +1,6 @@
 Corie
 {
-  "name": "Database"
+  "name": "UserDatabase"
   "superclasses":
   "subclasses": 
 
