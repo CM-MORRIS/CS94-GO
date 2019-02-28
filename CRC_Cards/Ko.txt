@@ -1,0 +1,14 @@
+   
+{
+  "name": "Ko"
+  "superclasses": "Game GUI"
+  "subclasses": ""
+
+  "responsibilities":
+    "To stop repetitive moves that would cause the game to enter a lock state"
+
+  "collaborators":
+    "Counter position"
+    "Stone Capture"
+   
+}
