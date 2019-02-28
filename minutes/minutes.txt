@@ -1,0 +1,68 @@
+==========
+Meeting 1:
+==========
+
+Minutes of Meeting: Alex, Andy, Corie, Gareth, Tibo, Will
+------------------------------------
+date: 12 Feb ’19
+start time:13:00
+end time: 13:30
+date and time of next meeting: 19 Feb ’19, 13:00
+topics discussed:
+-- Initial discussion of ideas
+-- Discussion on how to split up the project
+progress since last meeting:
+N/A
+TODO (for next meeting):
+-- Everyone: Return with a list of classes related to the project and how these classes#
+   could be split into different sections.
+
+==========
+Meeting 2:
+==========
+
+Minutes of Meeting: Alex, Andy, Corie, Gareth, Tibo, Will
+------------------------------------
+date: 19 Feb ’19
+start time:13:00
+end time: 13:30
+date and time of next meeting: 22 Feb ’19, 12:00
+topics discussed:
+-- Bringing together everyones ideas of what the classes should be and how they should interact.
+-- Determining the path to take to start designing the project: creating a comprehensive list of classes,
+   putting these into CRC form and then into UML diagrams.
+-- Discussing how these classes should be split up into sections and who should get each section.
+-- Agreeing to create a github repository to store and share files for the project.
+progress since last meeting:
+-- Everyone: A brining together of everyones ideas of what classes will be needed for the project. 
+TODO (for next meeting):
+-- Everyone: Return next later on in the week with CRC cards of each of your given sections.
+-- Gareth & Alex: Work on the classes defined in the 'User' section.
+-- Andy: Work on the classes for the betting system.
+-- Corie: Work on the classes for the leaderboards and databases system.
+-- Will: Work on the classes for the actual game mechanics.
+-- Tibo: Work on the classes for the GUI elements.
+-- Everyone: Start to think about how the program will be structured in terms of inheritance, hierarchy etc.
+
+==========
+Meeting 3
+==========
+date: 22 Feb ’19
+start time:12:00
+end time: 12:30
+date and time of next meeting: Continue with intermittent online group chats whenever necessary.
+topics discussed:
+-- Going over the CRC cards created and making sure that class names were consistent.
+-- Discussing how to implement these CRC cards in the UML diagram - how will it be structured? Which will be 
+   abstract classes, what kind of relationships?
+-- Similar to the previous week, the UML diagrams were also shared between the group to complete for the assignment.
+progress since last meeting:
+-- Everyone: CRC cards were created and collated so that everyone could view them and see in relation to their own,
+             which meant that relationships could be seen beteween classes so that the UML diagrams could be developed.
+-- Corie: Created a github for all group members to use.
+TODO (for the rest of the project):
+-- Everyone: Finish working on UML diagrams as discussed in the meeting.
+-- Everyone: Keep in contact with the rest of the group in order to maintain consistency between things like variable names,
+             method names and class titles.
+-- Everyone: Continue to think and keep adding to the github repository ideas on how the UML diagrams should be constructed 
+             after everyone has finished their diagrams.
