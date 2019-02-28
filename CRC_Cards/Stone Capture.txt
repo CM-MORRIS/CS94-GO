@@ -1,0 +1,15 @@
+   
+{
+  "name": "Game GUI"
+  "superclasses": "Player, User"
+  "subclasses": ""
+
+  "responsibilities":
+    "Check if all of its liberties are occupied by opposite colour"
+    "Remove counter from game if a capture has happened"
+
+  "collaborators":
+    "Game Controller"
+    "Counter Position"
+   
+}
