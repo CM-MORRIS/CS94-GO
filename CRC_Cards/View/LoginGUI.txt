@@ -1,5 +1,5 @@
 {
-  "name": "Login"
+  "name": "LoginGUI"
   "superclasses": "User"
   "subclasses": ""
 

@@ -1,0 +1,16 @@
+Andy
+  {
+    "name": "DashBoard",
+    "superclasses":"history result; favourite players; credits balance",
+    "subclasses": "GUI",
+
+    "responsibilities": [
+      "show history results",
+      "show favourite players",
+      "show credits balance ",
+
+    "collaborators":
+      "history result",
+      "favourite players",
+      "credits balance"
+  }

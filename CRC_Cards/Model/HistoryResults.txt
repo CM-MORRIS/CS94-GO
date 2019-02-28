@@ -1,0 +1,13 @@
+Andy
+{
+  "name": "HistoryResults",
+  "superclasses": "Scoring",
+  "subclasses": "Dash Board",
+
+  "responsibilities":
+    "get game result",
+    "store game result"
+
+  "collaborators":
+    ""
+}

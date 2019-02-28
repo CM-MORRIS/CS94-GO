@@ -1,0 +1,13 @@
+Andy
+{
+  "name": "FavouritePlayer",
+  "superclasses": "Player",
+  "subclasses": "Dash Board",
+
+  "responsibilities": 
+    "get Favourite player",
+    "show Favourite player"
+
+  "collaborators":
+   ""
+}

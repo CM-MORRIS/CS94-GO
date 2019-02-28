@@ -1,0 +1,17 @@
+
+{
+  "name": "GameGUI"
+  "superclasses": "Game, Board"
+  "subclasses": ""
+
+  "responsibilities":
+    "Players Profile Image"
+    "Score"
+    "Game Board Size"
+    "White & Black counters (piece)"
+    "Options"
+
+  "collaborators":
+    "Game"
+    "Board"
+}

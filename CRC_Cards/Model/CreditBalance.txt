@@ -1,0 +1,14 @@
+{
+  "name": "CreditBalance",
+  "superclasses": "Player",
+  "subclasses": "Dash Board",
+
+  "responsibilities":
+    "get credit balance from the player",
+    "using credit in the bet",
+    "calculate credit"
+
+  "collaborators":
+    "Scoring",
+    "betting"
+}

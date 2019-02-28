@@ -1,6 +1,6 @@
    
 {
-  "name": "Game GUI"
+  "name": "StoneCapture"
   "superclasses": "Player, User"
   "subclasses": ""
 
