@@ -9,6 +9,6 @@
     d)	Create New User
     e)	Delete User
 6) Collaborations:
-    a)	Game
-    b)	Credits
-    c)  Dashboard
+    a)	Game: 
+    b)	Credits: To be able to allocate extra credits.
+    c)  Dashboard: To access the admin dashboard.
