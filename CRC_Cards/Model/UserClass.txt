@@ -5,5 +5,6 @@
 5)	Responsibilities:
     a)	Save Username & Password
     b)	Join Date
+    c)  Are they an admin?
 6)	Collaborations:
 
