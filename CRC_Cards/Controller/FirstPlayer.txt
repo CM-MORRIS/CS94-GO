@@ -1,4 +1,4 @@
-   
+
 {
   "name": "First Player"
   "superclasses": "Game GUI"
@@ -11,5 +11,4 @@
     "User"
     "White Counter Control"
     "Black Counter Control"
-   
 }
