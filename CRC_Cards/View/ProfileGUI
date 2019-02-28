@@ -1,0 +1,13 @@
+1) Class Name: ProfileGUI
+2) Author: Alex
+3) SuperClasses:
+4) SubClasses:
+5) Responsibilities:
+    a) Display User Information
+    b) Allow Users to update info
+    c) Allow users to choose profile image
+6) Collaborations:
+    a) User
+    b) Player
+    c) Admin
+    d) ProfileImg
