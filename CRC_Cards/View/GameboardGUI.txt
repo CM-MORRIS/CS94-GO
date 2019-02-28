@@ -1,0 +1,17 @@
+
+
+{
+  "name": "Board GUI"
+  "superclasses": "Game GUI"
+  "subclasses": ""
+
+  "responsibilities":
+    "Displays board GUI"
+    "Updates the board after move"
+
+  "collaborators":
+    "Board"
+    "Game"
+    "GUI"
+    "Player"
+}
