@@ -1,7 +1,7 @@
 
 {
   "name": "Login.txt"
-  "superclasses": "LoginGUI"
+  "superclasses":
   "subclasses": ""
 
   "responsibilities":
@@ -11,4 +11,5 @@
 
   "collaborators":
     "Database"
+    "LogInGUI"
 }
