@@ -11,4 +11,5 @@
     "Leaderboard"
     "Player"
     "Admin"
+    "Database"
 }
