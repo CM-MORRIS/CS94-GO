@@ -1,16 +1,9 @@
 1)	Class name: Player
 2)	Author: Alex
 3)	SuperClasses: User
-4)	SubClasses: Admin
+4)	SubClasses:
 5)	Responsibilities:
-    a)	First Name
-    b)	Last Name
-    c)	Last Login
-    d)	Profile Image
-    e)	Win Percentage
-    f)	Credit Value
-    g)	Request Credits
-    h)	Favourite Player List
+    a) Update Profile
 6)	Collaborations:
     a)	Game
     b)	GUI
