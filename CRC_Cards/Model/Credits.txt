@@ -12,4 +12,6 @@
   "collaborators":
   "Player"
   "Database"
+  "Game"
+  "EndGame"
 }
