@@ -1,8 +1,8 @@
 Andy
 {
   "name": "HistoryResults",
-  "superclasses": "Database",
-  "subclasses": "DashBoard",
+  "superclasses":
+  "subclasses":
 
   "responsibilities":
     "shows newly added players since last login"
