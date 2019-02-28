@@ -14,9 +14,9 @@ Corie
       "Get Player Usernames
 
     "collaborators":
-      "StoneCapture"
-      "GameLogic"
-      "CounterPos"
-      "Player"
-      "Admin"
+      "StoneCapture": All three of these classes are necessary to collaborate so that the games mechanics can work.
+      "GameLogic":
+      "CounterPos":
+      "Player": So that what user is taking part is known.
+      "Admin":
   }
