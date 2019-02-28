@@ -1,0 +1,15 @@
+1) Class Name: GameDatabase
+2) Author: Alex
+3) Superclass:
+4) Subclass:
+5) Responsbilities:
+    a) Store Winning User
+    b) Store Losing User
+    c) Store Match Date
+    d) Store Credit result of match
+    
+6) Collaborators:
+    "Leaderboard"
+    "Player"
+    "Admin"
+    "HistoryResults"
