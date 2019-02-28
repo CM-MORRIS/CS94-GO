@@ -9,8 +9,9 @@
     "Shows option to start game"
     "Shows credit balance"
     "Shows favourite user"
+    "Shows Admin Tools, if Admin"
 
   "collaborators":
-    "Login"
-    "User"
+    "Dashboard"
+    "AdminDashboard"
 }
