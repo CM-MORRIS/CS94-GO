@@ -9,6 +9,6 @@ Andy
     "show Favourite player"
 
   "collaborators":
-   "Player"
-   "Database"
+   "Player": To select a specific user.
+   "Database": So that the favourite user can be remembered.
 }
