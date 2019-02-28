@@ -1,23 +1,18 @@
-
-{
-  "name": "Player",
-  "superclasses": "Database",
-  "subclasses": "DashBoard, Game",
-
-  "responsibilities":
-    "Username",
-    "Firstname",
-    "Lastname",
-    "Profile Image",
-    "Mark as favourite",
-    "Unmark as favourite",
-    "Win Percentage",
-    "Last Logged in",
-    "Credits"
-
-  "collaborators":
-    "Match",
-    "Game",
-    "PlayerGUI"
-    "Credits"
-}
+1)	Class name: Player
+2)	Author: Alex
+3)	SuperClasses: User
+4)	SubClasses: Admin
+5)	Responsibilities:
+    a)	First Name
+    b)	Last Name
+    c)	Last Login
+    d)	Profile Image
+    e)	Win Percentage
+    f)	Credit Value
+    g)	Request Credits
+    h)	Favourite Player List
+6)	Collaborations:
+    a)	Game
+    b)	GUI
+    c)	Credits
+    d)	Dashboard
