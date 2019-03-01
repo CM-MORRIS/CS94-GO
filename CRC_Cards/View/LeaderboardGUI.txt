@@ -8,8 +8,6 @@
     "Sorts by score"
 
   "collaborators":
-    "Leaderboard"
-    "Player"
-    "Admin"
-    "Database"
+    "Leaderboard": Display Leaderboard information 
+    
 }
