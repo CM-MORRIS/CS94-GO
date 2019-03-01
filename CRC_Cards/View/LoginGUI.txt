@@ -7,7 +7,7 @@
     "Displays login GUI "
 
   "collaborators":
-    "Login"
-    "Database"
+    "Login": Provide login space
+    "Database": Confirm log in details for that user are correct 
 }
 
