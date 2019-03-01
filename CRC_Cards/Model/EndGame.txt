@@ -13,7 +13,7 @@ Corie
   "collaborators": [
     "Database": To see credits of the users.
     "Credits": Allocation of credits to the victor.
-    "Player": So we know which user to update.
+    
   ]
 }
 ]
