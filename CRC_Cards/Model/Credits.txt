@@ -1,6 +1,6 @@
 {
   "name": "Credit",
-  "superclasses": "Database",
+  "superclasses":
   "subclasses":
 
   "responsibilities":
