@@ -9,8 +9,7 @@
     d) Store Credit result of match
     
 6) Collaborators:
-    "Leaderboard"
-    "Player"
-    "Admin"
-    "HistoryResults"
-    "UserDatabase"
+    "Leaderboard": Display ranking based on wins  
+    "Admin": Update game data 
+    "HistoryResults": Update from current matches
+    "UserDatabase": To store recent information from last games, such as wins and credit increase or decrease
