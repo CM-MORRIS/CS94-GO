@@ -1,7 +1,7 @@
 1)	Class name: User
 2)	Author: Alex
 3)	SuperClasses:
-4)	SubClasses: Player, Admin
+4)	SubClasses:  Admin
 5)	Responsibilities:
     a)	Save Username & Password
     b)  Is Admin?
@@ -14,6 +14,6 @@
     i)  Request Credits
     j)  Add or Remove Favourite Players
 6)	Collaborations:
-    a) Database
-    b) Login
+    a) Database - To store details such as username, password, firstname , wins, credits.
+    b) Login - To authenticate access to that account 
 
