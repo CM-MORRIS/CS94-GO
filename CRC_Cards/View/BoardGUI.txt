@@ -10,10 +10,10 @@
     "Display stones placed"
     "Updates the board after move"
     "Show Score"
-    "Options Menu - End and Restart"
+    " Displays Options Menu - End and Restart"
 
   "collaborators":
-    "GameBoard"
-    "Options"
-    "EndGame"
+    "GameBoard : Starts the game "
+    "Option: to call the methods restart or surrender"
+    
 }
