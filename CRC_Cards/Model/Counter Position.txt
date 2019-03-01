@@ -9,5 +9,5 @@
     "Check the amount of liberties a stone has for the individual and grouped case"
 
   "collaborators":
-  
+  Game logic - These two have a relationship because on the click of the mouse a comparison is made to validate the position and avalibilty of a placement point.
 }
