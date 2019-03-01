@@ -7,7 +7,6 @@
     b) Allow Users to update info
     c) Allow users to choose profile image
 6) Collaborations:
-    a) User
-    b) Player
-    c) Admin
-    d) ProfileImg
+    a) User : Obtain details for the players profile 
+    b) Admin: Obtain details for the admin
+    c) ProfileImg - Used to take image from computer directory and set as the profile image of the player 
