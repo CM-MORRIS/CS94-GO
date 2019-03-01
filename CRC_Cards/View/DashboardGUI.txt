@@ -12,9 +12,8 @@
     "Shows Admin Tools, if Admin"
 
   "collaborators":
-    "Dashboard"
-    "AdminDashboard"
-    "Database"
-    "Player"
-    "Admin"
+    "Dashboard" : Contains information to be displayed
+    "AdminDashboard": Able to excercise administrive priveledges such as accrediting accounts
+    "Database": retrieve information such as credits
+    "Admin": Able to excercise administrive priveledges such as accrediting accounts
 }
