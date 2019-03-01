@@ -3,6 +3,7 @@
 3) SuperClasses: DashBoard
 4) SubClasses:
 5) Responsibilities:
+    a)  choose play game
     a)	giveCreditsOption()
     b)	createUserOption()
     c)	deleteUserOpiton()
