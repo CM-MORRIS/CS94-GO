@@ -4,10 +4,10 @@
   "subclasses": ""
 
   "responsibilities":
-    "Displays login GUI "
+    "Provides oppurtunity to log in "
 
   "collaborators":
-    "Login": Provide login space
+    "Login": - Check for valid log in details by pulling information from the database 
     "Database": Confirm log in details for that user are correct 
 }
 
