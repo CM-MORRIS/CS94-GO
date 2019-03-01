@@ -1,22 +1,17 @@
 Corie
   {
-    "name": "Game",
-    "superclasses"
+    "name": "GameStart",
+    "superclasses":
     "subclasses":
 
-    "responsibilities": [
-      "Displays Game Board",
-      "Displays credits for betting"
-      "Shows GUI for counters"
-      "All other GUI"
-      "Ensures controllers interact with GUI"
-      "Track score"
-      "Get Player Usernames
-
+    "responsibilities": 
+     Recognise both parties
+     Start the game and choose board size
+     
     "collaborators":
-      "StoneCapture": All three of these classes are necessary to collaborate so that the games mechanics can work.
-      "GameLogic":
-      "CounterPos":
-      "Player": So that what user is taking part is known.
-      "Admin":
+     Board GUI: When the game is initilised , it will call this class to display the board
+     GameBoard: To choose what size board to play on 
+     Admin Dashboard: needed for confirmation of the game to take place
+     User Dashboard:  needed for confirmation of the game to take place
+     
   }
