@@ -5,18 +5,12 @@ Corie
   "subclasses": 
 
   "responsibilities":
-    "store user id"
-    "store username"
-    "store password"
-    "isAdmin = true/false"
-    "store match dates"
-    "remove user records"
+ Save user data in XML
 
   "collaborators":
-    "Leaderboard"
-    "Player"
-    "Admin"
-    "Login"
-    "HistoryResults"
-    "GameDatabase"
+    "Leaderboard" - Display up to the current day results
+    "Admin": Store admin data as well as a players
+    "Login": Authenticatte details
+    "HistoryResults": Keep track of every game played and its results
+    "GameDatabase" - Tally history results and produce a winning percentage 
 }
