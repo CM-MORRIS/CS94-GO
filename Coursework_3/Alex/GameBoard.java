@@ -2,7 +2,6 @@ package go.core;
 
 /**
  * GameBoard holds the board dimensions and handles counter placement.
- *
  * @author Alex Mair
  * @version 1.6
  */
@@ -21,7 +20,7 @@ public class GameBoard {
     /**
      * Contains all intersections on the board.
      */
-    private final int[][][] intersections;
+    private final int[][] intersections;
 
     /**
      * The GameBoard constructor that makes the actual GameBoard
@@ -32,14 +31,14 @@ public class GameBoard {
     public GameBoard(final int w, final int h) {
         width = w;
         height = h;
-        intersections = new int[width][height][1];
+        intersections = new int[width][height];
         for (int i = 0; i < height; i++) {
             System.out.println();
             for (int j = 0; j < width; j++) {
                 if (i == 3 && j == 0) {
-                    intersections[i][j][0] = 1;
+                    intersections[i][j] = 1;
                 }
-                    //System.out.print(intersections[i][j][0] + " ");
+                    System.out.print(intersections[i][j] + " ");
             }
         }
     }
@@ -61,14 +60,22 @@ public class GameBoard {
     }
 
     /**
-     * Method to get the state at the intersection, 1 to 9.
+     * Method to get the state at the intersection, 0 to 8.
      * @param x This is the position of the intersection on the width.
      * @param y This is the position of the intersection on the height.
      * @return This returns the state in the intersection position.
      */
     public int getIntersectionState(final int x, final int y) {
-        return intersections[x-1][y-1][0];
+        return intersections[x][y];
     }
 
-
+    /**
+     * Method to set the state at a given intersection point.
+     * @param x The position of the intersection along the width.
+     * @param y The position of the intersection along the height.
+     * @param state The new state that the intersection point is set to.
+     */
+    public void setIntersectionState(final int x, final int y, final int state) {
+        intersections[x][y] = state;
+    }
 }
