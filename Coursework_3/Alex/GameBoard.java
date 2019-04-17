@@ -32,15 +32,14 @@ public class GameBoard {
         width = w;
         height = h;
         intersections = new int[width][height];
+        /*
         for (int i = 0; i < height; i++) {
             System.out.println();
             for (int j = 0; j < width; j++) {
-                if (i == 3 && j == 0) {
-                    intersections[i][j] = 1;
-                }
-                    System.out.print(intersections[i][j] + " ");
+                System.out.print(intersections[i][j] + " ");
             }
         }
+         */
     }
 
     /**

@@ -1,5 +1,8 @@
 package go.core;
 
+
+import javafx.application.Application;
+
 /**
  * The Main class for running the Go game.
  * @author Alex Mair
@@ -7,9 +10,9 @@ package go.core;
 public class Main {
     public static void main(final String[] args) {
         newGame(9);
+        Application.launch(BoardHandler.class, args);
 
     }
-
     /**
      * New game method which sets up a GameBoard of a given size.
      *

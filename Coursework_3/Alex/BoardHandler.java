@@ -6,54 +6,78 @@ import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import javafx.scene.layout.Pane;
 
 
+/**
+ * The BoardHandler class deals with the JavaFX implementations
+ * of the GameBoard.
+ */
+public class BoardHandler extends Application
+        implements EventHandler<ActionEvent> {
+    /**
+     * Producing a new GameBoard to be used within the JavaFX program.
+     */
+    private GameBoard board = new GameBoard(9, 9);
 
-public class BoardHandler extends Application implements EventHandler<ActionEvent>{
-    private GameBoard board = new GameBoard(9,9);
-    double mouseX ;
+    /**
+     * Parent to display the pane and the content on.
+     * @return Information to go on the scene.
+     */
     private Parent createContent() {
-
+        final int boardScalingFactor = 100;
 
         Pane root = new Pane();
-        root.setPrefSize(1000,1000);
+        root.setPrefSize(1000, 1000);
 
-        for(int i =1 ; i < 9; ++i) {
-            for(int j=1 ; j< 9 ; ++j) {
+        for (int i = 1; i < 9; ++i) {
+            for (int j = 1; j < 9; ++j) {
                 Tile tile = new Tile();
-                tile.setTranslateX(j*100);
-                tile.setTranslateY(i*100);
+                tile.setTranslateX(j * boardScalingFactor);
+                tile.setTranslateY(i * boardScalingFactor);
                 root.getChildren().addAll(tile);
             }
         }
 
-        root.setOnMouseClicked(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                int x_coord = (int) (Math.rint((event.getSceneX())/100));
-                int y_coord = (int) (Math.rint((event.getSceneY())/100));
-                board.setIntersectionState(x_coord -1, y_coord -1, 1);
-                System.out.println("(" + x_coord + ", " + y_coord + ")");
-                System.out.println("(" + event.getSceneX() + ", " + event.getSceneY() + ")");
-            }
-        });
+        root.setOnMouseClicked(event -> {
+            int xPosition = (int) Math.rint(event.getSceneX() / boardScalingFactor);
+            int yPosition = (int) Math.rint(event.getSceneY() / boardScalingFactor);
+                if (board.getIntersectionState(xPosition - 1, yPosition - 1) == 0) {
+                    board.setIntersectionState(xPosition - 1, yPosition - 1, 1);
+
+                    Circle circle = new Circle(xPosition * boardScalingFactor,
+                            yPosition * boardScalingFactor, 35, Color.BLACK);
+                    root.getChildren().addAll(circle);
+                }
+                /*
+                System.out.println("(" + xPosition + ", " + yPosition + ")");
+                System.out.println("(" + event.getSceneX() + ", "
+                + event.getSceneY() + ")");
+                */
+            });
         return root;
     }
     @Override
-    public void start(Stage primaryStage) {
+    public void start(final Stage primaryStage) {
         primaryStage.setScene(new Scene(createContent()));
         primaryStage.show();
     }
 
-    private class Tile extends StackPane{
-        public Tile() {
-            Rectangle boarder = new Rectangle(100,100);
+    /**
+     * TILE CLASS NEEDS TO GO IN IT'S OWN FILE.
+     * @author Will Davies
+     */
+    private final class Tile extends StackPane {
+        /**
+         * HOW TO DO TILE. GOD I DON'T KNOW.
+         */
+        private Tile() {
+            Rectangle boarder = new Rectangle(100, 100);
             boarder.setFill(Color.BEIGE);
             boarder.setStroke(Color.BLACK);
             setAlignment(Pos.CENTER);
@@ -61,11 +85,15 @@ public class BoardHandler extends Application implements EventHandler<ActionEven
         }
     }
 
-    public static void main(String[] args) {
+    /**
+     * The main function to run the javafx.
+     * @param args Takes the args?
+     */
+    public static void main(final String[] args) {
         launch(args);
     }
     @Override
-    public void handle(ActionEvent event) {
+    public void handle(final ActionEvent event) {
         // TODO Auto-generated method stub
 
     }
