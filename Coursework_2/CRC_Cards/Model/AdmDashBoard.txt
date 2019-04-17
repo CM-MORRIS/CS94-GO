@@ -1,0 +1,16 @@
+1) Class name: AdmDashBoard
+2) Author: 
+3) SuperClasses: DashBoard
+4) SubClasses:
+5) Responsibilities:
+    a)  choose play game
+    a)	giveCreditsOption()
+    b)	createUserOption()
+    c)	deleteUserOpiton()
+    d)	displayAdminOption()
+    e)	makeAdminOption()
+6) Collaborations:
+    a)	Database: In order to actually send/recieve data from users.
+    b)	Leaderboard: To be able to show who is an admin on the leaderboard.
+    c)	Admin: To recognise if the user logged in is an admin and give them acce
+    d)	DashBoardGUI: To change the GUI based on whether the admin is logged in.
