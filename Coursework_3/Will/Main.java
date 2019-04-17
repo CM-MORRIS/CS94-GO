@@ -7,39 +7,35 @@ package application;
     import javafx.geometry.Pos;
 	import javafx.stage.Stage;
 	import javafx.scene.Scene;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.BorderPane;
-	import javafx.scene.layout.Pane;
+    import javafx.scene.input.MouseEvent;
+    import javafx.scene.layout.Pane;
 	import javafx.scene.layout.StackPane;
 	import javafx.scene.paint.Color;
-	import javafx.scene.shape.Circle;
-	import javafx.scene.shape.Rectangle;
+    import javafx.scene.shape.Rectangle;
 	import javafx.scene.Parent;
 
 
 	public class Main extends Application implements EventHandler<ActionEvent>{
-		double mouseX ;
 		private Parent createContent() {
-			
-			
 			Pane root = new Pane();
-			root.setPrefSize(500,500);
-			
-			for (int i=0 ; i < 9 ; ++i) {
-				for(int j = 0 ; j < 9 ; ++j) {
+			root.setPrefSize(1000,1000);
+		
+			 for(int i =1 ; i < 9; ++i) {
+				for(int j=1 ; j< 9 ; ++j) {
 					Tile tile = new Tile();
-					tile.setTranslateX(j*50);
-					tile.setTranslateY(i*50);
-					
-					root.getChildren().add(tile);
-				}
-				
-			}
+					tile.setTranslateX(j*100);
+					tile.setTranslateY(i*100);
+					 root.getChildren().addAll(tile);
+					 }
+				 }
+			
 			root.setOnMouseClicked(new EventHandler<MouseEvent>() {
 			    @Override
 			        public void handle(MouseEvent event) {
-			        System.out.println(event.getSceneX());
-			        System.out.println(event.getSceneY());
+			    	int x_coord = (int)(Math.rint((event.getSceneX())/100));
+			    	int y_coord = (int)(Math.rint((event.getSceneY())/100));
+			        System.out.println(x_coord+ " + " + y_coord);
+			        
 			    }
 			});
 			return root;
@@ -52,13 +48,14 @@ import javafx.scene.layout.BorderPane;
 		
 		private class Tile extends StackPane{
 			public Tile() {
-				Rectangle boarder = new Rectangle(50,50);
+				Rectangle boarder = new Rectangle(100,100);
 				boarder.setFill(Color.BEIGE);
 				boarder.setStroke(Color.BLACK);
-				setAlignment(Pos.BASELINE_CENTER);
+				setAlignment(Pos.CENTER);
 				getChildren().addAll(boarder);
 			}
 		}
+	
 
 	public static void main(String[] args) {
 		launch(args);
@@ -67,6 +64,5 @@ import javafx.scene.layout.BorderPane;
 	public void handle(ActionEvent event) {
 		// TODO Auto-generated method stub
 		
-	}
-	
+	}	
 }
