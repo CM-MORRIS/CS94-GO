@@ -21,6 +21,5 @@ public class Main {
      */
     private static void newGame(final int size) {
         GameBoard board = new GameBoard(size, size);
-        Liberties liberties = new Liberties(board);
     }
 }

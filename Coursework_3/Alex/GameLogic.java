@@ -8,11 +8,6 @@ package go.core;
 public class GameLogic {
 
     /**
-     * The board the games is being played on.
-     */
-    private GameBoard gameBoard;
-
-    /**
      * Player 1.
      */
     private String player1;
@@ -39,7 +34,6 @@ public class GameLogic {
      * @param p2 String of player 2's name.
      */
     public GameLogic(final GameBoard board, final String p1, final String p2) {
-        gameBoard = board;
         player1 = p1;
         player2 = p2;
         passCounter = 0;
@@ -51,7 +45,7 @@ public class GameLogic {
      * Needs to force the end of the game is the counter reaches 2.
      */
     public void incrementPassCounter() {
-        passCounter += 1;
+        ++passCounter;
         /*if (passCounter >= 2) {
             TODO THIS IS WHERE WE PUT THE END GAME FUNCTION
         }
@@ -62,7 +56,7 @@ public class GameLogic {
      * Method to increment the turn counter.
      */
     public void incrementTurnCounter() {
-        turnCounter += 1;
+        ++turnCounter;
     }
 
     /**
@@ -103,11 +97,11 @@ public class GameLogic {
      * Method to check who's turn in the game it is currently.
      * @return the current player
      */
-    public String whosTurn() {
+    public int whosTurn() {
         if (turnCounter % 2 == 0) {
-            return player2;
+            return 2;
         } else {
-            return player1;
+            return 1;
         }
     }
 }

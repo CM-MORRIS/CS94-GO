@@ -20,10 +20,16 @@ import javafx.scene.layout.Pane;
  */
 public class BoardHandler extends Application
         implements EventHandler<ActionEvent> {
+
     /**
      * Producing a new GameBoard to be used within the JavaFX program.
      */
     private GameBoard board = new GameBoard(9, 9);
+
+    /**
+     * Producing a GameLogic instance to track players.
+     */
+    private GameLogic game = new GameLogic(board, "Alex", "Will");
 
     /**
      * Parent to display the pane and the content on.
@@ -45,16 +51,29 @@ public class BoardHandler extends Application
         }
 
         root.setOnMouseClicked(event -> {
-            int xPosition = (int) Math.rint(event.getSceneX() / boardScalingFactor);
-            int yPosition = (int) Math.rint(event.getSceneY() / boardScalingFactor);
-            // TODO FIX THE OUT OF BOUNDS ERRORS FOR -1 AND 9.
-                if (board.getIntersectionState(xPosition - 1, yPosition - 1) == 0) {
-                    board.setIntersectionState(xPosition - 1, yPosition - 1, 1);
+            int xPosition = (int) Math.rint(event.getSceneX()
+                    / boardScalingFactor);
+            int yPosition = (int) Math.rint(event.getSceneY()
+                    / boardScalingFactor);
+            if (xPosition > -1 && xPosition < 10 && yPosition > -1
+                    && yPosition < 10) {
+                if (board.getIntersectionState(xPosition - 1,
+                        yPosition - 1) == 0) {
+                    board.setIntersectionState(xPosition - 1,
+                            yPosition - 1, game.whosTurn());
 
-                    Circle circle = new Circle(xPosition * boardScalingFactor,
-                            yPosition * boardScalingFactor, 35, Color.BLACK);
-                    root.getChildren().addAll(circle);
+                    if (game.whosTurn() == 1) {
+                        Circle circle = new Circle(xPosition * boardScalingFactor,
+                                yPosition * boardScalingFactor, 35, Color.BLACK);
+                        root.getChildren().addAll(circle);
+                    } else {
+                        Circle circle = new Circle(xPosition * boardScalingFactor,
+                                yPosition * boardScalingFactor, 35, Color.WHITE);
+                        root.getChildren().addAll(circle);
+                    }
+                    game.incrementTurnCounter();
                 }
+            }
                 /*
                 System.out.println("(" + xPosition + ", " + yPosition + ")");
                 System.out.println("(" + event.getSceneX() + ", "
@@ -67,6 +86,11 @@ public class BoardHandler extends Application
     public void start(final Stage primaryStage) {
         primaryStage.setScene(new Scene(createContent()));
         primaryStage.show();
+    }
+
+    @Override
+    public void handle(final ActionEvent event) {
+
     }
 
     /**
@@ -85,18 +109,4 @@ public class BoardHandler extends Application
             getChildren().addAll(boarder);
         }
     }
-
-    /**
-     * The main function to run the javafx.
-     * @param args Takes the args?
-     */
-    public static void main(final String[] args) {
-        launch(args);
-    }
-    @Override
-    public void handle(final ActionEvent event) {
-        // TODO Auto-generated method stub
-
-    }
-
 }
