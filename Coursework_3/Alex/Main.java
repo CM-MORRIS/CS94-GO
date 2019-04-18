@@ -12,6 +12,7 @@ public class Main {
         newGame(9);
         Application.launch(BoardHandler.class, args);
 
+
     }
     /**
      * New game method which sets up a GameBoard of a given size.
@@ -20,5 +21,6 @@ public class Main {
      */
     private static void newGame(final int size) {
         GameBoard board = new GameBoard(size, size);
+        Liberties liberties = new Liberties(board);
     }
 }

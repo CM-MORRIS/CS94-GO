@@ -47,6 +47,7 @@ public class BoardHandler extends Application
         root.setOnMouseClicked(event -> {
             int xPosition = (int) Math.rint(event.getSceneX() / boardScalingFactor);
             int yPosition = (int) Math.rint(event.getSceneY() / boardScalingFactor);
+            // TODO FIX THE OUT OF BOUNDS ERRORS FOR -1 AND 9.
                 if (board.getIntersectionState(xPosition - 1, yPosition - 1) == 0) {
                     board.setIntersectionState(xPosition - 1, yPosition - 1, 1);
 
