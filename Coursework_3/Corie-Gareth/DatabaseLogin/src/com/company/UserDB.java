@@ -38,8 +38,7 @@ public class UserDB {
             Statement statement = conn.createStatement();
 
             statement.executeUpdate("INSERT INTO " + TABLE_USERS + " (" + COLUMN_USERNAME + ", " + COLUMN_PASSWORD + ") " +
-                              "VALUES " + "(" + "'" + u + "'" + ", " + "'" + p + "'" + ")");
-
+                                     "VALUES " + "(" + "'" + u + "'" + ", " + "'" + p + "'" + ")");
             statement.close();
             conn.close();
 
@@ -49,24 +48,26 @@ public class UserDB {
     }
 
 
-    // not complete
+    // if user and password match returns true NOT WORKING
     public static boolean checkUser(String u, String p) {
+
+        String query = ("SELECT EXISTS(SELECT * FROM " + TABLE_USERS + " WHERE " + COLUMN_USERNAME + " = " + "'" + u + "'" +
+                "AND " + COLUMN_PASSWORD + " = " + "'" + p + "'" + ")");
+
+
         try {
+
             Connection conn = DriverManager.getConnection(CONNECTION_STRING);
-            Statement statement = conn.createStatement();
+            Statement statement;
+            ResultSet resultSet;
+            statement = conn.createStatement();
+            resultSet = statement.executeQuery(query);
+            return resultSet.next();
 
-            ResultSet result = statement.executeQuery("SELECT * FROM " + TABLE_USERS + " WHERE " +
-                                                        COLUMN_USERNAME + " = " + u + " AND " + COLUMN_PASSWORD + " = " + p);
-
-            statement.close();
-            conn.close();
-
-            return (result.next());
-
-        } catch (SQLException e) {
-            System.out.println("Something went wrong: " + e.getMessage());
-        }
-        return false;
+        } catch (SQLException se) {
+            se.printStackTrace();
+            return false;
+          }
     }
 
 
@@ -75,5 +76,5 @@ public class UserDB {
 
     }
 
-    
+
 }
