@@ -17,7 +17,7 @@ public class UserDB {
             Connection conn = DriverManager.getConnection(CONNECTION_STRING);
             Statement statement = conn.createStatement();
 
-            statement.execute("DROP TABLE IF EXISTS " + TABLE_USERS);
+            // statement.execute("DROP TABLE IF EXISTS " + TABLE_USERS);
 
             statement.execute("CREATE TABLE IF NOT EXISTS " + TABLE_USERS + " (" + COLUMN_ID + " INTEGER PRIMARY KEY, " +
                         COLUMN_USERNAME + " TEXT NOT NULL, " + COLUMN_PASSWORD + " TEXT NOT NULL" + ")");
@@ -30,7 +30,7 @@ public class UserDB {
           }
     }
 
-
+//pomwopemowemowefow
 
     public static void addUser(String u, String p) {
         try {
@@ -53,7 +53,6 @@ public class UserDB {
 
         String query = ("SELECT EXISTS(SELECT * FROM " + TABLE_USERS + " WHERE " + COLUMN_USERNAME + " = " + "'" + u + "'" +
                 "AND " + COLUMN_PASSWORD + " = " + "'" + p + "'" + ")");
-
 
         try {
 

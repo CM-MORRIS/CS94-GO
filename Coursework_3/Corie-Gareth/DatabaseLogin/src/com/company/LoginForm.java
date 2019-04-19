@@ -22,72 +22,73 @@ public class LoginForm extends Application {
 
       @Override
       public void start (Stage primaryStage){
-        try {
-          primaryStage.setTitle("Login");
+          try {
+              primaryStage.setTitle("Login");
 
-          BorderPane bp = new BorderPane();
-          bp.setPadding(new Insets(10, 50, 50, 50));
+              BorderPane bp = new BorderPane();
+              bp.setPadding(new Insets(10, 50, 50, 50));
 
-          // Adding HBox
-          HBox hb = new HBox();
-          hb.setPadding(new Insets(20, 20, 20, 30));
+              // Adding HBox
+              HBox hb = new HBox();
+              hb.setPadding(new Insets(20, 20, 20, 30));
 
-          // Adding GridPane
-          GridPane gridPane = new GridPane();
-          gridPane.setPadding(new Insets(20, 20, 20, 20));
-          gridPane.setHgap(5);
-          gridPane.setVgap(5);
-
-
-          // Implementing Nodes for GridPane
-          Label lblUserName = new Label("Username");
-          final TextField txtUserName = new TextField();
-
-          Label lblPassword = new Label("Password");
-          final PasswordField txtPassword = new PasswordField();
+              // Adding GridPane
+              GridPane gridPane = new GridPane();
+              gridPane.setPadding(new Insets(20, 20, 20, 20));
+              gridPane.setHgap(5);
+              gridPane.setVgap(5);
 
 
-          // Register Button
-          Button btnRegister = new Button("Register");
-          final Label lblMessageRegister = new Label();
+              // Implementing Nodes for GridPane
+              Label lblUserName = new Label("Username");
+              final TextField txtUserName = new TextField();
 
-            // Login Button
-            Button btnLogin = new Button("Login");
-            final Label lblMessageLogin = new Label();
-
+              Label lblPassword = new Label("Password");
+              final PasswordField txtPassword = new PasswordField();
 
 
+              // Register Button
+              Button btnRegister = new Button("Register");
+              final Label lblMessageRegister = new Label();
 
-            // handles what happens when 'Register' pressed
-
-            btnRegister.setOnAction(new EventHandler<ActionEvent>() {
-                @Override // <- notice the annotation, it overrides from the interface.
-                public void handle(ActionEvent event) {
-
-                    // instructions on button press
-                        UserDB.addUser(txtUserName.getText(), txtPassword.getText());
-                        System.out.println("Register button pressed");
-                    }
-            });
-
-            // handles what happens when 'Login' pressed
-
-            btnLogin.setOnAction(new EventHandler<ActionEvent>() {
-                @Override // <- notice the annotation, it overrides from the interface.
-                public void handle(ActionEvent event) {
-                    System.out.println("Login button pressed");
-
-                    // instructions on button press
-                    if (UserDB.checkUser(txtUserName.getText(), txtPassword.getText())) {
-                        System.out.println(UserDB.checkUser(txtUserName.getText(), txtPassword.getText()));
-                        System.out.println("Successfully found user");
-                    }
-                    else System.out.println("User: " + txtUserName.getText() + " AND password: " + txtPassword.getText() + " not found");
-                }
-            });
+              // Login Button
+              Button btnLogin = new Button("Login");
+              final Label lblMessageLogin = new Label();
 
 
-            // Adding Nodes to GridPane layout
+
+
+              // handles what happens when 'Register' pressed NEED TO ADD CHECKUSER BEFORE REGISTERING
+
+              btnRegister.setOnAction(new EventHandler<ActionEvent>() {
+                  @Override // <- notice the annotation, it overrides from the interface.
+                  public void handle(ActionEvent event) {
+
+                      // instructions on button press
+                      UserDB.addUser(txtUserName.getText(), txtPassword.getText());
+                      System.out.println("Register button pressed");
+                  }
+              });
+
+
+              // handles what happens when 'Login' pressed NOT WORKING
+
+              btnLogin.setOnAction(new EventHandler<ActionEvent>() {
+                  @Override // <- notice the annotation, it overrides from the interface.
+                  public void handle(ActionEvent event) {
+                      System.out.println("Login button pressed");
+
+                      // instructions on button press
+                      if (UserDB.checkUser(txtUserName.getText(), txtPassword.getText())) {
+                          System.out.println(UserDB.checkUser(txtUserName.getText(), txtPassword.getText()));
+                          System.out.println("Successfully found user");
+                      }
+                      else System.out.println("User: " + txtUserName.getText() + " AND password: " + txtPassword.getText() + " not found");
+                  }
+              });
+
+
+              // Adding Nodes to GridPane layout
 
             gridPane.add(lblUserName, 0, 0);
             gridPane.add(txtUserName, 1, 0);
