@@ -8,7 +8,6 @@ import java.util.Set;
  * it is used by the GameBoard class.
  * @author Alex Mair
  */
-
 public class Intersection {
 
     /**
@@ -22,7 +21,7 @@ public class Intersection {
     private int yPosition;
 
     /**
-     * The number of liberties each intersection has.
+     * A set of intersections which are the liberties to the given intersection.
      */
     private Set<Intersection> liberties;
 
@@ -31,7 +30,9 @@ public class Intersection {
      */
     private int state;
 
-
+    /**
+     * The size of the board being played upon.
+     */
     private final int size;
 
     /**
@@ -48,50 +49,54 @@ public class Intersection {
         size = dimension - 1;
     }
 
+    /**
+     * This method sets the liberties for all intersections on the board.
+     * As long as the intersections already exist.
+     * @param board This is the game board being played upon.
+     */
     public void setLiberties(GameBoard board) {
         liberties = new HashSet<Intersection>();
         if (this.xPosition == size) {
             if (this.yPosition == 0) { //BottomRight
-                liberties.add(board.getIntersections(xPosition - 1, yPosition));
-                liberties.add(board.getIntersections(xPosition , yPosition + 1));
+                liberties.add(board.getIntersection(xPosition - 1, yPosition));
+                liberties.add(board.getIntersection(xPosition , yPosition + 1));
             } else if (this.yPosition == size) { //TopRight
-                liberties.add(board.getIntersections(xPosition - 1, yPosition));
-                liberties.add(board.getIntersections(xPosition, yPosition - 1));
+                liberties.add(board.getIntersection(xPosition - 1, yPosition));
+                liberties.add(board.getIntersection(xPosition, yPosition - 1));
             } else { //Right
-                liberties.add(board.getIntersections(xPosition, yPosition + 1));
-                liberties.add(board.getIntersections(xPosition - 1, yPosition));
-                liberties.add(board.getIntersections(xPosition, yPosition - 1));
+                liberties.add(board.getIntersection(xPosition, yPosition + 1));
+                liberties.add(board.getIntersection(xPosition - 1, yPosition));
+                liberties.add(board.getIntersection(xPosition, yPosition - 1));
             }
         } else if (this.xPosition == 0) {
             if (this.yPosition == 0) { //BottomLeft
-                liberties.add(board.getIntersections(xPosition, yPosition + 1));
-                liberties.add(board.getIntersections(xPosition + 1, yPosition));
+                liberties.add(board.getIntersection(xPosition, yPosition + 1));
+                liberties.add(board.getIntersection(xPosition + 1, yPosition));
             } else if (this.yPosition == size) { //TopLeft
-                liberties.add(board.getIntersections(xPosition, yPosition - 1));
-                liberties.add(board.getIntersections(xPosition + 1, yPosition));
+                liberties.add(board.getIntersection(xPosition, yPosition - 1));
+                liberties.add(board.getIntersection(xPosition + 1, yPosition));
             } else { //Left
-                liberties.add(board.getIntersections(xPosition, yPosition + 1));
-                liberties.add(board.getIntersections(xPosition + 1, yPosition));
-                liberties.add(board.getIntersections(xPosition, yPosition - 1));
+                liberties.add(board.getIntersection(xPosition, yPosition + 1));
+                liberties.add(board.getIntersection(xPosition + 1, yPosition));
+                liberties.add(board.getIntersection(xPosition, yPosition - 1));
             }
         } else {
             if (this.yPosition == 0) { //Bottom
-                liberties.add(board.getIntersections(xPosition - 1, yPosition));
-                liberties.add(board.getIntersections(xPosition, yPosition + 1));
-                liberties.add(board.getIntersections(xPosition + 1, yPosition));
+                liberties.add(board.getIntersection(xPosition - 1, yPosition));
+                liberties.add(board.getIntersection(xPosition, yPosition + 1));
+                liberties.add(board.getIntersection(xPosition + 1, yPosition));
             } else if (this.yPosition == size) { //Top
-                liberties.add(board.getIntersections(xPosition - 1, yPosition));
-                liberties.add(board.getIntersections(xPosition, yPosition - 1));
-                liberties.add(board.getIntersections(xPosition + 1, yPosition));
+                liberties.add(board.getIntersection(xPosition - 1, yPosition));
+                liberties.add(board.getIntersection(xPosition, yPosition - 1));
+                liberties.add(board.getIntersection(xPosition + 1, yPosition));
             } else { //Middle
-                liberties.add(board.getIntersections(xPosition - 1, yPosition));
-                liberties.add(board.getIntersections(xPosition, yPosition + 1));
-                liberties.add(board.getIntersections(xPosition + 1, yPosition));
-                liberties.add(board.getIntersections(xPosition, yPosition - 1));
+                liberties.add(board.getIntersection(xPosition - 1, yPosition));
+                liberties.add(board.getIntersection(xPosition, yPosition + 1));
+                liberties.add(board.getIntersection(xPosition + 1, yPosition));
+                liberties.add(board.getIntersection(xPosition, yPosition - 1));
             }
         }
     }
-
 
     /**
      * Gets the x position of the intersection.
@@ -100,42 +105,43 @@ public class Intersection {
     public int getxPosition() {
         return xPosition;
     }
+
     /**
      * Gets the y position of the intersection.
      * @return yPosition
      */
-
     public int getyPosition() {
         return yPosition;
     }
 
     /**
-     * Returns the number of liberties that each intersection has.
+     * Returns the set of liberties.
      * @return liberties
      */
     public Set<Intersection> getLiberties() {
         return liberties;
     }
 
-    /**
-     * Sets the number of liberties to whatever the new number of liberties is.
-     * @param newLiberties Is how many liberties the intersection now has.
-     */
-    public void changeLibertyState(final int x, final int y, final int newState) {
-        for (Intersection n : liberties) {
-            n.state = newState;
-        }
-    }
 
-    public int freeLiberties() {
-        int free = 0;
-        for (Intersection n : this.liberties) {
-            if (n.state == 0) {
-                free++;
-            }
-        }
-        return free;
-    }
+//    public void changeLibertyState(final int newState) {
+//        for (Intersection n : this.liberties) {
+//            for (Intersection k : n.liberties) {
+//                if (k.yPosition == this.yPosition && k.xPosition == this.xPosition) {
+//                    k.state = newState;
+//                }
+//            }
+//        }
+//    }
+
+//    public int freeLiberties() {
+//        int free = 0;
+//        for (Intersection n : this.liberties) {
+//            if (n.state == 0) {
+//                free++;
+//            }
+//        }
+//        return free;
+//    }
 
     /**
      * Returns the current state of the intersection.

@@ -25,29 +25,29 @@ public class GameBoard {
     /**
      * The GameBoard constructor that makes the actual GameBoard
      * with given height and width inputs.
-     *
-     * @param w This is the width of the board.
-     * @param h This is the height of the board.
+     * @param width This is the width of the board.
+     * @param height This is the height of the board.
      */
-    public GameBoard(final int w, final int h) {
-        width = w;
-        height = h;
+    public GameBoard(final int width, final int height) {
+        this.width = width;
+        this.height = height;
         intersections = new Intersection[width][height];
         for (int i = 0; i < height; i++) {
             for (int j = 0; j < width; j++) {
-                intersections[j][i] = new Intersection(this.height, j, i);
+                intersections[j][i] = new Intersection(this.width, j, i);
+                //makes all the intersections.
             }
         }
         for (int i = 0; i < height; i++) {
             for (int j = 0; j < width; j++) {
                 intersections[j][i].setLiberties(this);
+                //assigns liberties to all intersections.
             }
         }
     }
 
     /**
      * Method to get width of board.
-     *
      * @return width
      */
     public int getWidth() {
@@ -56,14 +56,19 @@ public class GameBoard {
 
     /**
      * Method to get the height of the board.
-     *
      * @return height
      */
     public int getHeight() {
         return height;
     }
 
-    public Intersection getIntersections(final int x, final int y) {
+    /**
+     * Method to get the intersection at a given point.
+     * @param x The x coordinate.
+     * @param y The y coordinate.
+     * @return The intersection.
+     */
+    public Intersection getIntersection(final int x, final int y) {
         return intersections[x][y];
     }
 
@@ -88,31 +93,40 @@ public class GameBoard {
         intersections[x][y].setState(state);
     }
 
-    public boolean isCaptured(final int x, final int y) {
-        boolean surrounded = false;
-        int owner = intersections[x][y].getState();
-        if (intersections[x-1][y].getState() == 2 || intersections[x][y-1].getState() == 2
-            || intersections[x+1][y].getState() == 2 || intersections[x][y+1].getState() == 2) {
-            surrounded = true;
-        }
-        return surrounded;
-    }
+//    public boolean isCaptured(final int x, final int y) {
+//        boolean surrounded = false;
+//        int owner = intersections[x][y].getState();
+//        if (intersections[x-1][y].getState() == 2 || intersections[x][y-1].getState() == 2
+//            || intersections[x+1][y].getState() == 2 || intersections[x][y+1].getState() == 2) {
+//            surrounded = true;
+//        }
+//        return surrounded;
+//    }
 
-    public boolean legalMove(final int x, final int y, GameLogic game) {
-        int player = game.whosTurn();
+    /**
+     * Checks to see if the liberties surround the space are
+     * occupied by the opponent.
+     * @param intersection
+     * @param game
+     * @return true or false
+     */
+    public boolean isSuicide(Intersection intersection, GameLogic game) {
         int opponent = game.notTheirTurn();
-        if (intersections[x-1][y].getState() == opponent  && intersections[x][y-1].getState() == opponent
-                && intersections[x+1][y].getState() == opponent && intersections[x][y+1].getState() == opponent) {
-            return false;
-        } else {
-            return true;
+        for (Intersection n : intersection.getLiberties()) {
+            if (n.getState() != opponent) {
+                return true;
+            }
         }
-
+        return false;
     }
 
+    /**
+     * Check to see if something is within the board parameters.
+     * @param x The x coordinate to check.
+     * @param y The y coordinate to check.
+     * @return true or false
+     */
     public boolean onBoard(final int x, final int y) {
         return (x >= 0 && x < width && y >= 0 && y < width);
     }
-
 }
-
