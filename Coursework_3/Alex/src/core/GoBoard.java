@@ -10,7 +10,7 @@ public class GoBoard extends JFrame {
     static JFrame f;
 
     private static GameBoard board = new GameBoard(13, 13);
-    private static GameLogic game = new GameLogic(board, "Alex", "Will");
+    private static GameLogic game = new GameLogic("Alex", "Will");
 
     private static JPanel jBoard;
     private static JButton[][] jIntersections;

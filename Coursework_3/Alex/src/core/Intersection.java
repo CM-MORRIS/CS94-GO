@@ -20,10 +20,17 @@ public class Intersection {
      */
     private int yPosition;
 
+
     /**
-     * A set of intersections which are the liberties to the given intersection.
+     * This is the board that the intersections are all on.
      */
-    private Set<Intersection> liberties;
+    private final GameBoard board;
+
+    /**
+     * A set of intersections which are the neighbours
+     *to the given intersection.
+     */
+    private Set<Intersection> neighbours;
 
     /**
      * Who occupies the intersection.
@@ -31,69 +38,71 @@ public class Intersection {
     private int state;
 
     /**
-     * The size of the board being played upon.
+     * The stone or chain of stones that is associated with this intersection.
      */
-    private final int size;
+    private StoneChain stoneChain;
 
     /**
      * Constructor for intersections, given specific board
      * and position upon the board.
      * @param x This is the width position.
      * @param y This is the height position.
-     * @param dimension This is the size of the game board.
+     * @param board This is the game board being played on.
      */
-    public Intersection(final int dimension, final int x, final int y) {
+    public Intersection(final GameBoard board, final int x, final int y) {
         xPosition = x;
         yPosition = y;
         state = 0;
-        size = dimension - 1;
+        this.board = board;
+        stoneChain = null;
     }
 
     /**
-     * This method sets the liberties for all intersections on the board.
+     * This method sets the neighbours
+     *for all intersections on the board.
      * As long as the intersections already exist.
      * @param board This is the game board being played upon.
      */
-    public void setLiberties(GameBoard board) {
-        liberties = new HashSet<Intersection>();
-        if (this.xPosition == size) {
+    public void setneighbours() {
+        neighbours = new HashSet<Intersection>();
+        if (this.xPosition == board.getWidth() - 1) {
             if (this.yPosition == 0) { //BottomRight
-                liberties.add(board.getIntersection(xPosition - 1, yPosition));
-                liberties.add(board.getIntersection(xPosition , yPosition + 1));
-            } else if (this.yPosition == size) { //TopRight
-                liberties.add(board.getIntersection(xPosition - 1, yPosition));
-                liberties.add(board.getIntersection(xPosition, yPosition - 1));
+                neighbours.add(board.getIntersection(xPosition - 1, yPosition));
+                neighbours.add(board.getIntersection(xPosition , yPosition + 1));
+            } else if (this.yPosition == board.getWidth() - 1) { //TopRight
+                neighbours.add(board.getIntersection(xPosition - 1, yPosition));
+                neighbours.add(board.getIntersection(xPosition, yPosition - 1));
             } else { //Right
-                liberties.add(board.getIntersection(xPosition, yPosition + 1));
-                liberties.add(board.getIntersection(xPosition - 1, yPosition));
-                liberties.add(board.getIntersection(xPosition, yPosition - 1));
+                neighbours.add(board.getIntersection(xPosition, yPosition + 1));
+                neighbours.add(board.getIntersection(xPosition - 1, yPosition));
+                neighbours.add(board.getIntersection(xPosition, yPosition - 1));
             }
         } else if (this.xPosition == 0) {
             if (this.yPosition == 0) { //BottomLeft
-                liberties.add(board.getIntersection(xPosition, yPosition + 1));
-                liberties.add(board.getIntersection(xPosition + 1, yPosition));
-            } else if (this.yPosition == size) { //TopLeft
-                liberties.add(board.getIntersection(xPosition, yPosition - 1));
-                liberties.add(board.getIntersection(xPosition + 1, yPosition));
+                neighbours.add(board.getIntersection(xPosition, yPosition + 1));
+                neighbours.add(board.getIntersection(xPosition + 1, yPosition));
+            } else if (this.yPosition == board.getWidth() - 1) { //TopLeft
+                neighbours.add(board.getIntersection(xPosition, yPosition - 1));
+                neighbours.add(board.getIntersection(xPosition + 1, yPosition));
             } else { //Left
-                liberties.add(board.getIntersection(xPosition, yPosition + 1));
-                liberties.add(board.getIntersection(xPosition + 1, yPosition));
-                liberties.add(board.getIntersection(xPosition, yPosition - 1));
+                neighbours.add(board.getIntersection(xPosition, yPosition + 1));
+                neighbours.add(board.getIntersection(xPosition + 1, yPosition));
+                neighbours.add(board.getIntersection(xPosition, yPosition - 1));
             }
         } else {
             if (this.yPosition == 0) { //Bottom
-                liberties.add(board.getIntersection(xPosition - 1, yPosition));
-                liberties.add(board.getIntersection(xPosition, yPosition + 1));
-                liberties.add(board.getIntersection(xPosition + 1, yPosition));
-            } else if (this.yPosition == size) { //Top
-                liberties.add(board.getIntersection(xPosition - 1, yPosition));
-                liberties.add(board.getIntersection(xPosition, yPosition - 1));
-                liberties.add(board.getIntersection(xPosition + 1, yPosition));
+                neighbours.add(board.getIntersection(xPosition - 1, yPosition));
+                neighbours.add(board.getIntersection(xPosition, yPosition + 1));
+                neighbours.add(board.getIntersection(xPosition + 1, yPosition));
+            } else if (this.yPosition == board.getWidth() - 1) { //Top
+                neighbours.add(board.getIntersection(xPosition - 1, yPosition));
+                neighbours.add(board.getIntersection(xPosition, yPosition - 1));
+                neighbours.add(board.getIntersection(xPosition + 1, yPosition));
             } else { //Middle
-                liberties.add(board.getIntersection(xPosition - 1, yPosition));
-                liberties.add(board.getIntersection(xPosition, yPosition + 1));
-                liberties.add(board.getIntersection(xPosition + 1, yPosition));
-                liberties.add(board.getIntersection(xPosition, yPosition - 1));
+                neighbours.add(board.getIntersection(xPosition - 1, yPosition));
+                neighbours.add(board.getIntersection(xPosition, yPosition + 1));
+                neighbours.add(board.getIntersection(xPosition + 1, yPosition));
+                neighbours.add(board.getIntersection(xPosition, yPosition - 1));
             }
         }
     }
@@ -115,27 +124,59 @@ public class Intersection {
     }
 
     /**
-     * Returns the set of liberties.
-     * @return liberties
+     * Returns the set of neighbours
+     *.
+     * @return neighbours
+     *
      */
-    public Set<Intersection> getLiberties() {
-        return liberties;
+    public Set<Intersection> getNeighbours() {
+        return neighbours;
     }
 
 
-//    public void changeLibertyState(final int newState) {
-//        for (Intersection n : this.liberties) {
-//            for (Intersection k : n.liberties) {
-//                if (k.yPosition == this.yPosition && k.xPosition == this.xPosition) {
-//                    k.state = newState;
-//                }
-//            }
-//        }
-//    }
+    public void changeLibertyState(final int newState) {
+        for (Intersection n : this.neighbours) {
+            for (Intersection k : n.neighbours) {
+                if (k.yPosition == this.yPosition && k.xPosition == this.xPosition) {
+                    k.state = newState;
+                }
+            }
+        }
+    }
 
-//    public int freeLiberties() {
+    /**
+     * Determines whether the placed intersection stone kills others.
+     * @param game is the state of the game
+     * @return a list of dead intersections.
+     */
+    public Set<Intersection> killer(GameLogic game) {
+        Set<Intersection> dead = new HashSet<>();
+        for (Intersection n : this.getNeighbours()) {
+            int surrounded = 0;
+            if (n.state == game.opponent()) {
+                if (n.getStoneChain().getLiberties().size() == 0) {
+                    dead.add(n);
+                } else {
+                    for (Intersection k : n.getNeighbours()) {
+                        if (k.state == game.whosTurn()) {
+                            surrounded++;
+                        }
+                    }
+                    if (surrounded == n.getStoneChain().getLiberties().size()) {
+                        dead.add(n);
+                    }
+                }
+            }
+        }
+        return dead;
+    }
+
+
+//    public int freeNeighbours
+//   () {
 //        int free = 0;
-//        for (Intersection n : this.liberties) {
+//        for (Intersection n : this.neighbours
+//       ) {
 //            if (n.state == 0) {
 //                free++;
 //            }
@@ -157,5 +198,32 @@ public class Intersection {
      */
     public void setState(final int newState) {
         state = newState;
+    }
+
+    public StoneChain getStoneChain() {
+        return stoneChain;
+    }
+
+    public void setStoneChain(StoneChain stoneChain) {
+        this.stoneChain = stoneChain;
+    }
+
+    public Set<StoneChain> getAdjacentStoneChains() {
+        Set<StoneChain> adjacentStoneChains = new HashSet<StoneChain>();
+
+        int[] xNeighbour = {-1,0,1,0}, yNeighbour = {0,-1,0,1};
+
+        for (int i = 0; i < xNeighbour.length ; i++) {
+            int X = board.getWidth() + xNeighbour[i];
+            int Y = board.getHeight() + yNeighbour[i];
+
+            if (board.onBoard(X, Y)) {
+                Intersection adjIntersection = board.getIntersection(X, Y);
+                if (adjIntersection.stoneChain != null) {
+                    adjacentStoneChains.add(adjIntersection.stoneChain);
+                }
+            }
+        }
+        return adjacentStoneChains;
     }
 }

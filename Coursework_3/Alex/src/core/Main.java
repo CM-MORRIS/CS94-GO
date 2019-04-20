@@ -18,7 +18,6 @@ public class Main {
      *
      * @param size This is the size of the GameBoard
      */
-    private static void newGame(final int size) {
-        GameBoard board = new GameBoard(size, size);
+    private static void newGame(final int size) { GameBoard board = new GameBoard(size, size);
     }
 }

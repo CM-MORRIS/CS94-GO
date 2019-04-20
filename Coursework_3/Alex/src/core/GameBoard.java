@@ -1,4 +1,7 @@
 package core;
+
+import java.util.Set;
+
 /**
  * GameBoard holds the board dimensions and handles counter placement.
  *
@@ -34,13 +37,13 @@ public class GameBoard {
         intersections = new Intersection[width][height];
         for (int i = 0; i < height; i++) {
             for (int j = 0; j < width; j++) {
-                intersections[j][i] = new Intersection(this.width, j, i);
+                intersections[j][i] = new Intersection(this, j, i);
                 //makes all the intersections.
             }
         }
         for (int i = 0; i < height; i++) {
             for (int j = 0; j < width; j++) {
-                intersections[j][i].setLiberties(this);
+                intersections[j][i].setneighbours();
                 //assigns liberties to all intersections.
             }
         }
@@ -111,13 +114,44 @@ public class GameBoard {
      * @return true or false
      */
     public boolean isSuicide(Intersection intersection, GameLogic game) {
-        int opponent = game.notTheirTurn();
-        for (Intersection n : intersection.getLiberties()) {
+        int opponent = game.opponent();
+        for (Intersection n : intersection.getNeighbours()) {
             if (n.getState() != opponent) {
-                return true;
+                return false;
             }
         }
-        return false;
+        return true;
+    }
+
+    /**
+     * Checks whether the move is legal and then updates the stone chains
+     * and states for the move.
+     * @param intersection the point that is being played on.
+     * @param game the state of the game.
+     * @return true if the move is legal and can be done.
+     */
+    public boolean playMove(final Intersection intersection, final GameLogic game) {
+        if (!onBoard(intersection.getxPosition(),intersection.getyPosition())) {
+            return false;
+        } else if (intersection.getState() != 0) {
+            return false;
+        } else if (this.isSuicide(intersection, game)) {
+            return false;
+        } else {
+            Set<StoneChain> adjStoneChains = intersection.getAdjacentStoneChains();
+            StoneChain newStoneChain = new StoneChain(intersection, game);
+            intersection.setStoneChain(newStoneChain);
+            for (StoneChain stoneChain : adjStoneChains) {
+                if (stoneChain.getOwner() == game.whosTurn()) {
+                    newStoneChain.add(intersection);
+                } else {
+                    stoneChain.removeLiberty(intersection);
+                    //stoneChain.die(this);
+                }
+            }
+            intersection.setState(game.whosTurn());
+        }
+        return true;
     }
 
     /**

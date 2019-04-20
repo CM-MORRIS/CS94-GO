@@ -28,7 +28,7 @@ public class BoardHandler extends Application
     /**
      * Producing a GameLogic instance to track players.
      */
-    private GameLogic game = new GameLogic(board, "Alex", "Will");
+    private GameLogic game = new GameLogic("Alex", "Will");
 
     /**
      * Parent to display the pane and the content on.
@@ -60,40 +60,19 @@ public class BoardHandler extends Application
             final int yPos = yPositionPane - 1;
             if (xPositionPane > 0 && xPositionPane < board.getWidth() + 1 && yPositionPane > 0
                     && yPositionPane < board.getHeight() + 1) {
-                if (board.getIntersectionState(xPos,
-                        yPos) == 0 && board.isSuicide(board.getIntersection(xPos, yPos), game)) {
-                    board.setIntersectionState(xPos, yPos, game.whosTurn());
-
-                    if (game.whosTurn() == 1) {
-                        circles[xPos][yPos] = new Circle(xPositionPane * boardScalingFactor,
-                                yPositionPane * boardScalingFactor, 35, Color.BLACK);
-                        circles[xPos][yPos].setStroke(Color.BLACK);
-                        root.getChildren().add(circles[xPos][yPos]);
-                    } else {
-                        circles[xPos][yPos] = new Circle(xPositionPane * boardScalingFactor,
-                                yPositionPane * boardScalingFactor, 35, Color.WHITE);
-                        circles[xPos][yPos].setStroke(Color.BLACK);
-                        root.getChildren().add(circles[xPos][yPos]);
+                if (board.playMove(board.getIntersection(xPos, yPos), game)) {
+                    circles[xPos][yPos] = new Circle(xPositionPane * boardScalingFactor,
+                            yPositionPane * boardScalingFactor, 35, Color.BLACK);
+                    circles[xPos][yPos].setStroke(Color.BLACK);
+                    if (game.whosTurn() == 2) {
+                        circles[xPos][yPos].setFill(Color.WHITE);
                     }
-//                    System.out.println();
-//                    for (Intersection n : board.getIntersection(xPos, yPos).getLiberties()) {
-//                        System.out.print(n.getState() + ", ");
-//                    }
-//                    System.out.println();
-//                    System.out.print(board.getIntersection(xPos, yPos).freeLiberties());
-//
-//                    System.out.println();
-//                    board.getIntersection(xPos, yPos).changeLibertyState(game.whosTurn());
-//                    System.out.print(board.getIntersection(xPositionPane, yPos).getState());
-//                    System.out.println();
-//                    for (Intersection n : board.getIntersection(xPositionPane -3, yPos).getLiberties()) {
-//                        System.out.print(n.getState() + ", ");
-//                    }
-//
-//                      System.out.println("(" + xPosition + ", " + yPosition + ")");
-//                    if (board.getIntersectionState(xPosition, yPosition -1) == 1) {
-//                        root.getChildren().remove(circles[xPosition][yPos]);
-//                    }
+                    root.getChildren().add(circles[xPos][yPos]);
+                    board.getIntersection(xPos, yPos).setState(game.whosTurn());
+                    for (Intersection n : board.getIntersection(xPos, yPos).killer(game)) {
+                        root.getChildren().remove(circles[n.getxPosition()][n.getyPosition()]);
+                        board.setIntersectionState(n.getxPosition(), n.getyPosition(), 0);
+                    }
                     game.incrementTurnCounter();
                 }
             }

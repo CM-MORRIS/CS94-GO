@@ -29,11 +29,10 @@ public class GameLogic {
 
     /**
      * GameLogic constructor.
-     * @param board the board being played upon
      * @param p1 String of player 1's name.
      * @param p2 String of player 2's name.
      */
-    public GameLogic(final GameBoard board, final String p1, final String p2) {
+    public GameLogic(final String p1, final String p2) {
         player1 = p1;
         player2 = p2;
         passCounter = 0;
@@ -105,7 +104,11 @@ public class GameLogic {
         }
     }
 
-    public int notTheirTurn() {
+    /**
+     * Method to see who the opponent is.
+     * @return the opponent
+     */
+    public int opponent() {
         if (turnCounter % 2 == 0) {
             return 1;
         } else {
