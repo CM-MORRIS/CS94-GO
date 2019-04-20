@@ -1,4 +1,4 @@
-package go.core;
+package core;
 
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -12,7 +12,6 @@ import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import javafx.scene.layout.Pane;
-
 
 /**
  * The BoardHandler class deals with the JavaFX implementations
@@ -50,36 +49,37 @@ public class BoardHandler extends Application
             }
         }
 
+        Circle[][] circles = new Circle[board.getWidth()][board.getHeight()];
         root.setOnMouseClicked(event -> {
             int xPosition = (int) Math.rint(event.getSceneX()
                     / boardScalingFactor);
             int yPosition = (int) Math.rint(event.getSceneY()
                     / boardScalingFactor);
-            if (xPosition > -1 && xPosition < 10 && yPosition > -1
+            if (xPosition > 0 && xPosition < 10 && yPosition > 0
                     && yPosition < 10) {
                 if (board.getIntersectionState(xPosition - 1,
-                        yPosition - 1) == 0) {
+                        yPosition - 1) == 0 && board.legalMove(xPosition-1, yPosition -1, game)) {
                     board.setIntersectionState(xPosition - 1,
                             yPosition - 1, game.whosTurn());
 
                     if (game.whosTurn() == 1) {
-                        Circle circle = new Circle(xPosition * boardScalingFactor,
+                        circles[xPosition-1][yPosition-1] = new Circle(xPosition * boardScalingFactor,
                                 yPosition * boardScalingFactor, 35, Color.BLACK);
-                        root.getChildren().addAll(circle);
+                        circles[xPosition-1][yPosition-1].setStroke(Color.BLACK);
+                        root.getChildren().add(circles[xPosition-1][yPosition-1]);
                     } else {
-                        Circle circle = new Circle(xPosition * boardScalingFactor,
+                        circles[xPosition-1][yPosition-1] = new Circle(xPosition * boardScalingFactor,
                                 yPosition * boardScalingFactor, 35, Color.WHITE);
-                        root.getChildren().addAll(circle);
+                        circles[xPosition-1][yPosition-1].setStroke(Color.BLACK);
+                        root.getChildren().add(circles[xPosition-1][yPosition-1]);
                     }
+//                    if (board.getIntersectionState(xPosition, yPosition -1) == 1) {
+//                        root.getChildren().remove(circles[xPosition][yPosition-1]);
+//                    }
                     game.incrementTurnCounter();
                 }
             }
-                /*
-                System.out.println("(" + xPosition + ", " + yPosition + ")");
-                System.out.println("(" + event.getSceneX() + ", "
-                + event.getSceneY() + ")");
-                */
-            });
+        });
         return root;
     }
     @Override

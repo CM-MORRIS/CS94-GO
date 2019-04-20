@@ -29,8 +29,7 @@ public class UserDB {
             System.out.println("Something went wrong: " + e.getMessage());
           }
     }
-
-//pomwopemowemowefow
+    
 
     public static void addUser(String u, String p) {
         try {

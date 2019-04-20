@@ -1,4 +1,4 @@
-package go.core;
+package core;
 
 /**
  * GameLogic class for handling the turns and passes.
@@ -102,6 +102,14 @@ public class GameLogic {
             return 2;
         } else {
             return 1;
+        }
+    }
+
+    public int notTheirTurn() {
+        if (turnCounter % 2 == 0) {
+            return 1;
+        } else {
+            return 2;
         }
     }
 }

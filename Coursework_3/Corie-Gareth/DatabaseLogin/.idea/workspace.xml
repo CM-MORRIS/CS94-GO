@@ -2,9 +2,33 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e63aaba5-80a9-4eab-8b78-4a93c99bed64" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/com/company/LoginForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/LoginForm.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Alex/src/core/BoardSprites.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Alex/src/core/GoBoard.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Alex/src/core/Player.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Alex/src/core/StoneChain.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/company/LeaderBoard.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Tibo/GoApplication/bin/application/Dashboard.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Tibo/GoApplication/bin/application/Login.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Tibo/GoApplication/bin/application/Main.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Tibo/GoApplication/bin/application/MainController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Tibo/GoApplication/bin/application/application.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Tibo/GoApplication/build.fxbuild" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Tibo/GoApplication/src/application/Dashboard.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Tibo/GoApplication/src/application/Login.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Tibo/GoApplication/src/application/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Tibo/GoApplication/src/application/MainController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Tibo/GoApplication/src/application/application.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Alex/BoardHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Alex/src/core/BoardHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Alex/GameBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Alex/src/core/GameBoard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Alex/GameLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Alex/src/core/GameLogic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Alex/GridPaneExperiments.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Alex/Intersection.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Alex/src/core/Intersection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Alex/Liberties.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Alex/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Alex/src/core/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Alex/TurnCounter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Alex/package-info.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/UserDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/UserDB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/userDB.db" beforeDir="false" afterPath="$PROJECT_DIR$/userDB.db" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -60,8 +84,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/company/UserDB.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="32" column="20" selection-start-line="32" selection-start-column="20" selection-end-line="32" selection-end-column="20" />
+            <state relative-caret-position="420">
+              <caret line="31" column="4" selection-start-line="31" selection-start-column="4" selection-end-line="31" selection-end-column="4" />
             </state>
           </provider>
         </entry>
@@ -155,7 +179,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1555717708009" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1555717710682" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -201,12 +225,12 @@
       <option name="presentableId" value="Default" />
       <updated>1555630174965</updated>
       <workItem from="1555630177807" duration="5591000" />
-      <workItem from="1555637293691" duration="4196000" />
+      <workItem from="1555637293691" duration="4548000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9787000" />
+    <option name="totallyTimeSpent" value="10139000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="826" extended-state="6" />
@@ -269,8 +293,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/UserDB.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="32" column="20" selection-start-line="32" selection-start-column="20" selection-end-line="32" selection-end-column="20" />
+        <state relative-caret-position="420">
+          <caret line="31" column="4" selection-start-line="31" selection-start-column="4" selection-end-line="31" selection-end-column="4" />
         </state>
       </provider>
     </entry>

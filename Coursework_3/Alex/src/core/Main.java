@@ -1,7 +1,4 @@
-package go.core;
-
-
-import javafx.application.Application;
+package core;
 
 /**
  * The Main class for running the Go game.
@@ -10,7 +7,6 @@ import javafx.application.Application;
 public class Main {
     public static void main(final String[] args) {
         newGame(9);
-        Application.launch(BoardHandler.class, args);
 
 
     }

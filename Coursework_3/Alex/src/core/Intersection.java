@@ -1,4 +1,4 @@
-package go.core;
+package core;
 
 /**
  * Intersection class handles determines where stones can be placed
@@ -27,6 +27,7 @@ public class Intersection {
      * Who occupies the intersection.
      */
     private int state;
+
     /**
      * Constructor for intersections, given specific board
      * and position upon the board.
@@ -61,6 +62,7 @@ public class Intersection {
      * Gets the y position of the intersection.
      * @return yPosition
      */
+
     public int getyPosition() {
         return yPosition;
     }

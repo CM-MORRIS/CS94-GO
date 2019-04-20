@@ -1,5 +1,4 @@
-package go.core;
-
+package core;
 /**
  * GameBoard holds the board dimensions and handles counter placement.
  *
@@ -41,10 +40,6 @@ public class GameBoard {
         }
     }
 
-
-
-
-
     /**
      * Method to get width of board.
      *
@@ -83,23 +78,32 @@ public class GameBoard {
                                      final int state) {
         intersections[x][y].setState(state);
     }
-//    /**
-//     * Method to get the state at the intersection, 0 to 8.
-//     * @param x This is the position of the intersection on the width.
-//     * @param y This is the position of the intersection on the height.
-//     * @return This returns the state in the intersection position.
-//     */
-//    public int getIntersectionState(final int x, final int y) {
-//        return intersections;
-//    }
-//
-//    /**
-//     * Method to set the state at a given intersection point.
-//     * @param x The position of the intersection along the width.
-//     * @param y The position of the intersection along the height.
-//     * @param state The new state that the intersection point is set to.
-//     */
-//    public void setState(final int x, final int y, final int state) {
-//        intersections[x][y] = ;
-//    }
+
+    public boolean isCaptured(final int x, final int y) {
+        boolean surrounded = false;
+        int owner = intersections[x][y].getState();
+        if (intersections[x-1][y].getState() == 2 || intersections[x][y-1].getState() == 2
+            || intersections[x+1][y].getState() == 2 || intersections[x][y+1].getState() == 2) {
+            surrounded = true;
+        }
+        return surrounded;
+    }
+
+    public boolean legalMove(final int x, final int y, GameLogic game) {
+        int player = game.whosTurn();
+        int opponent = game.notTheirTurn();
+        if (intersections[x-1][y].getState() == opponent  && intersections[x][y-1].getState() == opponent
+                && intersections[x+1][y].getState() == opponent && intersections[x][y+1].getState() == opponent) {
+            return false;
+        } else {
+            return true;
+        }
+
+    }
+
+    public boolean onBoard(final int x, final int y) {
+        return (x >= 0 && x < width && y >= 0 && y < width);
+    }
+
 }
+
