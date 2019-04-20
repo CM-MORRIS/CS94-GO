@@ -6,6 +6,6 @@ public class Main {
 
       UserDB.createDB();
       LoginForm.launch(LoginForm.class, args);
-      LeaderBoard.showScore();
+      // LeaderBoard.showScore();
     }
 }

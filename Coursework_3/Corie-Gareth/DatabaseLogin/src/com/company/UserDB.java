@@ -46,45 +46,43 @@ public class UserDB {
         }
     }
 
-
     // if user and password match returns true NOT WORKING
     public static boolean checkUser(String u, String p) {
 
-//        String query = ("SELECT EXISTS(SELECT * FROM " + TABLE_USERS + " WHERE " + COLUMN_USERNAME + " = " + "'" + u + "'" +
-//                        "AND " + COLUMN_PASSWORD + " = " + "'" + p + "'" + ")");
 
         String query = "SELECT " + COLUMN_USERNAME + ", " + COLUMN_PASSWORD + " FROM " + TABLE_USERS +
-                " WHERE " + COLUMN_USERNAME + "= '" + u + "'" + " AND " + COLUMN_PASSWORD + "= '" + p + "'";
-
+                " WHERE " + COLUMN_USERNAME + " = '" + u + "'" + " AND " + COLUMN_PASSWORD + " = '" + p + "'";
 
         try {
 
-            Connection conn = DriverManager.getConnection(CONNECTION_STRING);
-            Statement statement;
-            ResultSet resultSet;
-            statement = conn.createStatement();
-            resultSet = statement.executeQuery(query);
-            return resultSet.next();
+            Connection conn = DriverManager.getConnection(CONNECTION_STRING, "username", "password");
 
-        } catch (SQLException se) {
-            se.printStackTrace();
+            PreparedStatement ps = conn.prepareStatement(query);
+
+            ResultSet rs = ps.executeQuery();
+
+
+            // the (1) (2) represents column number of the returned query(rs). (4) would be 4th column etc.
+            // rs.next iterates to next row in returned query set - next will keep iterating until no more rows.
+            while (rs.next()) {
+                if (u.equals(rs.getString(1))) {
+                    if (p.equals(rs.getString(2))) return true;
+                }
+            }
+
+            rs.close();
+            conn.close();
+
+            } catch(SQLException se){
+                se.printStackTrace();
+                return false;
+            }
             return false;
-          }
-    }
+        }
 
-//    String queryString = "SELECT SName, SPwd FROM staff where SName=? and SPwd=?";
-//    ps = con.prepareStatement(queryString);
-//    ps.setString(1,f);
-//    ps.setString(2,s);
-//    ResultSet results = ps.executeQuery();
-//
-//    if (results.next()) {
-//        JOptionPane.showMessageDialog(null, "Username and Password exist");
-//    }else{
-//        JOptionPane.showMessageDialog(null, "Please Check Username and Password ");
-//    }
-//    results.close();
-//    con.close();
+
+
+
 
 
     // not complete
