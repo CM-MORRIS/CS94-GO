@@ -17,8 +17,6 @@ public class UserDB {
             Connection conn = DriverManager.getConnection(CONNECTION_STRING);
             Statement statement = conn.createStatement();
 
-            // statement.execute("DROP TABLE IF EXISTS " + TABLE_USERS);
-
             statement.execute("CREATE TABLE IF NOT EXISTS " + TABLE_USERS + " (" + COLUMN_ID + " INTEGER PRIMARY KEY, " +
                         COLUMN_USERNAME + " TEXT NOT NULL, " + COLUMN_PASSWORD + " TEXT NOT NULL" + ")");
 
@@ -46,8 +44,8 @@ public class UserDB {
         }
     }
 
-    // if user and password match returns true NOT WORKING
-    public static boolean checkUser(String u, String p) {
+    // returns true if user and password match
+    public static boolean checkUserPass(String u, String p) {
 
 
         String query = "SELECT " + COLUMN_USERNAME + ", " + COLUMN_PASSWORD + " FROM " + TABLE_USERS +
@@ -79,6 +77,36 @@ public class UserDB {
             }
             return false;
         }
+
+    public static boolean checkUser(String u) {
+
+
+        String query = "SELECT " + COLUMN_USERNAME + " FROM " + TABLE_USERS +
+                " WHERE " + COLUMN_USERNAME + " = '" + u + "'";
+
+        try {
+
+            Connection conn = DriverManager.getConnection(CONNECTION_STRING);
+
+            PreparedStatement ps = conn.prepareStatement(query);
+
+            ResultSet rs = ps.executeQuery();
+
+
+            while (rs.next()) {
+                if (u.equals(rs.getString(1))) return true;
+            }
+
+            rs.close();
+            conn.close();
+
+        } catch(SQLException se){
+            se.printStackTrace();
+            return false;
+        }
+        return false;
+    }
+
 
 
 

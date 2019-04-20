@@ -63,10 +63,11 @@ public class LoginForm extends Application {
               btnRegister.setOnAction(new EventHandler<ActionEvent>() {
                   @Override // <- notice the annotation, it overrides from the interface.
                   public void handle(ActionEvent event) {
-
-                      // instructions on button press
-                      UserDB.addUser(txtUserName.getText(), txtPassword.getText());
                       System.out.println("Register button pressed");
+
+                      // only updates DB if username available
+                      if (!UserDB.checkUser(txtUserName.getText())) UserDB.addUser(txtUserName.getText(), txtPassword.getText());
+                      else System.out.println("Username taken, choose another.");
                   }
               });
 
@@ -78,9 +79,9 @@ public class LoginForm extends Application {
                   public void handle(ActionEvent event) {
                       System.out.println("Login button pressed");
 
-                      // instructions on button press
-                      if (UserDB.checkUser(txtUserName.getText(), txtPassword.getText())) {
-                          System.out.println(UserDB.checkUser(txtUserName.getText(), txtPassword.getText()));
+                      // instructions on button press. Only logs user in if credentials match.
+                      if (UserDB.checkUserPass(txtUserName.getText(), txtPassword.getText())) {
+                          System.out.println(UserDB.checkUserPass(txtUserName.getText(), txtPassword.getText()));
                           System.out.println("Successfully found user");
                       }
                       else System.out.println("User: " + txtUserName.getText() + " AND password: " + txtPassword.getText() + " not found");
