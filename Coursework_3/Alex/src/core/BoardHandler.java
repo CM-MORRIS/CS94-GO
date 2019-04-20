@@ -73,6 +73,13 @@ public class BoardHandler extends Application
                         circles[xPosition-1][yPosition-1].setStroke(Color.BLACK);
                         root.getChildren().add(circles[xPosition-1][yPosition-1]);
                     }
+                    System.out.println();
+                    for (Intersection n : board.getIntersections(xPosition -1, yPosition -1).getLiberties()) {
+                        System.out.print(n.getState() + ", ");
+                    }
+                    System.out.println();
+                    System.out.print(board.getIntersections(xPosition -1, yPosition -1).freeLiberties());
+                    //System.out.println("(" + xPosition + ", " + yPosition + ")");
 //                    if (board.getIntersectionState(xPosition, yPosition -1) == 1) {
 //                        root.getChildren().remove(circles[xPosition][yPosition-1]);
 //                    }

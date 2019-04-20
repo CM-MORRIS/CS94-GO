@@ -38,6 +38,11 @@ public class GameBoard {
                 intersections[j][i] = new Intersection(this.height, j, i);
             }
         }
+        for (int i = 0; i < height; i++) {
+            for (int j = 0; j < width; j++) {
+                intersections[j][i].setLiberties(this);
+            }
+        }
     }
 
     /**
@@ -56,6 +61,10 @@ public class GameBoard {
      */
     public int getHeight() {
         return height;
+    }
+
+    public Intersection getIntersections(final int x, final int y) {
+        return intersections[x][y];
     }
 
     /**
