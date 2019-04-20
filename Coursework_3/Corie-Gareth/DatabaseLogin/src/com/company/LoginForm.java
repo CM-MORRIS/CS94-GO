@@ -21,7 +21,7 @@ public class LoginForm extends Application {
 
 
       @Override
-      public void start (Stage primaryStage){
+      public void start (Stage primaryStage) {
           try {
               primaryStage.setTitle("Login");
 
@@ -58,16 +58,22 @@ public class LoginForm extends Application {
 
 
 
-              // handles what happens when 'Register' pressed NEED TO ADD CHECKUSER BEFORE REGISTERING
+
+
+
+
+              // handles what happens when 'Register' pressed
 
               btnRegister.setOnAction(new EventHandler<ActionEvent>() {
                   @Override // <- notice the annotation, it overrides from the interface.
                   public void handle(ActionEvent event) {
                       System.out.println("Register button pressed");
-
-                      // only updates DB if username available
-                      if (!UserDB.checkUser(txtUserName.getText())) UserDB.addUser(txtUserName.getText(), txtPassword.getText());
-                      else System.out.println("Username taken, choose another.");
+                    if(!txtUserName.getText().isEmpty() || !txtPassword.getText().isEmpty()) {
+                        // only updates DB if username available
+                        if (!UserDB.checkUser(txtUserName.getText())) UserDB.addUser(txtUserName.getText(), txtPassword.getText());
+                        else System.out.println("Username taken, choose another.");
+                    }
+                    else System.out.println("Please complete all fields");
                   }
               });
 
@@ -83,6 +89,9 @@ public class LoginForm extends Application {
                       if (UserDB.checkUserPass(txtUserName.getText(), txtPassword.getText())) {
                           System.out.println(UserDB.checkUserPass(txtUserName.getText(), txtPassword.getText()));
                           System.out.println("Successfully found user");
+
+                          // Opens LeaderBoard on successful login
+                          new LeaderBoard();
                       }
                       else System.out.println("User: " + txtUserName.getText() + " AND password: " + txtPassword.getText() + " not found");
                   }
@@ -91,47 +100,47 @@ public class LoginForm extends Application {
 
               // Adding Nodes to GridPane layout
 
-            gridPane.add(lblUserName, 0, 0);
-            gridPane.add(txtUserName, 1, 0);
-            gridPane.add(lblPassword, 0, 1);
-            gridPane.add(txtPassword, 1, 1);
-            gridPane.add(btnRegister, 1, 3);
-            gridPane.add(btnLogin, 1, 2);
-            gridPane.add(lblMessageRegister, 1, 2);
-            gridPane.add(lblMessageLogin, 1, 2);
+              gridPane.add(lblUserName, 0, 0);
+              gridPane.add(txtUserName, 1, 0);
+              gridPane.add(lblPassword, 0, 1);
+              gridPane.add(txtPassword, 1, 1);
+              gridPane.add(btnRegister, 1, 3);
+              gridPane.add(btnLogin, 1, 2);
+              gridPane.add(lblMessageRegister, 1, 2);
+              gridPane.add(lblMessageLogin, 1, 2);
 
 
 
             // Adding text
-      Text text = new Text("Login");
-      text.setFont(Font.font("Courier New", FontWeight.BOLD, 28));
+              Text text = new Text("Login to Play Go");
+              text.setFont(Font.font("Courier New", FontWeight.BOLD, 28));
 
-      // Adding text to HBox
-      hb.getChildren().add(text);
+              // Adding text to HBox
+              hb.getChildren().add(text);
 
-      // Add ID's to Nodes
-      bp.setId("bp");
-      gridPane.setId("root");
-      btnRegister.setId("btnRegister");
-      text.setId("text");
+              // Add ID's to Nodes
+              bp.setId("bp");
+              gridPane.setId("root");
+              btnRegister.setId("btnRegister");
+              text.setId("text");
 
-      // Add HBox and GridPane layout to BorderPane Layout
-      bp.setTop(hb);
-      bp.setCenter(gridPane);
+              // Add HBox and GridPane layout to BorderPane Layout
+              bp.setTop(hb);
+              bp.setCenter(gridPane);
 
-      // Adding BorderPane to the scene and loading CSS
-      Scene scene = new Scene(bp);
-      scene.getStylesheets().add(getClass().getClassLoader().getResource("login.css").toExternalForm());
-      primaryStage.setScene(scene);
-      primaryStage.titleProperty().bind(
+              // Adding BorderPane to the scene and loading CSS
+              Scene scene = new Scene(bp);
+              scene.getStylesheets().add(getClass().getClassLoader().getResource("login.css").toExternalForm());
+              primaryStage.setScene(scene);
+              primaryStage.titleProperty().bind(
               scene.widthProperty().asString().
                       concat(" : ").
                       concat(scene.heightProperty().asString()));
-      primaryStage.setResizable(false);
-      primaryStage.show();
+              primaryStage.setResizable(false);
+              primaryStage.show();
 
-        } catch(Exception e) {
-          e.printStackTrace();
+          } catch(Exception e) {
+              e.printStackTrace();
         }
       }
   }

@@ -6,6 +6,12 @@ public class Main {
 
       UserDB.createDB();
       LoginForm.launch(LoginForm.class, args);
-      // LeaderBoard.showScore();
+
+      // Application launch must not be called more than once or exception will be thrown
+        // have to extend stage instead
+
+      // LeaderBoard.launch(LeaderBoard.class, args);
+
+
     }
 }

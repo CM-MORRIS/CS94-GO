@@ -4,23 +4,42 @@ import java.sql.*;
 
 public class UserDB {
 
+    // Includes:
+    // createDB
+    // addUser
+    // checkUserPass
+    // checkUser
+
+
     public static final String DB_NAME = "userDB.db";
     public static final String CONNECTION_STRING = "jdbc:sqlite:/Users/cmorris/Desktop/CS94-GO/Coursework_3/Corie-Gareth/DatabaseLogin/" + DB_NAME;
     public static final String TABLE_USERS = "users";
     public static final String COLUMN_ID = "userid";
     public static final String COLUMN_USERNAME = "username";
     public static final String COLUMN_PASSWORD = "password";
+    public static final String COLUMN_WINS = "wins";
+    public static final String COLUMN_LOSS = "loss";
+
+
+
 
 
     public static void createDB() {
         try {
+            // connects to DB
             Connection conn = DriverManager.getConnection(CONNECTION_STRING);
+
+            // ...
             Statement statement = conn.createStatement();
 
+            // executes create DB query
             statement.execute("CREATE TABLE IF NOT EXISTS " + TABLE_USERS + " (" + COLUMN_ID + " INTEGER PRIMARY KEY, " +
-                        COLUMN_USERNAME + " TEXT NOT NULL, " + COLUMN_PASSWORD + " TEXT NOT NULL" + ")");
+                                COLUMN_USERNAME + " VARCHAR NOT NULL, " + COLUMN_PASSWORD + " VARCHAR NOT NULL, " +
+                                COLUMN_WINS + " INTEGER DEFAULT 0, " + COLUMN_LOSS + " INTEGER DEFAULT 0" + ")");
 
             statement.close();
+
+            // closes connection to DB
             conn.close();
 
         } catch (SQLException e) {
@@ -29,6 +48,7 @@ public class UserDB {
     }
 
 
+    // adds user to DB
     public static void addUser(String u, String p) {
         try {
             Connection conn = DriverManager.getConnection(CONNECTION_STRING);
@@ -43,6 +63,7 @@ public class UserDB {
             System.out.println("Something went wrong: " + e.getMessage());
         }
     }
+
 
     // returns true if user and password match
     public static boolean checkUserPass(String u, String p) {
@@ -78,45 +99,37 @@ public class UserDB {
             return false;
         }
 
-    public static boolean checkUser(String u) {
 
+        // checks DB for username
+        public static boolean checkUser(String u) {
 
-        String query = "SELECT " + COLUMN_USERNAME + " FROM " + TABLE_USERS +
+            String query = "SELECT " + COLUMN_USERNAME + " FROM " + TABLE_USERS +
                 " WHERE " + COLUMN_USERNAME + " = '" + u + "'";
 
-        try {
+            try {
 
-            Connection conn = DriverManager.getConnection(CONNECTION_STRING);
+                Connection conn = DriverManager.getConnection(CONNECTION_STRING);
 
-            PreparedStatement ps = conn.prepareStatement(query);
+                PreparedStatement ps = conn.prepareStatement(query);
 
-            ResultSet rs = ps.executeQuery();
+                ResultSet rs = ps.executeQuery();
 
+                while (rs.next()) {
+                    if (u.equals(rs.getString(1))) return true;
+                }
 
-            while (rs.next()) {
-                if (u.equals(rs.getString(1))) return true;
+                rs.close();
+                conn.close();
+
+            } catch(SQLException se){
+                se.printStackTrace();
+                return false;
             }
-
-            rs.close();
-            conn.close();
-
-        } catch(SQLException se){
-            se.printStackTrace();
             return false;
         }
-        return false;
-    }
 
 
 
-
-
-
-
-    // not complete
-    public void deleteUser(String user) {
-
-    }
 
 
 }
