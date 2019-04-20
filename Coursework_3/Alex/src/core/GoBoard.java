@@ -6,7 +6,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 public class GoBoard extends JFrame {
-    public static final int SIZE = 35;
+    public static final int SIZE = 50;
     static JFrame f;
 
     private static GameBoard board = new GameBoard(13, 13);
