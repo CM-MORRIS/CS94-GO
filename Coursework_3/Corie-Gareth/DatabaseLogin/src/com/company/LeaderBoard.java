@@ -16,24 +16,7 @@ import java.sql.*;
 public class LeaderBoard extends Stage {
 
 
-    Button openOther = new Button("Open other Stage");
-    HBox x = new HBox();
-
-    LeaderBoard() {
-        x.getChildren().add(openOther);
-        this.setScene(new Scene(x, 300, 300));
-        this.show();
-    }
-
-
-
-
-
-
-
-
-
-
+    // need to implement unsure how
 
 
 

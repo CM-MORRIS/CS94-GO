@@ -91,7 +91,7 @@ public class LoginForm extends Application {
                           System.out.println("Successfully found user");
 
                           // Opens LeaderBoard on successful login
-                          new LeaderBoard();
+                          // new LeaderBoard();
                       }
                       else System.out.println("User: " + txtUserName.getText() + " AND password: " + txtPassword.getText() + " not found");
                   }
