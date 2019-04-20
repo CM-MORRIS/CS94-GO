@@ -29,7 +29,7 @@ public class UserDB {
             System.out.println("Something went wrong: " + e.getMessage());
           }
     }
-    
+
 
     public static void addUser(String u, String p) {
         try {
@@ -50,8 +50,12 @@ public class UserDB {
     // if user and password match returns true NOT WORKING
     public static boolean checkUser(String u, String p) {
 
-        String query = ("SELECT EXISTS(SELECT * FROM " + TABLE_USERS + " WHERE " + COLUMN_USERNAME + " = " + "'" + u + "'" +
-                "AND " + COLUMN_PASSWORD + " = " + "'" + p + "'" + ")");
+//        String query = ("SELECT EXISTS(SELECT * FROM " + TABLE_USERS + " WHERE " + COLUMN_USERNAME + " = " + "'" + u + "'" +
+//                        "AND " + COLUMN_PASSWORD + " = " + "'" + p + "'" + ")");
+
+        String query = "SELECT " + COLUMN_USERNAME + ", " + COLUMN_PASSWORD + " FROM " + TABLE_USERS +
+                " WHERE " + COLUMN_USERNAME + "= '" + u + "'" + " AND " + COLUMN_PASSWORD + "= '" + p + "'";
+
 
         try {
 
@@ -67,6 +71,20 @@ public class UserDB {
             return false;
           }
     }
+
+//    String queryString = "SELECT SName, SPwd FROM staff where SName=? and SPwd=?";
+//    ps = con.prepareStatement(queryString);
+//    ps.setString(1,f);
+//    ps.setString(2,s);
+//    ResultSet results = ps.executeQuery();
+//
+//    if (results.next()) {
+//        JOptionPane.showMessageDialog(null, "Username and Password exist");
+//    }else{
+//        JOptionPane.showMessageDialog(null, "Please Check Username and Password ");
+//    }
+//    results.close();
+//    con.close();
 
 
     // not complete
