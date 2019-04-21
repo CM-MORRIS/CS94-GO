@@ -100,7 +100,7 @@ public class UserDB {
         }
 
 
-        // checks DB for username
+        // checks DB for existing username
         public static boolean checkUser(String u) {
 
             String query = "SELECT " + COLUMN_USERNAME + " FROM " + TABLE_USERS +
@@ -127,9 +127,4 @@ public class UserDB {
             }
             return false;
         }
-
-
-
-
-
 }

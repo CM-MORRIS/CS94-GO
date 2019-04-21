@@ -13,7 +13,7 @@ import javafx.stage.Stage;
 import java.sql.*;
 
 
-public class LeaderBoard extends Stage {
+public class LeaderBoard {
 
 
     // need to implement unsure how

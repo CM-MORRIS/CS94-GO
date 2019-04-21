@@ -5,7 +5,7 @@ public class Main {
     public static void main(String[] args) {
 
       UserDB.createDB();
-      LoginForm.launch(LoginForm.class, args);
+      GUI.launch(GUI.class, args);
 
       // Application launch must not be called more than once or exception will be thrown
         // have to extend stage instead
