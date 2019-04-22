@@ -50,8 +50,21 @@ public class GUI extends Application {
             e.printStackTrace();
         }
     }
-}
 
+
+    public void showLeaderboard() {
+        try {
+            Parent Leaderboard;
+            Leaderboard = FXMLLoader.load(getClass().getResource("Leaderboard.fxml"));
+            Stage mainStage;
+            mainStage = GUI.parentWindow;
+            mainStage.getScene().setRoot(Leaderboard);
+            mainStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
 
 
 
