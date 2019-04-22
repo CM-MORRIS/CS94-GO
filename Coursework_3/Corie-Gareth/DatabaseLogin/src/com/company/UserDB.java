@@ -20,6 +20,8 @@ public class UserDB {
     public static final String COLUMN_WINS = "wins";
     public static final String COLUMN_LOSS = "loss";
     public static final String COLUMN_WIN_PERCENTAGE = "winPercentage";
+    public static final String COLUMN_ADMIN = "admin";
+
 
 
 
@@ -38,7 +40,8 @@ public class UserDB {
             statement.execute("CREATE TABLE IF NOT EXISTS " + TABLE_USERS + " (" + COLUMN_ID + " INTEGER PRIMARY KEY, " +
                                 COLUMN_USERNAME + " VARCHAR NOT NULL, " + COLUMN_PASSWORD + " VARCHAR NOT NULL, " +
                                 COLUMN_WINS + " INTEGER DEFAULT 0, " + COLUMN_LOSS + " INTEGER DEFAULT 0," +
-                                COLUMN_WIN_PERCENTAGE + " INTEGER DEFAULT 0)");
+                                COLUMN_WIN_PERCENTAGE + " INTEGER DEFAULT 0, " + COLUMN_ADMIN + " INTEGER DEFAULT 0)");
+            // 1 if admin, else 0
 
             statement.close();
 
