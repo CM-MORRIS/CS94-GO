@@ -1,5 +1,6 @@
 package core;
 
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -138,17 +139,23 @@ public class GameBoard {
         } else if (this.isSuicide(intersection, game)) {
             return false;
         } else {
-            Set<StoneChain> adjStoneChains = intersection.getAdjacentStoneChains();
-            StoneChain newStoneChain = new StoneChain(intersection, game);
-            intersection.setStoneChain(newStoneChain);
-            for (StoneChain stoneChain : adjStoneChains) {
-                if (stoneChain.getOwner() == game.whosTurn()) {
-                    newStoneChain.add(intersection);
-                } else {
-                    stoneChain.removeLiberty(intersection);
-                    //stoneChain.die(this);
-                }
-            }
+//            Set<StoneChain> adjStoneChains = intersection.getAdjacentStoneChains();
+//            StoneChain newStoneChain = new StoneChain(intersection, game);
+//            intersection.setStoneChain(newStoneChain);
+//            for (StoneChain stoneChain : adjStoneChains) {
+//                if (stoneChain.getOwner() == game.whosTurn()) {
+//                    stoneChain.add(stoneChain, intersection);
+//                    intersection.setStoneChain(stoneChain);
+//                } else {
+//                    stoneChain.removeLiberty(intersection);
+//                    if (stoneChain.getLiberties().size() == 0) {
+//                        stoneChain.die(this);
+//                    }
+//                }
+//            }
+//            for (Intersection stone : newStoneChain.getStones()) {
+//                stone.setStoneChain(newStoneChain);
+//            }
             intersection.setState(game.whosTurn());
         }
         return true;
@@ -162,5 +169,37 @@ public class GameBoard {
      */
     public boolean onBoard(final int x, final int y) {
         return (x >= 0 && x < width && y >= 0 && y < width);
+    }
+
+    public Set<Intersection> boardDead() {
+        Set<Intersection> murdered = new HashSet<>();
+        for (int i = 0; i < height; i++) {
+            for (int j = 0; j < width; j++) {
+                int surrounded = 0;
+                int neighbours = intersections[j][i].getNeighbours().size();
+                int player = intersections[j][i].getState();
+                if (player == 1) {
+                    for (Intersection n : intersections[j][i].getNeighbours()) {
+                        if (n.getState() == 2) {
+                            surrounded++;
+                        }
+                    }
+                    if (surrounded == neighbours) {
+                        murdered.add(intersections[j][i]);
+
+                    }
+                } else if (player == 2) {
+                    for (Intersection n : intersections[j][i].getNeighbours()) {
+                        if (n.getState() == 1) {
+                            surrounded++;
+                        }
+                    }
+                    if (surrounded == neighbours) {
+                        murdered.add(intersections[j][i]);
+                    }
+                }
+            }
+        }
+        return murdered;
     }
 }

@@ -52,26 +52,30 @@ public class BoardHandler extends Application
 
         Circle[][] circles = new Circle[board.getWidth()][board.getHeight()];
         root.setOnMouseClicked(event -> {
-            int xPositionPane = (int) Math.rint(event.getSceneX()
+            int xPosPane = (int) Math.rint(event.getSceneX()
                     / boardScalingFactor);
-            int yPositionPane = (int) Math.rint(event.getSceneY()
+            int yPosPane = (int) Math.rint(event.getSceneY()
                     / boardScalingFactor);
-            final int xPos = xPositionPane - 1;
-            final int yPos = yPositionPane - 1;
-            if (xPositionPane > 0 && xPositionPane < board.getWidth() + 1 && yPositionPane > 0
-                    && yPositionPane < board.getHeight() + 1) {
+            final int xPos = xPosPane - 1;
+            final int yPos = yPosPane - 1;
+            if (xPosPane > 0 && xPosPane < board.getWidth() + 1 && yPosPane > 0
+                    && yPosPane < board.getHeight() + 1) {
                 if (board.playMove(board.getIntersection(xPos, yPos), game)) {
-                    circles[xPos][yPos] = new Circle(xPositionPane * boardScalingFactor,
-                            yPositionPane * boardScalingFactor, 35, Color.BLACK);
+                    circles[xPos][yPos] = new Circle(xPosPane * boardScalingFactor,
+                            yPosPane * boardScalingFactor, 35, Color.BLACK);
                     circles[xPos][yPos].setStroke(Color.BLACK);
                     if (game.whosTurn() == 2) {
                         circles[xPos][yPos].setFill(Color.WHITE);
                     }
                     root.getChildren().add(circles[xPos][yPos]);
-                    board.getIntersection(xPos, yPos).setState(game.whosTurn());
+                    //board.getIntersection(xPos, yPos).setState(game.whosTurn());
+
+//                    for (Intersection n : board.boardDead()) {
+//                        root.getChildren().remove(circles[n.getxPosition()][n.getyPosition()]);
+//                    }
                     for (Intersection n : board.getIntersection(xPos, yPos).killer(game)) {
                         root.getChildren().remove(circles[n.getxPosition()][n.getyPosition()]);
-                        board.setIntersectionState(n.getxPosition(), n.getyPosition(), 0);
+                        n.setState(0);
                     }
                     game.incrementTurnCounter();
                 }
