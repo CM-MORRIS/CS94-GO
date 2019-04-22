@@ -1,6 +1,5 @@
 package core;
 
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.Set;
@@ -9,7 +8,7 @@ import java.util.Set;
  * Intersection class handles determines where stones can be placed
  * it is used by the GameBoard class.
  *
- * @author Alex Mair
+ * @author Alex Mair and Will Davies
  */
 public class Intersection {
 
@@ -41,11 +40,6 @@ public class Intersection {
     private int state;
 
     /**
-     * The stone or chain of stones that is associated with this intersection.
-     */
-//    private StoneChain stoneChain;
-
-    /**
      * Constructor for intersections, given specific board
      * and position upon the board.
      *
@@ -58,18 +52,15 @@ public class Intersection {
         yPosition = y;
         state = 0;
         this.board = board;
-//        stoneChain = null;
     }
 
     /**
      * This method sets the neighbours
      * for all intersections on the board.
      * As long as the intersections already exist.
-     *
-     * @param board This is the game board being played upon.
      */
-    public void setneighbours() {
-        neighbours = new HashSet<Intersection>();
+    public void setNeighbours() {
+        neighbours = new HashSet<>();
         if (this.xPosition == board.getWidth() - 1) {
             if (this.yPosition == 0) { //TopRight
                 neighbours.add(board.getIntersection(xPosition - 1, yPosition));
@@ -131,8 +122,7 @@ public class Intersection {
     }
 
     /**
-     * Returns the set of neighbours
-     * .
+     * Returns the set of neighbours.
      *
      * @return neighbours
      */
@@ -140,67 +130,6 @@ public class Intersection {
         return neighbours;
     }
 
-    public Intersection getIntersection() {
-        return this;
-    }
-
-    public void changeLibertyState(final int newState) {
-        for (Intersection n : this.neighbours) {
-            for (Intersection k : n.neighbours) {
-                if (k.yPosition == this.yPosition && k.xPosition == this.xPosition) {
-                    k.state = newState;
-                }
-            }
-        }
-    }
-
-    /**
-     * Determines whether the placed intersection stone kills others.
-     * @param game is the state of the game
-     * @return a list of dead intersections.
-     */
-//    public Set<Intersection> killer(GameLogic game) {
-//        Set<Intersection> dead = new HashSet<>();
-//        for (Intersection n : this.getNeighbours()) {
-//            int surrounded = 0;
-//            if (n.state == game.opponent()) {
-//                if (n.getStoneChain().getLiberties().size() == 0) {
-//                    dead.add(n);
-//                } else {
-//                    for (Intersection k : n.getNeighbours()) {
-//                        if (k.state == game.whosTurn()) {
-//                            surrounded++;
-//                        }
-//                    }
-//                    if (surrounded == n.getStoneChain().getLiberties().size()) {
-//                        dead.add(n);
-//                    }
-//                }
-//            }
-//        }
-//        return dead;
-//    }
-
-//    public Set<Intersection> deady(GameLogic game) {
-//        Set<Intersection> dead = new HashSet<>();
-//        if (this.getStoneChain().getLiberties().size() == 0) {
-//            dead.addAll(this.getStoneChain().getStones());
-//        }
-//        return dead;
-//    }
-
-
-//    public int freeNeighbours
-//   () {
-//        int free = 0;
-//        for (Intersection n : this.neighbours
-//       ) {
-//            if (n.state == 0) {
-//                free++;
-//            }
-//        }
-//        return free;
-//    }
 
     /**
      * Returns the current state of the intersection.
@@ -220,29 +149,18 @@ public class Intersection {
         state = newState;
     }
 
-//    public StoneChain getStoneChain() {
-//        return stoneChain;
-//    }
-//
-//    public void setStoneChain(StoneChain stoneChain) {
-//        this.stoneChain = stoneChain;
-//    }
-//
-//    public Set<StoneChain> getAdjacentStoneChains() {
-//        Set<StoneChain> adjacentStoneChains = new HashSet<StoneChain>();
-//        for (Intersection n : this.getNeighbours()) {
-//            if (n.getStoneChain() != null) {
-//                adjacentStoneChains.add(n.getStoneChain());
-//            }
-//        }
-//        return adjacentStoneChains;
-//    }
-
-    public Set<Intersection> getOutsideNeighbour(Set<Intersection> linkedStones, int opponent) {
+    /**
+     * This method finds the outermost neighbours of a set of intersections.
+     *
+     * @param linkedStones The set of linked intersections
+     * @param owner        The owner of the linked stones being checked.
+     * @return A set of Intersections.
+     */
+    public Set<Intersection> getOuterNeighbour(final Set<Intersection> linkedStones, final int owner) {
         Set<Intersection> outside = new LinkedHashSet<>();
         for (Intersection n : linkedStones) {
             for (Intersection k : n.getNeighbours()) {
-                if(k.state != opponent) {
+                if (k.state != owner) {
                     outside.add(k);
                 }
             }
@@ -250,22 +168,12 @@ public class Intersection {
         return outside;
     }
 
-
-    public ArrayList<Intersection> removeDuplicates(ArrayList<Intersection> list) {
-        // Create a new ArrayList
-        ArrayList<Intersection> newList = new ArrayList<>();
-        // Traverse through the first list
-        for (Intersection element : list) {
-            // If this element is not present in newList
-            // then add it
-            if (!newList.contains(element)) {
-                newList.add(element);
-            }
-        }
-        // return the new list
-        return newList;
-    }
-
+    /**
+     * A method to determine for a given point, which neighbours to that point
+     * have the same state as that point.
+     *
+     * @return A set of intersections.
+     */
     public Set<Intersection> friendNeighbours() {
         Set<Intersection> friends = new HashSet<>();
         for (Intersection n : this.getNeighbours()) {
@@ -276,37 +184,46 @@ public class Intersection {
         return friends;
     }
 
-    public Set<Intersection> killer(GameLogic game) {
-            int player = game.whosTurn();
-            int opponent = game.opponent();
-            Set<Intersection> finalChain = new LinkedHashSet<>();
-            Set<Intersection> opponentChain = new LinkedHashSet<>();
-            Set<Intersection> deadChain = new LinkedHashSet<>();
-            for (Intersection n : this.getNeighbours()) {
-                if (n.state == opponent) {
-                    finalChain.add(n);
-                    opponentChain.addAll(n.friendNeighbours());
+    /**
+     * A method to check if the stone just placed finishes the surrounding
+     * of opponent stones and thus kills the chain within their bounds
+     * causing the removal of these stones.
+     *
+     * @param game The current state of the game.
+     * @return A set of Intersections which are the taken stones.
+     */
+    public Set<Intersection> killer(final GameLogic game) {
+        int player = game.whosTurn();
+        int opponent = game.opponent();
+        Set<Intersection> finalChain = new LinkedHashSet<>();
+        Set<Intersection> opponentChain = new LinkedHashSet<>();
+        Set<Intersection> deadChain = new LinkedHashSet<>();
+        for (Intersection n : this.getNeighbours()) {
+            if (n.state == opponent) {
+                finalChain.add(n);
+                opponentChain.addAll(n.friendNeighbours());
+                finalChain.addAll(opponentChain);
+                int i = 0;
+                while (i < finalChain.size()) {
+                    for (Intersection m : finalChain) {
+                        opponentChain.addAll(m.friendNeighbours());
+                    }
                     finalChain.addAll(opponentChain);
-                    int i = 0;
-                    while (i < finalChain.size()) {
-                        for (Intersection m : finalChain) {
-                            opponentChain.addAll(m.friendNeighbours());
-                        }
-                        finalChain.addAll(opponentChain);
-                        i++;
-                    }
-                }
-                Set<Intersection> totalneighbours = new LinkedHashSet<>(getOutsideNeighbour(finalChain, opponent));
-                int surrounded = 0;
-                for (Intersection k : totalneighbours) {
-                    if (k.getState() == player) {
-                        surrounded++;
-                    }
-                }
-                if (surrounded == totalneighbours.size()) {
-                    deadChain.addAll(finalChain);
+                    i++;
                 }
             }
+            Set<Intersection> totalNeighbours = new LinkedHashSet<>(
+                    getOuterNeighbour(finalChain, opponent));
+            int surrounded = 0;
+            for (Intersection k : totalNeighbours) {
+                if (k.getState() == player) {
+                    surrounded++;
+                }
+            }
+            if (surrounded == totalNeighbours.size()) {
+                deadChain.addAll(finalChain);
+            }
+        }
         return deadChain;
     }
 }
