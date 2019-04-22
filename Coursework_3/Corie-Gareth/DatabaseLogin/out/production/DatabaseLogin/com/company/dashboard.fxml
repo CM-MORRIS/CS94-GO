@@ -21,7 +21,7 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<VBox fx:id="Controller" prefHeight="565.0" prefWidth="831.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1">
+<VBox fx:id="Controller" prefHeight="565.0" prefWidth="831.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.company.Controller">
     <children>
         <MenuBar VBox.vgrow="NEVER">
             <menus>
@@ -76,7 +76,8 @@
                         </Label>
 
                         <Button fx:id="newGameBtn" layoutX="32.0" layoutY="57.0" mnemonicParsing="false" text="New Game" />
-                        <Button fx:id="leaderBoardBtn" layoutX="27.0" layoutY="105.0" mnemonicParsing="false" text="Leaderboard" />
+                        <Button fx:id="btnLdr" layoutX="27.0" layoutY="105.0" mnemonicParsing="false" onAction="#onLdrClick" text="Leaderboard" />
+
 
                         <AnchorPane layoutX="-1.0" layoutY="166.0" prefHeight="349.0" prefWidth="218.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="166.0">
                             <children>
@@ -92,6 +93,7 @@
                                 <ChoiceBox layoutX="17.0" layoutY="252.0" prefHeight="27.0" prefWidth="185.0" />
                                 <Label layoutX="55.0" layoutY="218.0" text="Choose Avatar" />
                                 <Button layoutX="71.0" layoutY="295.0" mnemonicParsing="false" text="Register" />
+
                             </children>
                         </AnchorPane>
                     </children>

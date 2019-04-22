@@ -1,16 +1,26 @@
 package com.company;
 
+import java.net.URL;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
+
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.value.ObservableValue;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
-import javafx.scene.control.Button;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import javafx.util.Callback;
+
 import java.io.IOException;
 
 public class Controller {
@@ -29,6 +39,8 @@ public class Controller {
 
     @FXML
     public PasswordField pswdtxt;
+
+
 
 
 
@@ -62,7 +74,7 @@ public class Controller {
                  leaderboard.showLeaderboard();
 
              }
-         });
+        });
 
     }
     public void onBackClick() {
@@ -71,7 +83,7 @@ public class Controller {
         backDash.setOnAction(new EventHandler<ActionEvent>() {
             public void handle(ActionEvent back) {
 
-                // shows dashboard on successful login
+                // shows dashboard
                 GUI dashboard = new GUI();
                 dashboard.showDash();
             }

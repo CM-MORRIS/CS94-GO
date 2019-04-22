@@ -19,6 +19,8 @@ public class UserDB {
     public static final String COLUMN_PASSWORD = "password";
     public static final String COLUMN_WINS = "wins";
     public static final String COLUMN_LOSS = "loss";
+    public static final String COLUMN_WIN_PERCENTAGE = "winPercentage";
+
 
 
 
@@ -35,7 +37,8 @@ public class UserDB {
             // executes create DB query
             statement.execute("CREATE TABLE IF NOT EXISTS " + TABLE_USERS + " (" + COLUMN_ID + " INTEGER PRIMARY KEY, " +
                                 COLUMN_USERNAME + " VARCHAR NOT NULL, " + COLUMN_PASSWORD + " VARCHAR NOT NULL, " +
-                                COLUMN_WINS + " INTEGER DEFAULT 0, " + COLUMN_LOSS + " INTEGER DEFAULT 0" + ")");
+                                COLUMN_WINS + " INTEGER DEFAULT 0, " + COLUMN_LOSS + " INTEGER DEFAULT 0," +
+                                COLUMN_WIN_PERCENTAGE + " INTEGER DEFAULT 0)");
 
             statement.close();
 
@@ -127,4 +130,38 @@ public class UserDB {
             }
             return false;
         }
+
+
+        public static ResultSet getLeaderboardData() {
+
+            // String query = "SELECT " + COLUMN_USERNAME + ", " + COLUMN_WINS + ", " + COLUMN_WIN_PERCENTAGE + " FROM " + TABLE_USERS;
+            String query = "SELECT * FROM " + DB_NAME;
+
+
+            try {
+                Connection conn = DriverManager.getConnection(CONNECTION_STRING);
+                Statement results = conn.createStatement();
+
+                ResultSet rs = results.executeQuery(query);
+
+                results.close();
+                conn.close();
+
+                return rs;
+
+
+            } catch (SQLException e) {
+                System.out.println("Something went wrong: " + e.getMessage());
+            }
+            return null;
+        }
+
+
+
+
+
+
+
+
+
 }
