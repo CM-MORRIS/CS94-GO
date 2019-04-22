@@ -25,6 +25,7 @@ public class GUI extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+
         parentWindow = primaryStage;
         Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
         primaryStage.setTitle("Hello World");
@@ -33,16 +34,6 @@ public class GUI extends Application {
 
     }
 }
-
-
-
-
-
-
-
-
-
-
 
 //        Parent dashBoard;
 //        dashBoard = FXMLLoader.load(getClass().getResource("sample.fxml"));
