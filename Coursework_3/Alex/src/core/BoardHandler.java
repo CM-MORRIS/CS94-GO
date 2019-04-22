@@ -24,14 +24,20 @@ public class BoardHandler extends Application
      */
     private GameBoard board = new GameBoard(9, 9);
 
-    private Player P1 = new Player("Alex", 1);
+    /**
+     * The first player of the game.
+     */
+    private Player p1 = new Player("Alex", 1);
 
-    private Player P2 = new Player("Will", 2);
+    /**
+     * The second player of the game.
+     */
+    private Player p2 = new Player("Will", 2);
 
     /**
      * Producing a GameLogic instance to track players.
      */
-    private GameLogic game = new GameLogic(P1.getName(), P2.getName());
+    private GameLogic game = new GameLogic(p1, p2);
 
     /**
      * Scaling factor for the board to make it display correctly.
@@ -79,6 +85,13 @@ public class BoardHandler extends Application
                     for (Intersection n : board.getIntersection(xPos, yPos).killer(game)) {
                         root.getChildren().remove(circles[n.getxPosition()][n.getyPosition()]);
                         n.setState(0);
+                        if (game.whosTurn() == 1) {
+                            p1.addStonesWon(1);
+                            p2.addStonesLost(1);
+                        } else {
+                            p2.addStonesWon(1);
+                            p1.addStonesLost(1);
+                        }
                     }
                     game.incrementTurnCounter();
                 }

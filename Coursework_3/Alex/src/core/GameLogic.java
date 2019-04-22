@@ -11,12 +11,12 @@ public class GameLogic {
     /**
      * Player 1.
      */
-    private String player1;
+    private Player player1;
 
     /**
      * Player 2.
      */
-    private String player2;
+    private Player player2;
 
     /**
      * Counter to keep track of the turns in the game.
@@ -29,16 +29,22 @@ public class GameLogic {
     private int passCounter;
 
     /**
+     * Winner of the Game.
+     */
+    private int winner;
+
+    /**
      * GameLogic constructor.
      *
      * @param p1 String of player 1's name.
      * @param p2 String of player 2's name.
      */
-    public GameLogic(final String p1, final String p2) {
+    public GameLogic(final Player p1, final Player p2) {
         player1 = p1;
         player2 = p2;
         passCounter = 0;
         turnCounter = 1;
+        winner = 0;
     }
 
     /**
@@ -46,7 +52,7 @@ public class GameLogic {
      * Needs to force the end of the game is the counter reaches 2.
      */
     public void incrementPassCounter() {
-        ++ passCounter;
+        ++passCounter;
         /*if (passCounter >= 2) {
             TODO THIS IS WHERE WE PUT THE END GAME FUNCTION
         }
@@ -57,7 +63,7 @@ public class GameLogic {
      * Method to increment the turn counter.
      */
     public void incrementTurnCounter() {
-        ++ turnCounter;
+        turnCounter++;
     }
 
     /**
@@ -85,7 +91,7 @@ public class GameLogic {
      *
      * @return player1
      */
-    public String getPlayer1() {
+    public Player getPlayer1() {
         return player1;
     }
 
@@ -94,7 +100,7 @@ public class GameLogic {
      *
      * @return player2
      */
-    public String getPlayer2() {
+    public Player getPlayer2() {
         return player2;
     }
 
@@ -105,9 +111,9 @@ public class GameLogic {
      */
     public int whosTurn() {
         if (turnCounter % 2 == 0) {
-            return 2;
+            return player2.getId();
         } else {
-            return 1;
+            return player1.getId();
         }
     }
 
@@ -118,9 +124,27 @@ public class GameLogic {
      */
     public int opponent() {
         if (turnCounter % 2 == 0) {
-            return 1;
+            return player1.getId();
         } else {
-            return 2;
+            return player2.getId();
         }
+    }
+
+    /**
+     * Method to set the winner of the game.
+     *
+     * @param winner The winner of the game.
+     */
+    public void setWinner(final int winner) {
+        this.winner = winner;
+    }
+
+    /**
+     * Method to get the winner of the game.
+     *
+     * @return The winner of the game.
+     */
+    public int getWinner() {
+        return winner;
     }
 }

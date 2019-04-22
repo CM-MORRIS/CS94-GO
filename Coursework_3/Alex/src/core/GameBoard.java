@@ -126,7 +126,7 @@ public class GameBoard {
      * @return true if the move is legal and can be done.
      */
     public boolean playMove(final Intersection intersection, final GameLogic game) {
-        if (! onBoard(intersection.getxPosition(), intersection.getyPosition())) {
+        if (!onBoard(intersection.getxPosition(), intersection.getyPosition())) {
             return false;
         } else if (intersection.getState() != 0) {
             return false;
