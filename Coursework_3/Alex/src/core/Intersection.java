@@ -1,5 +1,6 @@
 package core;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.Set;
@@ -237,6 +238,34 @@ public class Intersection {
 //        return adjacentStoneChains;
 //    }
 
+    public Set<Intersection> getOutsideNeighbour(Set<Intersection> linkedStones, int opponent) {
+        Set<Intersection> outside = new LinkedHashSet<>();
+        for (Intersection n : linkedStones) {
+            for (Intersection k : n.getNeighbours()) {
+                if(k.state != opponent) {
+                    outside.add(k);
+                }
+            }
+        }
+        return outside;
+    }
+
+
+    public ArrayList<Intersection> removeDuplicates(ArrayList<Intersection> list) {
+        // Create a new ArrayList
+        ArrayList<Intersection> newList = new ArrayList<>();
+        // Traverse through the first list
+        for (Intersection element : list) {
+            // If this element is not present in newList
+            // then add it
+            if (!newList.contains(element)) {
+                newList.add(element);
+            }
+        }
+        // return the new list
+        return newList;
+    }
+
     public Set<Intersection> friendNeighbours() {
         Set<Intersection> friends = new HashSet<>();
         for (Intersection n : this.getNeighbours()) {
@@ -250,33 +279,32 @@ public class Intersection {
     public Set<Intersection> killer(GameLogic game) {
             int player = game.whosTurn();
             int opponent = game.opponent();
+            Set<Intersection> finalChain = new LinkedHashSet<>();
             Set<Intersection> opponentChain = new LinkedHashSet<>();
             Set<Intersection> deadChain = new LinkedHashSet<>();
             for (Intersection n : this.getNeighbours()) {
-                try {
-                    if (n.state == opponent) {
-                        opponentChain.add(n);
-                        opponentChain.addAll(n.friendNeighbours());
-                        for (Intersection k : opponentChain) {
-                            opponentChain.addAll(k.friendNeighbours());
+                if (n.state == opponent) {
+                    finalChain.add(n);
+                    opponentChain.addAll(n.friendNeighbours());
+                    finalChain.addAll(opponentChain);
+                    int i = 0;
+                    while (i < finalChain.size()) {
+                        for (Intersection m : finalChain) {
+                            opponentChain.addAll(m.friendNeighbours());
                         }
+                        finalChain.addAll(opponentChain);
+                        i++;
                     }
-                } catch (Exception concurrentmodificationexception) {
                 }
-                Set<Intersection> totalneighbours = new LinkedHashSet<>();
-                Set<Intersection> friendneighbours = new LinkedHashSet<>();
-                for (Intersection k : opponentChain) {
-                    totalneighbours.addAll(k.getNeighbours());
-                    friendneighbours.addAll(k.friendNeighbours());
-                }
+                Set<Intersection> totalneighbours = new LinkedHashSet<>(getOutsideNeighbour(finalChain, opponent));
                 int surrounded = 0;
                 for (Intersection k : totalneighbours) {
                     if (k.getState() == player) {
                         surrounded++;
                     }
                 }
-                if (surrounded == totalneighbours.size() - friendneighbours.size()) {
-                    deadChain.addAll(opponentChain);
+                if (surrounded == totalneighbours.size()) {
+                    deadChain.addAll(finalChain);
                 }
             }
         return deadChain;
