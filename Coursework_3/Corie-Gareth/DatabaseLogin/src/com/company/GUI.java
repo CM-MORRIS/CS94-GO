@@ -18,6 +18,8 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import java.io.IOException;
+
 
 public class GUI extends Application {
 
@@ -26,6 +28,7 @@ public class GUI extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
 
+        // shows login GUI
         parentWindow = primaryStage;
         Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
         primaryStage.setTitle("Hello World");
@@ -33,44 +36,21 @@ public class GUI extends Application {
         primaryStage.show();
 
     }
+
+
+    public void showDash() {
+        try {
+            Parent dashBoard;
+            dashBoard = FXMLLoader.load(getClass().getResource("dashboard.fxml"));
+            Stage mainStage;
+            mainStage = GUI.parentWindow;
+            mainStage.getScene().setRoot(dashBoard);
+            mainStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
-
-//        Parent dashBoard;
-//        dashBoard = FXMLLoader.load(getClass().getResource("sample.fxml"));
-//        Stage mainStage;
-//        mainStage = Main.parentWindow;
-//        mainStage.getScene().setRoot(dashBoard);
-//        mainStage.show();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//    public void showDash() {
-//        try {
-//            Parent dashBoard;
-//            dashBoard = FXMLLoader.load(getClass().getResource("sample.fxml"));
-//            Stage mainStage;
-//            mainStage = Main.parentWindow;
-//            mainStage.getScene().setRoot(dashBoard);
-//            mainStage.show();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//    }
 
 
 

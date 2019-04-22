@@ -36,17 +36,8 @@ public class Controller {
                     System.out.println("Successfully found user");
 
                     // shows dashboard on successful login
-                    try {
-                        Parent dashboard;
-                        dashboard = FXMLLoader.load(getClass().getResource("dashboard.fxml"));
-                        Stage mainStage;
-                        mainStage = GUI.parentWindow;
-                        mainStage.getScene().setRoot(dashboard);
-                        //mainStage.setResizable(false);
-                        mainStage.show();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
+                    GUI dashboard = new GUI();
+                    dashboard.showDash();
                 }
             }
         });

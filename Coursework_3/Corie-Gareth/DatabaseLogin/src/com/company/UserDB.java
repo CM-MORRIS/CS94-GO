@@ -23,7 +23,7 @@ public class UserDB {
 
 
 
-
+    // creates a database if doesn't exist
     public static void createDB() {
         try {
             // connects to DB
