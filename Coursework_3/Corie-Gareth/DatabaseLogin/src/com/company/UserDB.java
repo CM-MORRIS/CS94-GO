@@ -98,8 +98,8 @@ public class UserDB {
             rs.close();
             conn.close();
 
-            } catch(SQLException se){
-                se.printStackTrace();
+            } catch(SQLException e){
+                System.out.println("Something went wrong: " + e.getMessage());
                 return false;
             }
             return false;
@@ -127,8 +127,8 @@ public class UserDB {
                 rs.close();
                 conn.close();
 
-            } catch(SQLException se){
-                se.printStackTrace();
+            } catch(SQLException e){
+                System.out.println("Something went wrong: " + e.getMessage());
                 return false;
             }
             return false;
@@ -137,8 +137,8 @@ public class UserDB {
 
         public static ResultSet getLeaderboardData() {
 
-            // String query = "SELECT " + COLUMN_USERNAME + ", " + COLUMN_WINS + ", " + COLUMN_WIN_PERCENTAGE + " FROM " + TABLE_USERS;
-            String query = "SELECT * FROM " + DB_NAME;
+            String query = "SELECT " + COLUMN_USERNAME + ", " + COLUMN_WINS + ", " + COLUMN_WIN_PERCENTAGE + " FROM " + TABLE_USERS;
+            //String query = "SELECT * FROM " + DB_NAME;
 
 
             try {

@@ -31,8 +31,12 @@ public class TableController implements Initializable {
 
         try {
 
+
+
             while(rs.next()) {
-                oblist.add(
+
+
+                oblist.add(rs.getObject(1).toString(), rs.getObject(2).toString(), rs.getObject(3).toString());
             }
 
         } catch (SQLException e) {
