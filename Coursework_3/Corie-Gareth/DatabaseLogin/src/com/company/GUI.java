@@ -51,7 +51,19 @@ public class GUI extends Application {
         }
     }
 
-
+    public void showRegister() {
+        try {
+            Parent manageboard;
+            manageboard = FXMLLoader.load(getClass().getResource("Register.fxml"));
+            Stage mainStage;
+            mainStage = GUI.parentWindow;
+            mainStage.getScene().setRoot(manageboard);
+            mainStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    
     public void showLeaderboard() {
         try {
             Parent Leaderboard;
