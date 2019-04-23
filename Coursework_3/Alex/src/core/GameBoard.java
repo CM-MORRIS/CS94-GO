@@ -130,7 +130,7 @@ public class GameBoard {
             return false;
         } else if (intersection.getState() != 0) {
             return false;
-        } else if (this.isSuicide(intersection, game)) {
+        } else if (isSuicide(intersection, game) && intersection.killer(game).size() == 0) {
             return false;
         } else {
             intersection.setState(game.whosTurn());

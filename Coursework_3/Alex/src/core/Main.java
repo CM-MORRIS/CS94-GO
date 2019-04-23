@@ -15,7 +15,7 @@ public class Main {
      * @param args The arguments for the main.
      */
     public static void main(final String[] args) {
-        Application.launch(BoardHandler.class, args);
+        Application.launch(BoardHandler9.class, args);
 
 
     }
