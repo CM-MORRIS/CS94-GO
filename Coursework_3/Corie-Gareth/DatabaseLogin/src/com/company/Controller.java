@@ -33,6 +33,9 @@ public class Controller {
     public Button btnLogin;
 
     @FXML
+    public Button registerButton;
+    
+    @FXML
     public TextField usertxt;
 
     @FXML
@@ -43,7 +46,16 @@ public class Controller {
 
 
 
-
+    public void onRegisterClick() {
+        registerButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                // shows leaderboard
+                GUI register = new GUI();
+                register.showRegister();
+            }
+       });
+    }
     public void onLoginClick() {
         btnLogin.setOnAction(new EventHandler<ActionEvent>() {
             @Override // <- notice the annotation, it overrides from the interface.
