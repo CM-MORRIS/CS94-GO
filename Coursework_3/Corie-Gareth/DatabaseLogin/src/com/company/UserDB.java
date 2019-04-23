@@ -17,6 +17,8 @@ public class UserDB {
     public static final String COLUMN_ID = "userid";
     public static final String COLUMN_USERNAME = "username";
     public static final String COLUMN_PASSWORD = "password";
+    public static final String COLUMN_FIRSTNAME = "firstname";
+    public static final String COLUMN_SURNAME = "surname";
     public static final String COLUMN_WINS = "wins";
     public static final String COLUMN_LOSS = "loss";
     public static final String COLUMN_WIN_PERCENTAGE = "winPercentage";
@@ -37,9 +39,14 @@ public class UserDB {
             Statement statement = conn.createStatement();
 
             // executes create DB query
+//             statement.execute("CREATE TABLE IF NOT EXISTS " + TABLE_USERS + " (" + COLUMN_ID + " INTEGER PRIMARY KEY, " +
+//                                 COLUMN_USERNAME + " VARCHAR NOT NULL, " + COLUMN_PASSWORD + " VARCHAR NOT NULL, " +
+//                                 COLUMN_WINS + " INTEGER DEFAULT 0, " + COLUMN_LOSS + " INTEGER DEFAULT 0," +
+//                                 COLUMN_WIN_PERCENTAGE + " INTEGER DEFAULT 0, " + COLUMN_ADMIN + " INTEGER DEFAULT 0)");
             statement.execute("CREATE TABLE IF NOT EXISTS " + TABLE_USERS + " (" + COLUMN_ID + " INTEGER PRIMARY KEY, " +
                                 COLUMN_USERNAME + " VARCHAR NOT NULL, " + COLUMN_PASSWORD + " VARCHAR NOT NULL, " +
                                 COLUMN_WINS + " INTEGER DEFAULT 0, " + COLUMN_LOSS + " INTEGER DEFAULT 0," +
+                                COLUMN_FIRSTNAME + " INTEGER DEFAULT 0, " + COLUMN_SURNAME + " INTEGER DEFAULT 0, " + 
                                 COLUMN_WIN_PERCENTAGE + " INTEGER DEFAULT 0, " + COLUMN_ADMIN + " INTEGER DEFAULT 0)");
             // 1 if admin, else 0
 
@@ -67,6 +74,21 @@ public class UserDB {
 
             statement.executeUpdate("INSERT INTO " + TABLE_USERS + " (" + COLUMN_USERNAME + ", " + COLUMN_PASSWORD + ") " +
                                      "VALUES " + "(" + "'" + u + "'" + ", " + "'" + p + "'" + ")");
+            statement.close();
+            conn.close();
+
+        } catch (SQLException e) {
+            System.out.println("Something went wrong: " + e.getMessage());
+        }
+    }
+    //adds user with username, password, firstname and surname
+    public static void addUser(String u, String p, String f,String s) {
+        try {
+            Connection conn = DriverManager.getConnection(CONNECTION_STRING);
+            Statement statement = conn.createStatement();
+
+            statement.executeUpdate("INSERT INTO " + TABLE_USERS + " (" + COLUMN_USERNAME + ", " + COLUMN_PASSWORD +", " + COLUMN_FIRSTNAME +", " + COLUMN_SURNAME + ") " +
+                                     "VALUES " + "(" + "'" + u + "'" + ", " + "'" + p + "'" +  ", " + "'" + f + "'" + ", " + "'" + s + "'" +")");
             statement.close();
             conn.close();
 
