@@ -165,6 +165,8 @@ public class UserDB {
         }
 
 
+
+
         public static ResultSet getLeaderBoardData() {
 
             String query = "SELECT " + COLUMN_USERNAME + ", " + COLUMN_WINS + ", " + COLUMN_WIN_PERCENTAGE + " FROM " + TABLE_USERS;

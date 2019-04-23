@@ -17,6 +17,7 @@ import javafx.stage.Stage;
  *
  * @author Will Davies and Alex Mair
  */
+
 public class BoardHandler13 extends Application
         implements EventHandler<ActionEvent> {
 
@@ -52,6 +53,7 @@ public class BoardHandler13 extends Application
      *
      * @return Information to go on the scene.
      */
+
     private Parent createContent() {
         Pane root = new Pane();
         root.setPrefSize(1100, 1100);
@@ -80,6 +82,7 @@ public class BoardHandler13 extends Application
             passCounter.setLastPass(passCounter.getCurrentPass());
             game.incrementTurnCounter();
         });
+
         quitButton.setOnAction(event -> {
             {
                 //call end screen

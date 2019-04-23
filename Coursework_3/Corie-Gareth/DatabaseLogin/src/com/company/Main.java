@@ -1,6 +1,7 @@
 package com.company;
 
 
+import javafx.application.Application;
 
 public class Main {
 
@@ -9,10 +10,9 @@ public class Main {
       UserDB.createDB();
       GUI.launch(GUI.class, args);
 
-      // Application launch must not be called more than once or exception will be thrown
-        // have to extend stage instead
+      // Application.launch(BoardHandler9.class, args);
 
-      // LeaderBoard.launch(LeaderBoard.class, args);
+
 
 
     }

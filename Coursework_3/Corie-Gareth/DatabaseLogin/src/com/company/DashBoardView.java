@@ -25,10 +25,16 @@ public class DashBoardView implements Initializable {
     @FXML
     public Button btnLdr;
 
+    @FXML
+    public Button newGameBtn;
+
+    @FXML
+    public Button registerButton;
+
     @FXML private TableView<WinsLossData> winlosstable;
     @FXML private TableColumn<WinsLossData, Number> colWins;
     @FXML private TableColumn<WinsLossData, Number> colLoss;
-    private ObservableList<WinsLossData> data;
+    private ObservableList<WinsLossData> data1;
 
 
     @Override
@@ -43,11 +49,17 @@ public class DashBoardView implements Initializable {
 //                new PropertyValueFactory<LeaderBoardData, Integer>("wins"));
 //        colWinPercentage.setCellValueFactory(
 //                new PropertyValueFactory<LeaderBoardData, Integer>("winPercentage"));
+
+
         winlosstable.setItems(UserDB.getWinsLossData(Controller.loggedUsr));
 
         //buildWinsLossDashData();
 
     }
+
+
+
+
 
 
 //    public void buildWinsLossDashData() {
@@ -90,6 +102,30 @@ public class DashBoardView implements Initializable {
             }
         });
     }
+
+    public void onRegisterClick() {
+        registerButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                // shows leaderboard
+                GUI register = new GUI();
+                register.showRegister();
+            }
+        });
+    }
+
+
+    public void onNewGame() {
+        newGameBtn.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                // shows leaderboard
+                GUI register = new GUI();
+                register.showGame9();
+            }
+        });
+    }
+
 
 
 

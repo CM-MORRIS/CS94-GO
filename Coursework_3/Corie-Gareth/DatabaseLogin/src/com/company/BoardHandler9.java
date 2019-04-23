@@ -17,30 +17,30 @@ import javafx.stage.Stage;
  *
  * @author Will Davies and Alex Mair
  */
-public class BoardHandler9 extends Application
+public class BoardHandler9
         implements EventHandler<ActionEvent> {
 
     /**
      * Producing a new GameBoard to be used within the JavaFX program.
      */
-    private GameBoard board = new GameBoard(9, 9);
+    public GameBoard board = new GameBoard(9, 9);
 
-    private PassCounter passCounter = new PassCounter();
+    public PassCounter passCounter = new PassCounter();
 
     /**
      * The first player of the game.
      */
-    private Player p1 = new Player("Alex", 1);
+    public Player p1 = new Player("Alex", 1);
 
     /**
      * The second player of the game.
      */
-    private Player p2 = new Player("Will", 2);
+    public Player p2 = new Player("Will", 2);
 
     /**
      * Producing a GameLogic instance to track players.
      */
-    private GameLogic game = new GameLogic(p1, p2);
+    public GameLogic game = new GameLogic(p1, p2);
 
     /**
      * Scaling factor for the board to make it display correctly.
@@ -52,11 +52,12 @@ public class BoardHandler9 extends Application
      *
      * @return Information to go on the scene.
      */
-    private Parent createContent() {
+    public Parent createContent() {
         Pane root = new Pane();
         root.setPrefSize(1000, 1000);
 
         Button passButton = new Button("Pass");
+
         passButton.setMinWidth(100);
         passButton.setMinHeight(10);
         passButton.setTranslateX(300);
@@ -70,6 +71,8 @@ public class BoardHandler9 extends Application
         quitButton.setTranslateY(10);
         root.getChildren().add(quitButton);
 
+
+
         passButton.setOnAction(event -> {
 
             passCounter.setCurrentPass(game.getTurnCounter());
@@ -81,11 +84,16 @@ public class BoardHandler9 extends Application
             game.incrementTurnCounter();
             //TODO END THE GAME WITH WHO WINS AND PASS THAT BACK TO DASHBOARD
         });
+
+
         quitButton.setOnAction(event -> {
             {
                 //TODO END THE GAME
             }
         });
+
+
+
 
         for (int i = 1; i < board.getHeight(); i++) {
             for (int j = 1; j < board.getWidth(); j++) {
@@ -96,7 +104,14 @@ public class BoardHandler9 extends Application
             }
         }
 
+
+
         Circle[][] circles = new Circle[board.getWidth()][board.getHeight()];
+
+
+
+
+
         //To track circle positions
         root.setOnMouseClicked(event -> {
             int xPosPane = (int) Math.rint(event.getSceneX()
@@ -133,12 +148,13 @@ public class BoardHandler9 extends Application
         return root;
     }
 
-    @Override
-    public void start(final Stage primaryStage) {
-        primaryStage.setScene(new Scene(createContent()));
-        primaryStage.setTitle("Group 4 - CSCM94 - Go Game");
-        primaryStage.show();
-    }
+
+//    @Override
+//    public void start(final Stage primaryStage) {
+//        primaryStage.setScene(new Scene(createContent()));
+//        primaryStage.setTitle("Group 4 - CSCM94 - Go Game");
+//        primaryStage.show();
+//    }
 
 
 

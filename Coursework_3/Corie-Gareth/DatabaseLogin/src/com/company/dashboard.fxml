@@ -73,7 +73,7 @@
                             </textFill>
                         </Label>
 
-                        <Button fx:id="newGameBtn" layoutX="32.0" layoutY="57.0" mnemonicParsing="false" text="New Game" />
+                        <Button fx:id="newGameBtn" layoutX="32.0" layoutY="57.0" mnemonicParsing="false" onAction="#onNewGame" text="New Game" />
                         <Button fx:id="btnLdr" layoutX="27.0" layoutY="105.0" mnemonicParsing="false" onAction="#onLdrClick" text="Leaderboard" />
 
 
