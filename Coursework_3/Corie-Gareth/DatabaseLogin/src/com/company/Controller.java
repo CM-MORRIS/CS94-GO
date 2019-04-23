@@ -33,13 +33,15 @@ public class Controller {
     public Button btnLogin;
 
     @FXML
-    public Button btnLdr;
-
-    @FXML
     public TextField usertxt;
 
     @FXML
     public PasswordField pswdtxt;
+
+    //public static String loggedUsr;
+
+
+
 
 
     public void onLoginClick() {
@@ -53,28 +55,15 @@ public class Controller {
                     System.out.println(UserDB.checkUserPass(usertxt.getText(), pswdtxt.getText()));
                     System.out.println("Successfully found user");
 
+                    //loggedUsr = usertxt.getText();
+
                     // shows dashboard on successful login
                     GUI dashboard = new GUI();
                     dashboard.showDash();
-
-
                 }
             }
         });
     }
 
-    public void onLdrClick() {
-
-        btnLdr.setOnAction(new EventHandler<ActionEvent>() {
-             @Override
-             public void handle(ActionEvent event) {
-
-                 // shows leaderboard
-                 GUI leaderboard = new GUI();
-                 leaderboard.showLeaderboard();
-             }
-        });
-
-    }
 
 }

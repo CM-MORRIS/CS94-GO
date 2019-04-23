@@ -22,6 +22,9 @@ import java.util.ResourceBundle;
 public class DashBoardView implements Initializable {
 
 
+    @FXML
+    public Button btnLdr;
+
     @FXML private TableView<WinsLossData> winlosstable;
     @FXML private TableColumn<WinsLossData, Number> colWins;
     @FXML private TableColumn<WinsLossData, Number> colLoss;
@@ -50,7 +53,7 @@ public class DashBoardView implements Initializable {
 
         data = FXCollections.observableArrayList();
         try {
-            ResultSet rs = UserDB.getWinsLossData("logged in user string needs to go here to query only win/loss of that user");
+            ResultSet rs = UserDB.getWinsLossData("1");
 
             data = FXCollections.observableArrayList();
 
@@ -67,6 +70,19 @@ public class DashBoardView implements Initializable {
         }
 
         winlosstable.setItems(data);
+    }
+
+    public void onLdrClick() {
+
+        btnLdr.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+
+                // shows leaderboard
+                GUI leaderboard = new GUI();
+                leaderboard.showLeaderboard();
+            }
+        });
     }
 
 
