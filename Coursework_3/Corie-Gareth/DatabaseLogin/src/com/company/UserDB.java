@@ -152,6 +152,7 @@ public class UserDB {
 
                 ResultSet rs = results.executeQuery(query);
 
+                // NOTE: do not close connection otherwise results will not show in tableView
 //                results.close();
 //                conn.close();
 
