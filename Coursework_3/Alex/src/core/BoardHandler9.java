@@ -3,7 +3,6 @@ package core;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
@@ -25,6 +24,9 @@ public class BoardHandler9 extends Application
      */
     private GameBoard board = new GameBoard(9, 9);
 
+    /**
+     * Producing a PassCounter to keep track of the passes in the game.
+     */
     private PassCounter passCounter = new PassCounter();
 
     /**
@@ -45,30 +47,24 @@ public class BoardHandler9 extends Application
     /**
      * Scaling factor for the board to make it display correctly.
      */
-    public static final int BOARD_SCALING_FACTOR = 100;
+    static final int BOARD_SCALING_FACTOR = 100;
 
     /**
      * Parent to display the pane and the content on.
      *
      * @return Information to go on the scene.
      */
-    private Parent createContent() {
+    public void start(final Stage primaryStage) {
+        boolean[] end = {false};
         Pane root = new Pane();
         root.setPrefSize(1000, 1000);
 
         Button passButton = new Button("Pass");
         passButton.setMinWidth(100);
         passButton.setMinHeight(10);
-        passButton.setTranslateX(300);
+        passButton.setTranslateX(450);
         passButton.setTranslateY(10);
         root.getChildren().add(passButton);
-
-        Button quitButton = new Button("Quit");
-        quitButton.setMinWidth(100);
-        quitButton.setMinHeight(10);
-        quitButton.setTranslateX(600);
-        quitButton.setTranslateY(10);
-        root.getChildren().add(quitButton);
 
         passButton.setOnAction(event -> {
 
@@ -76,16 +72,41 @@ public class BoardHandler9 extends Application
             if (passCounter.endOfGame()) {
                 System.out.println(board.p1ScoreCalculator(p1, game));
                 System.out.println(board.p2ScoreCalculator(p2, game));
-                //TODO END THE GAME WITH WHO WINS AND PASS THAT BACK TO DASHBOARD
+                end[0] = true;
+                if (end[0]) {
+                    Pane end_scene = new Pane();
+
+                    end_scene.setPrefSize(1000, 1000);
+                    Button restartButton = new Button("Restart");
+                    restartButton.setMinWidth(300);
+                    restartButton.setMinHeight(100);
+                    restartButton.setTranslateX(600);
+                    restartButton.setTranslateY(400);
+                    end_scene.getChildren().add(restartButton);
+
+                    Button dashboardButton = new Button("Dashboard");
+                    dashboardButton.setMinWidth(300);
+                    dashboardButton.setMinHeight(100);
+                    dashboardButton.setTranslateX(100);
+                    dashboardButton.setTranslateY(400);
+                    end_scene.getChildren().add(dashboardButton);
+
+                    restartButton.setOnAction(Event -> {
+
+                    });
+                    dashboardButton.setOnAction(Event -> {
+                        {
+                            //call end screen
+                        }
+                    });
+                    Scene scene_two = new Scene(end_scene, 1000, 1000);
+                    primaryStage.setScene(scene_two);
+                    primaryStage.setTitle("Group 4 - CSCM94 - Go Game");
+                    primaryStage.show();
+                }
             }
             passCounter.setLastPass(passCounter.getCurrentPass());
             game.incrementTurnCounter();
-           
-        });
-        quitButton.setOnAction(event -> {
-            {
-                //TODO END THE GAME
-            }
         });
 
         for (int i = 1; i < board.getHeight(); i++) {
@@ -131,12 +152,9 @@ public class BoardHandler9 extends Application
                 }
             }
         });
-        return root;
-    }
 
-    @Override
-    public void start(final Stage primaryStage) {
-        primaryStage.setScene(new Scene(createContent()));
+        Scene scene = new Scene(root, 1000, 1000);
+        primaryStage.setScene(scene);
         primaryStage.setTitle("Group 4 - CSCM94 - Go Game");
         primaryStage.show();
     }
