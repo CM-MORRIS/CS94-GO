@@ -19,7 +19,7 @@
 
           <TableColumn fx:id="colWins" prefWidth="200.0" text="Wins" />
 
-            <TableColumn fx:id="colWinPercentage" prefWidth="200.0" text="Win%" />
+            <TableColumn fx:id="colWinPercentage" prefWidth="200.0" text="WinPercentage" />
 
 
         </columns>

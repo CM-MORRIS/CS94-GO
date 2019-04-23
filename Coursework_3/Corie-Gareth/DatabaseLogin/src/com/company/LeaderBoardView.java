@@ -7,12 +7,14 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.net.URL;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 
@@ -22,8 +24,8 @@ public class LeaderBoardView implements Initializable {
     @FXML public Button backDash;
 
     @FXML private TableColumn<LeaderBoardData, String> colUsername;
-    @FXML private TableColumn<LeaderBoardData, Integer> colWins;
-    @FXML private TableColumn<LeaderBoardData, Integer> colWinPercentage;
+    @FXML private TableColumn<LeaderBoardData, Number> colWins;
+    @FXML private TableColumn<LeaderBoardData, Number> colWinPercentage;
     @FXML private TableView<LeaderBoardData> tableLeaderboard;
     private ObservableList<LeaderBoardData> data;
 
@@ -31,12 +33,16 @@ public class LeaderBoardView implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        colUsername.setCellValueFactory(
-                new PropertyValueFactory<LeaderBoardData,String>("username"));
-        colWins.setCellValueFactory(
-                new PropertyValueFactory<LeaderBoardData, Integer>("wins"));
-        colWinPercentage.setCellValueFactory(
-                new PropertyValueFactory<LeaderBoardData, Integer>("winPercentage"));
+        colUsername.setCellValueFactory(f -> f.getValue().usernameProperty());
+        colWins.setCellValueFactory(f -> f.getValue().userWinsProperty());
+        colWinPercentage.setCellValueFactory(f -> f.getValue().winPercentProperty());
+
+//        colUsername.setCellValueFactory(
+//                new PropertyValueFactory<LeaderBoardData,String>("username"));
+//        colWins.setCellValueFactory(
+//                new PropertyValueFactory<LeaderBoardData, Integer>("wins"));
+//        colWinPercentage.setCellValueFactory(
+//                new PropertyValueFactory<LeaderBoardData, Integer>("winPercentage"));
 
         buildLeaderBoardData();
 
@@ -48,22 +54,48 @@ public class LeaderBoardView implements Initializable {
         try {
             ResultSet rs = UserDB.getLeaderBoardData();
 
-            while(rs.next()){
+            data = FXCollections.observableArrayList();
+
+            while (rs.next()) {
                 LeaderBoardData cm = new LeaderBoardData();
-
-                cm.username.set(rs.getString("username"));
-                cm.wins.set(rs.getInt("wins"));
-                cm.winPercentage.set(rs.getInt("winPercentage"));
-
+                cm.setUsername(rs.getString("username"));
+                cm.setUserWins(rs.getInt("wins"));
+                cm.setWinPercentage(rs.getInt("winPercentage"));
                 data.add(cm);
             }
-            tableLeaderboard.setItems(data);
-
-        } catch(Exception e) {
-            e.printStackTrace();
-            System.out.println("Error on Building Data");
+        } catch (SQLException ex) {
+            System.out.println("Connection Failed! Check output console");
         }
+
+        tableLeaderboard.setItems(data);
     }
+
+
+
+
+
+
+
+
+//            while(rs.next()){
+//                LeaderBoardData cm = new LeaderBoardData();
+//
+//                cm.setUsername(rs.getString("username"));
+//                cm.setUserWins(rs.getInt("userWins"));
+//                cm.setWinPercentage(rs.getInt("winPercentage"));
+//                data.add(cm);
+//
+//                //System.out.println(data.get());
+//            }
+//            tableLeaderboard.setItems(data);
+//
+//        } catch(Exception e) {
+//            e.printStackTrace();
+//            System.out.println("Error on Building Data");
+//        }
+
+
+
 
 
     public void onBackClick() {

@@ -53,7 +53,7 @@ public class Controller {//implements Initializable {
 //    public void initialize(URL location, ResourceBundle resources) {
 //
 //        colUsername.setCellValueFactory(
-//                new PropertyValueFactory<UserData,String>("username"));
+//                new PropertyValueFactory<UserData,String>("Username"));
 //        colWins.setCellValueFactory(
 //                new PropertyValueFactory<UserData, Integer>("wins"));
 //        colWinPercentage.setCellValueFactory(
