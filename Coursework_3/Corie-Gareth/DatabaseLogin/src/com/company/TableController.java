@@ -1,59 +1,126 @@
-package com.company;
-
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.cell.PropertyValueFactory;
-
-import java.net.URL;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ResourceBundle;
-
-public class TableController implements Initializable {
-
-    @FXML private TableView<UserDB> tableLeaderboard;
-    @FXML private TableColumn<UserDB, String> userCol;
-    @FXML private TableColumn<UserDB, String> winsCol;
-    @FXML private TableColumn<UserDB, String> winPercentageCol;
-
-    ObservableList<UserDB> oblist = FXCollections.observableArrayList();
-
-
-
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-
-        ResultSet rs = UserDB.getLeaderboardData();
-
-        try {
-
-
-
-            while(rs.next()) {
-
-
-                oblist.add(rs.getObject(1).toString(), rs.getObject(2).toString(), rs.getObject(3).toString());
-            }
-
-        } catch (SQLException e) {
-            System.out.println("Something went wrong: " + e.getMessage());
-        }
-
-
-
-
-        userCol.setCellValueFactory(new PropertyValueFactory<UserDB, String>("User"));
-        winsCol.setCellValueFactory(new PropertyValueFactory<UserDB, String>("Wins"));
-        winPercentageCol.setCellValueFactory(new PropertyValueFactory<UserDB, String>("WinPercentage"));
-
-    }
-
-
-
-
-
-}
+//package com.company;
+//
+//import java.util.*;
+//
+//import javafx.collections.FXCollections;
+//import javafx.collections.ObservableList;
+//import javafx.fxml.FXML;
+//import javafx.scene.control.TableColumn;
+//import javafx.scene.control.TableView;
+//import javafx.scene.control.cell.PropertyValueFactory;
+//import javafx.beans.property.SimpleStringProperty;
+//
+//
+//import java.net.URL;
+//import java.sql.ResultSet;
+//import java.sql.SQLException;
+//import java.util.ResourceBundle;
+//
+//import static javax.swing.UIManager.getInt;
+//import static javax.swing.UIManager.getString;
+//
+//public class TableController {
+//
+//    @FXML
+//    private TableView<UserDB> tableLeaderboard;
+//    @FXML
+//    private TableColumn<UserData, String> username;
+//    @FXML
+//    private TableColumn<UserDB, String> wins;
+//    @FXML
+//    private TableColumn<UserDB, String> winPercentage;
+//
+//
+//    @Override
+//    public void initialize(URL location, ResourceBundle resources) {
+//
+//        try {
+//            ResultSet rs = UserDB.getLeaderboardData();
+//
+//            final ObservableList<UserData> data = FXCollections.observableArrayList(
+//                    new UserData(rs.getString(1), rs.getInt(2), rs.getInt(3))
+//            );
+//
+//        } catch (SQLException e) {
+//            System.out.println("a");
+//        }
+//
+//
+//        username.setCellValueFactory(new PropertyValueFactory<>("username"));
+//        wins.setCellValueFactory(new PropertyValueFactory<>("Wins"));
+//        winPercentage.setCellValueFactory(new PropertyValueFactory<>("WinPercentage"));
+//
+//
+//        tableLeaderboard.setitems(data);
+//
+//
+//    }
+//}
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//

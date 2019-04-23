@@ -7,7 +7,7 @@
 
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="442.0" prefWidth="600.0"
-            xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.company.Controller">
+            xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.company.LeaderboardView">
 
    <children>
 
@@ -15,11 +15,11 @@
 
         <columns>
 
-          <TableColumn fx:id="userCol" prefWidth="200.0" text="User" />
+          <TableColumn fx:id="colUsername" prefWidth="200.0" text="User" />
 
-          <TableColumn fx:id="winsCol" prefWidth="200.0" text="Wins" />
+          <TableColumn fx:id="colWins" prefWidth="200.0" text="Wins" />
 
-            <TableColumn fx:id="winPercentageCol" prefWidth="200.0" text="Win%" />
+            <TableColumn fx:id="colWinPercentage" prefWidth="200.0" text="Win%" />
 
 
         </columns>

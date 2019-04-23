@@ -43,6 +43,8 @@ public class UserDB {
                                 COLUMN_WIN_PERCENTAGE + " INTEGER DEFAULT 0, " + COLUMN_ADMIN + " INTEGER DEFAULT 0)");
             // 1 if admin, else 0
 
+
+
             statement.close();
 
             // closes connection to DB
@@ -52,6 +54,9 @@ public class UserDB {
             System.out.println("Something went wrong: " + e.getMessage());
           }
     }
+
+
+
 
 
     // adds user to DB
