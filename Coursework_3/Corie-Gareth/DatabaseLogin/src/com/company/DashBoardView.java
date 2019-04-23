@@ -24,19 +24,26 @@ public class DashBoardView implements Initializable {
 
     @FXML
     public Button btnLdr;
-<<<<<<< HEAD
+
 
     @FXML
-    public Button newGameBtn;
+    public Button newGameBtn9;
+
+    @FXML
+    public Button newGameBtn13;
+
+    @FXML
+    public Button newGameBtn19;
+
 
     @FXML
     public Button registerButton;
 
-=======
+
     
-    @FXML
-    public Button registerButton;
->>>>>>> c0584788c894acc8771298e686f1cbf4cb422889
+//    @FXML
+//    public Button registerButton;
+
     @FXML private TableView<WinsLossData> winlosstable;
     @FXML private TableColumn<WinsLossData, Number> colWins;
     @FXML private TableColumn<WinsLossData, Number> colLoss;
@@ -57,7 +64,7 @@ public class DashBoardView implements Initializable {
 //                new PropertyValueFactory<LeaderBoardData, Integer>("winPercentage"));
 
 
-        winlosstable.setItems(UserDB.getWinsLossData(Controller.loggedUsr));
+//        winlosstable.setItems(UserDB.getWinsLossData(Controller.loggedUsr));
 
         //buildWinsLossDashData();
 
@@ -94,12 +101,8 @@ public class DashBoardView implements Initializable {
 //
 //    }
 
-
-<<<<<<< HEAD
-
-=======
-        winlosstable.setItems(data);
-    }
+//        winlosstable.setItems(data);
+//    }
     
     public void onRegisterClick() {
         registerButton.setOnAction(new EventHandler<ActionEvent>() {
@@ -111,7 +114,7 @@ public class DashBoardView implements Initializable {
             }
        });
     }
->>>>>>> c0584788c894acc8771298e686f1cbf4cb422889
+
     public void onLdrClick() {
 
         btnLdr.setOnAction(new EventHandler<ActionEvent>() {
@@ -124,26 +127,47 @@ public class DashBoardView implements Initializable {
             }
         });
     }
+//
+//    public void onRegisterClick() {
+//        registerButton.setOnAction(new EventHandler<ActionEvent>() {
+//            @Override
+//            public void handle(ActionEvent event) {
+//                // shows leaderboard
+//                GUI register = new GUI();
+//                register.showRegister();
+//            }
+//        });
+//    }
 
-    public void onRegisterClick() {
-        registerButton.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                // shows leaderboard
-                GUI register = new GUI();
-                register.showRegister();
-            }
-        });
-    }
 
-
-    public void onNewGame() {
-        newGameBtn.setOnAction(new EventHandler<ActionEvent>() {
+    public void onNewGame9() {
+        newGameBtn9.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
                 // shows leaderboard
                 GUI register = new GUI();
                 register.showGame9();
+            }
+        });
+    }
+
+    public void onNewGame13() {
+        newGameBtn13.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                // shows leaderboard
+                GUI register = new GUI();
+                register.showGame13();
+            }
+        });
+    }
+    public void onNewGame19() {
+        newGameBtn19.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                // shows leaderboard
+                GUI register = new GUI();
+                register.showGame19();
             }
         });
     }

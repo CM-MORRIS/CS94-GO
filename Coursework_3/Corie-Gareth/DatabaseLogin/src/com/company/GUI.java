@@ -90,14 +90,35 @@ public class GUI extends Application {
             mainStage.show();
     }
 
+    public void showGame13() {
+        BoardHandler13 game = new BoardHandler13();
 
-
-
-
-
-
-
+        Parent startgame = game.createContent();
+        Stage mainStage;
+        mainStage = GUI.parentWindow;
+        mainStage.getScene().setRoot(startgame);
+        mainStage.show();
     }
+
+    public void showGame19() {
+        BoardHandler19 game = new BoardHandler19();
+
+        Parent startgame = game.createContent();
+        Stage mainStage;
+        mainStage = GUI.parentWindow;
+        mainStage.getScene().setRoot(startgame);
+        mainStage.show();
+    }
+
+
+
+
+
+
+
+
+
+}
 
 
 
