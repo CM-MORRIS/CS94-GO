@@ -76,10 +76,11 @@ public class BoardHandler9 extends Application
             if (passCounter.endOfGame()) {
                 System.out.println(board.p1ScoreCalculator(p1, game));
                 System.out.println(board.p2ScoreCalculator(p2, game));
+                //TODO END THE GAME WITH WHO WINS AND PASS THAT BACK TO DASHBOARD
             }
             passCounter.setLastPass(passCounter.getCurrentPass());
             game.incrementTurnCounter();
-            //TODO END THE GAME WITH WHO WINS AND PASS THAT BACK TO DASHBOARD
+           
         });
         quitButton.setOnAction(event -> {
             {
