@@ -17,7 +17,7 @@ import java.util.ResourceBundle;
 
 
 
-public class LeaderboardView implements Initializable {
+public class LeaderBoardView implements Initializable {
 
     @FXML public Button backDash;
 
@@ -38,12 +38,12 @@ public class LeaderboardView implements Initializable {
         colWinPercentage.setCellValueFactory(
                 new PropertyValueFactory<UserData, Integer>("winPercentage"));
 
-        buildData();
+        buildLeaderBoardData();
 
     }
 
 
-    public void buildData() {
+    public void buildLeaderBoardData() {
         data = FXCollections.observableArrayList();
         try {
             ResultSet rs = UserDB.getLeaderboardData();
@@ -64,8 +64,6 @@ public class LeaderboardView implements Initializable {
             System.out.println("Error on Building Data");
         }
     }
-
-
 
 
     public void onBackClick() {
