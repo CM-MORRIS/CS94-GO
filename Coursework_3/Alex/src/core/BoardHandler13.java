@@ -5,6 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
@@ -23,6 +24,8 @@ public class BoardHandler13 extends Application
      * Producing a new GameBoard to be used within the JavaFX program.
      */
     private GameBoard board = new GameBoard(13, 13);
+
+    private PassCounter passCounter = new PassCounter();
 
     /**
      * The first player of the game.
@@ -53,6 +56,36 @@ public class BoardHandler13 extends Application
         Pane root = new Pane();
         root.setPrefSize(1100, 1100);
 
+        Button passButton = new Button("Pass");
+        passButton.setMinWidth(100);
+        passButton.setMinHeight(10);
+        passButton.setTranslateX(350);
+        passButton.setTranslateY(10);
+        root.getChildren().add(passButton);
+
+        Button quitButton = new Button("Quit");
+        quitButton.setMinWidth(100);
+        quitButton.setMinHeight(10);
+        quitButton.setTranslateX(650);
+        quitButton.setTranslateY(10);
+        root.getChildren().add(quitButton);
+
+        passButton.setOnAction(event -> {
+
+            passCounter.setCurrentPass(game.getTurnCounter());
+            if (passCounter.endOfGame()) {
+                System.out.println(board.p1ScoreCalculator(p1, game));
+                System.out.println(board.p2ScoreCalculator(p2, game));
+            }
+            passCounter.setLastPass(passCounter.getCurrentPass());
+            game.incrementTurnCounter();
+        });
+        quitButton.setOnAction(event -> {
+            {
+                //call end screen
+            }
+        });
+
         for (int i = 1; i < board.getHeight(); i++) {
             for (int j = 1; j < board.getWidth(); j++) {
                 Tile13 tile = new Tile13();
@@ -63,8 +96,7 @@ public class BoardHandler13 extends Application
         }
 
         Circle[][] circles = new Circle[board.getWidth()][board.getHeight()];
-
-        //To track
+        //To track circle positions
         root.setOnMouseClicked(event -> {
             int xPosPane = (int) Math.rint(event.getSceneX()
                     / BOARD_SCALING_FACTOR);
@@ -103,6 +135,7 @@ public class BoardHandler13 extends Application
     @Override
     public void start(final Stage primaryStage) {
         primaryStage.setScene(new Scene(createContent()));
+        primaryStage.setTitle("Group 4 - CSCM94 - Go Game");
         primaryStage.show();
     }
 

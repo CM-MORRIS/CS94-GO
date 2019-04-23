@@ -1,4 +1,4 @@
-package core;
+package com.company;
 
 /**
  * GameBoard holds the board dimensions and handles counter placement.

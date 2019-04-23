@@ -1,4 +1,4 @@
-package core;
+package com.company;
 
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -13,17 +13,17 @@ import javafx.stage.Stage;
 
 /**
  * The BoardHandler class deals with the JavaFX implementations
- * of the GameBoard 19*19 in size.
+ * of the GameBoard 13*13 in size.
  *
  * @author Will Davies and Alex Mair
  */
-public class BoardHandler19 extends Application
+public class BoardHandler13 extends Application
         implements EventHandler<ActionEvent> {
 
     /**
      * Producing a new GameBoard to be used within the JavaFX program.
      */
-    private GameBoard board = new GameBoard(19, 19);
+    private GameBoard board = new GameBoard(13, 13);
 
     private PassCounter passCounter = new PassCounter();
 
@@ -45,7 +45,7 @@ public class BoardHandler19 extends Application
     /**
      * Scaling factor for the board to make it display correctly.
      */
-    public static final int BOARD_SCALING_FACTOR = 60;
+    public static final int BOARD_SCALING_FACTOR = 80;
 
     /**
      * Parent to display the pane and the content on.
@@ -54,19 +54,19 @@ public class BoardHandler19 extends Application
      */
     private Parent createContent() {
         Pane root = new Pane();
-        root.setPrefSize(1200, 1200);
+        root.setPrefSize(1100, 1100);
 
         Button passButton = new Button("Pass");
         passButton.setMinWidth(100);
         passButton.setMinHeight(10);
-        passButton.setTranslateX(400);
+        passButton.setTranslateX(350);
         passButton.setTranslateY(10);
         root.getChildren().add(passButton);
 
         Button quitButton = new Button("Quit");
         quitButton.setMinWidth(100);
         quitButton.setMinHeight(10);
-        quitButton.setTranslateX(700);
+        quitButton.setTranslateX(650);
         quitButton.setTranslateY(10);
         root.getChildren().add(quitButton);
 
@@ -88,7 +88,7 @@ public class BoardHandler19 extends Application
 
         for (int i = 1; i < board.getHeight(); i++) {
             for (int j = 1; j < board.getWidth(); j++) {
-                Tile19 tile = new Tile19();
+                Tile13 tile = new Tile13();
                 tile.setTranslateX(j * BOARD_SCALING_FACTOR);
                 tile.setTranslateY(i * BOARD_SCALING_FACTOR);
                 root.getChildren().addAll(tile);
@@ -108,7 +108,7 @@ public class BoardHandler19 extends Application
                     && yPosPane < board.getHeight() + 1) {
                 if (board.playMove(board.getIntersection(xPos, yPos), game)) {
                     circles[xPos][yPos] = new Circle(xPosPane * BOARD_SCALING_FACTOR,
-                            yPosPane * BOARD_SCALING_FACTOR, 25, Color.BLACK);
+                            yPosPane * BOARD_SCALING_FACTOR, 35, Color.BLACK);
                     circles[xPos][yPos].setStroke(Color.BLACK);
                     if (game.whosTurn() == 2) {
                         circles[xPos][yPos].setFill(Color.WHITE);
