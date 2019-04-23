@@ -143,8 +143,6 @@ public class UserDB {
         public static ResultSet getLeaderBoardData() {
 
             String query = "SELECT " + COLUMN_USERNAME + ", " + COLUMN_WINS + ", " + COLUMN_WIN_PERCENTAGE + " FROM " + TABLE_USERS;
-            //String query = "SELECT * FROM " + DB_NAME;
-
 
             try {
                 Connection conn = DriverManager.getConnection(CONNECTION_STRING);
@@ -164,6 +162,32 @@ public class UserDB {
             }
             return null;
         }
+
+
+    public static ResultSet getWinsLossData(String username) {
+
+        String query = "SELECT " + COLUMN_WINS + ", " + COLUMN_LOSS + " FROM " +
+                        TABLE_USERS + " WHERE " + COLUMN_USERNAME + " = " + username;
+
+        try {
+            Connection conn = DriverManager.getConnection(CONNECTION_STRING);
+            Statement results = conn.createStatement();
+            ResultSet rs = results.executeQuery(query);
+
+            // NOTE: do not close connection otherwise results will not show in tableView
+//                results.close();
+//                conn.close();
+
+            return rs;
+
+
+        } catch (SQLException e) {
+            System.out.println("Something went wrong: " + e.getMessage());
+        }
+        return null;
+    }
+
+
 
 
 

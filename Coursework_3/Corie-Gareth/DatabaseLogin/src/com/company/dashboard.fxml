@@ -19,7 +19,7 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="565.0" prefWidth="831.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.company.Controller">
+<VBox prefHeight="565.0" prefWidth="831.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.company.DashBoardView">
     <children>
         <MenuBar VBox.vgrow="NEVER">
             <menus>
@@ -93,6 +93,7 @@
                         <ImageView fitHeight="102.0" fitWidth="111.0" layoutX="225.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true" />
                         <AnchorPane layoutY="336.0" prefHeight="178.0" prefWidth="296.0">
                             <children>
+
                                 <TableView layoutX="-61.0" layoutY="-38.0" prefHeight="178.0" prefWidth="296.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                     <columns>
                                         <TableColumn prefWidth="146.0" text="C1" />
@@ -103,6 +104,7 @@
                         </AnchorPane>
                         <AnchorPane layoutX="297.0" layoutY="336.0" prefHeight="178.0" prefWidth="306.0">
                             <children>
+
                                 <TableView layoutX="-10.0" layoutY="-29.0" prefHeight="178.0" prefWidth="306.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                     <columns>
                                         <TableColumn prefWidth="159.0" text="C1" />
@@ -116,6 +118,7 @@
                         <Label layoutX="247.0" layoutY="17.0" text="Avatar" />
                         <AnchorPane layoutX="17.0" layoutY="72.0" prefHeight="226.0" prefWidth="178.0">
                             <children>
+
                                 <TableView layoutX="-22.0" layoutY="12.0" prefHeight="226.0" prefWidth="178.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                     <columns>
                                         <TableColumn prefWidth="89.0" text="C1" />
@@ -127,10 +130,11 @@
                         <Label layoutX="26.0" layoutY="49.0" text="New Users Added" />
                         <AnchorPane layoutX="339.0" layoutY="230.0" prefHeight="55.0" prefWidth="246.0">
                             <children>
-                                <TableView layoutX="-29.0" layoutY="-86.0" prefHeight="55.0" prefWidth="246.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                
+                                <TableView fx:id="winlosstable" layoutX="-29.0" layoutY="-86.0" prefHeight="55.0" prefWidth="246.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                     <columns>
-                                        <TableColumn prefWidth="75.0" text="C1" />
-                                        <TableColumn prefWidth="75.0" text="C2" />
+                                        <TableColumn fx:id="colWins" prefWidth="75.0" text="C1" />
+                                        <TableColumn fx:id="colLoss" prefWidth="75.0" text="C2" />
                                     </columns>
                                 </TableView>
                             </children>
