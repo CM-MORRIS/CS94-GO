@@ -46,7 +46,7 @@ public class LeaderBoardView implements Initializable {
     public void buildLeaderBoardData() {
         data = FXCollections.observableArrayList();
         try {
-            ResultSet rs = UserDB.getLeaderboardData();
+            ResultSet rs = UserDB.getLeaderBoardData();
 
             while(rs.next()){
                 LeaderBoardData cm = new LeaderBoardData();

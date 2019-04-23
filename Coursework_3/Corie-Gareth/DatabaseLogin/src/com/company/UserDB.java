@@ -140,7 +140,7 @@ public class UserDB {
         }
 
 
-        public static ResultSet getLeaderboardData() {
+        public static ResultSet getLeaderBoardData() {
 
             String query = "SELECT " + COLUMN_USERNAME + ", " + COLUMN_WINS + ", " + COLUMN_WIN_PERCENTAGE + " FROM " + TABLE_USERS;
             //String query = "SELECT * FROM " + DB_NAME;
