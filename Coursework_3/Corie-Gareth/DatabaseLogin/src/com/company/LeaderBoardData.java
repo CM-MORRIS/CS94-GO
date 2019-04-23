@@ -5,7 +5,7 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 
-public class UserData {
+public class LeaderBoardData {
 
     public SimpleStringProperty username;
     public SimpleIntegerProperty wins;

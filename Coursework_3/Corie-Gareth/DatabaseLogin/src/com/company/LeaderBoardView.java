@@ -21,22 +21,22 @@ public class LeaderBoardView implements Initializable {
 
     @FXML public Button backDash;
 
-    @FXML private TableColumn<UserData, String> colUsername;
-    @FXML private TableColumn<UserData, Integer> colWins;
-    @FXML private TableColumn<UserData, Integer> colWinPercentage;
-    @FXML private TableView<UserData> tableLeaderboard;
-    private ObservableList<UserData> data;
+    @FXML private TableColumn<LeaderBoardData, String> colUsername;
+    @FXML private TableColumn<LeaderBoardData, Integer> colWins;
+    @FXML private TableColumn<LeaderBoardData, Integer> colWinPercentage;
+    @FXML private TableView<LeaderBoardData> tableLeaderboard;
+    private ObservableList<LeaderBoardData> data;
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
         colUsername.setCellValueFactory(
-                new PropertyValueFactory<UserData,String>("username"));
+                new PropertyValueFactory<LeaderBoardData,String>("username"));
         colWins.setCellValueFactory(
-                new PropertyValueFactory<UserData, Integer>("wins"));
+                new PropertyValueFactory<LeaderBoardData, Integer>("wins"));
         colWinPercentage.setCellValueFactory(
-                new PropertyValueFactory<UserData, Integer>("winPercentage"));
+                new PropertyValueFactory<LeaderBoardData, Integer>("winPercentage"));
 
         buildLeaderBoardData();
 
@@ -49,7 +49,7 @@ public class LeaderBoardView implements Initializable {
             ResultSet rs = UserDB.getLeaderboardData();
 
             while(rs.next()){
-                UserData cm = new UserData();
+                LeaderBoardData cm = new LeaderBoardData();
 
                 cm.username.set(rs.getString("username"));
                 cm.wins.set(rs.getInt("wins"));
