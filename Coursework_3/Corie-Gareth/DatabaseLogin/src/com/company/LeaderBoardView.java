@@ -54,22 +54,15 @@ public class LeaderBoardView implements Initializable {
         try {
             ResultSet rs = UserDB.getLeaderBoardData();
 
-
-
-
             data = FXCollections.observableArrayList();
 
             while (rs.next()) {
-                LeaderBoardData cm = new LeaderBoardData();
-                cm.setUsername(rs.getString("username"));
-                cm.setUserWins(rs.getInt("wins"));
-                cm.setWinPercentage(rs.getInt("winPercentage"));
+                LeaderBoardData lb = new LeaderBoardData();
+                lb.setUsername(rs.getString("username"));
+                lb.setUserWins(rs.getInt("wins"));
+                lb.setWinPercentage(rs.getInt("winPercentage"));
 
-                System.out.println(rs.getString("username"));
-                System.out.println(rs.getInt("wins"));
-                System.out.println(rs.getInt("winPercentage"));
-
-                data.add(cm);
+                data.add(lb);
             }
         } catch (SQLException ex) {
             System.out.println("Connection Failed! Check output console");
