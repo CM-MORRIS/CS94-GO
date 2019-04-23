@@ -152,8 +152,8 @@ public class UserDB {
 
                 ResultSet rs = results.executeQuery(query);
 
-                results.close();
-                conn.close();
+//                results.close();
+//                conn.close();
 
                 return rs;
 

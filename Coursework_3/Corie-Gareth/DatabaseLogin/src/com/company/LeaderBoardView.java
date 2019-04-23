@@ -54,6 +54,9 @@ public class LeaderBoardView implements Initializable {
         try {
             ResultSet rs = UserDB.getLeaderBoardData();
 
+
+
+
             data = FXCollections.observableArrayList();
 
             while (rs.next()) {
@@ -61,6 +64,11 @@ public class LeaderBoardView implements Initializable {
                 cm.setUsername(rs.getString("username"));
                 cm.setUserWins(rs.getInt("wins"));
                 cm.setWinPercentage(rs.getInt("winPercentage"));
+
+                System.out.println(rs.getString("username"));
+                System.out.println(rs.getInt("wins"));
+                System.out.println(rs.getInt("winPercentage"));
+
                 data.add(cm);
             }
         } catch (SQLException ex) {
