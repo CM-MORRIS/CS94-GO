@@ -16,8 +16,8 @@ public class WinsLossData {
         return wins.get();
     }
 
-    public void setUserWins(int wins) {
-        this.wins.set(wins);
+    public void setUserWins(int win) {
+        this.wins.set(win);
     }
 
     public IntegerProperty userLossProperty() {
@@ -28,8 +28,8 @@ public class WinsLossData {
         return loss.get();
     }
 
-    public void setUserLoss(int loss) {
-        this.loss.set(loss);
+    public void setUserLoss(int losses) {
+        this.loss.set(losses);
     }
 
 

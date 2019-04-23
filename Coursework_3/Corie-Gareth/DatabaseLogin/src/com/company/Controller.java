@@ -38,7 +38,7 @@ public class Controller {
     @FXML
     public PasswordField pswdtxt;
 
-    //public static String loggedUsr;
+    public static String loggedUsr;
 
 
 
@@ -55,7 +55,7 @@ public class Controller {
                     System.out.println(UserDB.checkUserPass(usertxt.getText(), pswdtxt.getText()));
                     System.out.println("Successfully found user");
 
-                    //loggedUsr = usertxt.getText();
+                    loggedUsr = usertxt.getText();
 
                     // shows dashboard on successful login
                     GUI dashboard = new GUI();

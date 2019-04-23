@@ -1,5 +1,8 @@
 package com.company;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 import java.sql.*;
 
 public class UserDB {
@@ -132,7 +135,7 @@ public class UserDB {
                 rs.close();
                 conn.close();
 
-            } catch(SQLException e){
+            } catch(SQLException e) {
                 System.out.println("Something went wrong: " + e.getMessage());
                 return false;
             }
@@ -160,32 +163,59 @@ public class UserDB {
             } catch (SQLException e) {
                 System.out.println("Something went wrong: " + e.getMessage());
             }
+
+
             return null;
         }
 
 
-    public static ResultSet getWinsLossData(String username) {
+
+
+
+
+
+
+
+    public static ObservableList<WinsLossData> getWinsLossData(String u) {
 
         String query = "SELECT " + COLUMN_WINS + ", " + COLUMN_LOSS + " FROM " +
-                        TABLE_USERS + " WHERE " + COLUMN_USERNAME + " = " + username;
+                        TABLE_USERS + " WHERE " + COLUMN_USERNAME + " = " + u;
 
-        try {
-            Connection conn = DriverManager.getConnection(CONNECTION_STRING);
-            Statement results = conn.createStatement();
-            ResultSet rs = results.executeQuery(query);
+        ObservableList<WinsLossData> data;
+        data = FXCollections.observableArrayList();
 
-            // NOTE: do not close connection otherwise results will not show in tableView
+        System.out.println(query);
+            try {
+                Connection conn = DriverManager.getConnection(CONNECTION_STRING);
+                Statement results = conn.createStatement();
+                ResultSet rs = results.executeQuery(query);
+
+                System.out.println(rs.getInt("wins"));
+                System.out.println(rs.getInt("loss"));
+
+                //return rs;
+                while (rs.next()) {
+                    WinsLossData wl = new WinsLossData();
+
+                    wl.setUserWins(rs.getInt("wins"));
+                    wl.setUserLoss(rs.getInt("loss"));
+
+                    data.add(wl);
+                }
+
 //                results.close();
 //                conn.close();
 
-            return rs;
+                return data;
 
-
-        } catch (SQLException e) {
-            System.out.println("Something went wrong: " + e.getMessage());
-        }
-        return null;
+            } catch (SQLException e) {
+                System.out.println("Something went wrong: " + e.getMessage());
+            }
+            return null;
     }
+
+
+
 
 
 

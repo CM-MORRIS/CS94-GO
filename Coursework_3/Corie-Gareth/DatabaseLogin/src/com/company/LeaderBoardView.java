@@ -50,7 +50,6 @@ public class LeaderBoardView implements Initializable {
 
 
     public void buildLeaderBoardData() {
-        data = FXCollections.observableArrayList();
         try {
             ResultSet rs = UserDB.getLeaderBoardData();
 

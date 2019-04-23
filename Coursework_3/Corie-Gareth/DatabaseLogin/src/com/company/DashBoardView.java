@@ -43,34 +43,40 @@ public class DashBoardView implements Initializable {
 //                new PropertyValueFactory<LeaderBoardData, Integer>("wins"));
 //        colWinPercentage.setCellValueFactory(
 //                new PropertyValueFactory<LeaderBoardData, Integer>("winPercentage"));
+        winlosstable.setItems(UserDB.getWinsLossData(Controller.loggedUsr));
 
-        buildWinsLossDashData();
+        //buildWinsLossDashData();
 
     }
 
 
-    public void buildWinsLossDashData() {
+//    public void buildWinsLossDashData() {
+//
+//        data = FXCollections.observableArrayList();
+//        try {
+//            ResultSet rs = UserDB.getWinsLossData(Controller.loggedUsr);
+//
+//            System.out.println(rs.getInt("wins"));
+//            System.out.println(rs.getInt("loss"));
+//
+//            while (rs.next()) {
+//                WinsLossData wl = new WinsLossData();
+//
+//                wl.setUserWins(rs.getInt("wins"));
+//                wl.setUserLoss(rs.getInt("loss"));
+//
+//                System.out.println(rs.getInt("wins"));
+//                System.out.println(rs.getInt("loss"));
+//
+//                data.add(wl);
+//            }
+//        } catch (SQLException ex) {
+//            System.out.println("Connection Failed! Check output console");
+//        }
+//
+//    }
 
-        data = FXCollections.observableArrayList();
-        try {
-            ResultSet rs = UserDB.getWinsLossData("1");
 
-            data = FXCollections.observableArrayList();
-
-            while (rs.next()) {
-                WinsLossData wl = new WinsLossData();
-
-                wl.setUserWins(rs.getInt("wins"));
-                wl.setUserLoss(rs.getInt("loss"));
-
-                data.add(wl);
-            }
-        } catch (SQLException ex) {
-            System.out.println("Connection Failed! Check output console");
-        }
-
-        winlosstable.setItems(data);
-    }
 
     public void onLdrClick() {
 
