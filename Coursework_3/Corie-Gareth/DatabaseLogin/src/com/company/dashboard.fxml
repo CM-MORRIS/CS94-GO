@@ -81,8 +81,7 @@
                             <children>
                                 <ChoiceBox layoutX="17.0" layoutY="252.0" prefHeight="27.0" prefWidth="185.0" />
                                 <Label layoutX="55.0" layoutY="218.0" text="Choose Avatar" />
-                                <Button fx:id="registerButton" layoutX="51.0" layoutY="296.0" mnemonicParsing="false" onAction="#onRegisterClick" text="Register" />
-
+                                
                             </children>
                         </AnchorPane>
                     </children>

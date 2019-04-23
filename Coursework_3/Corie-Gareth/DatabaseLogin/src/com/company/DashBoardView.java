@@ -24,6 +24,7 @@ public class DashBoardView implements Initializable {
 
     @FXML
     public Button btnLdr;
+<<<<<<< HEAD
 
     @FXML
     public Button newGameBtn;
@@ -31,6 +32,11 @@ public class DashBoardView implements Initializable {
     @FXML
     public Button registerButton;
 
+=======
+    
+    @FXML
+    public Button registerButton;
+>>>>>>> c0584788c894acc8771298e686f1cbf4cb422889
     @FXML private TableView<WinsLossData> winlosstable;
     @FXML private TableColumn<WinsLossData, Number> colWins;
     @FXML private TableColumn<WinsLossData, Number> colLoss;
@@ -89,7 +95,23 @@ public class DashBoardView implements Initializable {
 //    }
 
 
+<<<<<<< HEAD
 
+=======
+        winlosstable.setItems(data);
+    }
+    
+    public void onRegisterClick() {
+        registerButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                // shows leaderboard
+                GUI register = new GUI();
+                register.showRegister();
+            }
+       });
+    }
+>>>>>>> c0584788c894acc8771298e686f1cbf4cb422889
     public void onLdrClick() {
 
         btnLdr.setOnAction(new EventHandler<ActionEvent>() {

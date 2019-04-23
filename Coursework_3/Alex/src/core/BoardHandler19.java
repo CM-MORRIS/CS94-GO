@@ -25,6 +25,9 @@ public class BoardHandler19 extends Application
      */
     private GameBoard board = new GameBoard(19, 19);
 
+    /**
+     * Producing a PassCounter to keep track of the passes in the game.
+     */
     private PassCounter passCounter = new PassCounter();
 
     /**
@@ -52,7 +55,8 @@ public class BoardHandler19 extends Application
      *
      * @return Information to go on the scene.
      */
-    private Parent createContent() {
+    public void start(final Stage primaryStage) {
+        boolean[] end = {false};
         Pane root = new Pane();
         root.setPrefSize(1200, 1200);
 
@@ -76,6 +80,38 @@ public class BoardHandler19 extends Application
             if (passCounter.endOfGame()) {
                 System.out.println(board.p1ScoreCalculator(p1, game));
                 System.out.println(board.p2ScoreCalculator(p2, game));
+                end[0] = true;
+                if (end[0]) {
+                    Pane end_scene = new Pane();
+
+                    end_scene.setPrefSize(1000, 1000);
+                    Button restartButton = new Button("Restart");
+                    restartButton.setMinWidth(300);
+                    restartButton.setMinHeight(100);
+                    restartButton.setTranslateX(600);
+                    restartButton.setTranslateY(400);
+                    end_scene.getChildren().add(restartButton);
+
+                    Button dashboardButton = new Button("Dashboard");
+                    dashboardButton.setMinWidth(300);
+                    dashboardButton.setMinHeight(100);
+                    dashboardButton.setTranslateX(100);
+                    dashboardButton.setTranslateY(400);
+                    end_scene.getChildren().add(dashboardButton);
+
+                    restartButton.setOnAction(Event -> {
+
+                    });
+                    dashboardButton.setOnAction(Event -> {
+                        {
+                            //call end screen
+                        }
+                    });
+                    Scene scene_two = new Scene(end_scene, 1000, 1000);
+                    primaryStage.setScene(scene_two);
+                    primaryStage.setTitle("Group 4 - CSCM94 - Go Game");
+                    primaryStage.show();
+                }
             }
             passCounter.setLastPass(passCounter.getCurrentPass());
             game.incrementTurnCounter();
@@ -129,12 +165,9 @@ public class BoardHandler19 extends Application
                 }
             }
         });
-        return root;
-    }
 
-    @Override
-    public void start(final Stage primaryStage) {
-        primaryStage.setScene(new Scene(createContent()));
+        Scene scene = new Scene(root, 1000, 1000);
+        primaryStage.setScene(scene);
         primaryStage.setTitle("Group 4 - CSCM94 - Go Game");
         primaryStage.show();
     }
