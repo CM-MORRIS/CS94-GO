@@ -24,11 +24,6 @@ public class GameLogic {
     private int turnCounter;
 
     /**
-     * Counter to keep track of the passed turns that have occurred.
-     */
-    private int passCounter;
-
-    /**
      * Winner of the Game.
      */
     private int winner;
@@ -42,21 +37,8 @@ public class GameLogic {
     public GameLogic(final Player p1, final Player p2) {
         player1 = p1;
         player2 = p2;
-        passCounter = 0;
         turnCounter = 1;
         winner = 0;
-    }
-
-    /**
-     * Method to increment the pass counter.
-     * Needs to force the end of the game is the counter reaches 2.
-     */
-    public void incrementPassCounter() {
-        ++passCounter;
-        /*if (passCounter >= 2) {
-            TODO THIS IS WHERE WE PUT THE END GAME FUNCTION
-        }
-         */
     }
 
     /**
@@ -73,17 +55,6 @@ public class GameLogic {
      */
     public int getTurnCounter() {
         return turnCounter;
-    }
-
-    /**
-     * Method to get the current pass counter.
-     *
-     * @return passCounter
-     * I DON'T KNOW IF THIS IS NEEDED AS IT MAY BE
-     * HANDLED IN INCREMENT PASS COUNTER.
-     */
-    public int getPassCounter() {
-        return passCounter;
     }
 
     /**
@@ -147,4 +118,5 @@ public class GameLogic {
     public int getWinner() {
         return winner;
     }
+
 }

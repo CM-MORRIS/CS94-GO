@@ -5,6 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
@@ -24,6 +25,8 @@ public class BoardHandler19 extends Application
      */
     private GameBoard board = new GameBoard(19, 19);
 
+    private PassCounter passCounter = new PassCounter();
+
     /**
      * The first player of the game.
      */
@@ -42,7 +45,7 @@ public class BoardHandler19 extends Application
     /**
      * Scaling factor for the board to make it display correctly.
      */
-    public static final int BOARD_SCALING_FACTOR = 80;
+    public static final int BOARD_SCALING_FACTOR = 60;
 
     /**
      * Parent to display the pane and the content on.
@@ -51,7 +54,37 @@ public class BoardHandler19 extends Application
      */
     private Parent createContent() {
         Pane root = new Pane();
-        root.setPrefSize(1100, 1100);
+        root.setPrefSize(1200, 1200);
+
+        Button passButton = new Button("Pass");
+        passButton.setMinWidth(100);
+        passButton.setMinHeight(10);
+        passButton.setTranslateX(400);
+        passButton.setTranslateY(10);
+        root.getChildren().add(passButton);
+
+        Button quitButton = new Button("Quit");
+        quitButton.setMinWidth(100);
+        quitButton.setMinHeight(10);
+        quitButton.setTranslateX(700);
+        quitButton.setTranslateY(10);
+        root.getChildren().add(quitButton);
+
+        passButton.setOnAction(event -> {
+
+            passCounter.setCurrentPass(game.getTurnCounter());
+            if (passCounter.endOfGame()) {
+                System.out.println(board.p1ScoreCalculator(p1, game));
+                System.out.println(board.p2ScoreCalculator(p2, game));
+            }
+            passCounter.setLastPass(passCounter.getCurrentPass());
+            game.incrementTurnCounter();
+        });
+        quitButton.setOnAction(event -> {
+            {
+                //call end screen
+            }
+        });
 
         for (int i = 1; i < board.getHeight(); i++) {
             for (int j = 1; j < board.getWidth(); j++) {
@@ -63,8 +96,7 @@ public class BoardHandler19 extends Application
         }
 
         Circle[][] circles = new Circle[board.getWidth()][board.getHeight()];
-
-        //To track
+        //To track circle positions
         root.setOnMouseClicked(event -> {
             int xPosPane = (int) Math.rint(event.getSceneX()
                     / BOARD_SCALING_FACTOR);
@@ -76,7 +108,7 @@ public class BoardHandler19 extends Application
                     && yPosPane < board.getHeight() + 1) {
                 if (board.playMove(board.getIntersection(xPos, yPos), game)) {
                     circles[xPos][yPos] = new Circle(xPosPane * BOARD_SCALING_FACTOR,
-                            yPosPane * BOARD_SCALING_FACTOR, 35, Color.BLACK);
+                            yPosPane * BOARD_SCALING_FACTOR, 25, Color.BLACK);
                     circles[xPos][yPos].setStroke(Color.BLACK);
                     if (game.whosTurn() == 2) {
                         circles[xPos][yPos].setFill(Color.WHITE);
@@ -103,6 +135,7 @@ public class BoardHandler19 extends Application
     @Override
     public void start(final Stage primaryStage) {
         primaryStage.setScene(new Scene(createContent()));
+        primaryStage.setTitle("Group 4 - CSCM94 - Go Game");
         primaryStage.show();
     }
 

@@ -20,7 +20,7 @@ public class GameBoard {
     /**
      * Contains all intersections on the board.
      */
-    private final Intersection[][] intersections;
+    private Intersection[][] intersections;
 
     /**
      * The GameBoard constructor that makes the actual GameBoard
@@ -63,6 +63,22 @@ public class GameBoard {
      */
     public int getHeight() {
         return height;
+    }
+
+    /**
+     * Method to return all the intersections on the board.
+     * @return All of the intersections.
+     */
+    public Intersection[][] getIntersections() {
+        return intersections;
+    }
+
+    /**
+     * Set the intersections of a board.
+     * @param newIntersections The new intersections.
+     */
+    public void setIntersections(final Intersection[][] newIntersections) {
+        intersections = newIntersections;
     }
 
     /**
@@ -126,11 +142,15 @@ public class GameBoard {
      * @return true if the move is legal and can be done.
      */
     public boolean playMove(final Intersection intersection, final GameLogic game) {
+        final int originalState = intersection.getState();
+        intersection.setState(game.whosTurn());
+        final int takingState =  intersection.killer(game).size();
+        intersection.setState(originalState);
         if (!onBoard(intersection.getxPosition(), intersection.getyPosition())) {
             return false;
         } else if (intersection.getState() != 0) {
             return false;
-        } else if (isSuicide(intersection, game) && intersection.killer(game).size() == 0) {
+        } else if (isSuicide(intersection, game) && takingState == 0) {
             return false;
         } else {
             intersection.setState(game.whosTurn());
@@ -148,4 +168,60 @@ public class GameBoard {
     public boolean onBoard(final int x, final int y) {
         return (x >= 0 && x < width && y >= 0 && y < width);
     }
+
+    public int p1ScoreCalculator(Player player1, GameLogic game) {
+        int p1Score = 0;
+        for (int i = 0; i < height; i++) {
+            for (int j = 0; j < width; j++) {
+                if (intersections[j][i].getState() == 1) {
+                    for (Intersection n : intersections[j][i].scoreChecker(player1)) {
+                        n.setState(3);
+                        p1Score++;
+                    }
+                }
+            }
+        }
+        return p1Score;
+    }
+
+    public int p2ScoreCalculator(Player player2, GameLogic game) {
+        int p2Score = 0;
+        for (int i = 0; i < height; i++) {
+            for (int j = 0; j < width; j++) {
+                if (intersections[j][i].getState() == 2) {
+                    for (Intersection n : intersections[j][i].scoreChecker(player2)) {
+                        n.setState(3);
+                        p2Score++;
+                    }
+                }
+            }
+        }
+        return p2Score;
+    }
+
+
+
+/*
+    Due to the many variations of the Ko rule, we as a group have decided
+    to leave this rule unused. The most common rule for Ko is that
+    the two players both accept to abide by Ko and as such it does
+    not strictly need to be implemented. However, to do so we would
+    use the following method in conjunction with a GameBoard of a previous
+    state that gets updated to be the state of the board two moves prior.
+    This prevents any instances of Ko being achieved.
+
+    public boolean ko(final GameBoard previousState, final GameLogic game) {
+        if (game.getTurnCounter() == 1) {
+            return false;
+        }
+        for (int i = 0; i < height; i++) {
+            for (int j = 0; j < width; j++) {
+                if (this.getIntersectionState(j, i) != (previousState.getIntersectionState(j, i))) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+ */
 }

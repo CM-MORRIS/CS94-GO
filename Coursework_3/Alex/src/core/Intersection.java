@@ -195,10 +195,10 @@ public class Intersection {
     public Set<Intersection> killer(final GameLogic game) {
         int player = game.whosTurn();
         int opponent = game.opponent();
-        Set<Intersection> finalChain = new LinkedHashSet<>();
-        Set<Intersection> opponentChain = new LinkedHashSet<>();
         Set<Intersection> deadChain = new LinkedHashSet<>();
         for (Intersection n : this.getNeighbours()) {
+            Set<Intersection> finalChain = new LinkedHashSet<>();
+            Set<Intersection> opponentChain = new LinkedHashSet<>();
             if (n.state == opponent) {
                 finalChain.add(n);
                 opponentChain.addAll(n.friendNeighbours());
@@ -217,6 +217,40 @@ public class Intersection {
             int surrounded = 0;
             for (Intersection k : totalNeighbours) {
                 if (k.getState() == player) {
+                    surrounded++;
+                }
+            }
+            if (surrounded == totalNeighbours.size()) {
+                deadChain.addAll(finalChain);
+            }
+        }
+        return deadChain;
+    }
+
+    public Set<Intersection> scoreChecker(final Player player) {
+        int territory = 0;
+        Set<Intersection> deadChain = new LinkedHashSet<>();
+        for (Intersection n : this.getNeighbours()) {
+            Set<Intersection> finalChain = new LinkedHashSet<>();
+            Set<Intersection> opponentChain = new LinkedHashSet<>();
+            if (n.state == territory) {
+                finalChain.add(n);
+                opponentChain.addAll(n.friendNeighbours());
+                finalChain.addAll(opponentChain);
+                int i = 0;
+                while (i < finalChain.size()) {
+                    for (Intersection m : finalChain) {
+                        opponentChain.addAll(m.friendNeighbours());
+                    }
+                    finalChain.addAll(opponentChain);
+                    i++;
+                }
+            }
+            Set<Intersection> totalNeighbours = new LinkedHashSet<>(
+                    getOuterNeighbour(finalChain, territory));
+            int surrounded = 0;
+            for (Intersection k : totalNeighbours) {
+                if (k.getState() == player.getId()) {
                     surrounded++;
                 }
             }
