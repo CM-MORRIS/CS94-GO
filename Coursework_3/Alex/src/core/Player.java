@@ -1,4 +1,4 @@
-package core;
+package com.company;
 
 /**
  * The player class for tracking the details of each player.

@@ -1,4 +1,4 @@
-package core;
+package com.company;
 
 /**
  * The PassCounter class is used to keep track of how many moves

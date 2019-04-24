@@ -1,4 +1,4 @@
-package core;
+package com.company;
 
 /**
  * GameLogic class for handling the turns and passes.
