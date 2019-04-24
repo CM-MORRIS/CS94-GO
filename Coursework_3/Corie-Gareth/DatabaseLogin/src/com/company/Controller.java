@@ -49,10 +49,6 @@ public class Controller {
 
     public void onLoginClick() throws SQLException {
         System.out.println("Login button pressed");
-//        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-//        System.out.println(df.format(new Date()));
-//        String date = df.format(new Date());
-//        UserDB.addLoginHistory("andy", date);
         // instructions on button press. Only logs user in if credentials match.
         if (UserDB.checkUserPass(usertxt.getText(), pswdtxt.getText())) {
             System.out.println(UserDB.checkUserPass(usertxt.getText(), pswdtxt.getText()));
@@ -61,11 +57,6 @@ public class Controller {
             lastLogin="last login:"+UserDB.getLastLogin(loggedUsr);
             username = usertxt.getText();
             UserDB.addLoginHistory(Controller.username);
-            //get login date
-//            SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-//            System.out.println(df.format(new Date()));
-//            String date = df.format(new Date());
-//            UserDB.addLoginHistory(usertxt.getText(), date);
             // shows dashboard on successful login
             GUI dashboard = new GUI();
             dashboard.showDash();
