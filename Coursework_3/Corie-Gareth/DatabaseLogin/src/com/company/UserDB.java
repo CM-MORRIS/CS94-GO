@@ -125,6 +125,21 @@ public class UserDB {
             System.out.println("Something went wrong: " + e.getMessage());
         }
     }
+    //
+    public static void changeAuothority(String username) {
+        try {
+            Connection conn = DriverManager.getConnection(CONNECTION_STRING);
+            Statement statement = conn.createStatement();
+
+            statement.executeUpdate("update "+TABLE_USERS+" set "+
+            COLUMN_ADMIN+"=1 where "+COLUMN_USERNAME+"='"+username+"'");
+            statement.close();
+            conn.close();
+
+        } catch (SQLException e) {
+            System.out.println("Something went wrong: " + e.getMessage());
+        }
+    }
 
     // returns true if user and password match
     public static boolean checkUserPass(String u, String p) {
