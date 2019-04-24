@@ -41,22 +41,26 @@ public class DashBoardView implements Initializable {
 
     @FXML
     public Button newGameBtn19;
-    
+
     @FXML
     public Label lastLoginLabel;
 
     @FXML
     private TableView<WinsLossData> winlosstable;
+
     @FXML
     private TableColumn<WinsLossData, Number> colWins;
+
     @FXML
     private TableColumn<WinsLossData, Number> colLoss;
+
     private ObservableList<WinsLossData> data1;
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        //win/loss table not working
+
+        // win/loss table view
         colWins.setCellValueFactory(f -> f.getValue().userWinsProperty());
         colLoss.setCellValueFactory(f -> f.getValue().userLossProperty());
         buildWinsLossDashData();
@@ -80,7 +84,6 @@ public class DashBoardView implements Initializable {
 
             data1.add(wl);
 
-
         } catch (SQLException e) {
             System.out.println("Connection Failed! Check output console");
         }
@@ -89,36 +92,13 @@ public class DashBoardView implements Initializable {
     }
 
 
-
-
     /**
-     * 
+     *
      */
+    
     public void onLdrClick() {
         GUI leaderboard = new GUI();
         leaderboard.showLeaderboard();
-//         btnLdr.setOnAction(new EventHandler<ActionEvent>() {
-//             @Override
-//             public void handle(ActionEvent event) {
-//                 // shows leaderboard
-//                 GUI leaderboard = new GUI();
-//                 leaderboard.showLeaderboard();
-//             }
-//         });
-    }
-
-
-    public void onNewGame() {
-        GUI register = new GUI();
-        register.showGame9();
-//         newGameBtn.setOnAction(new EventHandler<ActionEvent>() {
-//             @Override
-//             public void handle(ActionEvent event) {
-//                 // shows leaderboard
-//                 GUI register = new GUI();
-//                 register.showGame9();
-//             }
-//         });
     }
 
 
@@ -137,40 +117,18 @@ public class DashBoardView implements Initializable {
 
 
     public void onNewGame9() {
-        GUI register = new GUI();
-        register.showGame9();
-//         newGameBtn9.setOnAction(new EventHandler<ActionEvent>() {
-//             @Override
-//             public void handle(ActionEvent event) {
-//                 // shows leaderboard
-//                 GUI register = new GUI();
-//                 register.showGame9();
-//             }
-//         });
+        GUI new9 = new GUI();
+        new9.showGame9();
     }
 
     public void onNewGame13() {
-        GUI register = new GUI();
-        register.showGame13();
-//         newGameBtn13.setOnAction(new EventHandler<ActionEvent>() {
-//             @Override
-//             public void handle(ActionEvent event) {
-//                 // shows leaderboard
-//                 GUI register = new GUI();
-//                 register.showGame13();
-//             }
-//         });
+        GUI new13 = new GUI();
+        new13.showGame13();
     }
+
     public void onNewGame19() {
-        GUI register = new GUI();
-        register.showGame19();
-//         newGameBtn19.setOnAction(new EventHandler<ActionEvent>() {
-//             @Override
-//             public void handle(ActionEvent event) {
-//                 // shows leaderboard
-//                 GUI register = new GUI();
-//                 register.showGame19();
-//             }
-        });
+        GUI new19 = new GUI();
+        new19.showGame19();
     }
 }
+

@@ -68,6 +68,7 @@ public class ManageController implements Initializable {
             e.printStackTrace();
         }
     }
+
     @FXML
     private void onDeleteClick() {
         int selectedIndex = userTableView.getSelectionModel().getSelectedIndex();
@@ -77,6 +78,7 @@ public class ManageController implements Initializable {
         } else {
         }
     }
+
     @FXML
     private void onChangeClick() {
         int selectedIndex = userTableView.getSelectionModel().getSelectedIndex();
@@ -86,6 +88,7 @@ public class ManageController implements Initializable {
         } else {
         }
     }
+
     public void onBackClick() {
         try {
             Parent manageboard;
