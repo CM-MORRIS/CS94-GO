@@ -95,27 +95,30 @@ public class DashBoardView implements Initializable {
      * 
      */
     public void onLdrClick() {
-
-        btnLdr.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                // shows leaderboard
-                GUI leaderboard = new GUI();
-                leaderboard.showLeaderboard();
-            }
-        });
+        GUI leaderboard = new GUI();
+        leaderboard.showLeaderboard();
+//         btnLdr.setOnAction(new EventHandler<ActionEvent>() {
+//             @Override
+//             public void handle(ActionEvent event) {
+//                 // shows leaderboard
+//                 GUI leaderboard = new GUI();
+//                 leaderboard.showLeaderboard();
+//             }
+//         });
     }
 
 
     public void onNewGame() {
-        newGameBtn.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                // shows leaderboard
-                GUI register = new GUI();
-                register.showGame9();
-            }
-        });
+        GUI register = new GUI();
+        register.showGame9();
+//         newGameBtn.setOnAction(new EventHandler<ActionEvent>() {
+//             @Override
+//             public void handle(ActionEvent event) {
+//                 // shows leaderboard
+//                 GUI register = new GUI();
+//                 register.showGame9();
+//             }
+//         });
     }
 
 
@@ -134,34 +137,40 @@ public class DashBoardView implements Initializable {
 
 
     public void onNewGame9() {
-        newGameBtn9.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                // shows leaderboard
-                GUI register = new GUI();
-                register.showGame9();
-            }
-        });
+        GUI register = new GUI();
+        register.showGame9();
+//         newGameBtn9.setOnAction(new EventHandler<ActionEvent>() {
+//             @Override
+//             public void handle(ActionEvent event) {
+//                 // shows leaderboard
+//                 GUI register = new GUI();
+//                 register.showGame9();
+//             }
+//         });
     }
 
     public void onNewGame13() {
-        newGameBtn13.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                // shows leaderboard
-                GUI register = new GUI();
-                register.showGame13();
-            }
-        });
+        GUI register = new GUI();
+        register.showGame13();
+//         newGameBtn13.setOnAction(new EventHandler<ActionEvent>() {
+//             @Override
+//             public void handle(ActionEvent event) {
+//                 // shows leaderboard
+//                 GUI register = new GUI();
+//                 register.showGame13();
+//             }
+//         });
     }
     public void onNewGame19() {
-        newGameBtn19.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                // shows leaderboard
-                GUI register = new GUI();
-                register.showGame19();
-            }
+        GUI register = new GUI();
+        register.showGame19();
+//         newGameBtn19.setOnAction(new EventHandler<ActionEvent>() {
+//             @Override
+//             public void handle(ActionEvent event) {
+//                 // shows leaderboard
+//                 GUI register = new GUI();
+//                 register.showGame19();
+//             }
         });
     }
 }
