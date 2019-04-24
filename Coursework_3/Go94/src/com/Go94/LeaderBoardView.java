@@ -45,6 +45,8 @@ public class LeaderBoardView implements Initializable {
 //        colWinPercentage.setCellValueFactory(
 //                new PropertyValueFactory<LeaderBoardData, Integer>("winPercentage"));
 
+
+
     }
 
 
@@ -59,6 +61,7 @@ public class LeaderBoardView implements Initializable {
                 lb.setUsername(rs.getString("username"));
                 lb.setUserWins(rs.getInt("wins"));
                 lb.setWinPercentage(rs.getInt("winPercentage"));
+
                 data.add(lb);
             }
         } catch (SQLException ex) {
@@ -99,13 +102,7 @@ public class LeaderBoardView implements Initializable {
     public void onBackClick() {
         //provides functionality to go back to the dashboard from the leaderboatd
 
-        backDash.setOnAction(new EventHandler<ActionEvent>() {
-            public void handle(ActionEvent back) {
-
-                // shows dashboard
-                GUI dashboard = new GUI();
-                dashboard.showDash();
-            }
-        });
+        GUI dashboard = new GUI();
+        dashboard.showDash();
     }
 }

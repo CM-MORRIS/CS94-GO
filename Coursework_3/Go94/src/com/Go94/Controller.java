@@ -50,13 +50,10 @@ public class Controller {
         System.out.println("Login button pressed");
         // instructions on button press. Only logs user in if credentials match.
         if (UserDB.checkUserPass(usertxt.getText(), pswdtxt.getText())) {
-            System.out.println(UserDB.checkUserPass(usertxt.getText(), pswdtxt.getText()));
-            System.out.println("Successfully found user");
             loggedUsr = usertxt.getText();
             lastLogin="last login:"+UserDB.getLastLogin(loggedUsr);
             username = usertxt.getText();
             UserDB.addLoginHistory(Controller.username);
-
             // shows dashboard on successful login
             GUI dashboard = new GUI();
             dashboard.showDash();

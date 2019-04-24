@@ -17,15 +17,12 @@ public class GameMatchController {
     private TextField userA;
     @FXML
     private TextField userB;
-    
+
     public void onMarchClick() {
-        BoardHandler game = new BoardHandler(Integer.parseInt(size.getText()),userA.getText(),userB.getText());
-        System.out.println(game);
+        BoardHandler game = new BoardHandler(Integer.parseInt(size.getText()), userA.getText(), userB.getText());
         Parent startgame = game.createContent();
-        Stage secondWindow=new Stage();
-        Scene scene=new Scene(startgame,900,900);
-        secondWindow.setTitle("secondWindow");
-        secondWindow.setScene(scene);
-        secondWindow.show();
+        Stage mainStage = GUI.parentWindow;
+        mainStage.getScene().setRoot(startgame);
+        mainStage.show();
     }
 }
