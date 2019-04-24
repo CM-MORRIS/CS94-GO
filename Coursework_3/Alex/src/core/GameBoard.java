@@ -66,22 +66,6 @@ public class GameBoard {
     }
 
     /**
-     * Method to return all the intersections on the board.
-     * @return All of the intersections.
-     */
-    public Intersection[][] getIntersections() {
-        return intersections;
-    }
-
-    /**
-     * Set the intersections of a board.
-     * @param newIntersections The new intersections.
-     */
-    public void setIntersections(final Intersection[][] newIntersections) {
-        intersections = newIntersections;
-    }
-
-    /**
      * Method to get the intersection at a given point.
      *
      * @param x The x coordinate.
@@ -92,16 +76,6 @@ public class GameBoard {
         return intersections[x][y];
     }
 
-    /**
-     * Gets the intersection state for a given intersection.
-     *
-     * @param x the x coordinate of the intersection.
-     * @param y the y coordinate of the intersection.
-     * @return the state of the intersection.
-     */
-    public int getIntersectionState(final int x, final int y) {
-        return intersections[x][y].getState();
-    }
 
     /**
      * Sets the state for a given intersection.
@@ -235,4 +209,15 @@ public class GameBoard {
         return true;
     }
  */
+    /* The above not included Ko rule includes this if it is to be activated.
+     * Gets the intersection state for a given intersection.
+     *
+     * @param x the x coordinate of the intersection.
+     * @param y the y coordinate of the intersection.
+     * @return the state of the intersection.
+
+    public int getIntersectionState(final int x, final int y) {
+        return intersections[x][y].getState();
+    }
+     */
 }
