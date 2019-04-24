@@ -15,7 +15,7 @@ public class UserDB {
     // checkUser
 
     public static final String DB_NAME = "userDB.db";
-    public static final String CONNECTION_STRING = "jdbc:sqlite:/Users/cmorris/Desktop/CS94-GO/Coursework_3/Corie-Gareth/DatabaseLogin/src/database" + DB_NAME;
+    public static final String CONNECTION_STRING = "jdbc:sqlite:/Users/cmorris/Desktop/CS94-GO/Coursework_3/Corie-Gareth/DatabaseLogin/src/database/" + DB_NAME;
 
     // use spare one below for connection on own pc
     // public static final String CONNECTION_STRING = "jdbc:sqlite: "pathway here" + DB_NAME;
@@ -48,25 +48,17 @@ public class UserDB {
             Statement statement = conn.createStatement();
 
             // executes create DB query
-//             statement.execute("CREATE TABLE IF NOT EXISTS " + TABLE_USERS + " (" + COLUMN_ID + " INTEGER PRIMARY KEY, " +
-//                                 COLUMN_USERNAME + " VARCHAR NOT NULL, " + COLUMN_PASSWORD + " VARCHAR NOT NULL, " +
-//                                 COLUMN_WINS + " INTEGER DEFAULT 0, " + COLUMN_LOSS + " INTEGER DEFAULT 0," +
-//                                 COLUMN_WIN_PERCENTAGE + " INTEGER DEFAULT 0, " + COLUMN_ADMIN + " INTEGER DEFAULT 0)");
-//            statement.execute("CREATE TABLE IF NOT EXISTS " + TABLE_USERS + " (" + COLUMN_ID + " INTEGER PRIMARY KEY, " +
-//                                COLUMN_USERNAME + " VARCHAR NOT NULL, " + COLUMN_PASSWORD + " VARCHAR NOT NULL, " +
-//                                COLUMN_WINS + " INTEGER DEFAULT 0, " + COLUMN_LOSS + " INTEGER DEFAULT 0," +
-//                                COLUMN_FIRSTNAME + " INTEGER DEFAULT 0, " + COLUMN_SURNAME + " INTEGER DEFAULT 0, " +
-//                                COLUMN_WIN_PERCENTAGE + " INTEGER DEFAULT 0, " + COLUMN_ADMIN + " INTEGER DEFAULT 0)");
 
             statement.execute("CREATE TABLE IF NOT EXISTS " + TABLE_USERS + " (" + COLUMN_ID + " INTEGER PRIMARY KEY, " +
                     COLUMN_USERNAME + " VARCHAR NOT NULL, " + COLUMN_PASSWORD + " VARCHAR NOT NULL, " +
                     COLUMN_FIRSTNAME + " VARCHAR NOT NULL, " + COLUMN_SURNAME + " VARCHAR NOT NULL, " +
-                    COLUMN_LOGINHIS + " VARCHAR NOT NULL, " + COLUMN_WINS + " INTEGER DEFAULT 0, " +
+                    COLUMN_LOGINHIS + " VARCHAR, " + COLUMN_WINS + " INTEGER DEFAULT 0, " +
                     COLUMN_LOSS + " INTEGER DEFAULT 0," + COLUMN_WIN_PERCENTAGE + " INTEGER DEFAULT 0, " +
                     COLUMN_ADMIN + " INTEGER DEFAULT 0)");
 
-            // 1 if admin, else 0
+
             statement.close();
+
             // closes connection to DB
             conn.close();
 
@@ -74,6 +66,7 @@ public class UserDB {
             System.out.println("Something went wrong: " + e.getMessage());
           }
     }
+
     /**
      * Andy
      * @param username
@@ -122,7 +115,8 @@ public class UserDB {
             System.out.println("Something went wrong: " + e.getMessage());
         }
     }
-    //adds user with username, password, firstname and surname
+
+    // adds user with username, password, firstname and surname
     public static void addUser(String u, String p, String f,String s) {
         try {
             Connection conn = DriverManager.getConnection(CONNECTION_STRING);
@@ -138,7 +132,7 @@ public class UserDB {
         }
     }
 
-  //delete user by username
+    // delete user by username
     public static void deleteuser(String username) {
         try {
             Connection conn = DriverManager.getConnection(CONNECTION_STRING);
@@ -153,6 +147,7 @@ public class UserDB {
             System.out.println("Something went wrong: " + e.getMessage());
         }
     }
+
     //change user to admin
     public static void changeAuothority(String username) {
         try {
@@ -187,6 +182,7 @@ public class UserDB {
             }
         return lastdate;
         }
+
     // returns true if user and password match
     public static boolean checkUserPass(String u, String p) {
 
