@@ -37,7 +37,11 @@ public class GUI extends Application {
             e.printStackTrace();
         }
     }
-
+    /**
+     * Called by Register button in the manage interface, 
+     * switch stage to register
+     * @author Andy
+     */
     public void showRegister() {
         try {
             Parent manageboard;
@@ -66,35 +70,35 @@ public class GUI extends Application {
     }
 
 
-    public void showGame9() {
-        BoardHandler game = new BoardHandler(9, "Alex", "Will");
+//     public void showGame9() {
+//         BoardHandler game = new BoardHandler(9, "Alex", "Will");
 
-        Parent startgame = game.createContent();
-        Stage mainStage;
-        mainStage = GUI.parentWindow;
-        mainStage.getScene().setRoot(startgame);
-        mainStage.show();
-    }
+//         Parent startgame = game.createContent();
+//         Stage mainStage;
+//         mainStage = GUI.parentWindow;
+//         mainStage.getScene().setRoot(startgame);
+//         mainStage.show();
+//     }
 
-    public void showGame13() {
-        BoardHandler game = new BoardHandler(13,"Alex", "Will");
+//     public void showGame13() {
+//         BoardHandler game = new BoardHandler(13,"Alex", "Will");
 
-        Parent startgame = game.createContent();
-        Stage mainStage;
-        mainStage = GUI.parentWindow;
-        mainStage.getScene().setRoot(startgame);
-        mainStage.show();
-    }
+//         Parent startgame = game.createContent();
+//         Stage mainStage;
+//         mainStage = GUI.parentWindow;
+//         mainStage.getScene().setRoot(startgame);
+//         mainStage.show();
+//     }
 
-    public void showGame19() {
-        BoardHandler game = new BoardHandler(19,"Alex", "Will");
+//     public void showGame19() {
+//         BoardHandler game = new BoardHandler(19,"Alex", "Will");
 
-        Parent startgame = game.createContent();
-        Stage mainStage;
-        mainStage = GUI.parentWindow;
-        mainStage.getScene().setRoot(startgame);
-        mainStage.show();
-    }
+//         Parent startgame = game.createContent();
+//         Stage mainStage;
+//         mainStage = GUI.parentWindow;
+//         mainStage.getScene().setRoot(startgame);
+//         mainStage.show();
+//     }
 }
 
 
