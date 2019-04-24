@@ -6,6 +6,7 @@ public class LeaderBoardData {
 
     private StringProperty username = new SimpleStringProperty();
     private IntegerProperty wins = new SimpleIntegerProperty();
+    private IntegerProperty loss = new SimpleIntegerProperty();
     private IntegerProperty winPercentage = new SimpleIntegerProperty();
 
     public StringProperty usernameProperty() {
@@ -32,6 +33,18 @@ public class LeaderBoardData {
         this.wins.set(wins);
     }
 
+    public IntegerProperty userLossProperty() {
+        return loss;
+    }
+
+    public int getUserLoss() {
+        return loss.get();
+    }
+
+    public void setUserLoss(int loss) {
+        this.loss.set(loss);
+    }
+
     public IntegerProperty winPercentProperty() {
         return winPercentage;
     }
@@ -43,35 +56,5 @@ public class LeaderBoardData {
     public void setWinPercentage(int percent) {
         this.winPercentage.set(percent);
     }
-
-//    public SimpleStringProperty username;
-//    public SimpleIntegerProperty wins;
-//    public SimpleIntegerProperty winPercentage;
-//
-//
-//    public LeaderBoardData(String username, int wins, int winPercentage) {
-//        this.username = new SimpleStringProperty(username);
-//        this.wins = new SimpleIntegerProperty(wins);
-//        this.winPercentage = new SimpleIntegerProperty(winPercentage);
-//    }
-//
-//
-//    public String getUsername() {
-//        return username.get();
-//    }
-//
-//
-//
-//    public Integer getUserWins() {
-//        return wins.get();
-//    }
-//
-//
-//
-//    public Integer getWinPercentage() {
-//        return winPercentage.get();
-//    }
-
-
 
 }

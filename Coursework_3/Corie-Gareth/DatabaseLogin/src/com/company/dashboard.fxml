@@ -118,9 +118,13 @@
                         <AnchorPane layoutX="17.0" layoutY="72.0" prefHeight="226.0" prefWidth="178.0">
                             <children>
 
-                                <TableView layoutX="-22.0" layoutY="12.0" prefHeight="226.0" prefWidth="178.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                <TableView fx:id="userTable" layoutX="-4.0" layoutY="12.0" prefHeight="226.0" prefWidth="274.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-4.0" AnchorPane.rightAnchor="-92.0" AnchorPane.topAnchor="0.0">
                                     <columns>
-                                        <TableColumn prefWidth="89.0" text="C1" />
+
+                                        <TableColumn fx:id="col1" prefWidth="89.0" text="C1" />
+                                        <TableColumn fx:id="col2" prefWidth="88.0" text="C2" />
+                                        <TableColumn fx:id="col3" prefWidth="88.0" text="C3" />
+
                                         <TableColumn prefWidth="88.0" text="C2" />
                                     </columns>
                                 </TableView>
@@ -130,12 +134,15 @@
                         <AnchorPane layoutX="339.0" layoutY="230.0" prefHeight="55.0" prefWidth="246.0">
                             <children>
                                 
+                                
                                 <TableView fx:id="winlosstable" layoutX="-29.0" layoutY="-86.0" prefHeight="55.0" prefWidth="246.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                     <columns>
-                                        <TableColumn fx:id="colWins" prefWidth="75.0" text="C1" />
-                                        <TableColumn fx:id="colLoss" prefWidth="75.0" text="C2" />
+                                        <TableColumn fx:id="colWins" prefWidth="75.0" text="Wins" />
+                                        <TableColumn fx:id="colLoss" prefWidth="75.0" text="Loss" />
                                     </columns>
                                 </TableView>
+
+
                             </children>
                         </AnchorPane>
                         <Label layoutX="423.0" layoutY="201.0" text="Wins/Losses" />

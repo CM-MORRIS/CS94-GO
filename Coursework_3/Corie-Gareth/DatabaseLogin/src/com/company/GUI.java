@@ -33,7 +33,7 @@ public class GUI extends Application {
         parentWindow = primaryStage;
         Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
         primaryStage.setTitle("Hello World");
-        primaryStage.setScene(new Scene(root, 600, 550));
+        primaryStage.setScene(new Scene(root, 950, 950));
         primaryStage.show();
     }
 

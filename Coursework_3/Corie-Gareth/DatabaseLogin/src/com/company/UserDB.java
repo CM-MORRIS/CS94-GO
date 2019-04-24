@@ -192,45 +192,19 @@ public class UserDB {
             return null;
         }
 
+        
 
-
-
-
-
-
-
-
-    public static ObservableList<WinsLossData> getWinsLossData(String u) {
+    public static ResultSet getWinsLossData(String u) {
 
         String query = "SELECT " + COLUMN_WINS + ", " + COLUMN_LOSS + " FROM " +
-                        TABLE_USERS + " WHERE " + COLUMN_USERNAME + " = " + u;
+                        TABLE_USERS + " WHERE " + COLUMN_USERNAME + " = '" + u + "'";
 
-        ObservableList<WinsLossData> data;
-        data = FXCollections.observableArrayList();
-
-        System.out.println(query);
-            try {
+         try {
                 Connection conn = DriverManager.getConnection(CONNECTION_STRING);
                 Statement results = conn.createStatement();
                 ResultSet rs = results.executeQuery(query);
 
-                System.out.println(rs.getInt("wins"));
-                System.out.println(rs.getInt("loss"));
-
-                //return rs;
-                while (rs.next()) {
-                    WinsLossData wl = new WinsLossData();
-
-                    wl.setUserWins(rs.getInt("wins"));
-                    wl.setUserLoss(rs.getInt("loss"));
-
-                    data.add(wl);
-                }
-
-//                results.close();
-//                conn.close();
-
-                return data;
+                return rs;
 
             } catch (SQLException e) {
                 System.out.println("Something went wrong: " + e.getMessage());
