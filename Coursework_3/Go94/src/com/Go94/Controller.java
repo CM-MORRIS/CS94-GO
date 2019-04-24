@@ -56,6 +56,7 @@ public class Controller {
             lastLogin="last login:"+UserDB.getLastLogin(loggedUsr);
             username = usertxt.getText();
             UserDB.addLoginHistory(Controller.username);
+
             // shows dashboard on successful login
             GUI dashboard = new GUI();
             dashboard.showDash();

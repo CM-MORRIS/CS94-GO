@@ -36,9 +36,6 @@ public class UserDB {
 
 
 
-
-
-
     /**
      * Corie
      * Creates database "users" if doesn't exist
@@ -90,8 +87,7 @@ public class UserDB {
             statement.executeUpdate("update "+TABLE_USERS+" set "+
                     COLUMN_LOGINHIS+"='"+date+"' where "+COLUMN_USERNAME+"='"+username+"'");
 
-            statement.close();
-            conn.close();
+
         } catch (SQLException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -264,7 +260,8 @@ public class UserDB {
      */
         public static ResultSet getLeaderBoardData() {
 
-            String query = "SELECT " + COLUMN_USERNAME + ", " + COLUMN_WINS + ", " + COLUMN_WIN_PERCENTAGE + " FROM " + TABLE_USERS;
+            String query = "SELECT " + COLUMN_USERNAME + ", " + COLUMN_WINS + ", " +
+                    "SUM((wins / (wins + loss)*100)) AS " + COLUMN_WIN_PERCENTAGE + " FROM " + TABLE_USERS;
 
             try {
                 Connection conn = DriverManager.getConnection(CONNECTION_STRING);
@@ -277,8 +274,6 @@ public class UserDB {
             } catch (SQLException e) {
                 System.out.println("Something went wrong: " + e.getMessage());
             }
-
-
             return null;
         }
 
