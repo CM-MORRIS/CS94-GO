@@ -14,9 +14,13 @@ public class UserDB {
     // checkUserPass
     // checkUser
 
-
     public static final String DB_NAME = "userDB.db";
-    public static final String CONNECTION_STRING = "jdbc:sqlite:D:/Download/CS94-GO-master/CS94-GO-master/Coursework_3/Corie-Gareth/DatabaseLogin/src/com/company/com/company/" + DB_NAME;
+    public static final String CONNECTION_STRING = "jdbc:sqlite:/Users/cmorris/Desktop/CS94-GO/Coursework_3/Corie-Gareth/DatabaseLogin/src/database" + DB_NAME;
+
+    // use spare one below for connection on own pc
+    // public static final String CONNECTION_STRING = "jdbc:sqlite: "pathway here" + DB_NAME;
+
+
     public static final String TABLE_USERS = "users";
     public static final String TABLE_LOGINHIS = "LoginHistory";
     public static final String COLUMN_ID = "userid";
@@ -57,9 +61,9 @@ public class UserDB {
             statement.execute("CREATE TABLE IF NOT EXISTS " + TABLE_USERS + " (" + COLUMN_ID + " INTEGER PRIMARY KEY, " +
                     COLUMN_USERNAME + " VARCHAR NOT NULL, " + COLUMN_PASSWORD + " VARCHAR NOT NULL, " +
                     COLUMN_FIRSTNAME + " VARCHAR NOT NULL, " + COLUMN_SURNAME + " VARCHAR NOT NULL, " +
-                    COLUMN_LOGINHIS + " VARCHAR NOT NULL, " +
-                    COLUMN_WINS + " INTEGER DEFAULT 0, " + COLUMN_LOSS + " INTEGER DEFAULT 0," +
-                    COLUMN_WIN_PERCENTAGE + " INTEGER DEFAULT 0, " + COLUMN_ADMIN + " INTEGER DEFAULT 0)");
+                    COLUMN_LOGINHIS + " VARCHAR NOT NULL, " + COLUMN_WINS + " INTEGER DEFAULT 0, " +
+                    COLUMN_LOSS + " INTEGER DEFAULT 0," + COLUMN_WIN_PERCENTAGE + " INTEGER DEFAULT 0, " +
+                    COLUMN_ADMIN + " INTEGER DEFAULT 0)");
 
             // 1 if admin, else 0
             statement.close();

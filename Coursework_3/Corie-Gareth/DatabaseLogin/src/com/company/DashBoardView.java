@@ -95,7 +95,7 @@ public class DashBoardView implements Initializable {
     /**
      *
      */
-    
+
     public void onLdrClick() {
         GUI leaderboard = new GUI();
         leaderboard.showLeaderboard();
