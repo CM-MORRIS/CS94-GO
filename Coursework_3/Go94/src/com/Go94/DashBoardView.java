@@ -102,18 +102,26 @@ public class DashBoardView implements Initializable {
     }
 
 
+    /**
+     * Open a new interface for Admin manage users
+     * @author Andy
+     */
     public void onManageClick() {
-        try {
-            Parent manageboard;
-            manageboard = FXMLLoader.load(getClass().getResource("Manage.fxml"));
-            Stage mainStage;
-            mainStage = GUI.parentWindow;
-            mainStage.getScene().setRoot(manageboard);
-            mainStage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        if(Integer.parseInt(UserDB.getAuthority(Controller.username))==1) {
+            System.out.println("You are Admin");
+            try {
+                Parent manageboard;
+                manageboard = FXMLLoader.load(getClass().getResource("Manage.fxml"));
+                Stage mainStage;
+                mainStage = GUI.parentWindow;
+                mainStage.getScene().setRoot(manageboard);
+                mainStage.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }else System.out.println("You are not Admin");
     }
+    
     public void onNewGame() throws IOException {
         Parent Leaderboard;
         Leaderboard = FXMLLoader.load(getClass().getResource("GameMatch.fxml"));
