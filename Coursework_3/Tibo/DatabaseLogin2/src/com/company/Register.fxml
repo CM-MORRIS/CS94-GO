@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="300.0" style="-fx-background-color: #2D3447 #2D3447;" xmlns="http://javafx.com/javafx/9.0.4" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.company.RegisterController">
+   <children>
+      <TextField fx:id="usernameField" layoutX="70.0" layoutY="14.0" promptText="Username" />
+      <TextField fx:id="passwordField" layoutX="70.0" layoutY="50.0" promptText="Password" />
+      <TextField fx:id="firstnameField" layoutX="71.0" layoutY="84.0" promptText="Firstname" />
+      <TextField fx:id="surnameField" layoutX="70.0" layoutY="120.0" promptText="Surname" />
+      <Button fx:id="registerButton" layoutX="76.0" layoutY="208.0" mnemonicParsing="false" onAction="#onRegisterClick" style="-fx-background-color: #2196f3 #2196f3;" text="Register" textFill="WHITE" />
+      <Button fx:id="backButton" layoutX="176.0" layoutY="208.0" mnemonicParsing="false" onAction="#onBackClick" style="-fx-background-color: #2196f3 #2196f3;" text="Back" textFill="WHITE" />
+      <ComboBox fx:id="cb" layoutX="79.0" layoutY="163.0" prefWidth="150.0" />
+   </children>
+</AnchorPane>
