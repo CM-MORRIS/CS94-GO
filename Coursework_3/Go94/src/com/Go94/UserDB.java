@@ -38,7 +38,11 @@ public class UserDB {
 
 
 
-    // creates a database if doesn't exist
+
+    /**
+     * Corie
+     * Creates database "users" if doesn't exist
+     */
     public static void createDB() {
         try {
             // connects to DB
@@ -67,6 +71,7 @@ public class UserDB {
           }
     }
 
+
     /**
      * Andy
      * @param username
@@ -91,36 +96,18 @@ public class UserDB {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-        
-//        conn = DriverManager.getConnection(CONNECTION_STRING);
-//        statement = conn.createStatement();
-//        statement.executeUpdate("INSERT INTO " + username+TABLE_LOGINHIS + " (" +COLOMN_LOGINHIS + ") " +
-//                "VALUES " + "(" + "'" + loginhis + "'" + ")");
-//        statement.close();
-//        conn.close();
     }
 
 
-
-
-    // adds user to DB
-    public static void addUser(String u, String p) {
-        try {
-            Connection conn = DriverManager.getConnection(CONNECTION_STRING);
-            Statement statement = conn.createStatement();
-
-            statement.executeUpdate("INSERT INTO " + TABLE_USERS + " (" + COLUMN_USERNAME + ", " + COLUMN_PASSWORD + ") " +
-                                     "VALUES " + "(" + "'" + u + "'" + ", " + "'" + p + "'" + ")");
-            statement.close();
-            conn.close();
-
-        } catch (SQLException e) {
-            System.out.println("Something went wrong: " + e.getMessage());
-        }
-    }
-
-    // adds user with username, password, firstname and surname
-    public static void addUser(String u, String p, String f,String s) {
+    /**
+     * Andy
+     * adds a user to database "users"
+     * @param u username
+     * @param p password
+     * @param f first name
+     * @param s surname
+     */
+    public static void addUser(String u, String p, String f, String s) {
         try {
             Connection conn = DriverManager.getConnection(CONNECTION_STRING);
             Statement statement = conn.createStatement();
