@@ -20,6 +20,7 @@ public class GUI extends Application {
 
     /**
      * Launches the login screen on application launch.
+     * @param primaryStage to set the javafx window.
      */
     @Override
     public void start(Stage primaryStage) throws Exception {
