@@ -143,6 +143,8 @@ public class BoardHandler
                                 + p2.getName() + " scored " + p2Overall + "!");
                         whoWon.setFont(new Font(25));
                         endScene.getChildren().add(whoWon);
+
+                        // updates win/loss scores in table users
                         UserDB.updateScores(p1.getName(), p2.getName());
 
                     } else if (p2Overall > p1Overall) {
@@ -152,6 +154,8 @@ public class BoardHandler
                                 + p1.getName() + " scored " + p1Overall + "!");
                         whoWon.setFont(new Font(25));
                         endScene.getChildren().add(whoWon);
+
+                        // updates win/loss scores in table users
                         UserDB.updateScores(p2.getName(), p1.getName());
                     } else {
                         Text whoWon = new Text(200, 200, "                  "

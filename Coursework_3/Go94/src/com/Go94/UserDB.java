@@ -305,7 +305,6 @@ public class UserDB {
         String queryLoser = "UPDATE " + DB_NAME + " SET " + COLUMN_LOSS + " = loss + 1 WHERE "
                 + COLUMN_USERNAME + " = " + "'" + loser + "'";
 
-
         try {
             Connection conn = DriverManager.getConnection(CONNECTION_STRING);
             Statement results = conn.createStatement();
