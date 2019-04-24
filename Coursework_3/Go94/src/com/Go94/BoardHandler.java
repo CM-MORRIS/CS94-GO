@@ -113,6 +113,9 @@ public class BoardHandler
                 // TODO PASS GAME DATA TO DATABASE
 
 
+
+
+
                 board.p1ScoreCalculator(p1);
                 board.p2ScoreCalculator(p2);
                 int p1Overall = p1.getScore() + p1.getStonesWon()

@@ -15,7 +15,7 @@ public class UserDB {
     // checkUser
 
     public static final String DB_NAME = "userDB.db";
-    public static final String CONNECTION_STRING = "jdbc:sqlite:/Users/cmorris/Desktop/Go94/Databases/" + DB_NAME;
+    public static final String CONNECTION_STRING = "jdbc:sqlite:/Users/cmorris/Desktop/CS94-GO/Coursework_3/Go94/Databases/" + DB_NAME;
 
     // use spare one below for connection on own pc
     // public static final String CONNECTION_STRING = "jdbc:sqlite: "pathway here" + DB_NAME;
@@ -292,6 +292,41 @@ public class UserDB {
                 System.out.println("Something went wrong: " + e.getMessage());
             }
             return null;
+    }
+
+
+
+
+    public static void updateScores(String winner, String loser) {
+
+        String queryWinner = "UPDATE " + DB_NAME + " SET " + COLUMN_WINS + " = wins + 1 WHERE "
+                + COLUMN_USERNAME + " = " + "'" + winner + "'";
+
+        String queryLoser = "UPDATE " + DB_NAME + " SET " + COLUMN_LOSS + " = loss + 1 WHERE "
+                + COLUMN_USERNAME + " = " + "'" + loser + "'";
+
+
+        try {
+            Connection conn = DriverManager.getConnection(CONNECTION_STRING);
+            Statement results = conn.createStatement();
+
+
+            results.executeUpdate(queryWinner);
+            results.executeUpdate(queryLoser);
+
+
+            results.close();
+            conn.close();
+
+        } catch (SQLException e) {
+            System.out.println("Something went wrong: " + e.getMessage());
+        }
+
+
+
+
+
+
     }
 
 
