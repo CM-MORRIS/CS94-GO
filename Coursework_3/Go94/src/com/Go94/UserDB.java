@@ -155,6 +155,33 @@ public class UserDB {
             System.out.println("Something went wrong: " + e.getMessage());
         }
     }
+    /**
+     * check the use whether is admin
+     * @author Andy
+     * @param u
+     * @return String authority
+     */
+    public static String getAuthority(String u) {
+        String query = "SELECT " + COLUMN_ADMIN +" FROM " + TABLE_USERS +
+                " WHERE " + COLUMN_USERNAME + " = '" + u + "'";
+        String lastdate=null;
+        try {
+            Connection conn = DriverManager.getConnection(CONNECTION_STRING, "username", "password");
+            PreparedStatement ps = conn.prepareStatement(query);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                lastdate=rs.getString(1);
+            }
+            rs.close();
+            conn.close();
+            if(lastdate==null)lastdate="0";
+            return lastdate;
+            } catch(SQLException e){
+                System.out.println("Something went wrong: " + e.getMessage());
+            }
+        if(lastdate==null)lastdate="0";
+        return lastdate;
+        }
 
 
 
