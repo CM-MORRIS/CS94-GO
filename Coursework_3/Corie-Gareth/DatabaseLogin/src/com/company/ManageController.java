@@ -71,7 +71,16 @@ public class ManageController implements Initializable {
     @FXML
     private void onDeleteClick() {
         int selectedIndex = userTableView.getSelectionModel().getSelectedIndex();
-        UserDB.deleteUser(userTableView.getSelectionModel().getSelectedItem().getUsername());
+        UserDB.deleteuser(userTableView.getSelectionModel().getSelectedItem().getUsername());
+        if (selectedIndex >= 0) {
+            userTableView.getItems().remove(selectedIndex);
+        } else {
+        }
+    }
+    @FXML
+    private void onChangeClick() {
+        int selectedIndex = userTableView.getSelectionModel().getSelectedIndex();
+        UserDB.changeAuothority(userTableView.getSelectionModel().getSelectedItem().getUsername());
         if (selectedIndex >= 0) {
             userTableView.getItems().remove(selectedIndex);
         } else {
