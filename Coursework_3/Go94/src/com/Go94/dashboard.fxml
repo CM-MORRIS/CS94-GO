@@ -153,6 +153,7 @@
                         </AnchorPane>
                         <Label layoutX="423.0" layoutY="201.0" text="Wins/Losses" />
                         <Label layoutX="370.0" layoutY="72.0" text="Current position in leaderboard is 1" />
+                        <Button fx:id="logOut" layoutX="59.0" layoutY="15.0" mnemonicParsing="false" onAction="#onLogOut" text="Log Out" />
                     </children>
                 </AnchorPane>
             </items>

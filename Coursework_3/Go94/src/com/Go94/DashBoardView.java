@@ -46,6 +46,9 @@ public class DashBoardView implements Initializable {
     public Label lastLoginLabel;
 
     @FXML
+    public Button logOut;
+
+    @FXML
     private TableView<WinsLossData> winlosstable;
 
     @FXML
@@ -135,20 +138,12 @@ public class DashBoardView implements Initializable {
         mainStage.show();
     }
 
-
-//     public void onNewGame9() {
-//         GUI new9 = new GUI();
-//         new9.showGame9();
-//     }
-
-//     public void onNewGame13() {
-//         GUI new13 = new GUI();
-//         new13.showGame13();
-//     }
-
-//     public void onNewGame19() {
-//         GUI new19 = new GUI();
-//         new19.showGame19();
-//     }
+    /**
+     * Provides functionality to go back to the login screen from the dashboard.
+     */
+    public void onLogOut() {
+        GUI login = new GUI();
+        login.logIn();
+    }
 }
 

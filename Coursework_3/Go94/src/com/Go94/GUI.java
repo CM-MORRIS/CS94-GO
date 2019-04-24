@@ -64,6 +64,18 @@ public class GUI extends Application {
             e.printStackTrace();
         }
     }
+    public void logIn() {
+        try {
+            Parent Login;
+            Login = FXMLLoader.load(getClass().getResource("Login.fxml"));
+            Stage mainStage;
+            mainStage = GUI.parentWindow;
+            mainStage.getScene().setRoot(Login);
+            mainStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
 
 

@@ -102,13 +102,7 @@ public class LeaderBoardView implements Initializable {
     public void onBackClick() {
         //provides functionality to go back to the dashboard from the leaderboatd
 
-        backDash.setOnAction(new EventHandler<ActionEvent>() {
-            public void handle(ActionEvent back) {
-
-                // shows dashboard
-                GUI dashboard = new GUI();
-                dashboard.showDash();
-            }
-        });
+        GUI dashboard = new GUI();
+        dashboard.showDash();
     }
 }
