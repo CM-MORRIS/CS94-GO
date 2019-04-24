@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b8e19aa8-ba67-45f8-8371-2442f32e4129" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Go94/BoardHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Go94/BoardHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Go94/UserDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Go94/UserDB.java" afterDir="false" />
-    </list>
+    <list default="true" id="b8e19aa8-ba67-45f8-8371-2442f32e4129" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -81,8 +77,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/Go94/UserDB.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="245">
-              <caret line="312" lean-forward="true" selection-start-line="312" selection-end-line="312" />
+            <state relative-caret-position="449">
+              <caret line="322" column="9" lean-forward="true" selection-start-line="322" selection-start-column="9" selection-end-line="322" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -227,12 +223,12 @@
       <updated>1556127967327</updated>
       <workItem from="1556127970477" duration="3000" />
       <workItem from="1556128003849" duration="356000" />
-      <workItem from="1556128482172" duration="1571000" />
+      <workItem from="1556128482172" duration="1835000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1930000" />
+    <option name="totallyTimeSpent" value="2194000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="828" extended-state="0" />
@@ -492,8 +488,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/Go94/UserDB.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
-          <caret line="312" lean-forward="true" selection-start-line="312" selection-end-line="312" />
+        <state relative-caret-position="449">
+          <caret line="322" column="9" lean-forward="true" selection-start-line="322" selection-start-column="9" selection-end-line="322" selection-end-column="9" />
         </state>
       </provider>
     </entry>

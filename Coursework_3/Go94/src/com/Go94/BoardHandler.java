@@ -143,6 +143,8 @@ public class BoardHandler
                                 + p2.getName() + " scored " + p2Overall + "!");
                         whoWon.setFont(new Font(25));
                         endScene.getChildren().add(whoWon);
+                        UserDB.updateScores(p1.getName(), p2.getName());
+
                     } else if (p2Overall > p1Overall) {
                         Text whoWon = new Text(300, 200, "Congratulations!"
                                 + "\n" + p2.getName() + " has won the game!\n"
@@ -150,6 +152,7 @@ public class BoardHandler
                                 + p1.getName() + " scored " + p1Overall + "!");
                         whoWon.setFont(new Font(25));
                         endScene.getChildren().add(whoWon);
+                        UserDB.updateScores(p2.getName(), p1.getName());
                     } else {
                         Text whoWon = new Text(200, 200, "                  "
                                 + "       Oh no! It was a draw!\n"
