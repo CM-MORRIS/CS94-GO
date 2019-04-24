@@ -81,32 +81,32 @@ public class GUI extends Application {
 
     public void showGame9() {
         BoardHandler9 game = new BoardHandler9();
-
         Parent startgame = game.createContent();
-        Stage mainStage;
-        mainStage = GUI.parentWindow;
-        mainStage.getScene().setRoot(startgame);
-        mainStage.show();
+        Stage secondWindow=new Stage();
+        Scene scene=new Scene(startgame,900,900);
+        secondWindow.setTitle("secondWindow");
+        secondWindow.setScene(scene);
+        secondWindow.show();
     }
 
     public void showGame13() {
         BoardHandler13 game = new BoardHandler13();
-
         Parent startgame = game.createContent();
-        Stage mainStage;
-        mainStage = GUI.parentWindow;
-        mainStage.getScene().setRoot(startgame);
-        mainStage.show();
+        Stage secondWindow=new Stage();
+        Scene scene=new Scene(startgame,900,900);
+        secondWindow.setTitle("secondWindow");
+        secondWindow.setScene(scene);
+        secondWindow.show();
     }
 
     public void showGame19() {
         BoardHandler19 game = new BoardHandler19();
-
         Parent startgame = game.createContent();
-        Stage mainStage;
-        mainStage = GUI.parentWindow;
-        mainStage.getScene().setRoot(startgame);
-        mainStage.show();
+        Stage secondWindow=new Stage();
+        Scene scene=new Scene(startgame,900,900);
+        secondWindow.setTitle("secondWindow");
+        secondWindow.setScene(scene);
+        secondWindow.show();
     }
 }
 
