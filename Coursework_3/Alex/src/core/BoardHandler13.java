@@ -141,8 +141,8 @@ public class BoardHandler13 extends Application
                             stage.close();
                         }
                     });
-                    Scene scene_two = new Scene(endScene, 1000, 1000);
-                    primaryStage.setScene(scene_two);
+                    Scene sceneTwo = new Scene(endScene, 1000, 1000);
+                    primaryStage.setScene(sceneTwo);
                     primaryStage.setTitle("Group 4 - CSCM94 - Go Game");
                     primaryStage.show();
                 }
