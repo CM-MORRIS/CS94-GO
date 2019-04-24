@@ -1,4 +1,4 @@
-ackage com.company;
+package com.company;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
