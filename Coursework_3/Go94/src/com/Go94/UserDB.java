@@ -77,11 +77,14 @@ public class UserDB {
             conn = DriverManager.getConnection(CONNECTION_STRING);
             Statement statement = conn.createStatement();
             SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-            String date = df.format(new Date()); 
+            String date = df.format(new Date());
+
             System.out.println("update "+TABLE_USERS+" set "+
                     COLUMN_LOGINHIS+"="+date+" where "+COLUMN_USERNAME+"='"+username+"'");
+
             statement.executeUpdate("update "+TABLE_USERS+" set "+
                     COLUMN_LOGINHIS+"='"+date+"' where "+COLUMN_USERNAME+"='"+username+"'");
+
             statement.close();
             conn.close();
         } catch (SQLException e) {
@@ -299,10 +302,10 @@ public class UserDB {
 
     public static void updateScores(String winner, String loser) {
 
-        String queryWinner = "UPDATE " + DB_NAME + " SET " + COLUMN_WINS + " = wins + 1 WHERE "
+        String queryWinner = "UPDATE " + TABLE_USERS + " SET " + COLUMN_WINS + " = wins + 1 WHERE "
                 + COLUMN_USERNAME + " = " + "'" + winner + "'";
 
-        String queryLoser = "UPDATE " + DB_NAME + " SET " + COLUMN_LOSS + " = loss + 1 WHERE "
+        String queryLoser = "UPDATE " + TABLE_USERS + " SET " + COLUMN_LOSS + " = loss + 1 WHERE "
                 + COLUMN_USERNAME + " = " + "'" + loser + "'";
 
         try {
