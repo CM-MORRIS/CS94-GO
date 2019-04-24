@@ -8,7 +8,7 @@ import javafx.scene.shape.Rectangle;
 /**
  * Class to build tiles for the Go_Board of 9*9.
  *
- * @author Will Davies
+ * @author Will Davies and Alex Mair
  */
 public class Tile9 extends StackPane {
 

@@ -8,6 +8,8 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 /**
@@ -50,14 +52,17 @@ public class BoardHandler9 extends Application
     static final int BOARD_SCALING_FACTOR = 100;
 
     /**
-     * Parent to display the pane and the content on.
-     *
-     * @return Information to go on the scene.
+     * Start the stage to display content in.
+     * @param primaryStage This it the primary display stage.
      */
     public void start(final Stage primaryStage) {
         boolean[] end = {false};
         Pane root = new Pane();
-        root.setPrefSize(1000, 1000);
+        Scene scene = new Scene(root, 1000, 1000);
+        primaryStage.setScene(scene);
+        primaryStage.setTitle("Group 4 - CSCM94 - Go Game");
+        primaryStage.show();
+        Circle[][] circles = new Circle[board.getWidth()][board.getHeight()];
 
         Button passButton = new Button("Pass");
         passButton.setMinWidth(100);
@@ -70,36 +75,73 @@ public class BoardHandler9 extends Application
 
             passCounter.setCurrentPass(game.getTurnCounter());
             if (passCounter.endOfGame()) {
-                System.out.println(board.p1ScoreCalculator(p1, game));
-                System.out.println(board.p2ScoreCalculator(p2, game));
+                board.p1ScoreCalculator(p1);
+                board.p2ScoreCalculator(p2);
+                int p1Overall = p1.getScore() + p1.getStonesWon() + p1.getStonesLost();
+                int p2Overall = p2.getScore() + p2.getStonesWon() + p2.getStonesLost();
+                if (p1Overall < 0) {
+                    p1Overall = 0;
+                }
+                if (p2Overall < 0) {
+                    p2Overall = 0;
+                }
                 end[0] = true;
                 if (end[0]) {
-                    Pane end_scene = new Pane();
+                    Pane endScene = new Pane();
 
-                    end_scene.setPrefSize(1000, 1000);
+                    if (p1Overall > p2Overall) {
+                        Text whoWon = new Text(300, 200, "Congratulations!"
+                                + "\nPlayer 1 has won" + " the game!" + "\nPlayer" + " 1 scored "
+                                + p1Overall + "!\nPlayer 2 scored " + p2Overall + "!");
+                        whoWon.setFont(new Font(25));
+                        endScene.getChildren().add(whoWon);
+                    } else if (p2Overall > p1Overall) {
+                        Text whoWon = new Text(300, 200, "Congratulations!"
+                                + "\nPlayer 2 has won the game!\nPlayer 2 scored "
+                                + p2Overall + "!\nPlayer 1 scored " + p1Overall + "!");
+                        whoWon.setFont(new Font(25));
+                        endScene.getChildren().add(whoWon);
+                    } else {
+                        Text whoWon = new Text(300, 200, "Oh no! It was a draw!"
+                                + "\nWould you like to play again to see who is the best?");
+                        whoWon.setFont(new Font(25));
+                        endScene.getChildren().add(whoWon);
+                    }
+
+                    endScene.setPrefSize(1000, 1000);
                     Button restartButton = new Button("Restart");
                     restartButton.setMinWidth(300);
                     restartButton.setMinHeight(100);
                     restartButton.setTranslateX(600);
                     restartButton.setTranslateY(400);
-                    end_scene.getChildren().add(restartButton);
+                    endScene.getChildren().add(restartButton);
 
                     Button dashboardButton = new Button("Dashboard");
                     dashboardButton.setMinWidth(300);
                     dashboardButton.setMinHeight(100);
                     dashboardButton.setTranslateX(100);
                     dashboardButton.setTranslateY(400);
-                    end_scene.getChildren().add(dashboardButton);
+                    endScene.getChildren().add(dashboardButton);
 
                     restartButton.setOnAction(Event -> {
-
+                        for (int i = 0; i < board.getHeight(); i++) {
+                            for (int j = 0; j < board.getWidth(); j++) {
+                                board.setIntersectionState(j, i, 0);
+                                root.getChildren().remove(circles[j][i]);
+                            }
+                        }
+                        p1 = new Player("Alex", 1);
+                        p2 = new Player("Will", 2);
+                        game.setTurnCounter(1);
+                        primaryStage.setScene(scene);
                     });
                     dashboardButton.setOnAction(Event -> {
                         {
-                            //call end screen
+                            Stage stage = (Stage) dashboardButton.getScene().getWindow();
+                            stage.close();
                         }
                     });
-                    Scene scene_two = new Scene(end_scene, 1000, 1000);
+                    Scene scene_two = new Scene(endScene, 1000, 1000);
                     primaryStage.setScene(scene_two);
                     primaryStage.setTitle("Group 4 - CSCM94 - Go Game");
                     primaryStage.show();
@@ -118,8 +160,6 @@ public class BoardHandler9 extends Application
             }
         }
 
-        Circle[][] circles = new Circle[board.getWidth()][board.getHeight()];
-        //To track circle positions
         root.setOnMouseClicked(event -> {
             int xPosPane = (int) Math.rint(event.getSceneX()
                     / BOARD_SCALING_FACTOR);
@@ -152,11 +192,6 @@ public class BoardHandler9 extends Application
                 }
             }
         });
-
-        Scene scene = new Scene(root, 1000, 1000);
-        primaryStage.setScene(scene);
-        primaryStage.setTitle("Group 4 - CSCM94 - Go Game");
-        primaryStage.show();
     }
 
     @Override

@@ -169,7 +169,12 @@ public class GameBoard {
         return (x >= 0 && x < width && y >= 0 && y < width);
     }
 
-    public int p1ScoreCalculator(Player player1, GameLogic game) {
+    /**
+     * Calculates the surrounded spaces for player 1.
+     * @param player1 The player surrounding the spaces.
+     * @return Player 1's score.
+     */
+    public int p1ScoreCalculator(final Player player1) {
         int p1Score = 0;
         for (int i = 0; i < height; i++) {
             for (int j = 0; j < width; j++) {
@@ -181,10 +186,16 @@ public class GameBoard {
                 }
             }
         }
+        player1.setScore(p1Score);
         return p1Score;
     }
 
-    public int p2ScoreCalculator(Player player2, GameLogic game) {
+    /**
+     Calculates the surrounded spaces for player 2.
+     * @param player2 The player surrounding the spaces.
+     * @return Player 2's score.
+     */
+    public int p2ScoreCalculator(final Player player2) {
         int p2Score = 0;
         for (int i = 0; i < height; i++) {
             for (int j = 0; j < width; j++) {

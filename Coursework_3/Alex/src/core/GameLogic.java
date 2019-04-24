@@ -24,11 +24,6 @@ public class GameLogic {
     private int turnCounter;
 
     /**
-     * Winner of the Game.
-     */
-    private int winner;
-
-    /**
      * GameLogic constructor.
      *
      * @param p1 String of player 1's name.
@@ -38,7 +33,6 @@ public class GameLogic {
         player1 = p1;
         player2 = p2;
         turnCounter = 1;
-        winner = 0;
     }
 
     /**
@@ -58,21 +52,11 @@ public class GameLogic {
     }
 
     /**
-     * Method to get the first players name.
-     *
-     * @return player1
+     * Method to set the turncounter.
+     * @param turnCounter The new value for the turn counter.
      */
-    public Player getPlayer1() {
-        return player1;
-    }
-
-    /**
-     * Method to get the second players name.
-     *
-     * @return player2
-     */
-    public Player getPlayer2() {
-        return player2;
+    public void setTurnCounter(final int turnCounter) {
+        this.turnCounter = turnCounter;
     }
 
     /**
@@ -100,23 +84,4 @@ public class GameLogic {
             return player2.getId();
         }
     }
-
-    /**
-     * Method to set the winner of the game.
-     *
-     * @param winner The winner of the game.
-     */
-    public void setWinner(final int winner) {
-        this.winner = winner;
-    }
-
-    /**
-     * Method to get the winner of the game.
-     *
-     * @return The winner of the game.
-     */
-    public int getWinner() {
-        return winner;
-    }
-
 }

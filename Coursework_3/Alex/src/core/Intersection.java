@@ -156,7 +156,8 @@ public class Intersection {
      * @param owner        The owner of the linked stones being checked.
      * @return A set of Intersections.
      */
-    public Set<Intersection> getOuterNeighbour(final Set<Intersection> linkedStones, final int owner) {
+    public Set<Intersection> getOuterNeighbour(final Set<Intersection> linkedStones,
+                                               final int owner) {
         Set<Intersection> outside = new LinkedHashSet<>();
         for (Intersection n : linkedStones) {
             for (Intersection k : n.getNeighbours()) {
@@ -227,6 +228,13 @@ public class Intersection {
         return deadChain;
     }
 
+    /**
+     * This is similar to the killer function but checks for empty
+     * spaces rather than enemy spaces. This helps calculate the
+     * final score for each player.
+     * @param player The player to calculate the score for.
+     * @return The points they have enclosed as territory.
+     */
     public Set<Intersection> scoreChecker(final Player player) {
         int territory = 0;
         Set<Intersection> deadChain = new LinkedHashSet<>();
