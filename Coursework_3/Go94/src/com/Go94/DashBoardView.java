@@ -121,7 +121,11 @@ public class DashBoardView implements Initializable {
             }
         }else System.out.println("You are not Admin");
     }
-    
+    /**
+     * Switch to another stage of setting gameboard size and players
+     * @author Andy
+     * @throws IOException
+     */
     public void onNewGame() throws IOException {
         Parent Leaderboard;
         Leaderboard = FXMLLoader.load(getClass().getResource("GameMatch.fxml"));
