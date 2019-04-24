@@ -1,11 +1,9 @@
-package com.company;
+ackage com.company;
 
-import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
@@ -20,7 +18,7 @@ import java.io.IOException;
 
 /**
  * The BoardHandler class deals with the JavaFX implementations
- * of the GameBoard 9*9 in size.
+ * of the GameBoard.
  *
  * @author Will Davies and Alex Mair
  */
@@ -52,7 +50,14 @@ public class BoardHandler
      */
     private GameLogic game;
 
-    public BoardHandler(final int size, final String firstPlayer, final String secondPlayer) {
+    /**
+     * The constructor for the Board handler class.
+     * @param size The dimension of the board.
+     * @param firstPlayer The name of the first player.
+     * @param secondPlayer The name of the seconds player.
+     */
+    public BoardHandler(final int size, final String firstPlayer,
+                        final String secondPlayer) {
         board = new GameBoard(size, size);
         p1 = new Player(firstPlayer, 1);
         p2 = new Player(secondPlayer, 2);
@@ -62,6 +67,7 @@ public class BoardHandler
 
     /**
      * Scaling factor for the board to make it display correctly.
+     * @return the scale for a given board size.
      */
     public int getScale() {
         if (board.getWidth() == 9) {
@@ -105,8 +111,10 @@ public class BoardHandler
             if (passCounter.endOfGame()) {
                 board.p1ScoreCalculator(p1);
                 board.p2ScoreCalculator(p2);
-                int p1Overall = p1.getScore() + p1.getStonesWon() + p1.getStonesLost();
-                int p2Overall = p2.getScore() + p2.getStonesWon() + p2.getStonesLost();
+                int p1Overall = p1.getScore() + p1.getStonesWon()
+                        + p1.getStonesLost();
+                int p2Overall = p2.getScore() + p2.getStonesWon()
+                        + p2.getStonesLost();
                 if (p1Overall < 0) {
                     p1Overall = 0;
                 }
@@ -116,26 +124,28 @@ public class BoardHandler
                 end[0] = true;
                 if (end[0]) {
                     Pane endScene = new Pane();
-//                    ImageView iv1 = new ImageView(new Image("http://icons.iconarchive.com/icons/atti12/tv-series-folder/512/Game-of-Thrones-icon.png"));
-//                    //TODO CHANGE THIS. DON'T LEAVE IT LIKE THIS YOU IDIOT.
-//                    iv1.relocate(800, 600);
-//                    endScene.getChildren().add(iv1);
+                    ImageView iv1 = new ImageView(new Image("http://icons.iconarchive.com/icons/atti12/tv-series-folder/512/Game-of-Thrones-icon.png"));
+                    //TODO CHANGE THIS. DON'T LEAVE IT LIKE THIS YOU IDIOT.
+                    iv1.relocate(800, 600);
+                    endScene.getChildren().add(iv1);
 
                     if (p1Overall > p2Overall) {
                         Text whoWon = new Text(300, 200, "Congratulations!"
-                                + "\n" +p1.getName() + " has won" + " the game!" + "\n" + p1.getName() + " scored "
-                                + p1Overall + "!\n" + p2.getName() + " scored " + p2Overall + "!");
+                                + "\n" + p1.getName() + " has won the game!\n"
+                                + p1.getName() + " scored " + p1Overall + "!\n"
+                                + p2.getName() + " scored " + p2Overall + "!");
                         whoWon.setFont(new Font(25));
                         endScene.getChildren().add(whoWon);
                     } else if (p2Overall > p1Overall) {
                         Text whoWon = new Text(300, 200, "Congratulations!"
-                                + "\n" +p2.getName() + " has won" + " the game!" + "\n" + p2.getName() + " scored "
-                                + p2Overall + "!\n" + p1.getName() + " scored " + p1Overall + "!");
+                                + "\n" + p2.getName() + " has won the game!\n"
+                                + p2.getName() + " scored " + p2Overall + "!\n"
+                                + p1.getName() + " scored " + p1Overall + "!");
                         whoWon.setFont(new Font(25));
                         endScene.getChildren().add(whoWon);
                     } else {
-                        Text whoWon = new Text(200, 200, "                  " +
-                                "       Oh no! It was a draw!\n"
+                        Text whoWon = new Text(200, 200, "                  "
+                                + "       Oh no! It was a draw!\n"
                                 + "\nWould you like to play again to see who is the best?");
                         whoWon.setFont(new Font(25));
                         endScene.getChildren().add(whoWon);
@@ -188,7 +198,8 @@ public class BoardHandler
                             {
                                 try {
                                     Parent dashBoard;
-                                    dashBoard = FXMLLoader.load(getClass().getResource("dashboard.fxml"));
+                                    dashBoard = FXMLLoader.load(getClass()
+                                            .getResource("dashboard.fxml"));
                                     Stage dashStage;
                                     dashStage = GUI.parentWindow;
                                     dashStage.getScene().setRoot(dashBoard);
@@ -211,7 +222,8 @@ public class BoardHandler
                 {
                     try {
                         Parent dashBoard;
-                        dashBoard = FXMLLoader.load(getClass().getResource("dashboard.fxml"));
+                        dashBoard = FXMLLoader.load(getClass()
+                                .getResource("dashboard.fxml"));
                         Stage dashStage;
                         dashStage = GUI.parentWindow;
                         dashStage.getScene().setRoot(dashBoard);
