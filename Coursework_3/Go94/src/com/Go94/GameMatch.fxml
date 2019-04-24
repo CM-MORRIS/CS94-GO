@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.Go94.GameMatchController">
+   <children>
+      <TextField fx:id="size" layoutX="169.0" layoutY="47.0" promptText="size" />
+      <TextField fx:id="userA" layoutX="169.0" layoutY="126.0" promptText="user A" />
+      <TextField fx:id="userB" layoutX="163.0" layoutY="200.0" promptText="user B" />
+      <Button layoutX="222.0" layoutY="276.0" mnemonicParsing="false" onAction="#onMarchClick" text="match" />
+   </children>
+</AnchorPane>
