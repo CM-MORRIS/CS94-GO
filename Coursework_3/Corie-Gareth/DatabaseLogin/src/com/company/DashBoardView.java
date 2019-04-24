@@ -104,15 +104,17 @@ public class DashBoardView implements Initializable {
 //        winlosstable.setItems(data);
 //    }
     
-    public void onRegisterClick() {
-        registerButton.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                // shows leaderboard
-                GUI register = new GUI();
-                register.showRegister();
-            }
-       });
+    public void onManageClick() {
+        try {
+            Parent manageboard;
+            manageboard = FXMLLoader.load(getClass().getResource("Manage.fxml"));
+            Stage mainStage;
+            mainStage = GUI.parentWindow;
+            mainStage.getScene().setRoot(manageboard);
+            mainStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void onLdrClick() {
