@@ -290,9 +290,6 @@ public class UserDB {
             String query = "SELECT " + COLUMN_USERNAME + ", " + COLUMN_WINS + ", " +
                     "((wins / (wins + loss)*100)) " + COLUMN_WIN_PERCENTAGE + " FROM " + TABLE_USERS;
 
-//            String query = "SELECT " + COLUMN_USERNAME + ", " + COLUMN_WINS + ", " +
-//                    COLUMN_WIN_PERCENTAGE + " FROM " + TABLE_USERS;
-
             try {
                 Connection conn = DriverManager.getConnection(CONNECTION_STRING);
                 Statement results = conn.createStatement();

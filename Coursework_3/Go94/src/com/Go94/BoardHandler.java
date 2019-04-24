@@ -109,13 +109,6 @@ public class BoardHandler
 
             passCounter.setCurrentPass(game.getTurnCounter());
             if (passCounter.endOfGame()) {
-
-                // TODO PASS GAME DATA TO DATABASE
-
-
-
-
-
                 board.p1ScoreCalculator(p1);
                 board.p2ScoreCalculator(p2);
                 int p1Overall = p1.getScore() + p1.getStonesWon()
