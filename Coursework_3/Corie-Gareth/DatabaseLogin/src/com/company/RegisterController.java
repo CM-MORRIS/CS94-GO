@@ -22,9 +22,9 @@ public class RegisterController {
     @FXML
     private TextField surnameField;
 
-
-    
     public static UserDB userDB;
+
+
     public void onRegisterClick() {
         String username = usernameField.getText();
         String password = passwordField.getText();

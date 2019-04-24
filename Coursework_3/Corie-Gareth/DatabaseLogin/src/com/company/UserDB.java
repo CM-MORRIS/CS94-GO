@@ -46,11 +46,23 @@ public class UserDB {
 //                                 COLUMN_USERNAME + " VARCHAR NOT NULL, " + COLUMN_PASSWORD + " VARCHAR NOT NULL, " +
 //                                 COLUMN_WINS + " INTEGER DEFAULT 0, " + COLUMN_LOSS + " INTEGER DEFAULT 0," +
 //                                 COLUMN_WIN_PERCENTAGE + " INTEGER DEFAULT 0, " + COLUMN_ADMIN + " INTEGER DEFAULT 0)");
+//            statement.execute("CREATE TABLE IF NOT EXISTS " + TABLE_USERS + " (" + COLUMN_ID + " INTEGER PRIMARY KEY, " +
+//                                COLUMN_USERNAME + " VARCHAR NOT NULL, " + COLUMN_PASSWORD + " VARCHAR NOT NULL, " +
+//                                COLUMN_WINS + " INTEGER DEFAULT 0, " + COLUMN_LOSS + " INTEGER DEFAULT 0," +
+//                                COLUMN_FIRSTNAME + " INTEGER DEFAULT 0, " + COLUMN_SURNAME + " INTEGER DEFAULT 0, " +
+//                                COLUMN_WIN_PERCENTAGE + " INTEGER DEFAULT 0, " + COLUMN_ADMIN + " INTEGER DEFAULT 0)");
+
             statement.execute("CREATE TABLE IF NOT EXISTS " + TABLE_USERS + " (" + COLUMN_ID + " INTEGER PRIMARY KEY, " +
-                                COLUMN_USERNAME + " VARCHAR NOT NULL, " + COLUMN_PASSWORD + " VARCHAR NOT NULL, " +
-                                COLUMN_WINS + " INTEGER DEFAULT 0, " + COLUMN_LOSS + " INTEGER DEFAULT 0," +
-                                COLUMN_FIRSTNAME + " INTEGER DEFAULT 0, " + COLUMN_SURNAME + " INTEGER DEFAULT 0, " + 
-                                COLUMN_WIN_PERCENTAGE + " INTEGER DEFAULT 0, " + COLUMN_ADMIN + " INTEGER DEFAULT 0)");
+                    COLUMN_USERNAME + " VARCHAR NOT NULL, " + COLUMN_PASSWORD + " VARCHAR NOT NULL, " +
+                    COLUMN_FIRSTNAME + " VARCHAR NOT NULL, " + COLUMN_SURNAME + " VARCHAR NOT NULL, " +
+                    COLUMN_WINS + " INTEGER DEFAULT 0, " + COLUMN_LOSS + " INTEGER DEFAULT 0," +
+                    COLUMN_WIN_PERCENTAGE + " INTEGER DEFAULT 0, " + COLUMN_ADMIN + " INTEGER DEFAULT 0)");
+
+
+
+
+
+
             // 1 if admin, else 0
 
 
