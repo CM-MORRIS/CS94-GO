@@ -19,16 +19,16 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 
 public class GUI extends Application {
 
     public static Stage parentWindow;
 
-
     @Override
     public void start(Stage primaryStage) throws Exception {
-
         // shows login GUI
         parentWindow = primaryStage;
         Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));

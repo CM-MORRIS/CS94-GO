@@ -1,9 +1,10 @@
 package com.company;
-
+import java.util.Date;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import java.sql.*;
+import java.text.SimpleDateFormat;
 
 public class UserDB {
 
@@ -15,8 +16,9 @@ public class UserDB {
 
 
     public static final String DB_NAME = "userDB.db";
-    public static final String CONNECTION_STRING = "jdbc:sqlite:/Users/cmorris/Desktop/CS94-GO/Coursework_3/Corie-Gareth/DatabaseLogin/" + DB_NAME;
+    public static final String CONNECTION_STRING = "jdbc:sqlite:D:/Download/CS94-GO-master/CS94-GO-master/Coursework_3/Corie-Gareth/DatabaseLogin/src/com/company/com/company/" + DB_NAME;
     public static final String TABLE_USERS = "users";
+    public static final String TABLE_LOGINHIS = "LoginHistory";
     public static final String COLUMN_ID = "userid";
     public static final String COLUMN_USERNAME = "username";
     public static final String COLUMN_PASSWORD = "password";
@@ -26,7 +28,7 @@ public class UserDB {
     public static final String COLUMN_LOSS = "loss";
     public static final String COLUMN_WIN_PERCENTAGE = "winPercentage";
     public static final String COLUMN_ADMIN = "admin";
-
+    public static final String COLUMN_LOGINHIS = "loginHistory";
 
 
 
@@ -55,20 +57,12 @@ public class UserDB {
             statement.execute("CREATE TABLE IF NOT EXISTS " + TABLE_USERS + " (" + COLUMN_ID + " INTEGER PRIMARY KEY, " +
                     COLUMN_USERNAME + " VARCHAR NOT NULL, " + COLUMN_PASSWORD + " VARCHAR NOT NULL, " +
                     COLUMN_FIRSTNAME + " VARCHAR NOT NULL, " + COLUMN_SURNAME + " VARCHAR NOT NULL, " +
+                    COLUMN_LOGINHIS + " VARCHAR NOT NULL, " +
                     COLUMN_WINS + " INTEGER DEFAULT 0, " + COLUMN_LOSS + " INTEGER DEFAULT 0," +
                     COLUMN_WIN_PERCENTAGE + " INTEGER DEFAULT 0, " + COLUMN_ADMIN + " INTEGER DEFAULT 0)");
 
-
-
-
-
-
             // 1 if admin, else 0
-
-
-
             statement.close();
-
             // closes connection to DB
             conn.close();
 
@@ -76,7 +70,35 @@ public class UserDB {
             System.out.println("Something went wrong: " + e.getMessage());
           }
     }
-
+    /**
+     * Andy
+     * @param username
+     */
+    public static void addLoginHistory(String username){
+        Connection conn;
+        try {
+            conn = DriverManager.getConnection(CONNECTION_STRING);
+            Statement statement = conn.createStatement();
+            SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            String date = df.format(new Date()); 
+            System.out.println("update "+TABLE_USERS+" set "+
+                    COLUMN_LOGINHIS+"="+date+" where "+COLUMN_USERNAME+"='"+username+"'");
+            statement.executeUpdate("update "+TABLE_USERS+" set "+
+                    COLUMN_LOGINHIS+"='"+date+"' where "+COLUMN_USERNAME+"='"+username+"'");
+            statement.close();
+            conn.close();
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        
+//        conn = DriverManager.getConnection(CONNECTION_STRING);
+//        statement = conn.createStatement();
+//        statement.executeUpdate("INSERT INTO " + username+TABLE_LOGINHIS + " (" +COLOMN_LOGINHIS + ") " +
+//                "VALUES " + "(" + "'" + loginhis + "'" + ")");
+//        statement.close();
+//        conn.close();
+    }
 
 
 
@@ -111,7 +133,9 @@ public class UserDB {
             System.out.println("Something went wrong: " + e.getMessage());
         }
     }
-    public static void deleteUser(String username) {
+
+  //delete user by username
+    public static void deleteuser(String username) {
         try {
             Connection conn = DriverManager.getConnection(CONNECTION_STRING);
             Statement statement = conn.createStatement();
@@ -125,7 +149,7 @@ public class UserDB {
             System.out.println("Something went wrong: " + e.getMessage());
         }
     }
-    //
+    //change user to admin
     public static void changeAuothority(String username) {
         try {
             Connection conn = DriverManager.getConnection(CONNECTION_STRING);
@@ -140,7 +164,25 @@ public class UserDB {
             System.out.println("Something went wrong: " + e.getMessage());
         }
     }
-
+    public static String getLastLogin(String u) {
+        String query = "SELECT " + COLUMN_LOGINHIS +" FROM " + TABLE_USERS +
+                " WHERE " + COLUMN_USERNAME + " = '" + u + "'";
+        String lastdate=null;
+        try {
+            Connection conn = DriverManager.getConnection(CONNECTION_STRING, "username", "password");
+            PreparedStatement ps = conn.prepareStatement(query);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                lastdate=rs.getString(1);
+            }
+            rs.close();
+            conn.close();
+            return lastdate;
+            } catch(SQLException e){
+                System.out.println("Something went wrong: " + e.getMessage());
+            }
+        return lastdate;
+        }
     // returns true if user and password match
     public static boolean checkUserPass(String u, String p) {
 
@@ -155,13 +197,15 @@ public class UserDB {
             PreparedStatement ps = conn.prepareStatement(query);
 
             ResultSet rs = ps.executeQuery();
-
-
             // the (1) (2) represents column number of the returned query(rs). (4) would be 4th column etc.
             // rs.next iterates to next row in returned query set - next will keep iterating until no more rows.
             while (rs.next()) {
                 if (u.equals(rs.getString(1))) {
-                    if (p.equals(rs.getString(2))) return true;
+                    if (p.equals(rs.getString(2))) {
+                        rs.close();
+                        conn.close();
+                        return true;
+                    }
                 }
             }
 
@@ -203,8 +247,6 @@ public class UserDB {
             }
             return false;
         }
-
-
 
 
         public static ResultSet getLeaderBoardData() {

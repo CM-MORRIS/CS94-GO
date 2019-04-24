@@ -25,6 +25,8 @@ import java.io.IOException;
 import net.proteanit.sql.DbUtils;
 import javafx.fxml.Initializable;
 
+import java.util.Date;
+import java.text.SimpleDateFormat;
 import javax.swing.*;
 
 public class Controller {
@@ -39,30 +41,35 @@ public class Controller {
     public PasswordField pswdtxt;
 
     public static String loggedUsr;
+    
+    public static String username;
+    
+    public static String lastLogin;
 
 
-
-
-    public void onLoginClick() {
-        btnLogin.setOnAction(new EventHandler<ActionEvent>() {
-            @Override // <- notice the annotation, it overrides from the interface.
-            public void handle(ActionEvent event) {
-                System.out.println("Login button pressed");
-
-                // instructions on button press. Only logs user in if credentials match.
-                if (UserDB.checkUserPass(usertxt.getText(), pswdtxt.getText())) {
-                    System.out.println(UserDB.checkUserPass(usertxt.getText(), pswdtxt.getText()));
-                    System.out.println("Successfully found user");
-
-                    loggedUsr = usertxt.getText();
-
-                    // shows dashboard on successful login
-                    GUI dashboard = new GUI();
-                    dashboard.showDash();
-                }
-            }
-        });
+    public void onLoginClick() throws SQLException {
+        System.out.println("Login button pressed");
+//        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+//        System.out.println(df.format(new Date()));
+//        String date = df.format(new Date());
+//        UserDB.addLoginHistory("andy", date);
+        // instructions on button press. Only logs user in if credentials match.
+        if (UserDB.checkUserPass(usertxt.getText(), pswdtxt.getText())) {
+            System.out.println(UserDB.checkUserPass(usertxt.getText(), pswdtxt.getText()));
+            System.out.println("Successfully found user");
+            loggedUsr = usertxt.getText();
+            lastLogin="last login:"+UserDB.getLastLogin(loggedUsr);
+            username = usertxt.getText();
+            UserDB.addLoginHistory(Controller.username);
+            //get login date
+//            SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+//            System.out.println(df.format(new Date()));
+//            String date = df.format(new Date());
+//            UserDB.addLoginHistory(usertxt.getText(), date);
+            // shows dashboard on successful login
+            GUI dashboard = new GUI();
+            dashboard.showDash();
+        }
     }
-
-
 }
+        

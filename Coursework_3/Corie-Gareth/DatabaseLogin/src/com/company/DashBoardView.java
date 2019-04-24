@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
@@ -40,6 +41,9 @@ public class DashBoardView implements Initializable {
 
     @FXML
     public Button newGameBtn19;
+    
+    @FXML
+    public Label lastLoginLabel;
 
     @FXML
     private TableView<WinsLossData> winlosstable;
@@ -52,11 +56,12 @@ public class DashBoardView implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
         //win/loss table not working
         colWins.setCellValueFactory(f -> f.getValue().userWinsProperty());
         colLoss.setCellValueFactory(f -> f.getValue().userLossProperty());
         buildWinsLossDashData();
+        System.out.println(Controller.lastLogin);
+        lastLoginLabel.setText(Controller.lastLogin);
     }
 
 
@@ -86,12 +91,14 @@ public class DashBoardView implements Initializable {
 
 
 
+    /**
+     * 
+     */
     public void onLdrClick() {
 
         btnLdr.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-
                 // shows leaderboard
                 GUI leaderboard = new GUI();
                 leaderboard.showLeaderboard();
