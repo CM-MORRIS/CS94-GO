@@ -5,13 +5,17 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
 import java.util.ResourceBundle;
@@ -29,21 +33,21 @@ public class DashBoardView implements Initializable {
     public Button newGameBtn;
 
     @FXML
-    public Button registerButton;
+    public Button newGameBtn9;
 
+    @FXML
+    public Button newGameBtn13;
 
-    @FXML private TableView<WinsLossData> winlosstable;
-    @FXML private TableColumn<WinsLossData, Number> colWins;
-    @FXML private TableColumn<WinsLossData, Number> colLoss;
+    @FXML
+    public Button newGameBtn19;
+
+    @FXML
+    private TableView<WinsLossData> winlosstable;
+    @FXML
+    private TableColumn<WinsLossData, Number> colWins;
+    @FXML
+    private TableColumn<WinsLossData, Number> colLoss;
     private ObservableList<WinsLossData> data1;
-
-
-    @FXML private TableView<LeaderBoardData> userTable;
-    @FXML private TableColumn<LeaderBoardData, String> col1;
-    @FXML private TableColumn<LeaderBoardData, Number> col2;
-    @FXML private TableColumn<LeaderBoardData, Number> col3;
-
-    private ObservableList<LeaderBoardData> data2;
 
 
     @Override
@@ -53,75 +57,23 @@ public class DashBoardView implements Initializable {
         colWins.setCellValueFactory(f -> f.getValue().userWinsProperty());
         colLoss.setCellValueFactory(f -> f.getValue().userLossProperty());
         buildWinsLossDashData();
-
-//        colUsername.setCellValueFactory(
-//                new PropertyValueFactory<LeaderBoardData,String>("username"));
-//        colWins.setCellValueFactory(
-//                new PropertyValueFactory<LeaderBoardData, Integer>("wins"));
-//        colWinPercentage.setCellValueFactory(
-//                new PropertyValueFactory<LeaderBoardData, Integer>("winPercentage"));
-
-
-
-
-
-        // user table test
-//        col1.setCellValueFactory(f -> f.getValue().usernameProperty());
-//        col2.setCellValueFactory(f -> f.getValue().userWinsProperty());
-//        col3.setCellValueFactory(f -> f.getValue().winPercentProperty());
-//
-//        buildLeaderBoardData();
-
-
-
-
-
-
-
-
     }
 
-//    public void buildLeaderBoardData() {
-//        try {
-//            ResultSet rs = UserDB.getLeaderBoardData();
-//
-//            data2 = FXCollections.observableArrayList();
-//
-//            while (rs.next()) {
-//                LeaderBoardData lb = new LeaderBoardData();
-//                lb.setUsername(rs.getString("username"));
-//                lb.setUserWins(rs.getInt("wins"));
-//                lb.setUserLoss(rs.getInt("loss"));
-//
-//                data2.add(lb);
-//            }
-//        } catch (SQLException ex) {
-//            System.out.println("Connection Failed! Check output console");
-//        }
-//
-//        userTable.setItems(data2);
-//    }
 
-
-
+    // shows win/loss table view
     public void buildWinsLossDashData() {
-
-
-
-
         try {
-
 
             ResultSet rs = UserDB.getWinsLossData(Controller.loggedUsr);
 
             data1 = FXCollections.observableArrayList();
 
-                WinsLossData wl = new WinsLossData();
+            WinsLossData wl = new WinsLossData();
 
-                wl.setUserWins(rs.getInt("wins"));
-                wl.setUserLoss(rs.getInt("loss"));
+            wl.setUserWins(rs.getInt("wins"));
+            wl.setUserLoss(rs.getInt("loss"));
 
-                data1.add(wl);
+            data1.add(wl);
 
 
         } catch (SQLException e) {
@@ -133,28 +85,6 @@ public class DashBoardView implements Initializable {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-    public void onRegisterClick() {
-        registerButton.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                // shows leaderboard
-                GUI register = new GUI();
-                register.showRegister();
-            }
-       });
-    }
 
     public void onLdrClick() {
 
@@ -182,14 +112,49 @@ public class DashBoardView implements Initializable {
     }
 
 
+    public void onManageClick() {
+        try {
+            Parent manageboard;
+            manageboard = FXMLLoader.load(getClass().getResource("Manage.fxml"));
+            Stage mainStage;
+            mainStage = GUI.parentWindow;
+            mainStage.getScene().setRoot(manageboard);
+            mainStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
 
+    public void onNewGame9() {
+        newGameBtn9.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                // shows leaderboard
+                GUI register = new GUI();
+                register.showGame9();
+            }
+        });
+    }
 
-
-
-
-
-
-
-
+    public void onNewGame13() {
+        newGameBtn13.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                // shows leaderboard
+                GUI register = new GUI();
+                register.showGame13();
+            }
+        });
+    }
+    public void onNewGame19() {
+        newGameBtn19.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                // shows leaderboard
+                GUI register = new GUI();
+                register.showGame19();
+            }
+        });
+    }
 }

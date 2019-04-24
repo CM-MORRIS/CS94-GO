@@ -192,7 +192,7 @@ public class UserDB {
             return null;
         }
 
-        
+
 
     public static ResultSet getWinsLossData(String u) {
 
@@ -211,18 +211,6 @@ public class UserDB {
             }
             return null;
     }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 }

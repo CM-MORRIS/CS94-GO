@@ -54,7 +54,7 @@ public class BoardHandler13 extends Application
      * @return Information to go on the scene.
      */
 
-    private Parent createContent() {
+    public Parent createContent() {
         Pane root = new Pane();
         root.setPrefSize(1100, 1100);
 
