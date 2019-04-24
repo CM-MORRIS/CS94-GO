@@ -1,32 +1,26 @@
 package com.company;
 
 import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.text.Font;
-import javafx.scene.text.FontWeight;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
+
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
-
+/**
+ * The class which allows for the creation of the interactive GUI elements
+ *
+ *
+ * @author Corie Morris and Gareth Thomas
+ */
 public class GUI extends Application {
 
     public static Stage parentWindow;
 
+    /**
+     * Launches the login screen on application launch.
+     */
     @Override
     public void start(Stage primaryStage) throws Exception {
         // shows login GUI
@@ -37,7 +31,9 @@ public class GUI extends Application {
         primaryStage.show();
     }
 
-
+    /**
+     * Produce the interactive dashboard.
+     */
     public void showDash() {
         try {
             Parent dashBoard;
@@ -51,11 +47,13 @@ public class GUI extends Application {
         }
     }
 
+    /**
+     * Launches the register screen.
+     */
     public void showRegister() {
         try {
             Parent manageboard;
             manageboard = FXMLLoader.load(getClass().getResource("Register.fxml"));
-
             Stage mainStage;
             mainStage = GUI.parentWindow;
             mainStage.getScene().setRoot(manageboard);
@@ -65,6 +63,9 @@ public class GUI extends Application {
         }
     }
 
+    /**
+     * Launches the leaderboard screen.
+     */
     public void showLeaderboard() {
         try {
             Parent Leaderboard;
@@ -78,7 +79,9 @@ public class GUI extends Application {
         }
     }
 
-
+    /**
+     * Launches the 9*9 screen from BoardHandler9.
+     */
     public void showGame9() {
         BoardHandler9 game = new BoardHandler9();
         Parent startgame = game.createContent();
@@ -89,6 +92,9 @@ public class GUI extends Application {
         secondWindow.show();
     }
 
+    /**
+     * Launches the 13*13 screen from BoardHandler13.
+     */
     public void showGame13() {
         BoardHandler13 game = new BoardHandler13();
         Parent startgame = game.createContent();
@@ -99,6 +105,9 @@ public class GUI extends Application {
         secondWindow.show();
     }
 
+    /**
+     * Launches the 19*19 screen from BoardHandler19.
+     */
     public void showGame19() {
         BoardHandler19 game = new BoardHandler19();
         Parent startgame = game.createContent();
