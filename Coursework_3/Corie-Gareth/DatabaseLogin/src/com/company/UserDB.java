@@ -111,7 +111,20 @@ public class UserDB {
             System.out.println("Something went wrong: " + e.getMessage());
         }
     }
+    public static void deleteUser(String username) {
+        try {
+            Connection conn = DriverManager.getConnection(CONNECTION_STRING);
+            Statement statement = conn.createStatement();
 
+            statement.executeUpdate("delete from "+TABLE_USERS+" where "+COLUMN_USERNAME
+                    +" = '"+username+"'");
+            statement.close();
+            conn.close();
+
+        } catch (SQLException e) {
+            System.out.println("Something went wrong: " + e.getMessage());
+        }
+    }
 
     // returns true if user and password match
     public static boolean checkUserPass(String u, String p) {
