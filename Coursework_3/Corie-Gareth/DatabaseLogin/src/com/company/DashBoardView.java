@@ -114,21 +114,29 @@ public class DashBoardView implements Initializable {
             e.printStackTrace();
         }
     }
-
-
-    public void onNewGame9() {
-        GUI new9 = new GUI();
-        new9.showGame9();
+    public void onNewGame() throws IOException {
+        Parent Leaderboard;
+        Leaderboard = FXMLLoader.load(getClass().getResource("GameMatch.fxml"));
+        Stage mainStage;
+        mainStage = GUI.parentWindow;
+        mainStage.getScene().setRoot(Leaderboard);
+        mainStage.show();
     }
 
-    public void onNewGame13() {
-        GUI new13 = new GUI();
-        new13.showGame13();
-    }
 
-    public void onNewGame19() {
-        GUI new19 = new GUI();
-        new19.showGame19();
-    }
+//     public void onNewGame9() {
+//         GUI new9 = new GUI();
+//         new9.showGame9();
+//     }
+
+//     public void onNewGame13() {
+//         GUI new13 = new GUI();
+//         new13.showGame13();
+//     }
+
+//     public void onNewGame19() {
+//         GUI new19 = new GUI();
+//         new19.showGame19();
+//     }
 }
 
