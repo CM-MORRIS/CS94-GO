@@ -15,10 +15,10 @@ public class UserDB {
     // checkUser
 
     public static final String DB_NAME = "userDB.db";
-    public static final String CONNECTION_STRING = "jdbc:sqlite:/Users/cmorris/Desktop/CS94-GO/Coursework_3/Go94/Databases/" + DB_NAME;
+    //public static final String CONNECTION_STRING = "jdbc:sqlite:/Users/cmorris/Desktop/CS94-GO/Coursework_3/Go94/Databases/" + DB_NAME;
 
     // use spare one below for connection on own pc
-    // public static final String CONNECTION_STRING = "jdbc:sqlite: "pathway here" + DB_NAME;
+    public static final String CONNECTION_STRING = "jdbc:sqlite:/D:/Documents/OneDrive/CompSci/Semester_2/CSCM94_Software Eng Principles/Coursework/Coursework_3/CS94-GO/Coursework_3/Go94/Databases/" + DB_NAME;
 
 
     public static final String TABLE_USERS = "users";
@@ -33,6 +33,9 @@ public class UserDB {
     public static final String COLUMN_WIN_PERCENTAGE = "winPercentage";
     public static final String COLUMN_ADMIN = "admin";
     public static final String COLUMN_LOGINHIS = "loginHistory";
+
+
+
 
 
 
@@ -87,7 +90,8 @@ public class UserDB {
             statement.executeUpdate("update "+TABLE_USERS+" set "+
                     COLUMN_LOGINHIS+"='"+date+"' where "+COLUMN_USERNAME+"='"+username+"'");
 
-
+            statement.close();
+            conn.close();
         } catch (SQLException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -287,11 +291,7 @@ public class UserDB {
      */
         public static ResultSet getLeaderBoardData() {
 
-            String query = "SELECT " + COLUMN_USERNAME + ", " + COLUMN_WINS + ", " +
-                    "((wins / (wins + loss)*100)) " + COLUMN_WIN_PERCENTAGE + " FROM " + TABLE_USERS;
-
-//            String query = "SELECT " + COLUMN_USERNAME + ", " + COLUMN_WINS + ", " +
-//                    COLUMN_WIN_PERCENTAGE + " FROM " + TABLE_USERS;
+            String query = "SELECT " + COLUMN_USERNAME + ", " + COLUMN_WINS + ", " + COLUMN_WIN_PERCENTAGE + " FROM " + TABLE_USERS;
 
             try {
                 Connection conn = DriverManager.getConnection(CONNECTION_STRING);
@@ -301,10 +301,11 @@ public class UserDB {
 
                 return rs;
 
-
             } catch (SQLException e) {
                 System.out.println("Something went wrong: " + e.getMessage());
             }
+
+
             return null;
         }
 

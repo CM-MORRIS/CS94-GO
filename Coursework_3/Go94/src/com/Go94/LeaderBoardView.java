@@ -45,6 +45,8 @@ public class LeaderBoardView implements Initializable {
 //        colWinPercentage.setCellValueFactory(
 //                new PropertyValueFactory<LeaderBoardData, Integer>("winPercentage"));
 
+
+
     }
 
 
@@ -59,6 +61,7 @@ public class LeaderBoardView implements Initializable {
                 lb.setUsername(rs.getString("username"));
                 lb.setUserWins(rs.getInt("wins"));
                 lb.setWinPercentage(rs.getInt("winPercentage"));
+
                 data.add(lb);
             }
         } catch (SQLException ex) {
