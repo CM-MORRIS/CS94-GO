@@ -151,7 +151,13 @@ public class UserDB {
         }
     }
 
-    //change user to admin
+
+
+    /**
+     * Andy
+     * Changes admin column in database
+     * @param username Username
+     */
     public static void changeAuothority(String username) {
         try {
             Connection conn = DriverManager.getConnection(CONNECTION_STRING);
@@ -166,6 +172,10 @@ public class UserDB {
             System.out.println("Something went wrong: " + e.getMessage());
         }
     }
+
+
+
+
     public static String getLastLogin(String u) {
         String query = "SELECT " + COLUMN_LOGINHIS +" FROM " + TABLE_USERS +
                 " WHERE " + COLUMN_USERNAME + " = '" + u + "'";
@@ -186,6 +196,13 @@ public class UserDB {
         return lastdate;
         }
 
+
+    /**
+     * Corie
+     * Checks credentials match
+     * @param u Username
+     * @param p Password
+     */
     // returns true if user and password match
     public static boolean checkUserPass(String u, String p) {
 
@@ -223,14 +240,17 @@ public class UserDB {
         }
 
 
-        // checks DB for existing username
+    /**
+     * Corie
+     * Checks if user exists. returns true if yes, else false.
+     * @param u Username
+     */
         public static boolean checkUser(String u) {
 
             String query = "SELECT " + COLUMN_USERNAME + " FROM " + TABLE_USERS +
                 " WHERE " + COLUMN_USERNAME + " = '" + u + "'";
 
             try {
-
                 Connection conn = DriverManager.getConnection(CONNECTION_STRING);
 
                 PreparedStatement ps = conn.prepareStatement(query);
@@ -243,7 +263,6 @@ public class UserDB {
 
                 rs.close();
                 conn.close();
-
             } catch(SQLException e) {
                 System.out.println("Something went wrong: " + e.getMessage());
                 return false;
@@ -252,6 +271,10 @@ public class UserDB {
         }
 
 
+    /**
+     * Corie
+     * Returns a ResultSet of data to store in Leader Board
+     */
         public static ResultSet getLeaderBoardData() {
 
             String query = "SELECT " + COLUMN_USERNAME + ", " + COLUMN_WINS + ", " + COLUMN_WIN_PERCENTAGE + " FROM " + TABLE_USERS;
@@ -262,12 +285,7 @@ public class UserDB {
 
                 ResultSet rs = results.executeQuery(query);
 
-                // NOTE: do not close connection otherwise results will not show in tableView
-//                results.close();
-//                conn.close();
-
                 return rs;
-
 
             } catch (SQLException e) {
                 System.out.println("Something went wrong: " + e.getMessage());
@@ -277,8 +295,11 @@ public class UserDB {
             return null;
         }
 
-
-
+    /**
+     * Corie
+     * Returns as a ResultSet the win/loss data of a user
+     * @param u Username
+     */
     public static ResultSet getWinsLossData(String u) {
 
         String query = "SELECT " + COLUMN_WINS + ", " + COLUMN_LOSS + " FROM " +
@@ -299,7 +320,12 @@ public class UserDB {
 
 
 
-
+    /**
+     * Corie
+     * Updates win/loss in database
+     * @param winner Game winner
+     * @param loser  Game loser
+     */
     public static void updateScores(String winner, String loser) {
 
         String queryWinner = "UPDATE " + TABLE_USERS + " SET " + COLUMN_WINS + " = wins + 1 WHERE "
@@ -312,10 +338,8 @@ public class UserDB {
             Connection conn = DriverManager.getConnection(CONNECTION_STRING);
             Statement results = conn.createStatement();
 
-
             results.executeUpdate(queryWinner);
             results.executeUpdate(queryLoser);
-
 
             results.close();
             conn.close();
@@ -323,13 +347,5 @@ public class UserDB {
         } catch (SQLException e) {
             System.out.println("Something went wrong: " + e.getMessage());
         }
-
-
-
-
-
-
     }
-
-
 }
