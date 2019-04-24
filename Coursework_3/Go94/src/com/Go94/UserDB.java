@@ -288,7 +288,10 @@ public class UserDB {
         public static ResultSet getLeaderBoardData() {
 
             String query = "SELECT " + COLUMN_USERNAME + ", " + COLUMN_WINS + ", " +
-                    "SUM((wins / (wins + loss)*100)) AS " + COLUMN_WIN_PERCENTAGE + " FROM " + TABLE_USERS;
+                    "((wins / (wins + loss)*100)) " + COLUMN_WIN_PERCENTAGE + " FROM " + TABLE_USERS;
+
+//            String query = "SELECT " + COLUMN_USERNAME + ", " + COLUMN_WINS + ", " +
+//                    COLUMN_WIN_PERCENTAGE + " FROM " + TABLE_USERS;
 
             try {
                 Connection conn = DriverManager.getConnection(CONNECTION_STRING);
@@ -297,6 +300,7 @@ public class UserDB {
                 ResultSet rs = results.executeQuery(query);
 
                 return rs;
+
 
             } catch (SQLException e) {
                 System.out.println("Something went wrong: " + e.getMessage());

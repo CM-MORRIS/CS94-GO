@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b8e19aa8-ba67-45f8-8371-2442f32e4129" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Databases/userDB.db" beforeDir="false" afterPath="$PROJECT_DIR$/Databases/userDB.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Go94/com/Go94/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Go94/com/Go94/Controller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Go94/com/Go94/UserDB.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Go94/com/Go94/UserDB.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Go94/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Go94/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Go94/LeaderBoardView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Go94/LeaderBoardView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/Go94/UserDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Go94/UserDB.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -59,12 +56,12 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="1068" />
+          <entry key="java" value="1111" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="1068" />
+          <entry key="JAVA" value="1111" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -84,8 +81,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/Go94/UserDB.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="268" lean-forward="true" selection-start-line="268" selection-end-line="268" />
+            <state relative-caret-position="124">
+              <caret line="290" column="55" selection-start-line="290" selection-start-column="55" selection-end-line="290" selection-end-column="55" />
             </state>
           </provider>
         </entry>
@@ -114,8 +111,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/Go94/LeaderBoardView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="63" selection-start-line="63" selection-end-line="63" />
+            <state relative-caret-position="-252">
+              <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
             </state>
           </provider>
         </entry>
@@ -204,7 +201,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1556135499890" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1556137308685" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
@@ -251,12 +248,12 @@
       <updated>1556127967327</updated>
       <workItem from="1556127970477" duration="3000" />
       <workItem from="1556128003849" duration="356000" />
-      <workItem from="1556128482172" duration="6907000" />
+      <workItem from="1556128482172" duration="8323000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7266000" />
+    <option name="totallyTimeSpent" value="8682000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="829" extended-state="6" />
@@ -486,13 +483,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Go94/BoardHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1487">
-          <caret line="144" column="59" lean-forward="true" selection-start-line="144" selection-start-column="59" selection-end-line="144" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/Go94/DashBoardView.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-389">
@@ -515,15 +505,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/Go94/LeaderBoardView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="63" selection-start-line="63" selection-end-line="63" />
+        <state relative-caret-position="-252">
+          <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/Go94/BoardHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1487">
+          <caret line="144" column="59" lean-forward="true" selection-start-line="144" selection-start-column="59" selection-end-line="144" selection-end-column="59" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/Go94/UserDB.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="268" lean-forward="true" selection-start-line="268" selection-end-line="268" />
+        <state relative-caret-position="124">
+          <caret line="290" column="55" selection-start-line="290" selection-start-column="55" selection-end-line="290" selection-end-column="55" />
         </state>
       </provider>
     </entry>
