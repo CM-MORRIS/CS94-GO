@@ -79,12 +79,7 @@
                                 <Color blue="0.624" green="0.624" red="0.624" fx:id="x2" />
                             </textFill>
                         </Label>
-
-                        <Button fx:id="newGameBtn9" layoutX="33.0" layoutY="41.0" mnemonicParsing="false" onAction="#onNewGame9" text="New Game9" />
-                  <Button fx:id="newGameBtn13" layoutX="29.0" layoutY="66.0" mnemonicParsing="false" onAction="#onNewGame13" text="New Game13" />
-                  <Button fx:id="newGameBtn19" layoutX="29.0" layoutY="91.0" mnemonicParsing="false" onAction="#onNewGame19" text="New Game19" />
-
-
+                        <Button fx:id="newGameButton" layoutX="63.0" layoutY="74.0" mnemonicParsing="false" onAction="#onNewGame" text="New Game" />
                         <AnchorPane layoutX="-1.0" layoutY="166.0" prefHeight="349.0" prefWidth="218.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="166.0">
                             <children>
                                 <ChoiceBox layoutX="17.0" layoutY="252.0" prefHeight="27.0" prefWidth="185.0" />
