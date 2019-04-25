@@ -32,7 +32,11 @@ public class RegisterController implements Initializable {
 
     public static UserDB userDB;
 
-
+    /**
+     * read register imformation send it to database
+     * Start game
+     * @author Andy
+     */
     public void onRegisterClick() {
         String username = usernameField.getText();
         String password = passwordField.getText();
@@ -52,6 +56,11 @@ public class RegisterController implements Initializable {
             e.printStackTrace();
         }
     }
+     /**
+     * come  back to manage interface
+     * Start game
+     * @author Andy
+     */
     public void onBackClick() {
         try {
             Parent manageboard;
