@@ -139,6 +139,7 @@ public class BoardHandler
 
                         // updates win/loss scores in table users
                         UserDB.updateScores(p1.getName(), p2.getName());
+                        UserDB.updateGameHistory(p1.getName(), p2.getName(), p1.getName());
 
                     } else if (p2Overall > p1Overall) {
                         Text whoWon = new Text(300, 200, "Congratulations!"
@@ -150,6 +151,7 @@ public class BoardHandler
 
                         // updates win/loss scores in table users
                         UserDB.updateScores(p2.getName(), p1.getName());
+                        UserDB.updateGameHistory(p1.getName(), p2.getName(), p2.getName());
                     } else {
                         Text whoWon = new Text(200, 200, "                  "
                                 + "       Oh no! It was a draw!\n"

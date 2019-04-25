@@ -84,11 +84,32 @@ public class DashBoardView implements Initializable {
      */
     @FXML
     private TableColumn<WinsLossData, Number> colLoss;
-    
+
+
+    /**
+     * The data to fill the table with GameHistory
+     */
+    @FXML
+    private TableView<GameHistoryData> gameHisTbl;
+
+    @FXML
+    private TableColumn<GameHistoryData, String> colP1;
+    @FXML
+    private TableColumn<GameHistoryData, String> colP2;
+    @FXML
+    private TableColumn<GameHistoryData, String> colWinner;
+
+
+
     /**
      * Creating list that is needed to fill tables.
      */
     private ObservableList<WinsLossData> data1;
+
+    /**
+     * Creating list for game history that is needed to fill tables.
+     */
+    private ObservableList<GameHistoryData> data2;
     
     /**
      * Creating the box to choose avatar
@@ -116,10 +137,59 @@ public class DashBoardView implements Initializable {
         colLoss.setCellValueFactory(f -> f.getValue().userLossProperty());
         buildWinsLossDashData();
 
+
+//        colDate.setCellValueFactory(f -> f.getValue().dateProperty());
+        colP1.setCellValueFactory(f -> f.getValue().player1Property());
+        colP2.setCellValueFactory(f -> f.getValue().player2Property());
+        colWinner.setCellValueFactory(f -> f.getValue().winnerProperty());
+        buildGameHistory();
+
+
+
+
+
+
+
+
+
         addAvatarImages();
         System.out.println(Controller.lastLogin);
         lastLoginLabel.setText(Controller.lastLogin);
     }
+
+
+
+    public void buildGameHistory() {
+        try {
+
+            ResultSet rs = UserDB.getGameHistory();
+
+            data2 = FXCollections.observableArrayList();
+
+            GameHistoryData gh = new GameHistoryData();
+
+            gh.setPlayer1(rs.getString("player1"));
+            gh.setPlayer2(rs.getString("player2"));
+            gh.setWinner(rs.getString("winner"));
+
+            data2.add(gh);
+
+        } catch (SQLException e) {
+            System.out.println("Connection Failed! Check output console");
+        }
+
+        gameHisTbl.setItems(data2);
+    }
+
+
+
+
+
+
+
+
+
+
 
 
     /**

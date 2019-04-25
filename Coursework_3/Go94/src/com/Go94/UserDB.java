@@ -17,18 +17,22 @@ public class UserDB {
      * Setting what the database will be called
      */
     public static final String DB_NAME = "userDB.db";
+    public static final String DB2_NAME = "historyDB.db";
     
     /**
      * Setting where the local database is actually stored. Must be changed to local area in code
      */
     // public static final String CONNECTION_STRING = "jdbc:sqlite:/Users/Tibo/Documents/Go94/Databases/" + DB_NAME;
     public static final String CONNECTION_STRING = "jdbc:sqlite:/Users/cmorris/Desktop/CS94-GO/Coursework_3/Go94/Databases/" + DB_NAME;
+    public static final String CONNECTION_STRING2 = "jdbc:sqlite:/Users/cmorris/Desktop/CS94-GO/Coursework_3/Go94/Databases/" + DB2_NAME;
+
 
 
     /**
      * Setting variables to be used later on in the SQL statements
      */
     public static final String TABLE_USERS = "users";
+    public static final String TABLE_HISTORY = "history";
     public static final String TABLE_LOGINHIS = "LoginHistory";
     public static final String COLUMN_ID = "userid";
     public static final String COLUMN_USERNAME = "username";
@@ -67,14 +71,40 @@ public class UserDB {
 
 
             statement.close();
-
-            // closes connection to DB
             conn.close();
 
         } catch (SQLException e) {
             System.out.println("Something went wrong: " + e.getMessage());
           }
     }
+
+
+
+    public static void createHistoryDB() {
+        try {
+            // connects to DB
+            Connection conn = DriverManager.getConnection(CONNECTION_STRING2);
+
+            // ...
+            Statement statement = conn.createStatement();
+
+            // executes create DB query
+
+            statement.execute("CREATE TABLE IF NOT EXISTS " + TABLE_HISTORY + " (" + "gameid" + " INTEGER PRIMARY KEY, "
+                    + "date" + "Timestamp DATETIME DEFAULT CURRENT_TIMESTAMP, " + "player1" + " VARCHAR, "
+                    + "player2" + " VARCHAR, " + "winner" + " VARCHAR)"
+            );
+
+
+            statement.close();
+            conn.close();
+
+        } catch (SQLException e) {
+            System.out.println("Something went wrong: " + e.getMessage());
+        }
+    }
+
+
 
 
     /**
@@ -299,7 +329,7 @@ public class UserDB {
 
             String query = "SELECT " + COLUMN_USERNAME + ", " + COLUMN_WINS + ", "
                     + "((wins)/(wins+loss)*100) AS 'winPercentage' FROM " + TABLE_USERS;
-            
+
             try {
                 Connection conn = DriverManager.getConnection(CONNECTION_STRING);
                 Statement results = conn.createStatement();
@@ -366,4 +396,55 @@ public class UserDB {
             System.out.println("Something went wrong: " + e.getMessage());
         }
     }
+
+
+
+    public static void updateGameHistory(String player1, String player2, String winner) {
+
+        String query = "INSERT INTO " + TABLE_HISTORY + "(player1, player2, winner) VALUES ( " + "'" + player1 + "'," +
+                "'" + player2 + "'," + "'" + winner + "'" + ")";
+
+
+        try {
+            Connection conn = DriverManager.getConnection(CONNECTION_STRING2);
+            Statement results = conn.createStatement();
+
+            results.executeUpdate(query);
+
+            results.close();
+            conn.close();
+
+        } catch (SQLException e) {
+            System.out.println("Something went wrong: " + e.getMessage());
+        }
+    }
+
+    /**
+     *
+     */
+    public static ResultSet getGameHistory() {
+
+        String query = "SELECT "+ "player1" + ", " + "player2" + ", " + "winner" + " FROM " +
+                TABLE_HISTORY;
+
+        try {
+            Connection conn = DriverManager.getConnection(CONNECTION_STRING2);
+            Statement results = conn.createStatement();
+            ResultSet rs = results.executeQuery(query);
+
+            return rs;
+
+        } catch (SQLException e) {
+            System.out.println("Something went wrong: " + e.getMessage());
+        }
+        return null;
+    }
+
+
+
+
+
+
+
+
 }
