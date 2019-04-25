@@ -17,7 +17,11 @@ public class GameMatchController {
     private TextField userA;
     @FXML
     private TextField userB;
-
+    /**
+     * read game board size, user A and user B,
+     * Start game
+     * @author Andy
+     */
     public void onMarchClick() {
         BoardHandler game = new BoardHandler(Integer.parseInt(size.getText()), userA.getText(), userB.getText());
         Parent startgame = game.createContent();
