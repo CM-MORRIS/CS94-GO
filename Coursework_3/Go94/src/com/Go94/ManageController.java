@@ -40,6 +40,12 @@ public class ManageController implements Initializable {
 
         buildManageData();
     }
+    
+    /**
+     * set user data into text view table
+     * Start game
+     * @author Andy
+     */
     public void buildManageData() {
         data = FXCollections.observableArrayList();
         try {
