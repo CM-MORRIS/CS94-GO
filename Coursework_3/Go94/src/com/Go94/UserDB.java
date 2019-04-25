@@ -72,8 +72,9 @@ public class UserDB {
 
 
     /**
+     * it will be called by user login in.
+     * when user successful logined it will store cerrent time into user data
      * Andy
-     * @param username
      */
     public static void addLoginHistory(String username){
         Connection conn;
@@ -119,8 +120,10 @@ public class UserDB {
             System.out.println("Something went wrong: " + e.getMessage());
         }
     }
-
-    // delete user by username
+    /**
+     *  delete user by username
+     * Andy
+     */
     public static void deleteuser(String username) {
         try {
             Connection conn = DriverManager.getConnection(CONNECTION_STRING);
@@ -187,7 +190,11 @@ public class UserDB {
 
 
 
-
+    /**
+     *  get the last login time by username
+     * return String 
+     * Andy
+     */
     public static String getLastLogin(String u) {
         String query = "SELECT " + COLUMN_LOGINHIS +" FROM " + TABLE_USERS +
                 " WHERE " + COLUMN_USERNAME + " = '" + u + "'";
