@@ -9,6 +9,12 @@ import javafx.collections.ObservableList;
  * @author tibo
  */
 public class AvatarImageName {
+    
+    /**
+     * Takes the file URL and returns a name string.
+     * @param fileUrl original fileUrl location of avatar.
+     * @return shortened name string for the avatar.
+     */
     public static String getImageName(String fileUrl){
         if(!fileUrl.isEmpty()){
             String[] sp = fileUrl.split("/");
