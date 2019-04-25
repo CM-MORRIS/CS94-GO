@@ -6,7 +6,7 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.Go94.ManageController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9.0.4" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.Go94.ManageController">
    <children>
       <SplitPane dividerPositions="0.7336683417085427" layoutX="220.0" layoutY="80.0" orientation="VERTICAL" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <items>
@@ -20,12 +20,12 @@
                   </TableView>
                </children>
             </AnchorPane>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" style="-fx-background-color: #2D3447 #2D3447;">
                <children>
-                  <Button layoutX="75.0" layoutY="40.0" mnemonicParsing="false" onAction="#onNewClick" text="New" />
-                  <Button layoutX="272.0" layoutY="40.0" mnemonicParsing="false" onAction="#onDeleteClick" text="Delete" />
-                  <Button layoutX="371.0" layoutY="40.0" mnemonicParsing="false" onAction="#onBackClick" text="Back" />
-                  <Button layoutX="470.0" layoutY="40.0" mnemonicParsing="false" onAction="#onChangeClick" text="ChangeAuthority" />
+                  <Button layoutX="75.0" layoutY="40.0" mnemonicParsing="false" onAction="#onNewClick" style="-fx-background-color: #2196f3 #2196f3;" text="New" textFill="WHITE" />
+                  <Button layoutX="272.0" layoutY="40.0" mnemonicParsing="false" onAction="#onDeleteClick" style="-fx-background-color: #2196f3 #2196f3;" text="Delete" textFill="WHITE" />
+                  <Button layoutX="371.0" layoutY="40.0" mnemonicParsing="false" onAction="#onBackClick" style="-fx-background-color: #2196f3 #2196f3;" text="Back" textFill="WHITE" />
+                  <Button layoutX="470.0" layoutY="40.0" mnemonicParsing="false" onAction="#onChangeClick" style="-fx-background-color: #2196f3 #2196f3;" text="ChangeAuthority" textFill="WHITE" />
                </children>
             </AnchorPane>
         </items>

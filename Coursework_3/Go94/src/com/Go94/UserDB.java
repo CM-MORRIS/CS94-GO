@@ -15,7 +15,7 @@ public class UserDB {
     // checkUser
 
     public static final String DB_NAME = "userDB.db";
-    public static final String CONNECTION_STRING = "jdbc:sqlite:/Users/cmorris/Desktop/CS94-GO/Coursework_3/Go94/Databases/" + DB_NAME;
+    public static final String CONNECTION_STRING = "jdbc:sqlite:/Users/Tibo/Documents/Go94/Databases/" + DB_NAME;
 
     // use spare one below for connection on own pc
     // public static final String CONNECTION_STRING = "jdbc:sqlite: "pathway here" + DB_NAME;
@@ -33,6 +33,7 @@ public class UserDB {
     public static final String COLUMN_WIN_PERCENTAGE = "winPercentage";
     public static final String COLUMN_ADMIN = "admin";
     public static final String COLUMN_LOGINHIS = "loginHistory";
+    public static final String COLUMN_AVATAR = "avatar";
 
 
 
@@ -55,7 +56,8 @@ public class UserDB {
                     COLUMN_FIRSTNAME + " VARCHAR NOT NULL, " + COLUMN_SURNAME + " VARCHAR NOT NULL, " +
                     COLUMN_LOGINHIS + " VARCHAR, " + COLUMN_WINS + " INTEGER DEFAULT 0, " +
                     COLUMN_LOSS + " INTEGER DEFAULT 0," + COLUMN_WIN_PERCENTAGE + " INTEGER DEFAULT 0, " +
-                    COLUMN_ADMIN + " INTEGER DEFAULT 0)");
+                    COLUMN_ADMIN + " INTEGER DEFAULT 0, " + COLUMN_AVATAR + " VARCHAR NOT NULL)"
+            );
 
 
             statement.close();
@@ -103,13 +105,13 @@ public class UserDB {
      * @param f first name
      * @param s surname
      */
-    public static void addUser(String u, String p, String f, String s) {
+    public static void addUser(String u, String p, String f, String s,String avatar) {
         try {
             Connection conn = DriverManager.getConnection(CONNECTION_STRING);
             Statement statement = conn.createStatement();
 
-            statement.executeUpdate("INSERT INTO " + TABLE_USERS + " (" + COLUMN_USERNAME + ", " + COLUMN_PASSWORD +", " + COLUMN_FIRSTNAME +", " + COLUMN_SURNAME + ") " +
-                                     "VALUES " + "(" + "'" + u + "'" + ", " + "'" + p + "'" +  ", " + "'" + f + "'" + ", " + "'" + s + "'" +")");
+            statement.executeUpdate("INSERT INTO " + TABLE_USERS + " (" + COLUMN_USERNAME + ", " + COLUMN_PASSWORD +", " + COLUMN_FIRSTNAME +", " + COLUMN_SURNAME + ", "+COLUMN_AVATAR+" ) " +
+                                     "VALUES " + "(" + "'" + u + "'" + ", " + "'" + p + "'" +  ", " + "'" + f + "'" + ", " + "'" + s + "'" +", " + "'" + avatar + "'" + ")");
             statement.close();
             conn.close();
 

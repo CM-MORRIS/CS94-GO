@@ -1,18 +1,23 @@
 package com.Go94;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import java.util.ResourceBundle;
 
 import java.io.IOException;
-
+import java.net.URL;
 import com.Go94.UserDB;
 
-public class RegisterController {
+public class RegisterController implements Initializable {
     @FXML
     private TextField usernameField;
     @FXML
@@ -22,6 +27,9 @@ public class RegisterController {
     @FXML
     private TextField surnameField;
 
+    @FXML
+    private ComboBox<String> cb;
+
     public static UserDB userDB;
 
 
@@ -30,7 +38,8 @@ public class RegisterController {
         String password = passwordField.getText();
         String firstname = firstnameField.getText();
         String surname = surnameField.getText();
-        userDB.addUser(username,password,firstname,surname);
+        String avatarName = AvatarImageName.getImageName(cb.getSelectionModel().getSelectedItem());
+        userDB.addUser(username,password,firstname,surname,avatarName);
         System.out.println("clicked");
         try {
             Parent manageboard;
@@ -55,6 +64,29 @@ public class RegisterController {
             e.printStackTrace();
         }
     }
-    
-    
+    private void addAvatarImages(){
+        ObservableList<String> avatars = FXCollections.observableArrayList();
+        avatars.add(getClass().getResource("/avatarImages/Antman.png").toExternalForm());
+        avatars.add(getClass().getResource("/avatarImages/BlackPanther.png").toExternalForm());
+        avatars.add(getClass().getResource("/avatarImages/CaptainMarvel.png").toExternalForm());
+        avatars.add(getClass().getResource("/avatarImages/CaptainAmerica.png").toExternalForm());
+        avatars.add(getClass().getResource("/avatarImages/Hulk.png").toExternalForm());
+        avatars.add(getClass().getResource("/avatarImages/Ironman.png").toExternalForm());
+        avatars.add(getClass().getResource("/avatarImages/Spiderman.png").toExternalForm());
+        avatars.add(getClass().getResource("/avatarImages/Thor.png").toExternalForm());
+        cb.setPromptText("Select Avatar");
+        cb.setItems(avatars);
+        cb.setButtonCell(new AvatarImages());
+        cb.setCellFactory(param -> new AvatarImages());
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        addAvatarImages();
+    }
+
+
+
+
+
 }

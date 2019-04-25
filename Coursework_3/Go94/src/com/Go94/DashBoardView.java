@@ -8,11 +8,17 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.control.*;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.*;
+import javafx.scene.paint.Paint;
+import javafx.scene.text.TextAlignment;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
@@ -56,9 +62,11 @@ public class DashBoardView implements Initializable {
 
     @FXML
     private TableColumn<WinsLossData, Number> colLoss;
-
     private ObservableList<WinsLossData> data1;
-
+    @FXML
+    private ComboBox cb;
+    @FXML
+    private Label lbIV;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -67,6 +75,7 @@ public class DashBoardView implements Initializable {
         colWins.setCellValueFactory(f -> f.getValue().userWinsProperty());
         colLoss.setCellValueFactory(f -> f.getValue().userLossProperty());
         buildWinsLossDashData();
+        addAvatarImages();
         System.out.println(Controller.lastLogin);
         lastLoginLabel.setText(Controller.lastLogin);
     }
@@ -145,5 +154,41 @@ public class DashBoardView implements Initializable {
         GUI login = new GUI();
         login.logIn();
     }
+
+
+     /*
+     * @author tibo
+     * This method will add avatar images and avatar images names in the combo-box
+     * */
+    private void addAvatarImages(){
+        ObservableList<String> avatars = FXCollections.observableArrayList();
+        avatars.add(getClass().getResource("/avatarImages/Antman.png").toExternalForm());
+        avatars.add(getClass().getResource("/avatarImages/BlackPanther.png").toExternalForm());
+        avatars.add(getClass().getResource("/avatarImages/CaptainMarvel.png").toExternalForm());
+        avatars.add(getClass().getResource("/avatarImages/CaptainAmerica.png").toExternalForm());
+        avatars.add(getClass().getResource("/avatarImages/Hulk.png").toExternalForm());
+        avatars.add(getClass().getResource("/avatarImages/Ironman.png").toExternalForm());
+        avatars.add(getClass().getResource("/avatarImages/Spiderman.png").toExternalForm());
+        avatars.add(getClass().getResource("/avatarImages/Thor.png").toExternalForm());
+        cb.setPromptText("Select Avatar");
+        cb.setItems(avatars);
+        cb.setButtonCell(new AvatarImages());
+        cb.setCellFactory(param -> new AvatarImages());
+
+        lbIV.setStyle("-fx-background-radius: 200px;" +
+                "-fx-background-color: red;" +
+                "-fx-border-radius:40px");
+
+        cb.setOnAction(event -> {
+            String n = cb.getSelectionModel().getSelectedItem().toString();
+            BackgroundImage myBI= new BackgroundImage(new Image("/avatarImages/"+AvatarImageName.getImageName(n)+".png",
+                    80,80,false,true),
+                    BackgroundRepeat.ROUND, BackgroundRepeat.ROUND, BackgroundPosition.CENTER,
+                    BackgroundSize.DEFAULT);
+            lbIV.setBackground(new Background(myBI));
+        });
+
+    }
+
 }
 
