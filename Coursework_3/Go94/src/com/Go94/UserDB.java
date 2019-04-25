@@ -499,7 +499,6 @@ public class UserDB {
 
         String query = "SELECT "+ "player1" + ", " + "player2" + ", " + "winner" + " FROM " +
                 TABLE_HISTORY;
-
         try {
             Connection conn = DriverManager.getConnection(CONNECTION_STRING2);
             Statement results = conn.createStatement();
@@ -512,12 +511,5 @@ public class UserDB {
         }
         return null;
     }
-
-
-
-
-
-
-
 
 }

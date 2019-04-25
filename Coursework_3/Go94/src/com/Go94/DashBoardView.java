@@ -133,13 +133,13 @@ public class DashBoardView implements Initializable {
 
             data2 = FXCollections.observableArrayList();
 
-            GameHistoryData gh = new GameHistoryData();
-
-            gh.setPlayer1(rs.getString("player1"));
-            gh.setPlayer2(rs.getString("player2"));
-            gh.setWinner(rs.getString("winner"));
-
-            data2.add(gh);
+            while (rs.next()) {
+                GameHistoryData gh = new GameHistoryData();
+                gh.setPlayer1(rs.getString("player1"));
+                gh.setPlayer2(rs.getString("player2"));
+                gh.setWinner(rs.getString("winner"));
+                data2.add(gh);
+            }
 
         } catch (SQLException e) {
             System.out.println("Connection Failed! Check output console");
