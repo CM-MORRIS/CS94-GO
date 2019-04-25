@@ -85,28 +85,30 @@
                 <AnchorPane prefHeight="539.0" prefWidth="603.0" style="-fx-background-color: #2D3447 #2D3447;">
                     <children>
                         <Label alignment="CENTER" font="$x1" layoutX="426.0" layoutY="14.0" style="&#10;" text="Profile Dashboard" textAlignment="CENTER" textFill="WHITE" wrapText="false" />
-                        <AnchorPane layoutY="336.0" prefHeight="178.0" prefWidth="445.0">
-                            <children>
-
-                                <TableView fx:id="gameHisTbl" layoutX="-61.0" layoutY="-38.0" prefHeight="178.0" prefWidth="445.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                    <columns>
-                                        <!--<TableColumn fx:id="colDate" prefWidth="146.0" text="C1" />-->
-                                        <TableColumn fx:id="colP1" prefWidth="149.0" text="Player 1" />
-                                        <TableColumn fx:id="colP2" prefWidth="146.0" text="Player 2" />
-                                        <TableColumn fx:id="colWinner" prefWidth="149.0" text="Winner" />
-                                    </columns>
-                                </TableView>
-
-
-                            </children>
-                        </AnchorPane>
-                        <AnchorPane layoutX="297.0" layoutY="336.0" prefHeight="178.0" prefWidth="208.0" />
-                        <Label layoutX="64.0" layoutY="309.0" text="Game History" textFill="WHITE" />
+                        <AnchorPane layoutX="297.0" layoutY="336.0" prefHeight="178.0" prefWidth="208.0">
+                     <children>
+                              <AnchorPane layoutX="-215.0" layoutY="-48.0" prefHeight="178.0" prefWidth="477.0">
+                                  <children>
+      
+                                                  <TableView fx:id="gameHisTbl" layoutX="169.0" layoutY="14.0" prefHeight="178.0" prefWidth="445.0" AnchorPane.bottomAnchor="-14.0" AnchorPane.leftAnchor="169.0" AnchorPane.rightAnchor="-169.0" AnchorPane.topAnchor="14.0">
+                                          <columns>
+                                              <!--<TableColumn fx:id="colDate" prefWidth="146.0" text="C1" />-->
+                                              <TableColumn fx:id="colP1" prefWidth="149.0" text="Player 1" />
+                                              <TableColumn fx:id="colP2" prefWidth="146.0" text="Player 2" />
+                                              <TableColumn fx:id="colWinner" prefWidth="149.0" text="Winner" />
+                                          </columns>
+                                      </TableView>
+      
+                  
+                                              </children>
+                              </AnchorPane>
+                     </children></AnchorPane>
+                        <Label layoutX="461.0" layoutY="271.0" text="Game History" textFill="WHITE" />
                         <Label layoutX="247.0" layoutY="17.0" text="Avatar" textFill="WHITE">
                             <font>
                                 <Font size="18.0" />
                             </font></Label>
-                        <AnchorPane layoutX="17.0" layoutY="72.0" prefHeight="226.0" prefWidth="178.0">
+                        <AnchorPane layoutX="17.0" layoutY="53.0" prefHeight="226.0" prefWidth="178.0">
                             <children>
 
                                 <TableView fx:id="userTable" layoutX="-4.0" layoutY="12.0" prefHeight="226.0" prefWidth="185.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-4.0" AnchorPane.rightAnchor="-3.0" AnchorPane.topAnchor="0.0">
@@ -121,8 +123,8 @@
                                 </TableView>
                             </children>
                         </AnchorPane>
-                        <Label layoutX="26.0" layoutY="49.0" text="New Users Added" textFill="WHITE" />
-                        <AnchorPane layoutX="339.0" layoutY="230.0" prefHeight="55.0" prefWidth="246.0">
+                        <Label layoutX="37.0" layoutY="20.0" text="New Users Added" textFill="WHITE" />
+                        <AnchorPane layoutX="423.0" layoutY="153.0" prefHeight="55.0" prefWidth="153.0">
                             <children>
 
 
@@ -136,9 +138,9 @@
 
                             </children>
                         </AnchorPane>
-                        <Label layoutX="423.0" layoutY="201.0" text="Wins/Losses" textFill="WHITE" />
-                        <Label layoutX="370.0" layoutY="72.0" text="Current position in leaderboard is 1" textFill="WHITE" />
-                        <Button fx:id="logOut" layoutX="55.0" layoutY="12.0" mnemonicParsing="false" onAction="#onLogOut" style="-fx-background-color: red;" text="Log Out" textFill="WHITE" />
+                        <Label layoutX="462.0" layoutY="122.0" text="Wins/Losses" textFill="WHITE" />
+                        <Label layoutX="392.0" layoutY="71.0" text="Current position in leaderboard is 1" textFill="WHITE" />
+                        <Button fx:id="logOut" layoutX="244.0" layoutY="172.0" mnemonicParsing="false" onAction="#onLogOut" style="-fx-background-color: red;" text="Log Out" textFill="WHITE" />
                         <Label fx:id="lbIV" layoutX="229.0" layoutY="53.0" prefHeight="55.0" prefWidth="77.0">
                             <graphic>
                                 <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
