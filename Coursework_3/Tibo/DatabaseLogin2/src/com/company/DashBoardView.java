@@ -1,4 +1,4 @@
-package com.company;
+package com.Go94;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -7,9 +7,9 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
@@ -27,7 +27,7 @@ import java.net.URL;
 import java.sql.*;
 import java.util.ResourceBundle;
 
-import static com.company.UserDB.*;
+import static com.Go94.UserDB.*;
 
 
 public class DashBoardView implements Initializable {
@@ -49,9 +49,17 @@ public class DashBoardView implements Initializable {
     public Button newGameBtn19;
 
     @FXML
+    public Label lastLoginLabel;
+
+    @FXML
+    public Button logOut;
+
+    @FXML
     private TableView<WinsLossData> winlosstable;
+
     @FXML
     private TableColumn<WinsLossData, Number> colWins;
+
     @FXML
     private TableColumn<WinsLossData, Number> colLoss;
     private ObservableList<WinsLossData> data1;
@@ -63,12 +71,15 @@ public class DashBoardView implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        //win/loss table not working
+        // win/loss table view
         colWins.setCellValueFactory(f -> f.getValue().userWinsProperty());
         colLoss.setCellValueFactory(f -> f.getValue().userLossProperty());
         buildWinsLossDashData();
         addAvatarImages();
+        System.out.println(Controller.lastLogin);
+        lastLoginLabel.setText(Controller.lastLogin);
     }
+
 
     // shows win/loss table view
     public void buildWinsLossDashData() {
@@ -85,7 +96,6 @@ public class DashBoardView implements Initializable {
 
             data1.add(wl);
 
-
         } catch (SQLException e) {
             System.out.println("Connection Failed! Check output console");
         }
@@ -93,75 +103,58 @@ public class DashBoardView implements Initializable {
         winlosstable.setItems(data1);
     }
 
+
+    /**
+     *
+     */
+
     public void onLdrClick() {
-
-        btnLdr.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-
-                // shows leaderboard
-                GUI leaderboard = new GUI();
-                leaderboard.showLeaderboard();
-            }
-        });
+        GUI leaderboard = new GUI();
+        leaderboard.showLeaderboard();
     }
 
-    public void onNewGame() {
-        newGameBtn.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                // shows leaderboard
-                GUI register = new GUI();
-                register.showGame9();
-            }
-        });
-    }
 
+    /**
+     * Open a new interface for Admin manage users
+     * @author Andy
+     */
     public void onManageClick() {
-        try {
-            Parent manageboard;
-            manageboard = FXMLLoader.load(getClass().getResource("Manage.fxml"));
-            Stage mainStage;
-            mainStage = GUI.parentWindow;
-            mainStage.getScene().setRoot(manageboard);
-            mainStage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        if(Integer.parseInt(UserDB.getAuthority(Controller.username))==1) {
+            System.out.println("You are Admin");
+            try {
+                Parent manageboard;
+                manageboard = FXMLLoader.load(getClass().getResource("Manage.fxml"));
+                Stage mainStage;
+                mainStage = GUI.parentWindow;
+                mainStage.getScene().setRoot(manageboard);
+                mainStage.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }else System.out.println("You are not Admin");
+    }
+    /**
+     * Switch to another stage of setting gameboard size and players
+     * @author Andy
+     * @throws IOException
+     */
+    public void onNewGame() throws IOException {
+        Parent Leaderboard;
+        Leaderboard = FXMLLoader.load(getClass().getResource("GameMatch.fxml"));
+        Stage mainStage;
+        mainStage = GUI.parentWindow;
+        mainStage.getScene().setRoot(Leaderboard);
+        mainStage.show();
     }
 
-    public void onNewGame9() {
-        newGameBtn9.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                // shows leaderboard
-                GUI register = new GUI();
-                register.showGame9();
-            }
-        });
+    /**
+     * Provides functionality to go back to the login screen from the dashboard.
+     */
+    public void onLogOut() {
+        GUI login = new GUI();
+        login.logIn();
     }
 
-    public void onNewGame13() {
-        newGameBtn13.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                // shows leaderboard
-                GUI register = new GUI();
-                register.showGame13();
-            }
-        });
-    }
-
-    public void onNewGame19() {
-        newGameBtn19.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                // shows leaderboard
-                GUI register = new GUI();
-                register.showGame19();
-            }
-        });
-    }
 
     /*
      * This method will add avatar images and avatar images names in the combo-box
@@ -195,4 +188,6 @@ public class DashBoardView implements Initializable {
         });
 
     }
+
 }
+
