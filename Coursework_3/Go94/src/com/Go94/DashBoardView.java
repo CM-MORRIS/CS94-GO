@@ -29,10 +29,17 @@ import java.util.ResourceBundle;
 
 import static com.Go94.UserDB.*;
 
-
+/**
+ * DashBoardView deals with the various aspects that the user can interact with on the dashboard
+ *
+ *
+ * @author Corie Morris, Gareth Thomas, Zhifang Li and Pratibh Siris
+ */
 public class DashBoardView implements Initializable {
 
-
+   /**
+     * Creating the button to take to leaderboard
+     */
     @FXML
     public Button btnLdr;
 
@@ -48,26 +55,59 @@ public class DashBoardView implements Initializable {
     @FXML
     public Button newGameBtn19;
 
+    /**
+     * The last login text
+     */
     @FXML
     public Label lastLoginLabel;
 
+    /**
+     * Creating the button to click to return to the login screen
+     */
     @FXML
     public Button logOut;
 
+    /**
+     * Creating the table for wins/loss
+     */
     @FXML
     private TableView<WinsLossData> winlosstable;
 
+    /**
+     * The data to fill the table with wins
+     */
     @FXML
     private TableColumn<WinsLossData, Number> colWins;
 
+    /**
+     * The data to fill the table with losses
+     */
     @FXML
     private TableColumn<WinsLossData, Number> colLoss;
+    
+    /**
+     * Creating list that is needed to fill tables.
+     */
     private ObservableList<WinsLossData> data1;
+    
+    /**
+     * Creating the box to choose avatar
+     */
     @FXML
     private ComboBox cb;
+    
+    /**
+     * Creating label to change the view with the avatar.
+     */
     @FXML
     private Label lbIV;
 
+    /**
+     * Allows to display the data of wins and losses
+     *
+     * @param location where the DB is
+     * @param resources the information used from the DB
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -81,7 +121,9 @@ public class DashBoardView implements Initializable {
     }
 
 
-    // shows win/loss table view
+    /**
+     * Actually builds the information displayed for the win/loss
+     */
     public void buildWinsLossDashData() {
         try {
 
@@ -105,9 +147,8 @@ public class DashBoardView implements Initializable {
 
 
     /**
-     *
+     * Allows for the leaderboard to be displayed on button click
      */
-
     public void onLdrClick() {
         GUI leaderboard = new GUI();
         leaderboard.showLeaderboard();
@@ -116,7 +157,6 @@ public class DashBoardView implements Initializable {
 
     /**
      * Open a new interface for Admin manage users
-     * @author Andy
      */
     public void onManageClick() {
         if(Integer.parseInt(UserDB.getAuthority(Controller.username))==1) {
@@ -135,7 +175,7 @@ public class DashBoardView implements Initializable {
     }
     /**
      * Switch to another stage of setting gameboard size and players
-     * @author Andy
+     * 
      * @throws IOException
      */
     public void onNewGame() throws IOException {
@@ -157,7 +197,6 @@ public class DashBoardView implements Initializable {
 
 
      /*
-     * @author tibo
      * This method will add avatar images and avatar images names in the combo-box
      * */
     private void addAvatarImages(){
