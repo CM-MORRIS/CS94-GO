@@ -10,17 +10,34 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import com.Go94.BoardHandler;
 
+/**
+ * Allows for the creation of the game match after the size and both users playing are entered
+ *
+ * @author Zhifan Li
+ */
 public class GameMatchController {
+    
+    /**
+     * The size of the gameboard
+     */
     @FXML
     private TextField size;
+    
+    /**
+     * The first user playing
+     */
     @FXML
     private TextField userA;
+    
+    /**
+     * The second user playing
+     */
     @FXML
     private TextField userB;
-    /**
+    
+   /**
      * read game board size, user A and user B,
      * Start game
-     * @author Andy
      */
     public void onMarchClick() {
         BoardHandler game = new BoardHandler(Integer.parseInt(size.getText()), userA.getText(), userB.getText());
