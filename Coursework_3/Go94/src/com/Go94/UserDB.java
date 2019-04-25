@@ -6,21 +6,30 @@ import javafx.collections.ObservableList;
 import java.sql.*;
 import java.text.SimpleDateFormat;
 
+/**
+ * The class which sets up the database, and allows for it to be able to connect with javafx
+ *
+ * @author Corie Morris, Zhifang Li, Pratibh Siris and Gareth Thomas
+ */
 public class UserDB {
 
-    // Includes:
-    // createDB
-    // addUser
-    // checkUserPass
-    // checkUser
-
+    /**
+     * Setting what the database will be called
+     */
     public static final String DB_NAME = "userDB.db";
+    
+    /**
+     * Setting where the local database is actually stored. Must be changed to local area in code
+     */
     public static final String CONNECTION_STRING = "jdbc:sqlite:/Users/Tibo/Documents/Go94/Databases/" + DB_NAME;
 
     // use spare one below for connection on own pc
     // public static final String CONNECTION_STRING = "jdbc:sqlite: "pathway here" + DB_NAME;
 
 
+    /**
+     * Setting variables to be used later on in the SQL statements
+     */
     public static final String TABLE_USERS = "users";
     public static final String TABLE_LOGINHIS = "LoginHistory";
     public static final String COLUMN_ID = "userid";
@@ -38,7 +47,6 @@ public class UserDB {
 
 
     /**
-     * Corie
      * Creates database "users" if doesn't exist
      */
     public static void createDB() {
@@ -72,9 +80,8 @@ public class UserDB {
 
 
     /**
-     * it will be called by user login in.
-     * when user successful logined it will store cerrent time into user data
-     * Andy
+     * add the login history to the username who logs in
+     * @param username
      */
     public static void addLoginHistory(String username){
         Connection conn;
@@ -99,7 +106,6 @@ public class UserDB {
 
 
     /**
-     * Andy
      * adds a user to database "users"
      * @param u username
      * @param p password
@@ -121,8 +127,8 @@ public class UserDB {
         }
     }
     /**
-     *  delete user by username
-     * Andy
+     * To be able to delete a user
+     * @param username to determine who to delete
      */
     public static void deleteuser(String username) {
         try {
@@ -142,9 +148,8 @@ public class UserDB {
 
 
     /**
-     * Andy
      * Changes admin column in database
-     * @param username Username
+     * @param username Username to edit
      */
     public static void changeAuothority(String username) {
         try {
@@ -161,9 +166,8 @@ public class UserDB {
         }
     }
     /**
-     * check the use whether is admin
-     * @author Andy
-     * @param u
+     * check the user whether is admin
+     * @param u username, whoever it is
      * @return String authority
      */
     public static String getAuthority(String u) {
@@ -191,9 +195,9 @@ public class UserDB {
 
 
     /**
-     *  get the last login time by username
-     * return String 
-     * Andy
+     * retrieve the last time the user logged
+     * @param u username, whoever it is
+     * @return the login date
      */
     public static String getLastLogin(String u) {
         String query = "SELECT " + COLUMN_LOGINHIS +" FROM " + TABLE_USERS +
@@ -217,7 +221,6 @@ public class UserDB {
 
 
     /**
-     * Corie
      * Checks credentials match
      * @param u Username
      * @param p Password
@@ -260,9 +263,9 @@ public class UserDB {
 
 
     /**
-     * Corie
      * Checks if user exists. returns true if yes, else false.
      * @param u Username
+     * @return boolean of true or false
      */
         public static boolean checkUser(String u) {
 
@@ -291,8 +294,8 @@ public class UserDB {
 
 
     /**
-     * Corie
-     * Returns a ResultSet of data to store in Leader Board
+     * data to be used in the leaderboard
+     * @return a ResultSet of data to store in Leader Board
      */
         public static ResultSet getLeaderBoardData() {
 
@@ -315,7 +318,6 @@ public class UserDB {
         }
 
     /**
-     * Corie
      * Returns as a ResultSet the win/loss data of a user
      * @param u Username
      */
@@ -340,7 +342,6 @@ public class UserDB {
 
 
     /**
-     * Corie
      * Updates win/loss in database
      * @param winner Game winner
      * @param loser  Game loser
