@@ -154,6 +154,8 @@ class BoardHandler
                         UserDB.updateGameHistory(p1.getName(), p2.getName(), p2.getName());
 
                     } else {
+                        UserDB.updateGameHistory(p1.getName(), p2.getName(), "DRAW");
+
                         Text whoWon = new Text(200, 200, "                  "
                                 + "       Oh no! It was a draw!\n"
                                 + "\nWould you like to play again to see who is the best?");
