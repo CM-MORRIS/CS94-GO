@@ -3,7 +3,11 @@ package com.Go94;
 import javafx.beans.property.*;
 
 public class ManageData {
-
+     /**
+     * create element which can store data
+     * Start game
+     * @author Andy
+     */
     private StringProperty username = new SimpleStringProperty();
 
     public StringProperty usernameProperty() {
