@@ -2,24 +2,13 @@ package com.Go94;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
-import javafx.scene.paint.Paint;
-import javafx.scene.text.TextAlignment;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -27,75 +16,63 @@ import java.net.URL;
 import java.sql.*;
 import java.util.ResourceBundle;
 
-import static com.Go94.UserDB.*;
 
 /**
- * DashBoardView deals with the various aspects that the user can interact with on the dashboard
+ * DashBoardView deals with the various aspects that
+ * the user can interact with on the dashboard.
  *
  *
  * @author Corie Morris, Gareth Thomas, Zhifang Li and Pratibh Siris
  */
 public class DashBoardView implements Initializable {
 
-   /**
-     * Creating the button to take to leaderboard
+    /**
+     * Creating the button to take to leaderboard.
      */
     @FXML
     public Button btnLdr;
 
-    @FXML
-    public Button newGameBtn;
-
-    @FXML
-    public Button newGameBtn9;
-
-    @FXML
-    public Button newGameBtn13;
-
-    @FXML
-    public Button newGameBtn19;
-
     /**
-     * The last login text
+     * The last login text.
      */
     @FXML
     public Label lastLoginLabel;
 
     /**
-     * Creating the button to click to return to the login screen
+     * Creating the button to click to return to the login screen.
      */
     @FXML
     public Button logOut;
 
     /**
-     * Creating the table for wins/loss
+     * Creating the table for wins/loss.
      */
     @FXML
     private TableView<WinsLossData> winlosstable;
 
     /**
-     * The data to fill the table with wins
+     * The data to fill the table with wins.
      */
     @FXML
     private TableColumn<WinsLossData, Number> colWins;
 
     /**
-     * The data to fill the table with losses
+     * The data to fill the table with losses.
      */
     @FXML
     private TableColumn<WinsLossData, Number> colLoss;
-    
+
     /**
      * Creating list that is needed to fill tables.
      */
     private ObservableList<WinsLossData> data1;
-    
+
     /**
-     * Creating the box to choose avatar
+     * Creating the box to choose avatar.
      */
     @FXML
     private ComboBox cb;
-    
+
     /**
      * Creating label to change the view with the avatar.
      */
@@ -103,19 +80,18 @@ public class DashBoardView implements Initializable {
     private Label lbIV;
 
     /**
-     * Allows to display the data of wins and losses
+     * Allows to display the data of wins and losses.
      *
-     * @param location where the DB is
-     * @param resources the information used from the DB
+     * @param location where the DB is.
+     * @param resources the information used from the DB.
      */
     @Override
-    public void initialize(URL location, ResourceBundle resources) {
+    public void initialize(final URL location, final ResourceBundle resources) {
 
         // win/loss table view
         colWins.setCellValueFactory(f -> f.getValue().userWinsProperty());
         colLoss.setCellValueFactory(f -> f.getValue().userLossProperty());
         buildWinsLossDashData();
-
         addAvatarImages();
         System.out.println(Controller.lastLogin);
         lastLoginLabel.setText(Controller.lastLogin);
@@ -123,9 +99,9 @@ public class DashBoardView implements Initializable {
 
 
     /**
-     * Actually builds the information displayed for the win/loss
+     * Actually builds the information displayed for the win/loss.
      */
-    public void buildWinsLossDashData() {
+    private void buildWinsLossDashData() {
         try {
 
             ResultSet rs = UserDB.getWinsLossData(Controller.loggedUsr);
@@ -148,8 +124,9 @@ public class DashBoardView implements Initializable {
 
 
     /**
-     * Allows for the leaderboard to be displayed on button click
+     * Allows for the leaderboard to be displayed on button click.
      */
+
     public void onLdrClick() {
         GUI leaderboard = new GUI();
         leaderboard.showLeaderboard();
@@ -157,10 +134,10 @@ public class DashBoardView implements Initializable {
 
 
     /**
-     * Open a new interface for Admin manage users
+     * Open a new interface for Admin manage users.
      */
     public void onManageClick() {
-        if (Integer.parseInt(UserDB.getAuthority(Controller.username))==1) {
+        if (Integer.parseInt(UserDB.getAuthority(Controller.username)) == 1) {
             System.out.println("You are Admin");
             try {
                 Parent manageboard;
@@ -168,23 +145,32 @@ public class DashBoardView implements Initializable {
                 Stage mainStage;
                 mainStage = GUI.parentWindow;
                 mainStage.getScene().setRoot(manageboard);
+                mainStage.setMinWidth(625.0);
+                mainStage.setMinHeight(450.0);
+                mainStage.setMaxWidth(625.0);
+                mainStage.setMaxHeight(450.0);
                 mainStage.show();
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        } else System.out.println("You are not Admin");
+        } else {
+            System.out.println("You are not an Admin");
+        }
     }
     /**
-     * Switch to another stage of setting gameboard size and players
-     * 
-     * @throws IOException
+     * Switch to another stage of setting gameboard size and players.
+     * @throws IOException Exception thrown
      */
     public void onNewGame() throws IOException {
-        Parent Gamematch;
-        Gamematch = FXMLLoader.load(getClass().getResource("GameMatch.fxml"));
+        Parent gameMatch;
+        gameMatch = FXMLLoader.load(getClass().getResource("GameMatch.fxml"));
         Stage mainStage;
         mainStage = GUI.parentWindow;
-        mainStage.getScene().setRoot(Gamematch);
+        mainStage.getScene().setRoot(gameMatch);
+        mainStage.setMinWidth(400.0);
+        mainStage.setMinHeight(300.0);
+        mainStage.setMaxWidth(400.0);
+        mainStage.setMaxHeight(300.0);
         mainStage.show();
     }
 
@@ -196,10 +182,10 @@ public class DashBoardView implements Initializable {
         login.logIn();
     }
 
-     /*
-     * This method will add avatar images and avatar images names in the combo-box
-     * */
-    public void addAvatarImages() {
+    /**
+     * This method will add avatar images and avatar images names in the combo-box.
+     */
+    private void addAvatarImages() {
         ObservableList<String> avatars = FXCollections.observableArrayList();
         avatars.add(getClass().getResource("/avatarImages/Antman.png").toExternalForm());
         avatars.add(getClass().getResource("/avatarImages/BlackPanther.png").toExternalForm());
@@ -211,23 +197,20 @@ public class DashBoardView implements Initializable {
         avatars.add(getClass().getResource("/avatarImages/Thor.png").toExternalForm());
         cb.setPromptText("Select Avatar");
         cb.setItems(avatars);
-
         cb.setButtonCell(new AvatarImages());
         cb.setCellFactory(param -> new AvatarImages());
 
-
-        lbIV.setStyle("-fx-background-radius: 200px;" +
-                "-fx-background-color: red;" +
-                "-fx-border-radius:40px");
+        lbIV.setStyle("-fx-background-radius: 200px;"
+                + "-fx-background-color: red;"
+                + "-fx-border-radius:40px");
 
         cb.setOnAction(event -> {
             String n = cb.getSelectionModel().getSelectedItem().toString();
-            BackgroundImage myBI= new BackgroundImage(new Image("/avatarImages/"+AvatarImageName.getImageName(n)+".png",
-                    80,80,false,true),
+            BackgroundImage myBI = new BackgroundImage(new Image("/avatarImages/"
+                    + AvatarImageName.getImageName(n) + ".png", 80, 80, false, true),
                     BackgroundRepeat.ROUND, BackgroundRepeat.ROUND, BackgroundPosition.CENTER,
                     BackgroundSize.DEFAULT);
             lbIV.setBackground(new Background(myBI));
         });
     }
 }
-

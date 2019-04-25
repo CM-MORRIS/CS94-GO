@@ -2,8 +2,6 @@ package com.Go94;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -15,37 +13,45 @@ import java.util.ResourceBundle;
 
 import java.io.IOException;
 import java.net.URL;
-import com.Go94.UserDB;
 
 /**
-* read register imformation send it to database
-* Start game
-* @author Zhifang Li and Corie Morris
-*/
+ * Read register information send it to database.
+ * @author Zhifang (Andy) Li and Corie Morris
+ */
 public class RegisterController implements Initializable {
-    
+
     /**
-     * Variables for the javafx fields to insert the data
+     * Username Variable for JavaFX.
      */
     @FXML
     private TextField usernameField;
+
+    /**
+     *  Password Variable for JavaFX.
+     */
     @FXML
     private TextField passwordField;
+
+    /**
+     * * First name Variable for JavaFX.
+     */
     @FXML
     private TextField firstnameField;
+
+    /**
+     * Surname Variable for JavaFX.
+     */
     @FXML
     private TextField surnameField;
 
+    /**
+     * A ComboBo to display avatar names.
+     */
     @FXML
     private ComboBox<String> cb;
 
     /**
-     * to allow for acces to the DB
-     */
-    public static UserDB userDB;
-
-    /**
-     * read register imformation send it to database
+     * Read register information send it to database.
      */
     public void onRegisterClick() {
         String username = usernameField.getText();
@@ -53,7 +59,7 @@ public class RegisterController implements Initializable {
         String firstname = firstnameField.getText();
         String surname = surnameField.getText();
         String avatarName = AvatarImageName.getImageName(cb.getSelectionModel().getSelectedItem());
-        userDB.addUser(username,password,firstname,surname,avatarName);
+        UserDB.addUser(username, password, firstname, surname, avatarName);
         System.out.println("clicked");
         try {
             Parent manageboard;
@@ -61,13 +67,18 @@ public class RegisterController implements Initializable {
             Stage mainStage;
             mainStage = GUI.parentWindow;
             mainStage.getScene().setRoot(manageboard);
+            mainStage.setMinWidth(625.0);
+            mainStage.setMinHeight(450.0);
+            mainStage.setMaxWidth(625.0);
+            mainStage.setMaxHeight(450.0);
             mainStage.show();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
      /**
-     * come  back to manage interface
+     * Return to the manage users window.
      */
     public void onBackClick() {
         try {
@@ -76,16 +87,20 @@ public class RegisterController implements Initializable {
             Stage mainStage;
             mainStage = GUI.parentWindow;
             mainStage.getScene().setRoot(manageboard);
+            mainStage.setMinWidth(625.0);
+            mainStage.setMinHeight(450.0);
+            mainStage.setMaxWidth(625.0);
+            mainStage.setMaxHeight(450.0);
             mainStage.show();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-    
+
     /**
-     * to be able to add avatar to the profiles
+     * Method to add the avatar to the profile.
      */
-    private void addAvatarImages(){
+    private void addAvatarImages() {
         ObservableList<String> avatars = FXCollections.observableArrayList();
         avatars.add(getClass().getResource("/avatarImages/Antman.png").toExternalForm());
         avatars.add(getClass().getResource("/avatarImages/BlackPanther.png").toExternalForm());
@@ -102,7 +117,7 @@ public class RegisterController implements Initializable {
     }
 
     @Override
-    public void initialize(URL location, ResourceBundle resources) {
+    public void initialize(final URL location, final ResourceBundle resources) {
         addAvatarImages();
     }
 

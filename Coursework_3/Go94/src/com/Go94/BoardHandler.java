@@ -22,18 +22,18 @@ import java.io.IOException;
  *
  * @author Will Davies and Alex Mair
  */
-public class BoardHandler
+class BoardHandler
         implements EventHandler<ActionEvent> {
 
     /**
      * Producing a new GameBoard to be used within the JavaFX program.
      */
-    private GameBoard board;
+    private final GameBoard board;
 
     /**
      * Producing a PassCounter to keep track of the passes in the game.
      */
-    private PassCounter passCounter;
+    private final PassCounter passCounter;
 
     /**
      * The first player of the game.
@@ -48,7 +48,7 @@ public class BoardHandler
     /**
      * Producing a GameLogic instance to track players.
      */
-    private GameLogic game;
+    private final GameLogic game;
 
     /**
      * The constructor for the Board handler class.
@@ -56,8 +56,8 @@ public class BoardHandler
      * @param firstPlayer The name of the first player.
      * @param secondPlayer The name of the seconds player.
      */
-    public BoardHandler(final int size, final String firstPlayer,
-                        final String secondPlayer) {
+    BoardHandler(final int size, final String firstPlayer,
+                 final String secondPlayer) {
         board = new GameBoard(size, size);
         p1 = new Player(firstPlayer, 1);
         p2 = new Player(secondPlayer, 2);
@@ -69,7 +69,7 @@ public class BoardHandler
      * Scaling factor for the board to make it display correctly.
      * @return the scale for a given board size.
      */
-    public int getScale() {
+    private int getScale() {
         if (board.getWidth() == 9) {
             return 100;
         } else if (board.getWidth() == 13) {
@@ -124,11 +124,6 @@ public class BoardHandler
                 end[0] = true;
                 if (end[0]) {
                     Pane endScene = new Pane();
-                    ImageView iv1 = new ImageView(new Image("http://icons.iconarchive.com/icons/atti12/tv-series-folder/512/Game-of-Thrones-icon.png"));
-                    //TODO CHANGE THIS. DON'T LEAVE IT LIKE THIS YOU IDIOT.
-                    iv1.relocate(800, 600);
-                    endScene.getChildren().add(iv1);
-
                     if (p1Overall > p2Overall) {
                         Text whoWon = new Text(300, 200, "Congratulations!"
                                 + "\n" + p1.getName() + " has won the game!\n"
@@ -181,7 +176,6 @@ public class BoardHandler
                     restartButton.setOnAction(Event -> {
                         end[1] = true;
                         if (end[1]) {
-                            Pane restart = root;
                             for (int i = 0; i < board.getHeight(); i++) {
                                 for (int j = 0; j < board.getWidth(); j++) {
                                     board.setIntersectionState(j, i, 0);
@@ -194,7 +188,7 @@ public class BoardHandler
 
                             Stage restartStage;
                             restartStage = GUI.parentWindow;
-                            restartStage.getScene().setRoot(restart);
+                            restartStage.getScene().setRoot(root);
                             restartStage.show();
                         }
                     });
@@ -210,6 +204,10 @@ public class BoardHandler
                                     Stage dashStage;
                                     dashStage = GUI.parentWindow;
                                     dashStage.getScene().setRoot(dashBoard);
+                                    dashStage.setMinWidth(1100.0);
+                                    dashStage.setMinHeight(700.0);
+                                    dashStage.setMaxWidth(1100.0);
+                                    dashStage.setMaxHeight(700.0);
                                     dashStage.show();
                                 } catch (IOException e) {
                                     e.printStackTrace();
@@ -234,6 +232,10 @@ public class BoardHandler
                         Stage dashStage;
                         dashStage = GUI.parentWindow;
                         dashStage.getScene().setRoot(dashBoard);
+                        dashStage.setMinWidth(1100.0);
+                        dashStage.setMinHeight(700.0);
+                        dashStage.setMaxWidth(1100.0);
+                        dashStage.setMaxHeight(700.0);
                         dashStage.show();
                     } catch (IOException e) {
                         e.printStackTrace();

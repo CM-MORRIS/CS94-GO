@@ -5,23 +5,23 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="442.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9.0.4" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.Go94.LeaderBoardView">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="442.0"
+            prefWidth="600.0" xmlns="http://javafx.com/javafx/9.0.4" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.Go94.LeaderBoardView">
 
-   <children>
+    <TableView fx:id="tableLeaderboard" prefHeight="400.0" prefWidth="600.0">
 
-      <TableView fx:id="tableLeaderboard" prefHeight="400.0" prefWidth="600.0">
+      <columns>
 
-        <columns>
+          <TableColumn fx:id="colUsername" prefWidth="200.0" text="User"/>
 
-          <TableColumn fx:id="colUsername" prefWidth="200.0" text="User" />
+          <TableColumn fx:id="colWins" prefWidth="200.0" text="Wins"/>
 
-          <TableColumn fx:id="colWins" prefWidth="200.0" text="Wins" />
-
-            <TableColumn fx:id="colWinPercentage" prefWidth="200.0" text="WinPercentage" />
+          <TableColumn fx:id="colWinPercentage" prefWidth="200.0" text="WinPercentage"/>
 
 
-        </columns>
-      </TableView>
-      <Button fx:id="backDash" layoutX="542.0" layoutY="400.0" mnemonicParsing="false" onAction="#onBackClick" style="-fx-background-color: #2196f3 #2196f3;" text="Back" textFill="WHITE" />
-   </children>
+      </columns>
+    </TableView>
+    <Button fx:id="backDash" layoutX="542.0" layoutY="400.0" mnemonicParsing="false" onAction="#onBackClick"
+            style="-fx-background-color: #2196f3 #2196f3;" text="Back" textFill="WHITE"/>
 </AnchorPane>

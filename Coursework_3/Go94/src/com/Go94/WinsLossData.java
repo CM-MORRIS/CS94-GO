@@ -2,57 +2,56 @@ package com.Go94;
 
 import javafx.beans.property.*;
 
-
 /**
- * The class which allows for the data from the database to be used within the javafx tables
+ * The class which allows for the data from the database
+ * to be used within the javafx tables.
  *
  * @author Corie Morris
  */
-public class WinsLossData {
+class WinsLossData {
 
-    
     /**
-     * Each variable which will allow for a property to show for each element of the leaderboard
+     * The wins for a user.
      */
-    private IntegerProperty wins = new SimpleIntegerProperty();
-    private IntegerProperty loss = new SimpleIntegerProperty();
-    
+    private final IntegerProperty wins = new SimpleIntegerProperty();
+
     /**
-     * Element needing to be displayed
-     *
-     * @return the wins and losses
+     * The losses for a user.
      */
-    public IntegerProperty userWinsProperty() { return wins; }
+    private final IntegerProperty loss = new SimpleIntegerProperty();
 
-    public IntegerProperty userLossProperty() { return loss; }
+    /**
+     *  Returns how many wins the user has.
+     * @return The number of wins.
+     */
+    public IntegerProperty userWinsProperty() {
+        return wins;
+    }
 
+    /**
+     * Returns how many losses the user has.
+     * @return The number of losses.
+     */
+    public IntegerProperty userLossProperty() {
+        return loss;
+    }
 
     /**
      *  sets win as the int after it has been passed to a string.
      *
-     * @param wins
+     * @param wins The number of wins.
      */
-    public void setUserWins(int wins) {
+    public void setUserWins(final int wins) {
         this.wins.set(wins);
     }
 
     /**
      *  sets loss as the int after it has been passed to a string.
      *
-     * @param loss
+     * @param loss The number of losses.
      */
-    public void setUserLoss(int loss) { this.loss.set(loss); }
-
-
-    /**
-     * Gets the property for the wins and losses and returns
-     *
-     * @return the win/loss after passed through the DB
-     */
-    public int getUserWins() { return wins.get(); }
-
-    public int getLoss() {
-        return loss.get();
+    public void setUserLoss(final int loss) {
+        this.loss.set(loss);
     }
 
 }

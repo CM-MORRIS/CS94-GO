@@ -2,17 +2,12 @@ package com.Go94;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -22,43 +17,40 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 
+
 /**
- * Leaderboard view provides the functionality to display information on the leaderboard.
+ * Leaderboard view provides the functionality to display
+ * information on the leaderboard.
  *
- * @author Corie Morris, Zhifang Li and Gareth Thomas
+ * @author Corie Morris, Zhifang (Andy) Li and Gareth Thomas
  */
 public class ManageController implements Initializable {
 
-//    @FXML public Button backDash;
-
     /**
-     * Setting the column which will display the data
+     * Setting the column which will display the data.
      */
     @FXML private TableColumn<ManageData, String> usernameCol;
-     /**
-     * Setting the table to contain the column
+    /**
+     * Setting the table to contain the column.
      */
     @FXML private TableView<ManageData> userTableView;
-    private ObservableList<ManageData> data;
 
     /**
-     * read data from database, set it into text view table
-     * Start game
+     * Read data from database, set it into text view table.
      */
     @Override
-    public void initialize(URL location, ResourceBundle resources) {
+    public void initialize(final URL location, final ResourceBundle resources) {
 
         usernameCol.setCellValueFactory(f -> f.getValue().usernameProperty());
 
         buildManageData();
     }
-    
+
     /**
-     * set user data into text view table
-     * Start game
+     * Set user data into text view table.
      */
-    public void buildManageData() {
-        data = FXCollections.observableArrayList();
+    private void buildManageData() {
+        ObservableList<ManageData> data = FXCollections.observableArrayList();
         try {
             ResultSet rs = UserDB.getLeaderBoardData();
             data = FXCollections.observableArrayList();
@@ -73,9 +65,9 @@ public class ManageController implements Initializable {
 
         userTableView.setItems(data);
     }
+
     /**
-     * switch window to register interface
-     * Start game
+     * Switch window to register interface.
      */
     public void onNewClick() {
         try {
@@ -84,42 +76,44 @@ public class ManageController implements Initializable {
             Stage mainStage;
             mainStage = GUI.parentWindow;
             mainStage.getScene().setRoot(manageboard);
+            mainStage.setMinWidth(325.0);
+            mainStage.setMinHeight(350.0);
+            mainStage.setMaxWidth(325.0);
+            mainStage.setMaxHeight(350.0);
             mainStage.show();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
     /**
-     * Delete user which has been select
-     * Start game
+     * Delete user which has been select.
      */
     @FXML
     private void onDeleteClick() {
         int selectedIndex = userTableView.getSelectionModel().getSelectedIndex();
-        UserDB.deleteuser(userTableView.getSelectionModel().getSelectedItem().getUsername());
+        UserDB.deleteUser(userTableView.getSelectionModel().getSelectedItem().getUsername());
         if (selectedIndex >= 0) {
             userTableView.getItems().remove(selectedIndex);
-        } else {
         }
     }
     
     /**
-     * set this user as admin
-     * Start game
+     * Set the user as an admin.
      */
     @FXML
     private void onChangeClick() {
         int selectedIndex = userTableView.getSelectionModel().getSelectedIndex();
-        UserDB.changeAuothority(userTableView.getSelectionModel().getSelectedItem().getUsername());
+        UserDB.changeAuthority(userTableView.getSelectionModel().
+                getSelectedItem().getUsername());
         if (selectedIndex >= 0) {
             userTableView.getItems().remove(selectedIndex);
-        } else {
         }
     }
+
     /**
-     * come back to dashboard
-     * Start game
-     */     
+     * Return back to the Dashboard.
+     */
     public void onBackClick() {
         try {
             Parent manageboard;
@@ -127,6 +121,10 @@ public class ManageController implements Initializable {
             Stage mainStage;
             mainStage = GUI.parentWindow;
             mainStage.getScene().setRoot(manageboard);
+            mainStage.setMinWidth(1100.0);
+            mainStage.setMinHeight(700.0);
+            mainStage.setMaxWidth(1100.0);
+            mainStage.setMaxHeight(700.0);
             mainStage.show();
         } catch (IOException e) {
             e.printStackTrace();

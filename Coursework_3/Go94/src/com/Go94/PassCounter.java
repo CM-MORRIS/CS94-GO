@@ -5,7 +5,7 @@ package com.Go94;
  * have been passed and whether two have occurred in succession.
  * @author Alex Mair
  */
-public class PassCounter {
+class PassCounter {
 
     /**
      * The current turn the pass button was clicked on.
@@ -20,7 +20,7 @@ public class PassCounter {
     /**
      * Constructor to set the default values for the counter.
      */
-    public PassCounter() {
+    PassCounter() {
         currentPass = 0;
         lastPass = 0;
     }
@@ -54,9 +54,6 @@ public class PassCounter {
      * @return true if two passes have occurred simultaneously.
      */
     public boolean endOfGame() {
-        if (this.lastPass == this.currentPass - 1) {
-            return true;
-        }
-        return false;
+        return this.lastPass == this.currentPass - 1;
     }
 }

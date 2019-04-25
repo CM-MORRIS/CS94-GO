@@ -5,14 +5,17 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="300.0" style="-fx-background-color: #2D3447 #2D3447;" xmlns="http://javafx.com/javafx/9.0.4" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.Go94.RegisterController">
-   <children>
-      <TextField fx:id="usernameField" layoutX="67.0" layoutY="14.0" promptText="Username" />
-      <TextField fx:id="passwordField" layoutX="67.0" layoutY="52.0" promptText="Password" />
-      <TextField fx:id="firstnameField" layoutX="67.0" layoutY="88.0" promptText="Firstname" />
-      <TextField fx:id="surnameField" layoutX="67.0" layoutY="125.0" prefHeight="27.0" prefWidth="167.0" promptText="Surname" />
-      <Button fx:id="registerButton" layoutX="55.0" layoutY="209.0" mnemonicParsing="false" onAction="#onRegisterClick" style="-fx-background-color: #2196f3 #2196f3;" text="Register" textFill="#fffdfd" />
-      <Button fx:id="backButton" layoutX="185.0" layoutY="209.0" mnemonicParsing="false" onAction="#onBackClick" style="-fx-background-color: #2196f3 #2196f3;" text="Back" textFill="#fffdfd" />
-      <ComboBox fx:id="cb" layoutX="75.0" layoutY="162.0" prefWidth="150.0" />
-   </children>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0"
+            prefWidth="300.0" style="-fx-background-color: #2D3447 #2D3447;" xmlns="http://javafx.com/javafx/8.0.172-ea"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.Go94.RegisterController">
+   <TextField fx:id="usernameField" layoutX="67.0" layoutY="14.0" promptText="Username"/>
+   <TextField fx:id="passwordField" layoutX="67.0" layoutY="52.0" promptText="Password"/>
+   <TextField fx:id="firstnameField" layoutX="67.0" layoutY="88.0" promptText="Firstname"/>
+   <TextField fx:id="surnameField" layoutX="67.0" layoutY="125.0" prefHeight="31.0" prefWidth="187.0"
+              promptText="Surname"/>
+   <Button fx:id="registerButton" layoutX="67.0" layoutY="235.0" mnemonicParsing="false" onAction="#onRegisterClick"
+           style="-fx-background-color: #2196f3 #2196f3;" text="Register" textFill="#fffdfd"/>
+   <Button fx:id="backButton" layoutX="203.0" layoutY="236.0" mnemonicParsing="false" onAction="#onBackClick"
+           style="-fx-background-color: #2196f3 #2196f3;" text="Back" textFill="#fffdfd"/>
+   <ComboBox fx:id="cb" layoutX="86.0" layoutY="162.0" prefWidth="150.0" promptText="Avatar"/>
 </AnchorPane>
