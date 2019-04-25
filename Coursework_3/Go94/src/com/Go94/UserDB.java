@@ -21,10 +21,8 @@ public class UserDB {
     /**
      * Setting where the local database is actually stored. Must be changed to local area in code
      */
-    public static final String CONNECTION_STRING = "jdbc:sqlite:/Users/Tibo/Documents/Go94/Databases/" + DB_NAME;
-
-    // use spare one below for connection on own pc
-    // public static final String CONNECTION_STRING = "jdbc:sqlite: "pathway here" + DB_NAME;
+    // public static final String CONNECTION_STRING = "jdbc:sqlite:/Users/Tibo/Documents/Go94/Databases/" + DB_NAME;
+    public static final String CONNECTION_STRING = "jdbc:sqlite:/Users/cmorris/Desktop/CS94-GO/Coursework_3/Go94/Databases/" + DB_NAME;
 
 
     /**
@@ -62,9 +60,9 @@ public class UserDB {
             statement.execute("CREATE TABLE IF NOT EXISTS " + TABLE_USERS + " (" + COLUMN_ID + " INTEGER PRIMARY KEY, " +
                     COLUMN_USERNAME + " VARCHAR NOT NULL, " + COLUMN_PASSWORD + " VARCHAR NOT NULL, " +
                     COLUMN_FIRSTNAME + " VARCHAR NOT NULL, " + COLUMN_SURNAME + " VARCHAR NOT NULL, " +
-                    COLUMN_LOGINHIS + " VARCHAR, " + COLUMN_WINS + " INTEGER DEFAULT 0, " +
-                    COLUMN_LOSS + " INTEGER DEFAULT 0," + COLUMN_WIN_PERCENTAGE + " INTEGER DEFAULT 0, " +
-                    COLUMN_ADMIN + " INTEGER DEFAULT 0, " + COLUMN_AVATAR + " VARCHAR NOT NULL)"
+                    COLUMN_LOGINHIS + " VARCHAR, " + COLUMN_WINS + " DOUBLE DEFAULT 0, " +
+                    COLUMN_LOSS + " DOUBLE DEFAULT 0," + COLUMN_WIN_PERCENTAGE + " DOUBLE DEFAULT 0, " +
+                    COLUMN_ADMIN + " INTEGER DEFAULT 0, " + COLUMN_AVATAR + " VARCHAR)"
             );
 
 
@@ -299,9 +297,9 @@ public class UserDB {
      */
         public static ResultSet getLeaderBoardData() {
 
-            String query = "SELECT " + COLUMN_USERNAME + ", " + COLUMN_WINS + ", " +
-                    "((wins / (wins + loss)*100)) " + COLUMN_WIN_PERCENTAGE + " FROM " + TABLE_USERS;
-
+            String query = "SELECT " + COLUMN_USERNAME + ", " + COLUMN_WINS + ", "
+                    + "((wins)/(wins+loss)*100) AS 'winPercentage' FROM " + TABLE_USERS;
+            
             try {
                 Connection conn = DriverManager.getConnection(CONNECTION_STRING);
                 Statement results = conn.createStatement();
@@ -326,7 +324,7 @@ public class UserDB {
         String query = "SELECT " + COLUMN_WINS + ", " + COLUMN_LOSS + " FROM " +
                         TABLE_USERS + " WHERE " + COLUMN_USERNAME + " = '" + u + "'";
 
-         try {
+        try {
                 Connection conn = DriverManager.getConnection(CONNECTION_STRING);
                 Statement results = conn.createStatement();
                 ResultSet rs = results.executeQuery(query);

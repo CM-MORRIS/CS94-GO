@@ -115,6 +115,7 @@ public class DashBoardView implements Initializable {
         colWins.setCellValueFactory(f -> f.getValue().userWinsProperty());
         colLoss.setCellValueFactory(f -> f.getValue().userLossProperty());
         buildWinsLossDashData();
+
         addAvatarImages();
         System.out.println(Controller.lastLogin);
         lastLoginLabel.setText(Controller.lastLogin);
@@ -159,7 +160,7 @@ public class DashBoardView implements Initializable {
      * Open a new interface for Admin manage users
      */
     public void onManageClick() {
-        if(Integer.parseInt(UserDB.getAuthority(Controller.username))==1) {
+        if (Integer.parseInt(UserDB.getAuthority(Controller.username))==1) {
             System.out.println("You are Admin");
             try {
                 Parent manageboard;
@@ -171,7 +172,7 @@ public class DashBoardView implements Initializable {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        }else System.out.println("You are not Admin");
+        } else System.out.println("You are not Admin");
     }
     /**
      * Switch to another stage of setting gameboard size and players
@@ -179,11 +180,11 @@ public class DashBoardView implements Initializable {
      * @throws IOException
      */
     public void onNewGame() throws IOException {
-        Parent Leaderboard;
-        Leaderboard = FXMLLoader.load(getClass().getResource("GameMatch.fxml"));
+        Parent Gamematch;
+        Gamematch = FXMLLoader.load(getClass().getResource("GameMatch.fxml"));
         Stage mainStage;
         mainStage = GUI.parentWindow;
-        mainStage.getScene().setRoot(Leaderboard);
+        mainStage.getScene().setRoot(Gamematch);
         mainStage.show();
     }
 
@@ -195,11 +196,10 @@ public class DashBoardView implements Initializable {
         login.logIn();
     }
 
-
      /*
      * This method will add avatar images and avatar images names in the combo-box
      * */
-    private void addAvatarImages(){
+    public void addAvatarImages() {
         ObservableList<String> avatars = FXCollections.observableArrayList();
         avatars.add(getClass().getResource("/avatarImages/Antman.png").toExternalForm());
         avatars.add(getClass().getResource("/avatarImages/BlackPanther.png").toExternalForm());
@@ -211,8 +211,10 @@ public class DashBoardView implements Initializable {
         avatars.add(getClass().getResource("/avatarImages/Thor.png").toExternalForm());
         cb.setPromptText("Select Avatar");
         cb.setItems(avatars);
+
         cb.setButtonCell(new AvatarImages());
         cb.setCellFactory(param -> new AvatarImages());
+
 
         lbIV.setStyle("-fx-background-radius: 200px;" +
                 "-fx-background-color: red;" +
@@ -226,8 +228,6 @@ public class DashBoardView implements Initializable {
                     BackgroundSize.DEFAULT);
             lbIV.setBackground(new Background(myBI));
         });
-
     }
-
 }
 

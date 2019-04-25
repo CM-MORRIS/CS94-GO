@@ -13,9 +13,9 @@ public class LeaderBoardData {
      * Each variable which will allow for a property to show for each element of the leaderboard
      */
     private StringProperty username = new SimpleStringProperty();
-    private IntegerProperty wins = new SimpleIntegerProperty();
-    private IntegerProperty loss = new SimpleIntegerProperty();
-    private IntegerProperty winPercentage = new SimpleIntegerProperty();
+    private DoubleProperty wins = new SimpleDoubleProperty();
+    private DoubleProperty loss = new SimpleDoubleProperty();
+    private DoubleProperty winPercentage = new SimpleDoubleProperty();
 
     /**
      * Essentially the same 3 functions for each element needing to be displayed
@@ -44,39 +44,39 @@ public class LeaderBoardData {
         this.username.set(name);
     }
 
-    public IntegerProperty userWinsProperty() {
+    public DoubleProperty userWinsProperty() {
         return wins;
     }
 
-    public int getUserWins() {
+    public double getUserWins() {
         return wins.get();
     }
 
-    public void setUserWins(int wins) {
+    public void setUserWins(double wins) {
         this.wins.set(wins);
     }
 
-    public IntegerProperty userLossProperty() {
+    public DoubleProperty userLossProperty() {
         return loss;
     }
 
-    public int getUserLoss() {
+    public double getUserLoss() {
         return loss.get();
     }
 
-    public void setUserLoss(int loss) {
+    public void setUserLoss(double loss) {
         this.loss.set(loss);
     }
 
-    public IntegerProperty winPercentProperty() {
+    public DoubleProperty winPercentProperty() {
         return winPercentage;
     }
 
-    public int getWinPercentage() {
+    public double getWinPercentage() {
         return winPercentage.get();
     }
 
-    public void setWinPercentage(int percent) {
+    public void setWinPercentage(double percent) {
         this.winPercentage.set(percent);
     }
 

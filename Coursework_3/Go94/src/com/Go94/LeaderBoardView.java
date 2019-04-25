@@ -80,8 +80,8 @@ public class LeaderBoardView implements Initializable {
             while (rs.next()) {
                 LeaderBoardData lb = new LeaderBoardData();
                 lb.setUsername(rs.getString("username"));
-                lb.setUserWins(rs.getInt("wins"));
-                lb.setWinPercentage(rs.getInt("winPercentage"));
+                lb.setUserWins(rs.getDouble("wins"));
+                lb.setWinPercentage(rs.getDouble("winPercentage"));
 
                 data.add(lb);
             }

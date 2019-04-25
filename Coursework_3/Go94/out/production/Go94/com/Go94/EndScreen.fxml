@@ -6,15 +6,14 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.Go94.Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #2D3447 #2D3447;" xmlns="http://javafx.com/javafx/9.0.4" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.Go94.Controller">
    <children>
-      <Label alignment="CENTER" layoutX="126.0" layoutY="7.0" prefHeight="199.0" prefWidth="349.0" text="GAME COMPLETE">
+      <Label alignment="CENTER" layoutX="126.0" layoutY="7.0" prefHeight="199.0" prefWidth="349.0" text="GAME COMPLETE" textFill="WHITE">
          <font>
             <Font size="37.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" layoutX="14.0" layoutY="262.0" prefHeight="124.0" prefWidth="146.0" text="WINS">
+      <Label alignment="CENTER" layoutX="14.0" layoutY="262.0" prefHeight="124.0" prefWidth="146.0" text="WINS" textFill="WHITE">
          <font>
             <Font size="52.0" />
          </font>
@@ -24,6 +23,9 @@
             <Font size="24.0" />
          </font>
       </TextArea>
-      <Button fx:id="backDash" layoutX="440.0" layoutY="296.0" mnemonicParsing="false" prefHeight="81.0" prefWidth="146.0" text="Dashboard" onAction="#onBackClick" />
+      <Button fx:id="backDash" layoutX="440.0" layoutY="296.0" mnemonicParsing="false" onAction="#onBackClick" prefHeight="81.0" prefWidth="146.0" style="-fx-background-color: #2196f3 #2196f3;" text="Dashboard" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font></Button>
    </children>
 </AnchorPane>
