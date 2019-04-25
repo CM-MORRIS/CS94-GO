@@ -108,17 +108,16 @@
                             <font>
                                 <Font size="18.0" />
                             </font></Label>
-                        <AnchorPane layoutX="17.0" layoutY="53.0" prefHeight="226.0" prefWidth="178.0">
+                        <AnchorPane layoutX="17.0" layoutY="53.0" prefHeight="226.0" prefWidth="187.0">
                             <children>
 
                                 <TableView fx:id="userTable" layoutX="-4.0" layoutY="12.0" prefHeight="226.0" prefWidth="185.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-4.0" AnchorPane.rightAnchor="-3.0" AnchorPane.topAnchor="0.0">
                                     <columns>
 
-                                        <TableColumn fx:id="col1" prefWidth="57.0" text="C1" />
-                                        <TableColumn fx:id="col2" prefWidth="64.0" text="C2" />
-                                        <TableColumn fx:id="col3" prefWidth="59.0" text="C3" />
+                                        <TableColumn fx:id="col1" prefWidth="89.0" text="Date Added" />
+                                        <TableColumn fx:id="col2" prefWidth="103.0" text="Username" />
 
-                                        <TableColumn prefWidth="173.0" text="C2" />
+                                        <TableColumn prefWidth="102.0" text="C2" />
                                     </columns>
                                 </TableView>
                             </children>

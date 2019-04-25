@@ -90,7 +90,7 @@
                               <AnchorPane layoutX="-215.0" layoutY="-48.0" prefHeight="178.0" prefWidth="477.0">
                                   <children>
       
-                                                  <TableView fx:id="gameHisTbl" layoutX="169.0" layoutY="14.0" prefHeight="178.0" prefWidth="445.0" AnchorPane.bottomAnchor="-14.0" AnchorPane.leftAnchor="169.0" AnchorPane.rightAnchor="-169.0" AnchorPane.topAnchor="14.0">
+                                                  <TableView fx:id="gameHisTbl" layoutX="169.0" layoutY="-1.0" prefHeight="178.0" prefWidth="445.0" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="169.0" AnchorPane.rightAnchor="-169.0" AnchorPane.topAnchor="-1.0">
                                           <columns>
                                               <!--<TableColumn fx:id="colDate" prefWidth="146.0" text="C1" />-->
                                               <TableColumn fx:id="colP1" prefWidth="149.0" text="Player 1" />
@@ -103,22 +103,21 @@
                                               </children>
                               </AnchorPane>
                      </children></AnchorPane>
-                        <Label layoutX="461.0" layoutY="271.0" text="Game History" textFill="WHITE" />
+                        <Label layoutX="461.0" layoutY="256.0" text="Game History" textFill="WHITE" />
                         <Label layoutX="247.0" layoutY="17.0" text="Avatar" textFill="WHITE">
                             <font>
                                 <Font size="18.0" />
                             </font></Label>
-                        <AnchorPane layoutX="17.0" layoutY="53.0" prefHeight="226.0" prefWidth="178.0">
+                        <AnchorPane layoutX="17.0" layoutY="53.0" prefHeight="226.0" prefWidth="187.0">
                             <children>
 
                                 <TableView fx:id="userTable" layoutX="-4.0" layoutY="12.0" prefHeight="226.0" prefWidth="185.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-4.0" AnchorPane.rightAnchor="-3.0" AnchorPane.topAnchor="0.0">
                                     <columns>
 
-                                        <TableColumn fx:id="col1" prefWidth="57.0" text="C1" />
-                                        <TableColumn fx:id="col2" prefWidth="64.0" text="C2" />
-                                        <TableColumn fx:id="col3" prefWidth="59.0" text="C3" />
+                                        <TableColumn fx:id="col1" prefWidth="89.0" text="Date Added" />
+                                        <TableColumn fx:id="col2" prefWidth="103.0" text="Username" />
 
-                                        <TableColumn prefWidth="173.0" text="C2" />
+                                        <TableColumn prefWidth="102.0" text="C2" />
                                     </columns>
                                 </TableView>
                             </children>
@@ -140,7 +139,7 @@
                         </AnchorPane>
                         <Label layoutX="462.0" layoutY="122.0" text="Wins/Losses" textFill="WHITE" />
                         <Label layoutX="392.0" layoutY="71.0" text="Current position in leaderboard is 1" textFill="WHITE" />
-                        <Button fx:id="logOut" layoutX="244.0" layoutY="172.0" mnemonicParsing="false" onAction="#onLogOut" style="-fx-background-color: red;" text="Log Out" textFill="WHITE" />
+                        <Button fx:id="logOut" layoutX="246.0" layoutY="172.0" mnemonicParsing="false" onAction="#onLogOut" style="-fx-background-color: red;" text="Log Out" textFill="WHITE" />
                         <Label fx:id="lbIV" layoutX="229.0" layoutY="53.0" prefHeight="55.0" prefWidth="77.0">
                             <graphic>
                                 <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
