@@ -22,20 +22,28 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 
-
-
+/**
+ * Leaderboard view provides the functionality to display information on the leaderboard.
+ *
+ * @author Corie Morris, Zhifang Li and Gareth Thomas
+ */
 public class ManageController implements Initializable {
 
 //    @FXML public Button backDash;
 
+    /**
+     * Setting the column which will display the data
+     */
     @FXML private TableColumn<ManageData, String> usernameCol;
+     /**
+     * Setting the table to contain the column
+     */
     @FXML private TableView<ManageData> userTableView;
     private ObservableList<ManageData> data;
 
     /**
      * read data from database, set it into text view table
      * Start game
-     * @author Andy
      */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -48,7 +56,6 @@ public class ManageController implements Initializable {
     /**
      * set user data into text view table
      * Start game
-     * @author Andy
      */
     public void buildManageData() {
         data = FXCollections.observableArrayList();
@@ -69,7 +76,6 @@ public class ManageController implements Initializable {
     /**
      * switch window to register interface
      * Start game
-     * @author Andy
      */
     public void onNewClick() {
         try {
@@ -86,7 +92,6 @@ public class ManageController implements Initializable {
     /**
      * Delete user which has been select
      * Start game
-     * @author Andy
      */
     @FXML
     private void onDeleteClick() {
@@ -101,7 +106,6 @@ public class ManageController implements Initializable {
     /**
      * set this user as admin
      * Start game
-     * @author Andy
      */
     @FXML
     private void onChangeClick() {
@@ -115,8 +119,7 @@ public class ManageController implements Initializable {
     /**
      * come back to dashboard
      * Start game
-     * @author Andy
-     */    
+     */     
     public void onBackClick() {
         try {
             Parent manageboard;
