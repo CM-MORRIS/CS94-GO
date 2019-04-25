@@ -27,6 +27,10 @@ public class UserDB {
      * Setting SQL names as variables to be used in statements.
      */
     private static final String TABLE_USERS = "users";
+
+    /**
+     * Setting SQL names as variables to be used in statements.
+     */
     private static final String TABLE_HISTORY = "history";
 
     /**
@@ -38,15 +42,25 @@ public class UserDB {
      * Setting SQL names as variables to be used in statements.
      */
     public static final String DB2_NAME = "historyDB.db";
-    
-    private static final String COLUMN_USERNAME = "username";
 
     /**
      * Setting SQL names as variables to be used in statements.
      */
-    public static final String CONNECTION_STRING = "jdbc:sqlite:/Users/cmorris/Desktop/CS94-GO/Coursework_3/Go94/Databases/" + DB_NAME;
-    public static final String CONNECTION_STRING2 = "jdbc:sqlite:/Users/cmorris/Desktop/CS94-GO/Coursework_3/Go94/Databases/" + DB2_NAME;
+    private static final String COLUMN_USERNAME = "username";
 
+    /**
+     * Setting string for the database location.
+     */
+    public static final String CONNECTION_STRING = "jdbc:sqlite:/D:/Documents/OneDrive/CompSci/Semester_2/CSCM94_Software Eng Principles/Coursework/Coursework_3/CS94-GO/Coursework_3/Go94/Databases/" + DB_NAME;
+
+    /**
+     * Setting string for the database location.
+     */
+    public static final String CONNECTION_STRING2 = "jdbc:sqlite:/D:/Documents/OneDrive/CompSci/Semester_2/CSCM94_Software Eng Principles/Coursework/Coursework_3/CS94-GO/Coursework_3/Go94/Databases/" + DB2_NAME;
+
+    /**
+     * Setting SQL names as variables to be used in statements.
+     */
     private static final String COLUMN_PASSWORD = "password";
 
     /**
@@ -120,7 +134,9 @@ public class UserDB {
     }
 
 
-
+    /**
+     * Method to create the Game History Database.
+     */
     public static void createHistoryDB() {
         try {
             // connects to DB
@@ -317,7 +333,7 @@ public class UserDB {
      * @param p Password
      * @return true or false depending on whether the user passes check.
      */
-    public static boolean checkUserPass(String u, String p) {
+    public static boolean checkUserPass(final String u, final String p) {
 
 
         String query = "SELECT " + COLUMN_USERNAME + ", " + COLUMN_PASSWORD
@@ -471,11 +487,16 @@ public class UserDB {
     }
 
 
+    /**
+     * Method to update the game history after a game is played.
+     * @param player1 The first player.
+     * @param player2 The second player.
+     * @param winner The winner of that game.
+     */
+    public static void updateGameHistory(final String player1, final String player2, final String winner) {
 
-    public static void updateGameHistory(String player1, String player2, String winner) {
-
-        String query = "INSERT INTO " + TABLE_HISTORY + "(player1, player2, winner) VALUES ( " + "'" + player1 + "'," +
-                "'" + player2 + "'," + "'" + winner + "'" + ")";
+        String query = "INSERT INTO " + TABLE_HISTORY + "(player1, player2, winner) VALUES ( " + "'" + player1 + "',"
+                + "'" + player2 + "'," + "'" + winner + "'" + ")";
 
 
         try {
@@ -493,12 +514,13 @@ public class UserDB {
     }
 
     /**
-     *
+     * Method to get the game history.
+     * @return The set of game results.
      */
     public static ResultSet getGameHistory() {
 
-        String query = "SELECT "+ "player1" + ", " + "player2" + ", " + "winner" + " FROM " +
-                TABLE_HISTORY;
+        String query = "SELECT " + "player1" + ", " + "player2" + ", "
+                + "winner" + " FROM " + TABLE_HISTORY;
         try {
             Connection conn = DriverManager.getConnection(CONNECTION_STRING2);
             Statement results = conn.createStatement();

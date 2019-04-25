@@ -64,11 +64,23 @@ public class DashBoardView implements Initializable {
 
 
     /**
-     * The data to fill the table with GameHistory
+     * The data to fill the table with GameHistory - The game.
      */
     @FXML private TableView<GameHistoryData> gameHisTbl;
+
+    /**
+     * The data to fill the table with GameHistory - The First player.
+     */
     @FXML private TableColumn<GameHistoryData, String> colP1;
+
+    /**
+     * The data to fill the table with GameHistory - The Second player.
+     */
     @FXML private TableColumn<GameHistoryData, String> colP2;
+
+    /**
+     * The data to fill the table with GameHistory - The winner.
+     */
     @FXML private TableColumn<GameHistoryData, String> colWinner;
 
     /**
@@ -81,7 +93,6 @@ public class DashBoardView implements Initializable {
      * Creating list for game history that is needed to fill tables.
      */
     private ObservableList<GameHistoryData> data2;
-    
 
     /**
      * Creating the box to choose avatar.

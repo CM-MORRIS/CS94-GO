@@ -39,7 +39,7 @@ class Player {
      * @param name The name of the Player.
      * @param id   Their ID for this game.
      */
-    public Player(final String name, final int id) {
+    Player(final String name, final int id) {
         this.name = name;
         this.id = id;
         stonesWon = 0;

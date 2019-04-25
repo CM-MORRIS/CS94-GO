@@ -64,6 +64,10 @@ public class GUI extends Application {
             Stage mainStage;
             mainStage = GUI.parentWindow;
             mainStage.getScene().setRoot(leaderboard);
+            mainStage.setMinWidth(625.0);
+            mainStage.setMinHeight(500.0);
+            mainStage.setMaxWidth(625.0);
+            mainStage.setMaxHeight(500.0);
             mainStage.show();
         } catch (IOException e) {
             e.printStackTrace();
