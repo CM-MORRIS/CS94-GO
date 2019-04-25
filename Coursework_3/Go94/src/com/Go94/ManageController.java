@@ -66,6 +66,11 @@ public class ManageController implements Initializable {
 
         userTableView.setItems(data);
     }
+    /**
+     * switch window to register interface
+     * Start game
+     * @author Andy
+     */
     public void onNewClick() {
         try {
             Parent manageboard;
@@ -78,7 +83,11 @@ public class ManageController implements Initializable {
             e.printStackTrace();
         }
     }
-
+    /**
+     * Delete user which has been select
+     * Start game
+     * @author Andy
+     */
     @FXML
     private void onDeleteClick() {
         int selectedIndex = userTableView.getSelectionModel().getSelectedIndex();
@@ -88,7 +97,12 @@ public class ManageController implements Initializable {
         } else {
         }
     }
-
+    
+    /**
+     * set this user as admin
+     * Start game
+     * @author Andy
+     */
     @FXML
     private void onChangeClick() {
         int selectedIndex = userTableView.getSelectionModel().getSelectedIndex();
@@ -98,7 +112,11 @@ public class ManageController implements Initializable {
         } else {
         }
     }
-
+    /**
+     * come back to dashboard
+     * Start game
+     * @author Andy
+     */    
     public void onBackClick() {
         try {
             Parent manageboard;
