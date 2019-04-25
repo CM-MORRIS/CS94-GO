@@ -7,12 +7,20 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import java.io.IOException;
 
+/**
+ * The class which allows for the creation of the interactive GUI elements
+ *
+ *
+ * @author Corie Morris and Gareth Thomas
+ */
 
 public class GUI extends Application {
 
     public static Stage parentWindow;
 
-
+    /**
+     * Launches the login screen on application launch.
+     */
     @Override
     public void start(Stage primaryStage) throws Exception {
 
@@ -24,7 +32,9 @@ public class GUI extends Application {
         primaryStage.show();
     }
 
-
+    /**
+     * Produce the interactive dashboard.
+     */
     public void showDash() {
         try {
             Parent dashBoard;
@@ -37,7 +47,9 @@ public class GUI extends Application {
             e.printStackTrace();
         }
     }
-
+    /**
+     * Launches the register screen.
+     */
     public void showRegister() {
         try {
             Parent manageboard;
@@ -51,7 +63,9 @@ public class GUI extends Application {
             e.printStackTrace();
         }
     }
-
+    /**
+     * Launches the leaderboard screen.
+     */
     public void showLeaderboard() {
         try {
             Parent Leaderboard;
@@ -64,6 +78,10 @@ public class GUI extends Application {
             e.printStackTrace();
         }
     }
+    
+    /**
+     * Allows to launch and return to the login screen.
+     */
     public void logIn() {
         try {
             Parent Login;
