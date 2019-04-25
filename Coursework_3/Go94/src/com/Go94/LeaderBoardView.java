@@ -18,18 +18,37 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 
-
+/**
+ * Leaderboard view provides the functionality to display information on the leaderboard.
+ *
+ * @author Corie Morris and Gareth Thomas
+ */
 public class LeaderBoardView implements Initializable {
 
+    /**
+     * Creating the button to return to the dashboard
+     */
     @FXML public Button backDash;
 
+    /**
+     * Setting the columns which will display the data
+     */
     @FXML private TableColumn<LeaderBoardData, String> colUsername;
     @FXML private TableColumn<LeaderBoardData, Number> colWins;
     @FXML private TableColumn<LeaderBoardData, Number> colWinPercentage;
+    
+    /**
+     * Setting the actual table for the leaderboard which will contain the columns
+     */
     @FXML private TableView<LeaderBoardData> tableLeaderboard;
     private ObservableList<LeaderBoardData> data;
 
-
+    /**
+     * Allows to display the data of wins, username and win%
+     *
+     * @param location where the DB is
+     * @param resources the information used from the DB
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -49,7 +68,9 @@ public class LeaderBoardView implements Initializable {
 
     }
 
-
+    /**
+     * The method to retrieve the information from the database that will be used on the leaderboard
+     */
     public void buildLeaderBoardData() {
         try {
             ResultSet rs = UserDB.getLeaderBoardData();
@@ -96,9 +117,9 @@ public class LeaderBoardView implements Initializable {
 //        }
 
 
-
-
-
+    /**
+     * The method to let the button take the user back to the dashboard when clicked
+     */
     public void onBackClick() {
         //provides functionality to go back to the dashboard from the leaderboatd
 
