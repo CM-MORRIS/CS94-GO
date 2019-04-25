@@ -17,7 +17,16 @@ import java.io.IOException;
 import java.net.URL;
 import com.Go94.UserDB;
 
+/**
+* read register imformation send it to database
+* Start game
+* @author Zhifang Li and Corie Morris
+*/
 public class RegisterController implements Initializable {
+    
+    /**
+     * Variables for the javafx fields to insert the data
+     */
     @FXML
     private TextField usernameField;
     @FXML
@@ -30,12 +39,13 @@ public class RegisterController implements Initializable {
     @FXML
     private ComboBox<String> cb;
 
+    /**
+     * to allow for acces to the DB
+     */
     public static UserDB userDB;
 
     /**
      * read register imformation send it to database
-     * Start game
-     * @author Andy
      */
     public void onRegisterClick() {
         String username = usernameField.getText();
@@ -58,8 +68,6 @@ public class RegisterController implements Initializable {
     }
      /**
      * come  back to manage interface
-     * Start game
-     * @author Andy
      */
     public void onBackClick() {
         try {
@@ -73,6 +81,10 @@ public class RegisterController implements Initializable {
             e.printStackTrace();
         }
     }
+    
+    /**
+     * to be able to add avatar to the profiles
+     */
     private void addAvatarImages(){
         ObservableList<String> avatars = FXCollections.observableArrayList();
         avatars.add(getClass().getResource("/avatarImages/Antman.png").toExternalForm());
