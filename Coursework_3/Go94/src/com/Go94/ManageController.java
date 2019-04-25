@@ -32,7 +32,11 @@ public class ManageController implements Initializable {
     @FXML private TableView<ManageData> userTableView;
     private ObservableList<ManageData> data;
 
-
+    /**
+     * read data from database, set it into text view table
+     * Start game
+     * @author Andy
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
