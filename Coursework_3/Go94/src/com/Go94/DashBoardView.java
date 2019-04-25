@@ -110,6 +110,7 @@ public class DashBoardView implements Initializable {
         buildWinsLossDashData();
 
 
+        // Game history table view
         colP1.setCellValueFactory(f -> f.getValue().player1Property());
         colP2.setCellValueFactory(f -> f.getValue().player2Property());
         colWinner.setCellValueFactory(f -> f.getValue().winnerProperty());
@@ -122,7 +123,9 @@ public class DashBoardView implements Initializable {
     }
 
 
-
+    /**
+     * Actually builds the information displayed for the Game History.
+     */
     public void buildGameHistory() {
         try {
 
@@ -144,16 +147,6 @@ public class DashBoardView implements Initializable {
 
         gameHisTbl.setItems(data2);
     }
-
-
-
-
-
-
-
-
-
-
 
 
     /**

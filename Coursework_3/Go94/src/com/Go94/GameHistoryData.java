@@ -10,23 +10,11 @@ import javafx.beans.property.*;
 public class GameHistoryData {
 
     /**
-     * Each variable which will allow for a property to show for each element of the leaderboard
+     * Each variable which will allow for a property to show for each element of the gamehistory
      */
     private StringProperty player1 = new SimpleStringProperty();
     private StringProperty player2 = new SimpleStringProperty();
     private StringProperty winner = new SimpleStringProperty();
-//    private StringProperty date = new SimpleStringProperty();
-
-
-//    public StringProperty dateProperty() {
-//        return date;
-//    }
-//    public String getDate() {
-//        return date.get();
-//    }
-//    public void setDate(String date) {
-//        this.date.set(date);
-//    }
 
 
     public StringProperty player1Property() {
@@ -60,15 +48,5 @@ public class GameHistoryData {
     public void setWinner(String winner) {
         this.winner.set(winner);
     }
-
-
-
-
-
-
-
-
-
-
 
 }
