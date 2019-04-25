@@ -1,5 +1,8 @@
 package com.Go94;
 
+/**
+ * The main class that drives the rest of the project
+ */
 public class Main {
 
     public static void main(String[] args) {
