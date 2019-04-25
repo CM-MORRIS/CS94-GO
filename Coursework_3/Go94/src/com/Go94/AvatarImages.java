@@ -15,6 +15,12 @@ import javafx.scene.text.TextAlignment;
  */
 
 public class AvatarImages extends ListCell<String> {
+    
+    /**
+     * To update the javafx in order to display the image.
+     * @param item the actual avatar.
+     * @param empty to tell if the folder is not-empty.
+     */
     @Override
     protected void updateItem(String item, boolean empty) {
         super.updateItem(item, empty);
