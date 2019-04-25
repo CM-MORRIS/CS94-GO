@@ -8,19 +8,21 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="242.0" prefWidth="323.0" xmlns="http://javafx.com/javafx/9.0.4" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.Go94.Controller">
-  <children>
-    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" style="-fx-background-color: #2D3447 #2D3447;" VBox.vgrow="ALWAYS">
-      <children>
-        <Label alignment="CENTER" layoutX="99.0" layoutY="14.0" style="&#10;" text="Go94" textAlignment="CENTER" textFill="#9f9f9f" wrapText="false">
-          <font>
-            <Font size="48.0" />
-          </font>
+<VBox prefHeight="242.0" prefWidth="323.0" xmlns="http://javafx.com/javafx/8.0.172-ea"
+      xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.Go94.Controller">
+    <AnchorPane style="-fx-background-color: #2D3447 #2D3447;" VBox.vgrow="ALWAYS">
+        <Label alignment="CENTER" layoutX="64.0" layoutY="14.0" style="&#10;"
+               text="Welcome to Group 4's Go94 Game!&#10;Please Log In" textAlignment="CENTER" textFill="#9f9f9f">
+            <font>
+                <Font size="21.0"/>
+            </font>
         </Label>
-            <TextField fx:id="usertxt" layoutX="95.0" layoutY="85.0" prefHeight="27.0" prefWidth="135.0" promptText="Username" />
-            <PasswordField fx:id="pswdtxt" layoutX="94.0" layoutY="128.0" prefHeight="27.0" prefWidth="135.0" promptText="Password" />
-            <Button fx:id="btnLogin" layoutX="130.0" layoutY="180.0" mnemonicParsing="false" onAction="#onLoginClick" prefHeight="27.0" prefWidth="58.0" style="-fx-background-color: #2196f3 #2196f3;" text="Login" textFill="WHITE" />
-      </children>
+        <TextField fx:id="usertxt" layoutX="161.0" layoutY="96.0" prefHeight="27.0" prefWidth="135.0"
+                   promptText="Username"/>
+        <PasswordField fx:id="pswdtxt" layoutX="161.0" layoutY="136.0" prefHeight="27.0" prefWidth="135.0"
+                       promptText="Password"/>
+        <Button fx:id="btnLogin" layoutX="199.0" layoutY="190.0" mnemonicParsing="false" onAction="#onLoginClick"
+                prefHeight="27.0" prefWidth="58.0" style="-fx-background-color: #2196f3 #2196f3;" text="Login"
+                textFill="WHITE"/>
     </AnchorPane>
-  </children>
 </VBox>

@@ -11,21 +11,21 @@ import javafx.scene.text.TextAlignment;
  *  * It extends the listCell class that is used to override the
  *  * update method of the listCell class.
  *
- * @author tibo
+ * @author Tibo Siris
  */
 
-public class AvatarImages extends ListCell<String> {
-    
+class AvatarImages extends ListCell<String> {
+
     /**
      * To update the javafx in order to display the image.
      * @param item the actual avatar.
      * @param empty to tell if the folder is not-empty.
      */
     @Override
-    protected void updateItem(String item, boolean empty) {
+    protected void updateItem(final String item, final boolean empty) {
         super.updateItem(item, empty);
         setText(null);
-        if(item!=null){
+        if (item != null) {
             ImageView imageView = new ImageView(new Image(item));
             imageView.setFitWidth(40);
             imageView.setFitHeight(40);

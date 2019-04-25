@@ -2,14 +2,33 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b8e19aa8-ba67-45f8-8371-2442f32e4129" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Databases/userDB.db" beforeDir="false" afterPath="$PROJECT_DIR$/Databases/userDB.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Go94/com/Go94/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Go94/com/Go94/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Go94/com/Go94/UserDB.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Go94/com/Go94/UserDB.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Go94/AvatarImageName.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Go94/AvatarImageName.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Go94/AvatarImages.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Go94/AvatarImages.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/Go94/BoardHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Go94/BoardHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Go94/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Go94/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/Go94/DashBoardView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Go94/DashBoardView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Go94/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Go94/GUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Go94/GameBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Go94/GameBoard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Go94/GameLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Go94/GameLogic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Go94/GameMatch.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Go94/GameMatch.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Go94/GameMatchController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Go94/GameMatchController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Go94/Intersection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Go94/Intersection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Go94/LeaderBoardData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Go94/LeaderBoardData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Go94/LeaderBoardView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Go94/LeaderBoardView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Go94/Leaderboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Go94/Leaderboard.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Go94/Login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Go94/Login.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/Go94/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Go94/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Go94/Manage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Go94/Manage.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Go94/ManageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Go94/ManageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Go94/ManageData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Go94/ManageData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Go94/PassCounter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Go94/PassCounter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Go94/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Go94/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Go94/Register.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Go94/Register.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Go94/RegisterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Go94/RegisterController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Go94/Tile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Go94/Tile.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/Go94/UserDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Go94/UserDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Go94/WinsLossData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Go94/WinsLossData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Go94/admindashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Go94/admindashboard.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/Go94/dashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Go94/dashboard.fxml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -64,14 +83,14 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="fxml" value="71" />
-          <entry key="java" value="2512" />
+          <entry key="fxml" value="75" />
+          <entry key="java" value="2547" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="2512" />
-          <entry key="XML" value="71" />
+          <entry key="JAVA" value="2547" />
+          <entry key="XML" value="75" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -93,8 +112,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/Go94/UserDB.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="214">
-              <caret line="428" lean-forward="true" selection-start-line="428" selection-end-line="428" />
+            <state relative-caret-position="-1336">
+              <caret line="396" column="8" selection-start-line="396" selection-start-column="8" selection-end-line="396" selection-end-column="8" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -105,17 +124,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/Go94/LeaderBoardData.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+            <state relative-caret-position="165">
+              <caret line="11" selection-start-line="11" selection-end-line="11" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/Go94/GameHistoryData.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="17" column="49" lean-forward="true" selection-start-line="17" selection-end-line="18" />
+            <state relative-caret-position="210">
+              <caret line="14" column="64" selection-start-line="14" selection-start-column="64" selection-end-line="14" selection-end-column="64" />
             </state>
           </provider>
         </entry>
@@ -123,8 +142,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/Go94/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="33" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
+            <state relative-caret-position="300">
+              <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
             </state>
           </provider>
         </entry>
@@ -132,8 +151,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/Go94/GUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="645">
-              <caret line="48" column="5" selection-start-line="48" selection-start-column="5" selection-end-line="48" selection-end-column="5" />
+            <state relative-caret-position="735">
+              <caret line="54" column="5" selection-start-line="54" selection-start-column="5" selection-end-line="54" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -144,27 +163,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/Go94/GameBoard.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
+            <state relative-caret-position="15">
               <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/Go94/dashboard.fxml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="141">
-              <caret line="95" column="101" selection-start-line="95" selection-start-column="101" selection-end-line="95" selection-end-column="101" />
-            </state>
-          </provider>
-          <provider editor-type-id="JavaFX-Scene-Builder" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/Go94/DashBoardView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="83">
-              <caret line="93" lean-forward="true" selection-start-line="93" selection-end-line="93" />
+            <state relative-caret-position="219">
+              <caret line="122" lean-forward="true" selection-start-line="122" selection-end-line="122" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -210,12 +219,12 @@
         <option value="$PROJECT_DIR$/src/com/Go94/AvatarImages.java" />
         <option value="$PROJECT_DIR$/src/com/Go94/LeaderBoardView.java" />
         <option value="$PROJECT_DIR$/src/com/Go94/LeaderBoardData.java" />
-        <option value="$PROJECT_DIR$/src/com/Go94/Main.java" />
         <option value="$PROJECT_DIR$/src/com/Go94/BoardHandler.java" />
         <option value="$PROJECT_DIR$/src/com/Go94/GameHistoryData.java" />
-        <option value="$PROJECT_DIR$/src/com/Go94/UserDB.java" />
-        <option value="$PROJECT_DIR$/src/com/Go94/DashBoardView.java" />
         <option value="$PROJECT_DIR$/src/com/Go94/dashboard.fxml" />
+        <option value="$PROJECT_DIR$/src/com/Go94/UserDB.java" />
+        <option value="$PROJECT_DIR$/src/com/Go94/Main.java" />
+        <option value="$PROJECT_DIR$/src/com/Go94/DashBoardView.java" />
       </list>
     </option>
   </component>
@@ -265,7 +274,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1556215977178" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1556216613788" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
@@ -313,12 +322,12 @@
       <workItem from="1556127970477" duration="3000" />
       <workItem from="1556128003849" duration="356000" />
       <workItem from="1556128482172" duration="19610000" />
-      <workItem from="1556210992380" duration="4949000" />
+      <workItem from="1556210992380" duration="5580000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24918000" />
+    <option name="totallyTimeSpent" value="25549000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="829" extended-state="6" />
@@ -333,7 +342,7 @@
       <window_info id="Favorites" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3283582" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.042062417" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -538,18 +547,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/Go94/GUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="645">
-          <caret line="48" column="5" selection-start-line="48" selection-start-column="5" selection-end-line="48" selection-end-column="5" />
+        <state relative-caret-position="735">
+          <caret line="54" column="5" selection-start-line="54" selection-start-column="5" selection-end-line="54" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Go94/GameBoard.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -563,13 +565,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Go94/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="33" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/Go94/BoardHandler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="88">
@@ -579,43 +574,57 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/Go94/LeaderBoardData.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+        <state relative-caret-position="165">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Go94/UserDB.java">
+    <entry file="file://$PROJECT_DIR$/src/com/Go94/GameHistoryData.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="214">
-          <caret line="428" lean-forward="true" selection-start-line="428" selection-end-line="428" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Go94/DashBoardView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="83">
-          <caret line="93" lean-forward="true" selection-start-line="93" selection-end-line="93" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="210">
+          <caret line="14" column="64" selection-start-line="14" selection-start-column="64" selection-end-line="14" selection-end-column="64" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/Go94/dashboard.fxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="141">
-          <caret line="95" column="101" selection-start-line="95" selection-start-column="101" selection-end-line="95" selection-end-column="101" />
+        <state relative-caret-position="365">
+          <caret line="167" column="7" selection-start-line="167" selection-start-column="7" selection-end-line="167" selection-end-column="7" />
         </state>
       </provider>
       <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/Go94/GameHistoryData.java">
+    <entry file="file://$PROJECT_DIR$/src/com/Go94/GameBoard.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="49" lean-forward="true" selection-start-line="17" selection-end-line="18" />
+        <state relative-caret-position="15">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/Go94/UserDB.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1336">
+          <caret line="396" column="8" selection-start-line="396" selection-start-column="8" selection-end-line="396" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/Go94/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/Go94/DashBoardView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="219">
+          <caret line="122" lean-forward="true" selection-start-line="122" selection-end-line="122" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

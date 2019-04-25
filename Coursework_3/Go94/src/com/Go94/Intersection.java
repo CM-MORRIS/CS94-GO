@@ -15,12 +15,12 @@ public class Intersection {
     /**
      * The position on the width of the board.
      */
-    private int xPosition;
+    private final int xPosition;
 
     /**
      * The position on the height of the board.
      */
-    private int yPosition;
+    private final int yPosition;
 
 
     /**
@@ -156,8 +156,8 @@ public class Intersection {
      * @param owner        The owner of the linked stones being checked.
      * @return A set of Intersections.
      */
-    public Set<Intersection> getOuterNeighbour(final Set<Intersection> linkedStones,
-                                               final int owner) {
+    private Set<Intersection> getOuterNeighbour(final Set<Intersection> linkedStones,
+                                                final int owner) {
         Set<Intersection> outside = new LinkedHashSet<>();
         for (Intersection n : linkedStones) {
             for (Intersection k : n.getNeighbours()) {
@@ -175,7 +175,7 @@ public class Intersection {
      *
      * @return A set of intersections.
      */
-    public Set<Intersection> friendNeighbours() {
+    private Set<Intersection> friendNeighbours() {
         Set<Intersection> friends = new HashSet<>();
         for (Intersection n : this.getNeighbours()) {
             if (n.getState() == this.state) {

@@ -5,7 +5,7 @@ package com.Go94;
  *
  * @author Alex Mair and Will Davies
  */
-public class GameBoard {
+class GameBoard {
 
     /**
      * The width of the board.
@@ -20,7 +20,7 @@ public class GameBoard {
     /**
      * Contains all intersections on the board.
      */
-    private Intersection[][] intersections;
+    private final Intersection[][] intersections;
 
     /**
      * The GameBoard constructor that makes the actual GameBoard
@@ -29,7 +29,7 @@ public class GameBoard {
      * @param w This is the width of the board.
      * @param h This is the height of the board.
      */
-    public GameBoard(final int w, final int h) {
+    GameBoard(final int w, final int h) {
         width = w;
         height = h;
         intersections = new Intersection[width][height];
@@ -98,7 +98,7 @@ public class GameBoard {
      * @param game         This is the current state of the game.
      * @return true or false
      */
-    public boolean isSuicide(final Intersection intersection, final GameLogic game) {
+    private boolean isSuicide(final Intersection intersection, final GameLogic game) {
         for (Intersection n : intersection.getNeighbours()) {
             if (n.getState() != game.opponent()) {
                 return false;
@@ -139,16 +139,15 @@ public class GameBoard {
      * @param y The y coordinate to check.
      * @return true or false
      */
-    public boolean onBoard(final int x, final int y) {
+    private boolean onBoard(final int x, final int y) {
         return (x >= 0 && x < width && y >= 0 && y < width);
     }
 
     /**
      * Calculates the surrounded spaces for player 1.
      * @param player1 The player surrounding the spaces.
-     * @return Player 1's score.
      */
-    public int p1ScoreCalculator(final Player player1) {
+    public void p1ScoreCalculator(final Player player1) {
         int p1Score = 0;
         for (int i = 0; i < height; i++) {
             for (int j = 0; j < width; j++) {
@@ -161,15 +160,13 @@ public class GameBoard {
             }
         }
         player1.setScore(p1Score);
-        return p1Score;
     }
 
     /**
      Calculates the surrounded spaces for player 2.
      * @param player2 The player surrounding the spaces.
-     * @return Player 2's score.
      */
-    public int p2ScoreCalculator(final Player player2) {
+    public void p2ScoreCalculator(final Player player2) {
         int p2Score = 0;
         for (int i = 0; i < height; i++) {
             for (int j = 0; j < width; j++) {
@@ -181,7 +178,6 @@ public class GameBoard {
                 }
             }
         }
-        return p2Score;
     }
 
 

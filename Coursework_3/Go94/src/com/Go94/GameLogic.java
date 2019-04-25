@@ -6,17 +6,17 @@ package com.Go94;
  *
  * @author Alex Mair and Will Davies
  */
-public class GameLogic {
+class GameLogic {
 
     /**
      * Player 1.
      */
-    private Player player1;
+    private final Player player1;
 
     /**
      * Player 2.
      */
-    private Player player2;
+    private final Player player2;
 
     /**
      * Counter to keep track of the turns in the game.
@@ -29,7 +29,7 @@ public class GameLogic {
      * @param p1 String of player 1's name.
      * @param p2 String of player 2's name.
      */
-    public GameLogic(final Player p1, final Player p2) {
+    GameLogic(final Player p1, final Player p2) {
         player1 = p1;
         player2 = p2;
         turnCounter = 1;

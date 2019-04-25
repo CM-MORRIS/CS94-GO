@@ -4,11 +4,15 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #2D3447 #2D3447;" xmlns="http://javafx.com/javafx/9.0.4" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.Go94.GameMatchController">
-   <children>
-      <TextField fx:id="size" layoutX="160.0" layoutY="47.0" promptText="Board size (9, 13, 19)" />
-      <TextField fx:id="userA" layoutX="160.0" layoutY="96.0" promptText="Player 1" />
-      <TextField fx:id="userB" layoutX="160.0" layoutY="144.0" promptText="Player 2" />
-      <Button layoutX="223.0" layoutY="200.0" mnemonicParsing="false" onAction="#onMarchClick" style="-fx-background-color: green;" text="Play!" textFill="WHITE" />
-   </children>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
+            prefWidth="600.0" style="-fx-background-color: #2D3447 #2D3447;" xmlns="http://javafx.com/javafx/8.0.172-ea"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.Go94.GameMatchController">
+   <TextField fx:id="size" layoutX="97.0" layoutY="46.0" prefHeight="31.0" prefWidth="195.0"
+              promptText="Enter Board size (9, 13, 19)"/>
+   <TextField fx:id="userA" layoutX="97.0" layoutY="96.0" prefHeight="31.0" prefWidth="195.0"
+              promptText="Enter Player 1's Username"/>
+   <TextField fx:id="userB" layoutX="97.0" layoutY="145.0" prefHeight="31.0" prefWidth="195.0"
+              promptText="Enter Player 2's Username"/>
+   <Button layoutX="169.0" layoutY="200.0" mnemonicParsing="false" onAction="#onMarchClick"
+           style="-fx-background-color: green;" text="Play!" textFill="WHITE"/>
 </AnchorPane>

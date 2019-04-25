@@ -5,7 +5,7 @@ package com.Go94;
  *
  * @author Alex Mair and Will Davies.
  */
-public class Player {
+class Player {
 
     /**
      * The players name.

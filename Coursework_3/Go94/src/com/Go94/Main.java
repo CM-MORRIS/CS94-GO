@@ -1,21 +1,20 @@
 package com.Go94;
 
 /**
- * The main class that drives the rest of the project
+ * The main class that starts the project.
+ *
+ * @author Gareth Thomas and Corie Morris
  */
-public class Main {
+class Main {
 
-    public static void main(String[] args) {
-
-      UserDB.createDB();
+    /**
+     * To start the project.
+     * @param args The arguments for the project.
+     */
+    public static void main(final String[] args) {
+        UserDB.createDB();
         UserDB.createHistoryDB();
         GUI.launch(GUI.class, args);
-
-      // Application launch must not be called more than once or exception will be thrown
-        // have to extend stage instead
-
-      // LeaderBoard.launch(LeaderBoard.class, args);
-
 
     }
 }
